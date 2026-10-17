@@ -987,6 +987,10 @@ country_event = {
 			base = 10
 			modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 69 } }
 			modifier = { factor = 0.3 check_variable = { TAI_taiwanese_identity > 59 } }
+			modifier = { factor = 0.3 CHI = { check_variable = { CHI_taiwan_us_support > 49 } } }
+			modifier = { factor = 0.5 TAI_ai_historical_path = yes }
+			modifier = { factor = 3 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }
+			modifier = { factor = 0 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
 		}
 	}
 
@@ -1043,6 +1047,10 @@ country_event = {
 			base = 5
 			modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 69 } }
 			modifier = { factor = 0.3 check_variable = { TAI_taiwanese_identity > 59 } }
+			modifier = { factor = 0.3 CHI = { check_variable = { CHI_taiwan_us_support > 49 } } }
+			modifier = { factor = 0.5 TAI_ai_historical_path = yes }
+			modifier = { factor = 3 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }
+			modifier = { factor = 0 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
 		}
 	}
 
@@ -1096,6 +1104,10 @@ country_event = {
 			base = 5
 			modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 79 } }
 			modifier = { factor = 0.3 check_variable = { TAI_taiwanese_identity > 59 } }
+			modifier = { factor = 0.3 CHI = { check_variable = { CHI_taiwan_us_support > 49 } } }
+			modifier = { factor = 0.5 TAI_ai_historical_path = yes }
+			modifier = { factor = 3 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }
+			modifier = { factor = 0 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
 		}
 	}
 

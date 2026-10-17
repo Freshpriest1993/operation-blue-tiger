@@ -1626,6 +1626,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 5
+			modifier = { factor = 2 ai_is_threatened = yes }
 		}
 	}
 
@@ -1939,6 +1940,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 ai_is_threatened = yes }
 			modifier = {
 				factor = 0
 				has_active_mission = bankruptcy_incoming_collapse
@@ -1962,6 +1964,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 ai_is_threatened = yes }
 			modifier = {
 				factor = 0
 				has_active_mission = bankruptcy_incoming_collapse
@@ -2002,6 +2005,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 ai_is_threatened = yes }
 		}
 	}
 
@@ -2061,6 +2065,9 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 OR = { has_idea = TAI_did_legacy has_idea = TAI_did_legacy_reformed } }
+			modifier = { factor = 25 TAI_ai_historical_path = yes }
+			modifier = { factor = 0 TAI_ai_not_historical_path = yes }
 		}
 	}
 
@@ -2080,6 +2087,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 ai_is_threatened = yes }
 		}
 	}
 
@@ -2148,6 +2156,9 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 OR = { has_idea = TAI_did_legacy has_idea = TAI_did_legacy_reformed } }
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -2174,6 +2185,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 OR = { has_idea = TAI_did_legacy has_idea = TAI_did_legacy_reformed } }
 		}
 	}
 
@@ -2219,6 +2231,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -2255,6 +2269,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 5
+			modifier = { factor = 25 TAI_ai_historical_path = yes }
+			modifier = { factor = 0 TAI_ai_not_historical_path = yes }
 		}
 	}
 
@@ -2291,6 +2307,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -2329,6 +2347,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 3 has_idea = TAI_uneven_reserves }
 			modifier = {
 				factor = 0
 				has_active_mission = bankruptcy_incoming_collapse
@@ -2369,6 +2388,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 ai_is_threatened = yes }
 		}
 	}
 
@@ -2575,6 +2595,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 3 has_idea = TAI_limited_absorption }
 		}
 	}
 
@@ -2593,6 +2614,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 ai_is_threatened = yes }
 		}
 	}
 
@@ -3527,6 +3549,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -3707,6 +3731,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -3977,6 +4003,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 3
+			modifier = { factor = 25 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_accommodation_path = yes }
 		}
 	}
 
@@ -4002,6 +4030,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_accommodation_path = yes }
 		}
 	}
 
@@ -4027,6 +4057,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_accommodation_path = yes }
 		}
 	}
 
@@ -4196,7 +4228,9 @@ focus_tree = {
 			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
 		}
 		ai_will_do = {
-			base = 0
+			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_accommodation_path = yes }
 		}
 	}
 
@@ -4225,7 +4259,7 @@ focus_tree = {
 		relative_position_id = TAI_as_root
 		cost = 15
 		prerequisite = { focus = TAI_as_assent }
-		prerequisite = { focus = TAI_as_structured_restraint focus = TAI_as_peace_accord }
+		prerequisite = { focus = TAI_as_structured_restraint focus = TAI_as_peace_accord focus = TAI_as_status_quo_dividend }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_as_managed_ambiguity"
@@ -4630,6 +4664,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -4648,6 +4684,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -4670,6 +4708,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -4688,6 +4728,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -4717,6 +4759,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -4741,6 +4785,8 @@ focus_tree = {
 				factor = 0
 				has_active_mission = bankruptcy_incoming_collapse
 			}
+			modifier = { factor = 25 TAI_ai_historical_path = yes }
+			modifier = { factor = 0 TAI_ai_not_historical_path = yes }
 		}
 	}
 
@@ -4998,6 +5044,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_accommodation_path = yes }
 		}
 	}
 
@@ -5017,6 +5065,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 5
+			modifier = { factor = 25 TAI_ai_historical_path = yes }
+			modifier = { factor = 0 TAI_ai_not_historical_path = yes }
 		}
 	}
 
@@ -5045,6 +5095,8 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 25 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }
+			modifier = { factor = 0 TAI_ai_not_island_fortress_path = yes }
 		}
 	}
 
@@ -5201,6 +5253,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 1
+			modifier = { factor = 2 ai_is_threatened = yes }
 		}
 	}
 
@@ -5469,6 +5522,7 @@ focus_tree = {
 		}
 		ai_will_do = {
 			base = 3
+			modifier = { factor = 2 ai_is_threatened = yes }
 		}
 	}
 

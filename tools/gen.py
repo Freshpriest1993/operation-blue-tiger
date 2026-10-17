@@ -38,6 +38,35 @@ POSTURES = {
 POSTURE_CLEAR = ["TAI_did_legacy", "TAI_did_legacy_reformed"] + list(POSTURES.values())
 FALLBACK_ICON = "Generic_Command_Power"
 
+PATH_GROUPS = [
+    ("TAI_ai_historical_path = yes", "TAI_ai_not_historical_path",
+     ["TAI_bt_blue_tiger", "TAI_na_hard_roc", "TAI_na_volunteer_reserve_split", "TAI_pl_keep_allies"]),
+    ("has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH", "TAI_ai_not_accommodation_path",
+     ["TAI_bt_accommodation", "TAI_as_stabilization", "TAI_as_structured_restraint", "TAI_as_cbms", "TAI_as_peace_accord"]),
+    ("has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH", "TAI_ai_not_island_fortress_path",
+     ["TAI_bt_island_fortress", "TAI_as_go_slow", "TAI_as_tighten_management", "TAI_na_extended_conscription", "TAI_na_odc",
+      "TAI_na_fortress_taiwan", "TAI_pl_india", "TAI_pl_india_tier1", "TAI_pl_india_tier2", "TAI_pl_india_market", "TAI_pl_india_partnership"]),
+]
+OWNER = {fid: (own, nott) for own, nott, ids in PATH_GROUPS for fid in ids}
+DID = "OR = { has_idea = TAI_did_legacy has_idea = TAI_did_legacy_reformed }"
+THREAT = ("ai_is_threatened = yes", 2)
+AI_EXTRA = {
+    "TAI_na_reserve_reform": [("has_idea = TAI_uneven_reserves", 3)],
+    "TAI_na_absorption": [("has_idea = TAI_limited_absorption", 3)],
+    "TAI_na_hard_roc": [(DID, 2)],
+    "TAI_na_odc": [(DID, 2)],
+    "TAI_na_hybrid": [(DID, 2)],
+    "TAI_na_rebuild_shield": [THREAT],
+    "TAI_na_layered_air_defense": [THREAT],
+    "TAI_na_harden_island": [THREAT],
+    "TAI_na_mine_approaches": [THREAT],
+    "TAI_na_mobile_fires": [THREAT],
+    "TAI_na_territorial_defense": [THREAT],
+    "TAI_na_fighter_fleet": [THREAT],
+    "TAI_bt_wan_an": [THREAT],
+    "TAI_bt_emergency_doctrine": [THREAT],
+}
+
 errors = []
 warnings = []
 
@@ -275,6 +304,8 @@ def main():
             L.append("\t\t}")
             L.append("\t\tai_will_do = {")
             L.append(f"\t\t\tbase = {f['ai']}")
+            for trig, fac in AI_EXTRA.get(fid, []):
+                L.append(f"\t\t\tmodifier = {{ factor = {fac} {trig} }}")
             staff = {"industrial_complex": "can_staff_an_industrial_complex", "arms_factory": "can_staff_an_arms_industry", "dockyard": "can_staff_an_dockyard"}
             for key, trig in staff.items():
                 if any(e.startswith("build:") and key in e for e in f["eff"]):
@@ -287,6 +318,10 @@ def main():
                 L.append("\t\t\t\tfactor = 0")
                 L.append("\t\t\t\thas_active_mission = bankruptcy_incoming_collapse")
                 L.append("\t\t\t}")
+            if fid in OWNER:
+                own, nott = OWNER[fid]
+                L.append(f"\t\t\tmodifier = {{ factor = 25 {own} }}")
+                L.append(f"\t\t\tmodifier = {{ factor = 0 {nott} = yes }}")
             L.append("\t\t}")
             L.append("\t}")
             L.append("")

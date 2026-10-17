@@ -628,13 +628,13 @@ F(as_, "TAI_as_assent", "The Assent of the People of Taiwan", "MNT_democracy", 7
   pre=["TAI_as_red_lines"], eff=["var:ptn:-10", "stab:0.02"], ai=3, track="pol")
 F(as_, "TAI_as_peace_accord", "A Cross-Strait Peace Accord?", "NKO_korea_peace", 140,
   "A formal peace accord could end the state of hostility. Any agreement would need a referendum, and voters may reject it.",
-  pre=["TAI_as_journey_of_peace", "TAI_as_assent"], avail=["blue"], eff=["chi:trust:10", "chi:tension:-10", "var:dep:3"], ai=0, track="pol")
+  pre=["TAI_as_journey_of_peace", "TAI_as_assent"], avail=["blue"], eff=["chi:trust:10", "chi:tension:-10", "var:dep:3"], ai=1, track="pol")
 F(as_, "TAI_as_status_quo_dividend", "The Status Quo Dividend", "economic_prosperity2", 70,
   "Calm in the Strait lowers insurance costs and attracts investors.",
   pre=["TAI_as_crisis_channel"], eff=["raw:add_timed_idea = { idea = TAI_status_quo_dividend days = 1095 }"], filt=ECO, track="pol")
 F(as_, "TAI_as_managed_ambiguity", "Managed Ambiguity", "Generic_East_Vs_West", 105,
   "We decline to settle the final question while acting decisively to strengthen the state we already govern.",
-  pre=["TAI_as_assent", ("TAI_as_structured_restraint", "TAI_as_peace_accord")], eff=["idea:TAI_managed_ambiguity", "var:usconf:5"], ai=5, track="pol")
+  pre=["TAI_as_assent", ("TAI_as_structured_restraint", "TAI_as_peace_accord", "TAI_as_status_quo_dividend")], eff=["idea:TAI_managed_ambiguity", "var:usconf:5"], ai=5, track="pol")
 F(as_, "TAI_as_offshore_line", "Kinmen and Matsu Safety Line", "Generic_Maritime", 35,
   "A direct line between local authorities on the offshore islands and Fujian handles fishing disputes and smuggling.",
   pre=["TAI_as_mini_three_links"], eff=["chi:tension:-3", "stab:0.01"], track="pol")

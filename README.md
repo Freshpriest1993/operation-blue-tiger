@@ -4,7 +4,7 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestone 3 of 4 (focus tree, national spirits, historical events, cross-Strait pressure system). Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestones 1 to 4 complete (focus tree, national spirits, historical events, cross-Strait pressure system, AI paths). Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
@@ -36,6 +36,19 @@ Events follow the governing party: a Pan-Blue Taiwan does not get Pan-Green hist
 - **Staged talks replace automatic annexation.** When Taiwan seeks terms, it enters economic talks, then a political conference, then a referendum. It can withdraw at every stage, and unification happens only if voters approve. Beijing can offer the talks, and an active blockade costs it political power and stability every month.
 - **Defensive war.** If China attacks, Taiwan mobilizes and the United States decides whether to intervene, send aid or stay out, based on its commitment to deterring Beijing and its confidence in Taipei. Taiwan can seek mediation while it still holds Taipei. If Taiwan fires first, American support collapses.
 
+### AI behavior
+
+A **Taiwan** AI path game rule, in Millennium Dawn's standard form, sets how an AI-controlled Taiwan plays:
+
+| Option | AI Taiwan |
+| --- | --- |
+| Historical | The DPP wins in 2000, trade with the mainland opens, defense moves toward Hard ROC, and the Blue Tiger strategy guides national resilience |
+| Cross-Strait Accommodation | The KMT leads, with confidence-building measures, a peace accord track and the Accommodation strategy |
+| Island Fortress | Taiwan limits mainland exposure, courts India, extends conscription and builds Fortress Taiwan |
+| Random Path / No Path | A random path, or unscripted AI (the default) |
+
+AI Taiwan also prioritizes removing its starting penalties, raises defense focuses when threatened, and is much less willing to enter talks or hold a referendum under the Historical and Island Fortress paths, or while American support is strong.
+
 ### Defense doctrines
 
 Taiwan starts with the Defense-in-Depth doctrine of the 1990s and can move through:
@@ -62,12 +75,12 @@ OBT reuses Millennium Dawn's existing cross-Strait systems (Strait Tension, Cros
 
 You need a local copy of Millennium Dawn (the developer version from its GitHub repository). Choose one method.
 
-**Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. This replaces the Taiwan files, adds the Blue Tiger events, decisions and monthly update, and replaces four shared Millennium Dawn files: `00_yearly_effects.txt` (schedules the historical events), plus China's `05_china.txt`, `05_CHI_decisions.txt` and `MD_focus_CHI_l_english.yml` (staged talks in place of automatic annexation).
+**Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. This replaces the Taiwan files, adds the Blue Tiger events, decisions and monthly update, and replaces shared Millennium Dawn files: `00_yearly_effects.txt` (schedules the historical events), China's `05_china.txt`, `05_CHI_decisions.txt` and `MD_focus_CHI_l_english.yml` (staged talks in place of automatic annexation), and `00_game_rules.txt`, `999_game_rules_on_actions.txt` and `MD_game_rules_l_english.yml` (the Taiwan AI path game rule).
 
 **Apply the patch.** From your Millennium Dawn folder, run:
 
 ```
-git apply path/to/operation-blue-tiger/patches/obt-milestones-1-3.patch
+git apply path/to/operation-blue-tiger/patches/obt-milestones-1-4.patch
 ```
 
 The patch also adds a line to Millennium Dawn's `Changelog.txt`. If it does not apply cleanly, your Millennium Dawn version has changed those files; use the copy method or regenerate with the tools below.
@@ -99,7 +112,7 @@ Remove `--dry-run` to write the files. `apply.py` checks for duplicate IDs and l
 - [x] **Milestone 1:** focus tree, national spirits, starting conditions, localisation
 - [x] **Milestone 2:** historical events (2000 inauguration, 2004 election and shooting, Anti-Secession Law, State Affairs Fund and Red Shirt protests, 2008 transition)
 - [x] **Milestone 3:** Cross-Strait Pressure System (blockade burden, stockpiles, partner support, staged negotiations with exits)
-- [ ] **Milestone 4:** AI behavior, balance and polish
+- [x] **Milestone 4:** AI behavior, balance and polish
 
 ## Research
 
