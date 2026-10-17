@@ -92,7 +92,7 @@ E(9, "The Journey of Peace",
 
 E(10, "The State Affairs Fund",
   [("audited", "OR = { has_completed_focus = TAI_df_special_funds_audit has_completed_focus = TAI_su_dpp_clean_party }", "Prosecutors are examining how the president's discretionary State Affairs Fund was spent. Because the fund was audited and our party's finances were opened earlier, the inquiry is narrow, but the opposition is eager to make the most of it."),
-   ("open", "NOT = { has_completed_focus = TAI_df_special_funds_audit has_completed_focus = TAI_su_dpp_clean_party }", "Prosecutors are examining how the president's discretionary State Affairs Fund was spent, and allegations now reach members of the first family. The case is unproven, but it is consuming the government's credibility day by day.")],
+   ("open", "NOT = { OR = { has_completed_focus = TAI_df_special_funds_audit has_completed_focus = TAI_su_dpp_clean_party } }", "Prosecutors are examining how the president's discretionary State Affairs Fund was spent, and allegations now reach members of the first family. The case is unproven, but it is consuming the government's credibility day by day.")],
   "GFX_FRA_political_scandal",
   [O("Cooperate with the prosecutors", ["rawfx:if = { limit = { OR = { has_completed_focus = TAI_df_special_funds_audit has_completed_focus = TAI_su_dpp_clean_party } } add_stability = -0.02 } else = { add_stability = -0.05 }", "rawfx:hidden_effect = { if = { limit = { has_stability < 0.45 } country_event = { id = blue_tiger.11 days = 70 } } }"], ai=70, aimod=[LOWSTAB]),
    O("Resist the investigation", ["stab:-0.02", "rawfx:hidden_effect = { country_event = { id = blue_tiger.11 days = 70 } }"], ai=30)],

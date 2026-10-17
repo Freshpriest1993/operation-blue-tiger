@@ -4,7 +4,7 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestones 1 to 4 complete (focus tree, national spirits, historical events, cross-Strait pressure system, AI paths). Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestones 1 to 5 complete (focus tree, national spirits, historical events, cross-Strait pressure system, AI paths, and the optional Return to the Mainland path). Milestone 5 is awaiting review by the Millennium Dawn team. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
@@ -60,6 +60,19 @@ Taiwan starts with the Defense-in-Depth doctrine of the 1990s and can move throu
 
 Buying equipment and absorbing it are separate steps, so purchases do not instantly become readiness.
 
+### Return to the Mainland (alternate history)
+
+An optional path, behind the **Taiwan: Return to the Mainland** game rule (Player Only by default, or Allowed, or Disabled). It is labelled alternate history throughout, because in 1991 Taiwan renounced force against the mainland.
+
+- **The Reclamation Pact.** During a war with China, or while Beijing is in crisis, Taiwan can convene a pact and pledge a postwar referendum, guaranteed autonomy, or no concessions. Each pledge changes mobilization, domestic support and Chinese backlash.
+- **Two ways in.** *Carry the War Across the Strait* after holding off an invasion for 60 days (American commitment holds, confidence dips), or *Strike While Beijing Is Divided* (a war of choice that collapses American confidence).
+- **Postwar Vision.** A balance-of-power bar runs from ROC Restoration to Taiwanese Self-Determination. Mobilizing pushes it one way, pledges and reassurance the other, and it decides the referendum odds and how badly a broken pledge hurts.
+- **The settlement.** Honor the referendum, negotiate continued association, repudiate the pledge (with protests, a general strike and a broken-pact penalty), or rule from Taipei if no pledge was made.
+- **Two republics.** If Taiwan votes for its own state, or a federal union is chosen, the mainland becomes a separate Republic of China and the player chooses which country to lead.
+- **Provisional Administration.** Whoever holds the mainland starts with heavy penalties and lifts them region by region through five decisions and administrative reforms. The mainland republic gets its own 32-focus reconstruction tree.
+
+The restored mainland republic reuses China's tag with a Republic of China name, flag and parties, so some of China's own decision tabs may still appear for it.
+
 ## Design principles
 
 - **More than independence versus unification.** Democracy, identity, the economy, defense and foreign relations move separately.
@@ -75,7 +88,7 @@ OBT reuses Millennium Dawn's existing cross-Strait systems (Strait Tension, Cros
 
 You need a local copy of Millennium Dawn (the developer version from its GitHub repository). Choose one method.
 
-**Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. This replaces the Taiwan files, adds the Blue Tiger events, decisions and monthly update, and replaces shared Millennium Dawn files: `00_yearly_effects.txt` (schedules the historical events), China's `05_china.txt`, `05_CHI_decisions.txt` and `MD_focus_CHI_l_english.yml` (staged talks in place of automatic annexation), and `00_game_rules.txt`, `999_game_rules_on_actions.txt` and `MD_game_rules_l_english.yml` (the Taiwan AI path game rule).
+**Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. This replaces the Taiwan files, adds the Blue Tiger events, decisions and monthly update, and replaces shared Millennium Dawn files: `00_yearly_effects.txt` (schedules the historical events), China's `05_china.txt`, `05_CHI_decisions.txt` and `MD_focus_CHI_l_english.yml` (staged talks in place of automatic annexation), `00_game_rules.txt`, `999_game_rules_on_actions.txt` and `MD_game_rules_l_english.yml` (the Taiwan game rules), and `00_MD_politicsview_scripted_localisation.txt` (Kuomintang party names for the mainland republic).
 
 **Apply the patch.** From your Millennium Dawn folder, run:
 
@@ -113,6 +126,7 @@ Remove `--dry-run` to write the files. `apply.py` checks for duplicate IDs and l
 - [x] **Milestone 2:** historical events (2000 inauguration, 2004 election and shooting, Anti-Secession Law, State Affairs Fund and Red Shirt protests, 2008 transition)
 - [x] **Milestone 3:** Cross-Strait Pressure System (blockade burden, stockpiles, partner support, staged negotiations with exits)
 - [x] **Milestone 4:** AI behavior, balance and polish
+- [x] **Milestone 5:** Return to the Mainland (alternate history): reclamation pact, postwar settlement, successor states and the mainland Republic of China
 
 ## Research
 

@@ -1,0 +1,7 @@
+ RULE_TAI_RETURN_TO_MAINLAND: "Taiwan: Return to the Mainland"
+ RULE_OPTION_TAI_RTM_PLAYER_ONLY: "Player Only"
+ RULE_OPTION_TAI_RTM_PLAYER_ONLY_DESC: "Only a human-controlled Republic of China can take the alternate-history Return to the Mainland path."
+ RULE_OPTION_TAI_RTM_FREE: "Allowed"
+ RULE_OPTION_TAI_RTM_FREE_DESC: "Any Republic of China, human or AI, can take the alternate-history Return to the Mainland path."
+ RULE_OPTION_TAI_RTM_BLOCKED: "Disabled"
+ RULE_OPTION_TAI_RTM_BLOCKED_DESC: "The Return to the Mainland path is unavailable."

@@ -427,7 +427,7 @@ country_event = {
 	id = blue_tiger.10
 	title = blue_tiger.10.t
 	desc = { text = blue_tiger.10.d_audited trigger = { OR = { has_completed_focus = TAI_df_special_funds_audit has_completed_focus = TAI_su_dpp_clean_party } } }
-	desc = { text = blue_tiger.10.d_open trigger = { NOT = { has_completed_focus = TAI_df_special_funds_audit has_completed_focus = TAI_su_dpp_clean_party } } }
+	desc = { text = blue_tiger.10.d_open trigger = { NOT = { OR = { has_completed_focus = TAI_df_special_funds_audit has_completed_focus = TAI_su_dpp_clean_party } } } }
 	picture = GFX_FRA_political_scandal
 	is_triggered_only = yes
 	fire_only_once = yes
