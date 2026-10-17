@@ -1,21 +1,5 @@
-From d05b2759ffc32ad4c2fed990859b3089ec4ae38a Mon Sep 17 00:00:00 2001
-From: Freshpriest1993 <326625041+Freshpriest1993@users.noreply.github.com>
-Date: Fri, 16 Oct 2026 22:31:49 -0700
-Subject: [PATCH] Add Operation Blue Tiger Taiwan focus tree (milestone 1)
-
----
- Changelog.txt                                 |    1 +
- common/ideas/05_taiwan.txt                    |  467 ++
- common/national_focus/05_taiwan.txt           | 5535 +++++++++++++++++
- .../99_TAI_scripted_effects.txt               |   31 +
- .../99_TAI_scripted_triggers.txt              |   65 +
- history/countries/TAI - Taiwan.txt            |   15 +
- .../english/MD_focus_TAI_l_english.yml        |  611 ++
- 7 files changed, 6725 insertions(+)
- create mode 100644 common/national_focus/05_taiwan.txt
-
 diff --git a/Changelog.txt b/Changelog.txt
-index b4a9dde5fb5..9a98bb657b5 100644
+index b4a9dde5fb..9a98bb657b 100644
 --- a/Changelog.txt
 +++ b/Changelog.txt
 @@ -1,6 +1,7 @@
@@ -27,7 +11,7 @@ index b4a9dde5fb5..9a98bb657b5 100644
   - Standardized and historical party names for the countries: ALG, BAN, BAR, BEL, BOL, BOT, BRA, BRM, BUL, CAN, CHI, COM, CUB, CZE, DEN, EGY, FIJ, GEO, GER
   - Updated equipment names for USA, ENG, SOV, CHI, TUR, SWE, GER, POL and PER, fixed conflicting and miswired design names, and adjusted designer icon priorities and Japanese/Italian icon pools.
 diff --git a/common/ideas/05_taiwan.txt b/common/ideas/05_taiwan.txt
-index 36f14fe923a..3802befa4cd 100644
+index 36f14fe923..3802befa4c 100644
 --- a/common/ideas/05_taiwan.txt
 +++ b/common/ideas/05_taiwan.txt
 @@ -147,5 +147,472 @@ ideas = {
@@ -505,7 +489,7 @@ index 36f14fe923a..3802befa4cd 100644
  }
 diff --git a/common/national_focus/05_taiwan.txt b/common/national_focus/05_taiwan.txt
 new file mode 100644
-index 00000000000..c156601dcca
+index 0000000000..7af8ff98d3
 --- /dev/null
 +++ b/common/national_focus/05_taiwan.txt
 @@ -0,0 +1,5535 @@
@@ -567,7 +551,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_voters_decide
 +		icon = Election_graphics
-+		x = 1
++		x = 2
 +		y = 1
 +		relative_position_id = TAI_su_millennium_election
 +		cost = 5
@@ -587,7 +571,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_lee_legacy
 +		icon = TAI_civilwar_legacy
-+		x = 2
++		x = 4
 +		y = 1
 +		relative_position_id = TAI_su_millennium_election
 +		cost = 5
@@ -680,7 +664,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_unified_government
 +		icon = Generic_Conservatism
-+		x = 1
++		x = 2
 +		y = 4
 +		relative_position_id = TAI_su_millennium_election
 +		cost = 5
@@ -721,7 +705,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_2001_recession
 +		icon = GENERIC_austerity_measures
-+		x = 1
++		x = 2
 +		y = 3
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_peaceful_transfer }
@@ -748,7 +732,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_ly_2001
 +		icon = Election
-+		x = 1
++		x = 2
 +		y = 5
 +		relative_position_id = TAI_su_millennium_election
 +		cost = 5
@@ -834,7 +818,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_four_noes
 +		icon = Generic_Ripping_Papers
-+		x = 4
++		x = 7
 +		y = 4
 +		relative_position_id = TAI_su_millennium_election
 +		cost = 5
@@ -870,7 +854,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_cautious_revolutionary
 +		icon = Generic_Liberalism
-+		x = 4
++		x = 7
 +		y = 5
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_dpp_four_noes }
@@ -893,7 +877,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_taiwan_centered
 +		icon = TAI_civilwar_legacy
-+		x = 4
++		x = 7
 +		y = 6
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
@@ -928,7 +912,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_referendum_act
 +		icon = Generic_Tear_Paper
-+		x = 4
++		x = 7
 +		y = 7
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_dpp_taiwan_centered }
@@ -954,7 +938,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_status_quo
 +		icon = accept_treaty
-+		x = 4
++		x = 7
 +		y = 8
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_dpp_referendum_act }
@@ -984,7 +968,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_name_rectification
 +		icon = Generic_Ripping_Papers
-+		x = 5
++		x = 9
 +		y = 8
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_dpp_referendum_act }
@@ -1015,7 +999,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_council_ceases
 +		icon = Generic_Tear_Paper
-+		x = 4
++		x = 7
 +		y = 9
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_dpp_name_rectification }
@@ -1046,7 +1030,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_un_bid
 +		icon = Afghan_on_the_world_stage
-+		x = 4
++		x = 7
 +		y = 10
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_dpp_council_ceases }
@@ -1077,7 +1061,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_dpp_clean_party
 +		icon = BLR_Democratic_clean
-+		x = 5
++		x = 9
 +		y = 6
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
@@ -1098,7 +1082,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_rebuild
 +		icon = Generic_Conservatism
-+		x = 7
++		x = 12
 +		y = 4
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_form_cabinet }
@@ -1119,7 +1103,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_party_assets
 +		icon = generic_banks
-+		x = 7
++		x = 12
 +		y = 5
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_kmt_rebuild }
@@ -1140,7 +1124,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_technocrats
 +		icon = Generic_Command_Power
-+		x = 8
++		x = 14
 +		y = 5
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_kmt_rebuild }
@@ -1162,7 +1146,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_pan_blue
 +		icon = Generic_Secret_Meeting
-+		x = 9
++		x = 16
 +		y = 5
 +		relative_position_id = TAI_su_millennium_election
 +		cost = 5
@@ -1187,7 +1171,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_new_taiwanese
 +		icon = Generic_Liberty_Calling
-+		x = 7
++		x = 12
 +		y = 6
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_kmt_pan_blue }
@@ -1209,7 +1193,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_roc_framework
 +		icon = Focus_Parliament_Constitution
-+		x = 7
++		x = 12
 +		y = 7
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_kmt_new_taiwanese }
@@ -1242,7 +1226,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_peace_framework
 +		icon = NKO_korea_peace
-+		x = 7
++		x = 12
 +		y = 8
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_kmt_roc_framework }
@@ -1277,7 +1261,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_consent
 +		icon = MNT_democracy
-+		x = 7
++		x = 12
 +		y = 9
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_kmt_peace_framework }
@@ -1299,7 +1283,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_kmt_us_ties
 +		icon = align_to_america
-+		x = 8
++		x = 14
 +		y = 6
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_kmt_technocrats }
@@ -1327,7 +1311,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_people_first
 +		icon = Generic_Liberty_Calling
-+		x = 11
++		x = 19
 +		y = 4
 +		relative_position_id = TAI_su_millennium_election
 +		cost = 5
@@ -1350,7 +1334,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_provincial_network
 +		icon = Generic_Major_City
-+		x = 11
++		x = 19
 +		y = 5
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_pfp_people_first }
@@ -1374,7 +1358,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_court_kmt_caucus
 +		icon = Generic_Secret_Meeting
-+		x = 11
++		x = 19
 +		y = 6
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_pfp_provincial_network }
@@ -1398,7 +1382,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_reunite_blue
 +		icon = Generic_Conservatism
-+		x = 11
++		x = 19
 +		y = 7
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_pfp_court_kmt_caucus }
@@ -1419,7 +1403,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_clean_sweep
 +		icon = anti_corruption
-+		x = 12
++		x = 21
 +		y = 5
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_pfp_people_first }
@@ -1440,7 +1424,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_every_township
 +		icon = Generic_Public_Works
-+		x = 12
++		x = 21
 +		y = 6
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_pfp_provincial_network }
@@ -1466,7 +1450,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_pragmatic_strait
 +		icon = Generic_Imperial_China_Diplomacy
-+		x = 13
++		x = 23
 +		y = 5
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_pfp_people_first }
@@ -1499,7 +1483,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_peace_mechanism
 +		icon = NKO_korea_peace
-+		x = 13
++		x = 23
 +		y = 6
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_pfp_pragmatic_strait }
@@ -1534,7 +1518,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_su_pfp_washington
 +		icon = align_to_america
-+		x = 14
++		x = 25
 +		y = 6
 +		relative_position_id = TAI_su_millennium_election
 +		prerequisite = { focus = TAI_su_pfp_pragmatic_strait }
@@ -1555,7 +1539,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_root
 +		icon = Strengthening_Russian_Democracy
-+		x = 17
++		x = 30
 +		y = 0
 +		prerequisite = { focus = TAI_su_peaceful_transfer }
 +		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
@@ -1665,7 +1649,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_ordinary_prosecutors
 +		icon = Generic_Policeman
-+		x = 1
++		x = 2
 +		y = 5
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_grand_justices }
@@ -1683,7 +1667,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_black_gold
 +		icon = BLR_Anti_Corruption
-+		x = 3
++		x = 5
 +		y = 1
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_root }
@@ -1701,7 +1685,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_vote_buying
 +		icon = anti_corruption
-+		x = 3
++		x = 5
 +		y = 2
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_black_gold }
@@ -1720,7 +1704,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_sunshine_laws
 +		icon = MEX_War_on_corruption
-+		x = 3
++		x = 5
 +		y = 3
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_vote_buying }
@@ -1741,7 +1725,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_state_enterprises
 +		icon = Generic_Command_Power
-+		x = 4
++		x = 7
 +		y = 2
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_black_gold }
@@ -1758,7 +1742,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_farmers_associations
 +		icon = agriculture
-+		x = 4
++		x = 7
 +		y = 3
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_state_enterprises }
@@ -1776,7 +1760,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_special_funds_audit
 +		icon = generic_banks
-+		x = 3
++		x = 5
 +		y = 4
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_sunshine_laws }
@@ -1794,7 +1778,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_settle_executive
 +		icon = Focus_Parliament_Constitution
-+		x = 6
++		x = 10
 +		y = 1
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_root }
@@ -1812,7 +1796,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_legislative_reform
 +		icon = EU_reform
-+		x = 6
++		x = 10
 +		y = 2
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_settle_executive }
@@ -1833,7 +1817,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_end_sntv
 +		icon = Election
-+		x = 6
++		x = 10
 +		y = 3
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_legislative_reform }
@@ -1855,7 +1839,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_national_assembly
 +		icon = EU_constitution
-+		x = 6
++		x = 10
 +		y = 4
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_end_sntv }
@@ -1876,7 +1860,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_control_yuan
 +		icon = Generic_Policeman
-+		x = 7
++		x = 12
 +		y = 2
 +		relative_position_id = TAI_df_root
 +		cost = 5
@@ -1894,7 +1878,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_civil_service
 +		icon = Generic_Command_Power
-+		x = 7
++		x = 12
 +		y = 3
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_control_yuan }
@@ -1914,7 +1898,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_local_government
 +		icon = Generic_Major_City
-+		x = 7
++		x = 12
 +		y = 4
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_civil_service }
@@ -1933,7 +1917,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_civil_commissions
 +		icon = Generic_Workers_Democracy
-+		x = 9
++		x = 15
 +		y = 1
 +		relative_position_id = TAI_df_root
 +		cost = 5
@@ -1951,7 +1935,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_party_tv_exit
 +		icon = SER_mil_in_tv
-+		x = 9
++		x = 15
 +		y = 2
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_civil_commissions }
@@ -1968,7 +1952,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_public_broadcasting
 +		icon = SOV_tv_propaganda
-+		x = 9
++		x = 15
 +		y = 3
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_party_tv_exit }
@@ -1992,7 +1976,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_every_community
 +		icon = Generic_Liberty_Calling
-+		x = 10
++		x = 17
 +		y = 3
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_party_tv_exit }
@@ -2011,7 +1995,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_martial_law_past
 +		icon = Generic_Ripping_Papers
-+		x = 9
++		x = 15
 +		y = 4
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_every_community }
@@ -2030,7 +2014,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_rapid_facts
 +		icon = Socialist_Radio
-+		x = 12
++		x = 20
 +		y = 4
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_public_broadcasting }
@@ -2049,7 +2033,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_media_literacy
 +		icon = Generic_Infantry_Training
-+		x = 12
++		x = 20
 +		y = 5
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_rapid_facts }
@@ -2067,7 +2051,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_influence_transparency
 +		icon = Generic_Espionage04
-+		x = 12
++		x = 20
 +		y = 6
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_media_literacy }
@@ -2087,7 +2071,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_counter_disinfo
 +		icon = Generic_Intelligence_Gathering
-+		x = 13
++		x = 22
 +		y = 6
 +		relative_position_id = TAI_df_root
 +		prerequisite = { focus = TAI_df_media_literacy }
@@ -2107,7 +2091,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_df_political_dna
 +		icon = MNT_democracy
-+		x = 12
++		x = 20
 +		y = 7
 +		relative_position_id = TAI_df_root
 +		cost = 15
@@ -2130,7 +2114,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_rebuild_shield
 +		icon = Generic_Soldiers_Defense
-+		x = 33
++		x = 57
 +		y = 0
 +		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 +		completion_reward = {
@@ -2188,7 +2172,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_reassure_commanders
 +		icon = Generic_Morale_Bonus_Focus
-+		x = 1
++		x = 2
 +		y = 1
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 5
@@ -2245,7 +2229,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_joint_command
 +		icon = Generic_Command_Power
-+		x = 1
++		x = 2
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2266,7 +2250,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_reassess_did
 +		icon = Dutch_Defense_Doctrine1
-+		x = 3
++		x = 5
 +		y = 1
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_rebuild_shield }
@@ -2284,7 +2268,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_missile_crisis_lessons
 +		icon = air_defense
-+		x = 3
++		x = 5
 +		y = 2
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 5
@@ -2304,7 +2288,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_outside_territory
 +		icon = TAI_air_forces
-+		x = 3
++		x = 5
 +		y = 3
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_missile_crisis_lessons }
@@ -2336,7 +2320,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_effective_deterrence
 +		icon = american_shield
-+		x = 3
++		x = 5
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_outside_territory }
@@ -2354,7 +2338,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_air_sea_interdiction
 +		icon = TAI_navy_forces
-+		x = 3
++		x = 5
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2373,7 +2357,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_hf2e
 +		icon = Generic_MLRS
-+		x = 4
++		x = 7
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2403,7 +2387,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_hf2e_extended
 +		icon = Generic_MLRS
-+		x = 3
++		x = 5
 +		y = 6
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 20
@@ -2428,7 +2412,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_info_warfare
 +		icon = Generic_Espionage04
-+		x = 5
++		x = 9
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_effective_deterrence }
@@ -2447,7 +2431,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_layered_air_defense
 +		icon = air_defense2
-+		x = 4
++		x = 7
 +		y = 3
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2471,7 +2455,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_harden_island
 +		icon = SIN_long_island_costal_defence
-+		x = 5
++		x = 9
 +		y = 3
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_missile_crisis_lessons }
@@ -2494,7 +2478,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_repair_runways
 +		icon = Generic_Transport_Aircraft
-+		x = 4
++		x = 7
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_harden_island }
@@ -2512,7 +2496,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_mine_approaches
 +		icon = Naval_Robots
-+		x = 5
++		x = 9
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_harden_island }
@@ -2530,7 +2514,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_rapid_redeploy
 +		icon = Generic_Train
-+		x = 6
++		x = 11
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_repair_runways }
@@ -2552,7 +2536,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_hard_roc
 +		icon = SIN_total_defense
-+		x = 7
++		x = 13
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2589,7 +2573,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_mobile_fires
 +		icon = Generic_MLRS
-+		x = 4
++		x = 7
 +		y = 6
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2608,7 +2592,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_disperse
 +		icon = Generic_Underground_Factories
-+		x = 3
++		x = 5
 +		y = 7
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_mobile_fires }
@@ -2625,7 +2609,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_unmanned
 +		icon = Drones
-+		x = 3
++		x = 5
 +		y = 8
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2647,7 +2631,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_odc
 +		icon = Generic_Submarine_Drone
-+		x = 3
++		x = 5
 +		y = 9
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2676,7 +2660,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_hybrid
 +		icon = Generic_Soldiers_Defense
-+		x = 3
++		x = 5
 +		y = 10
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2702,7 +2686,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_whole_of_society
 +		icon = Generic_Volunteer_Corps
-+		x = 3
++		x = 5
 +		y = 11
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2722,7 +2706,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_fortress_taiwan
 +		icon = american_shield
-+		x = 3
++		x = 5
 +		y = 12
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 20
@@ -2747,7 +2731,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_manpower_question
 +		icon = NKO_reserve
-+		x = 9
++		x = 16
 +		y = 1
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 5
@@ -2765,7 +2749,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_volunteer_reserve_split
 +		icon = Generic_Infantry_Training
-+		x = 9
++		x = 16
 +		y = 2
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_manpower_question }
@@ -2783,7 +2767,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_professional_force
 +		icon = Generic_Pilots
-+		x = 10
++		x = 18
 +		y = 2
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_manpower_question }
@@ -2801,7 +2785,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_extended_conscription
 +		icon = FRA_Reform_Military_Mass_Mobilization_Conscription
-+		x = 11
++		x = 20
 +		y = 2
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_manpower_question }
@@ -2819,7 +2803,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_reserve_audit
 +		icon = Generic_Intelligence_Gathering
-+		x = 9
++		x = 16
 +		y = 3
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 5
@@ -2839,7 +2823,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_reserve_reform
 +		icon = NKO_reserve
-+		x = 9
++		x = 16
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2863,7 +2847,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_nco_initiative
 +		icon = Generic_Soldier_Aiming
-+		x = 10
++		x = 18
 +		y = 3
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_volunteer_reserve_split focus = TAI_na_professional_force focus = TAI_na_extended_conscription }
@@ -2880,7 +2864,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_territorial_defense
 +		icon = Generic_Volunteer_Corps
-+		x = 9
++		x = 16
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -2899,7 +2883,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_us_links
 +		icon = align_to_america
-+		x = 13
++		x = 23
 +		y = 1
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_rebuild_shield }
@@ -2924,7 +2908,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_2001_package
 +		icon = american_arms_focus
-+		x = 13
++		x = 23
 +		y = 2
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 5
@@ -2952,7 +2936,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_special_budget
 +		icon = generic_banks
-+		x = 13
++		x = 23
 +		y = 3
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_2001_package }
@@ -2979,7 +2963,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_kidd_destroyers
 +		icon = TAI_navy_forces
-+		x = 13
++		x = 23
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -3004,7 +2988,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_maritime_patrol
 +		icon = Generic_Transport_Aircraft
-+		x = 14
++		x = 25
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -3023,7 +3007,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_submarine_question
 +		icon = Generic_Submarine1
-+		x = 15
++		x = 27
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_special_budget }
@@ -3040,7 +3024,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_indigenous_submarine
 +		icon = Generic_Submarine2
-+		x = 13
++		x = 23
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 20
@@ -3071,7 +3055,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_interoperability
 +		icon = alliance_JAP_USA
-+		x = 14
++		x = 25
 +		y = 2
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_us_links }
@@ -3091,7 +3075,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_absorption
 +		icon = Generic_Support_Equipment
-+		x = 14
++		x = 25
 +		y = 3
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -3111,7 +3095,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_fighter_fleet
 +		icon = Jet_Fighters
-+		x = 16
++		x = 29
 +		y = 4
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_absorption }
@@ -3129,7 +3113,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_idf_upgrade
 +		icon = TAI_air_forces
-+		x = 14
++		x = 25
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		cost = 15
@@ -3157,7 +3141,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_csist
 +		icon = BLR_Hi_Tech_Park
-+		x = 14
++		x = 25
 +		y = 1
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_rebuild_shield }
@@ -3180,7 +3164,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_gray_zone
 +		icon = JAP_taiwan_naval
-+		x = 15
++		x = 27
 +		y = 1
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_rebuild_shield }
@@ -3200,7 +3184,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_na_service_rivalry
 +		icon = Generic_Command_Power
-+		x = 15
++		x = 27
 +		y = 5
 +		relative_position_id = TAI_na_rebuild_shield
 +		prerequisite = { focus = TAI_na_joint_command }
@@ -3220,7 +3204,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_root
 +		icon = BLR_Hi_Tech_Park
-+		x = 52
++		x = 91
 +		y = 0
 +		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 +		completion_reward = {
@@ -3318,7 +3302,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_twelve_inch
 +		icon = ASML_world
-+		x = 1
++		x = 2
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		cost = 15
@@ -3338,7 +3322,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_advanced_process
 +		icon = ASML_world
-+		x = 1
++		x = 2
 +		y = 3
 +		relative_position_id = TAI_ss_root
 +		cost = 15
@@ -3358,7 +3342,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_fabless
 +		icon = ExpandTrade
-+		x = 2
++		x = 4
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_deepen_hsinchu }
@@ -3382,7 +3366,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_itri
 +		icon = Generic_Command_Power
-+		x = 1
++		x = 2
 +		y = 1
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_root }
@@ -3419,7 +3403,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_supply_chain
 +		icon = maritime_trade
-+		x = 1
++		x = 2
 +		y = 4
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_advanced_process }
@@ -3461,7 +3445,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_us_compact
 +		icon = align_to_america
-+		x = 1
++		x = 2
 +		y = 5
 +		relative_position_id = TAI_ss_root
 +		cost = 20
@@ -3492,7 +3476,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_court_berlin
 +		icon = German_Diplomacy
-+		x = 2
++		x = 4
 +		y = 5
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_supply_chain }
@@ -3530,7 +3514,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_japan_materials
 +		icon = align_to_japan
-+		x = 3
++		x = 6
 +		y = 5
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_supply_chain }
@@ -3575,7 +3559,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_trading_economy
 +		icon = maritime_trade
-+		x = 5
++		x = 9
 +		y = 1
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_root }
@@ -3593,7 +3577,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_bad_loans
 +		icon = generic_banks
-+		x = 5
++		x = 9
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_trading_economy }
@@ -3619,7 +3603,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_bank_consolidation
 +		icon = generic_banks
-+		x = 5
++		x = 9
 +		y = 3
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_bad_loans }
@@ -3640,7 +3624,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_challenge_2008
 +		icon = economic_prosperity2
-+		x = 6
++		x = 11
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		cost = 15
@@ -3662,7 +3646,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_ten_projects
 +		icon = Generic_Public_Works
-+		x = 6
++		x = 11
 +		y = 3
 +		relative_position_id = TAI_ss_root
 +		cost = 15
@@ -3689,7 +3673,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_high_speed_rail
 +		icon = Generic_Railroads
-+		x = 5
++		x = 9
 +		y = 4
 +		relative_position_id = TAI_ss_root
 +		cost = 15
@@ -3716,7 +3700,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_e_taiwan
 +		icon = Generic_Digital_Agriculture
-+		x = 7
++		x = 13
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_trading_economy }
@@ -3738,7 +3722,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_biotech
 +		icon = generic_hospital
-+		x = 7
++		x = 13
 +		y = 3
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_e_taiwan }
@@ -3755,7 +3739,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_services
 +		icon = Tourism_is_our_oil
-+		x = 8
++		x = 15
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_trading_economy }
@@ -3774,7 +3758,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_export_markets
 +		icon = Trade_with_the_east
-+		x = 8
++		x = 15
 +		y = 3
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_services }
@@ -3793,7 +3777,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_fx_facility
 +		icon = generic_banks
-+		x = 9
++		x = 17
 +		y = 3
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_bad_loans }
@@ -3812,7 +3796,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_marine_insurance
 +		icon = maritime_trade
-+		x = 6
++		x = 11
 +		y = 4
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_fx_facility }
@@ -3831,7 +3815,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_energy_review
 +		icon = Efficient_Oil_Production_Focus_Icon_V2
-+		x = 11
++		x = 20
 +		y = 1
 +		relative_position_id = TAI_ss_root
 +		cost = 5
@@ -3849,7 +3833,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_spr
 +		icon = Efficient_Oil_Production_Focus_Icon_V2
-+		x = 11
++		x = 20
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		cost = 15
@@ -3873,7 +3857,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_lng
 +		icon = Federal_Gas_Tax_Fund
-+		x = 12
++		x = 22
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		cost = 15
@@ -3896,7 +3880,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_coal_stocks
 +		icon = Generic_Train
-+		x = 13
++		x = 24
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_energy_review }
@@ -3920,7 +3904,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_renewables
 +		icon = Generic_Digital_Agriculture
-+		x = 11
++		x = 20
 +		y = 3
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_lng }
@@ -3940,7 +3924,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_food_reserve
 +		icon = agriculture2
-+		x = 14
++		x = 26
 +		y = 2
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_energy_review }
@@ -3964,7 +3948,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_wto_farmers
 +		icon = agriculture
-+		x = 12
++		x = 22
 +		y = 3
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_food_reserve }
@@ -3988,7 +3972,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_emergency_shipping
 +		icon = Generic_Maritime
-+		x = 11
++		x = 20
 +		y = 5
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_marine_insurance }
@@ -4006,7 +3990,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_ss_endurance_target
 +		icon = Focus_Rationing
-+		x = 11
++		x = 20
 +		y = 6
 +		relative_position_id = TAI_ss_root
 +		prerequisite = { focus = TAI_ss_spr }
@@ -4027,7 +4011,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_root
 +		icon = Generic_Imperial_China_Diplomacy
-+		x = 69
++		x = 122
 +		y = 0
 +		prerequisite = { focus = TAI_su_peaceful_transfer }
 +		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
@@ -4063,7 +4047,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_active_opening
 +		icon = ExpandTrade
-+		x = 1
++		x = 2
 +		y = 1
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_root }
@@ -4090,7 +4074,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_mini_three_links
 +		icon = Generic_Maritime
-+		x = 2
++		x = 4
 +		y = 1
 +		relative_position_id = TAI_as_root
 +		cost = 5
@@ -4145,7 +4129,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_charter_flights
 +		icon = Generic_Transport_Aircraft
-+		x = 1
++		x = 2
 +		y = 2
 +		relative_position_id = TAI_as_root
 +		cost = 5
@@ -4243,7 +4227,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_go_south
 +		icon = Trade_with_the_east
-+		x = 3
++		x = 6
 +		y = 1
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_root }
@@ -4263,7 +4247,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_three_links
 +		icon = Generic_Maritime
-+		x = 1
++		x = 2
 +		y = 3
 +		relative_position_id = TAI_as_root
 +		cost = 15
@@ -4296,7 +4280,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_mainland_tourists
 +		icon = Tourism_is_our_oil
-+		x = 1
++		x = 2
 +		y = 4
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_three_links }
@@ -4321,7 +4305,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_economic_framework
 +		icon = accept_treaty
-+		x = 1
++		x = 2
 +		y = 5
 +		relative_position_id = TAI_as_root
 +		cost = 20
@@ -4354,7 +4338,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_restore_1992_spirit
 +		icon = Generic_Secret_Meeting
-+		x = 5
++		x = 9
 +		y = 1
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_root }
@@ -4388,7 +4372,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_uphold_1992
 +		icon = Generic_Imperial_China_Diplomacy
-+		x = 6
++		x = 11
 +		y = 1
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_root }
@@ -4424,7 +4408,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_sef_arats
 +		icon = Generic_Secret_Meeting
-+		x = 5
++		x = 9
 +		y = 2
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_restore_1992_spirit focus = TAI_as_uphold_1992 }
@@ -4457,7 +4441,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_crisis_channel
 +		icon = NKO_korea_peace
-+		x = 5
++		x = 9
 +		y = 3
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_sef_arats }
@@ -4480,7 +4464,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_stabilization
 +		icon = accept_treaty
-+		x = 5
++		x = 9
 +		y = 4
 +		relative_position_id = TAI_as_root
 +		cost = 15
@@ -4513,7 +4497,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_structured_restraint
 +		icon = Generic_Soldiers_Defense
-+		x = 5
++		x = 9
 +		y = 5
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_stabilization }
@@ -4538,7 +4522,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_cbms
 +		icon = NKO_korea_peace
-+		x = 5
++		x = 9
 +		y = 6
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_structured_restraint }
@@ -4563,7 +4547,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_one_country_each_side
 +		icon = TAI_civilwar_legacy
-+		x = 7
++		x = 13
 +		y = 1
 +		relative_position_id = TAI_as_root
 +		cost = 5
@@ -4595,7 +4579,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_journey_of_peace
 +		icon = Generic_Secret_Meeting
-+		x = 6
++		x = 11
 +		y = 2
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_uphold_1992 }
@@ -4628,7 +4612,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_red_lines
 +		icon = Generic_Intelligence_Gathering
-+		x = 8
++		x = 15
 +		y = 1
 +		relative_position_id = TAI_as_root
 +		cost = 5
@@ -4648,7 +4632,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_anti_secession
 +		icon = Generic_Tear_Paper
-+		x = 7
++		x = 13
 +		y = 2
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_red_lines }
@@ -4677,7 +4661,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_assent
 +		icon = MNT_democracy
-+		x = 8
++		x = 15
 +		y = 2
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_red_lines }
@@ -4696,7 +4680,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_peace_accord
 +		icon = NKO_korea_peace
-+		x = 6
++		x = 11
 +		y = 3
 +		relative_position_id = TAI_as_root
 +		cost = 20
@@ -4733,7 +4717,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_status_quo_dividend
 +		icon = economic_prosperity2
-+		x = 6
++		x = 11
 +		y = 4
 +		relative_position_id = TAI_as_root
 +		prerequisite = { focus = TAI_as_crisis_channel }
@@ -4750,7 +4734,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_managed_ambiguity
 +		icon = Generic_East_Vs_West
-+		x = 6
++		x = 11
 +		y = 6
 +		relative_position_id = TAI_as_root
 +		cost = 15
@@ -4771,7 +4755,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_as_offshore_line
 +		icon = Generic_Maritime
-+		x = 9
++		x = 17
 +		y = 2
 +		relative_position_id = TAI_as_root
 +		cost = 5
@@ -4796,7 +4780,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_root
 +		icon = Afghan_on_the_world_stage
-+		x = 81
++		x = 144
 +		y = 0
 +		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 +		completion_reward = {
@@ -4848,7 +4832,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_capitol_hill
 +		icon = american_government
-+		x = 1
++		x = 2
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_washington }
@@ -4904,7 +4888,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_tifa
 +		icon = ExpandTrade
-+		x = 2
++		x = 4
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_washington }
@@ -4923,7 +4907,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_us_crisis_comms
 +		icon = Socialist_Radio
-+		x = 1
++		x = 2
 +		y = 3
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_no_surprises }
@@ -4966,7 +4950,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_tokyo
 +		icon = align_to_japan
-+		x = 4
++		x = 7
 +		y = 1
 +		relative_position_id = TAI_pl_root
 +		cost = 5
@@ -4984,7 +4968,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_japan_visa
 +		icon = JAP_flag_big
-+		x = 4
++		x = 7
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		cost = 5
@@ -5006,7 +4990,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_japan_coast_guard
 +		icon = JAP_taiwan_naval
-+		x = 5
++		x = 9
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_tokyo }
@@ -5026,7 +5010,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_japan_dialogue
 +		icon = alliance_JAP_USA
-+		x = 4
++		x = 7
 +		y = 3
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_japan_coast_guard }
@@ -5056,7 +5040,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_japan_credit
 +		icon = generic_banks
-+		x = 4
++		x = 7
 +		y = 4
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_japan_dialogue }
@@ -5074,7 +5058,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_europe
 +		icon = align_to_europe
-+		x = 7
++		x = 12
 +		y = 1
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_root }
@@ -5091,7 +5075,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_eu_trade
 +		icon = European_Society
-+		x = 7
++		x = 12
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_europe }
@@ -5110,7 +5094,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_european_parliament
 +		icon = EU_constitution
-+		x = 8
++		x = 14
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		cost = 5
@@ -5129,7 +5113,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_eu_supply
 +		icon = Dutch_Maritime_Industry
-+		x = 7
++		x = 12
 +		y = 3
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_eu_trade }
@@ -5149,7 +5133,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_india
 +		icon = align_to_india
-+		x = 10
++		x = 17
 +		y = 1
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_root }
@@ -5166,7 +5150,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_india_tier1
 +		icon = Indian_flag
-+		x = 10
++		x = 17
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_india }
@@ -5184,7 +5168,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_india_tier2
 +		icon = BLR_Hi_Tech_Park
-+		x = 10
++		x = 17
 +		y = 3
 +		relative_position_id = TAI_pl_root
 +		cost = 15
@@ -5206,7 +5190,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_india_market
 +		icon = Trade_with_the_east
-+		x = 11
++		x = 19
 +		y = 3
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_india_tier1 }
@@ -5224,7 +5208,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_india_partnership
 +		icon = align_to_india
-+		x = 10
++		x = 17
 +		y = 4
 +		relative_position_id = TAI_pl_root
 +		cost = 15
@@ -5253,7 +5237,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_keep_allies
 +		icon = Generic_Outside_Aid
-+		x = 13
++		x = 22
 +		y = 1
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_root }
@@ -5277,7 +5261,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_end_checkbook
 +		icon = Generic_Tear_Paper
-+		x = 14
++		x = 24
 +		y = 1
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_root }
@@ -5297,7 +5281,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_transparent_aid
 +		icon = Generic_Red_Cross
-+		x = 13
++		x = 22
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_keep_allies focus = TAI_pl_end_checkbook }
@@ -5315,7 +5299,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_wto
 +		icon = accept_treaty
-+		x = 16
++		x = 27
 +		y = 1
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_root }
@@ -5336,7 +5320,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_wha
 +		icon = generic_hospital
-+		x = 16
++		x = 27
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_wto }
@@ -5360,7 +5344,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_sars
 +		icon = London_Health_Academy
-+		x = 16
++		x = 27
 +		y = 3
 +		relative_position_id = TAI_pl_root
 +		cost = 5
@@ -5381,7 +5365,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_technical_seats
 +		icon = Afghan_on_the_world_stage
-+		x = 16
++		x = 27
 +		y = 4
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_sars }
@@ -5399,7 +5383,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_apec
 +		icon = maritime_trade
-+		x = 17
++		x = 29
 +		y = 2
 +		relative_position_id = TAI_pl_root
 +		cost = 5
@@ -5417,7 +5401,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_offices
 +		icon = USA_diplomatic_corps
-+		x = 17
++		x = 29
 +		y = 1
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_root }
@@ -5435,7 +5419,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_document_coercion
 +		icon = Generic_Intelligence_Gathering
-+		x = 17
++		x = 29
 +		y = 4
 +		relative_position_id = TAI_pl_root
 +		prerequisite = { focus = TAI_pl_offices }
@@ -5461,7 +5445,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_pl_lifeline_holds
 +		icon = Afghan_on_the_world_stage
-+		x = 16
++		x = 27
 +		y = 5
 +		relative_position_id = TAI_pl_root
 +		cost = 20
@@ -5488,7 +5472,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_root
 +		icon = american_shield
-+		x = 101
++		x = 178
 +		y = 0
 +		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 +		available = {
@@ -5534,7 +5518,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_blue_tiger
 +		icon = american_shield
-+		x = 1
++		x = 2
 +		y = 1
 +		relative_position_id = TAI_bt_root
 +		cost = 5
@@ -5553,7 +5537,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_island_fortress
 +		icon = SIN_total_defense
-+		x = 2
++		x = 4
 +		y = 1
 +		relative_position_id = TAI_bt_root
 +		cost = 5
@@ -5619,7 +5603,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_count_the_days
 +		icon = Focus_Rationing
-+		x = 1
++		x = 2
 +		y = 3
 +		relative_position_id = TAI_bt_root
 +		cost = 5
@@ -5639,7 +5623,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_succession
 +		icon = Focus_Parliament_Constitution
-+		x = 4
++		x = 7
 +		y = 3
 +		relative_position_id = TAI_bt_root
 +		cost = 5
@@ -5657,7 +5641,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_alternate_seats
 +		icon = Generic_Major_City
-+		x = 4
++		x = 7
 +		y = 4
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_succession }
@@ -5680,7 +5664,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_local_emergency
 +		icon = Generic_Policeman
-+		x = 4
++		x = 7
 +		y = 5
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_alternate_seats }
@@ -5700,7 +5684,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_emergency_limits
 +		icon = MEX_Defend_the_constitution
-+		x = 5
++		x = 9
 +		y = 4
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_succession }
@@ -5719,7 +5703,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_wan_an
 +		icon = air_defense
-+		x = 7
++		x = 12
 +		y = 3
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_nsc }
@@ -5737,7 +5721,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_medical_surge
 +		icon = generic_hospital
-+		x = 7
++		x = 12
 +		y = 4
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_wan_an }
@@ -5760,7 +5744,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_restore_grid
 +		icon = Generic_Public_Works
-+		x = 8
++		x = 14
 +		y = 4
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_wan_an }
@@ -5783,7 +5767,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_redundant_comms
 +		icon = Socialist_Radio
-+		x = 7
++		x = 12
 +		y = 5
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_restore_grid }
@@ -5802,7 +5786,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_financial_continuity
 +		icon = generic_banks
-+		x = 8
++		x = 14
 +		y = 3
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_nsc }
@@ -5822,7 +5806,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_rationing
 +		icon = Focus_Rationing
-+		x = 9
++		x = 16
 +		y = 4
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_count_the_days }
@@ -5840,7 +5824,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_ports_open
 +		icon = Generic_Maritime
-+		x = 7
++		x = 12
 +		y = 6
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_redundant_comms }
@@ -5858,7 +5842,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_airlift
 +		icon = Generic_Transport_Aircraft
-+		x = 7
++		x = 12
 +		y = 7
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_ports_open }
@@ -5876,7 +5860,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_emergency_procurement
 +		icon = Generic_Outside_Aid
-+		x = 7
++		x = 12
 +		y = 8
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_airlift }
@@ -5896,7 +5880,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_publish_reserves
 +		icon = Socialist_Radio
-+		x = 10
++		x = 18
 +		y = 4
 +		relative_position_id = TAI_bt_root
 +		cost = 5
@@ -5915,7 +5899,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_document_incidents
 +		icon = Generic_Intelligence_Gathering
-+		x = 9
++		x = 16
 +		y = 3
 +		relative_position_id = TAI_bt_root
 +		cost = 5
@@ -5940,7 +5924,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_semiconductor_continuity
 +		icon = ASML_world
-+		x = 10
++		x = 18
 +		y = 3
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_nsc }
@@ -5959,7 +5943,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_counterweapon
 +		icon = Generic_Espionage04
-+		x = 11
++		x = 20
 +		y = 4
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_semiconductor_continuity }
@@ -5983,7 +5967,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_emergency_doctrine
 +		icon = Russian_Emergency_Powers
-+		x = 7
++		x = 12
 +		y = 9
 +		relative_position_id = TAI_bt_root
 +		cost = 15
@@ -6005,7 +5989,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_island_endures
 +		icon = Generic_Liberty_Calling
-+		x = 7
++		x = 12
 +		y = 10
 +		relative_position_id = TAI_bt_root
 +		prerequisite = { focus = TAI_bt_emergency_doctrine }
@@ -6024,7 +6008,7 @@ index 00000000000..c156601dcca
 +	focus = {
 +		id = TAI_bt_capstone
 +		icon = american_shield
-+		x = 7
++		x = 12
 +		y = 11
 +		relative_position_id = TAI_bt_root
 +		cost = 20
@@ -6045,7 +6029,7 @@ index 00000000000..c156601dcca
 +
 +}
 diff --git a/common/scripted_effects/99_TAI_scripted_effects.txt b/common/scripted_effects/99_TAI_scripted_effects.txt
-index 1435a9bd61a..79d0fb1bcb7 100644
+index 1435a9bd61..79d0fb1bcb 100644
 --- a/common/scripted_effects/99_TAI_scripted_effects.txt
 +++ b/common/scripted_effects/99_TAI_scripted_effects.txt
 @@ -324,3 +324,34 @@ USA_tsmc_access_update = {
@@ -6084,7 +6068,7 @@ index 1435a9bd61a..79d0fb1bcb7 100644
 +	change_relative_party_popularity = yes
 +}
 diff --git a/common/scripted_triggers/99_TAI_scripted_triggers.txt b/common/scripted_triggers/99_TAI_scripted_triggers.txt
-index 7d1c55c7085..53b2ead090c 100644
+index 7d1c55c708..53b2ead090 100644
 --- a/common/scripted_triggers/99_TAI_scripted_triggers.txt
 +++ b/common/scripted_triggers/99_TAI_scripted_triggers.txt
 @@ -36,3 +36,68 @@ USA_has_tsmc_access = {
@@ -6157,7 +6141,7 @@ index 7d1c55c7085..53b2ead090c 100644
 +	}
 +}
 diff --git a/history/countries/TAI - Taiwan.txt b/history/countries/TAI - Taiwan.txt
-index 682f6a0e7bb..c6867374f6b 100644
+index 682f6a0e7b..c6867374f6 100644
 --- a/history/countries/TAI - Taiwan.txt	
 +++ b/history/countries/TAI - Taiwan.txt	
 @@ -5,6 +5,16 @@ capital = 598
@@ -6190,7 +6174,7 @@ index 682f6a0e7bb..c6867374f6b 100644
  		Major_Non_NATO_Ally
  		TAI_the_great_chip_empire
 diff --git a/localisation/english/MD_focus_TAI_l_english.yml b/localisation/english/MD_focus_TAI_l_english.yml
-index 5fafa3ef96c..69e0c0755e0 100644
+index 5fafa3ef96..69e0c0755e 100644
 --- a/localisation/english/MD_focus_TAI_l_english.yml
 +++ b/localisation/english/MD_focus_TAI_l_english.yml
 @@ -126,3 +126,614 @@
@@ -6808,6 +6792,3 @@ index 5fafa3ef96c..69e0c0755e0 100644
 + TAI_national_coordination_tt: "$TAI_national_coordination$: $RIGHT|+=0$"
 + TAI_strait_tension_above_49_tt: "$CHI_taiwan_strait_tension$ is above §Y49§!"
 + TAI_chi_trust_above_19_tt: "$CHI_TAI_trust$ is above §Y19§!"
--- 
-2.34.1
-

@@ -204,10 +204,10 @@ def main():
             width = max(len(v) for v in rows.values())
             for r, members in rows.items():
                 for i, fid in enumerate(members):
-                    positions[fid] = (branch_x + col + i, r)
-            col += width + 1
+                    positions[fid] = (branch_x + col + 2 * i, r)
+            col += 2 * width + 1
         b["width"] = col
-        branch_x += col + 1
+        branch_x += col + 2
 
     # emit focus file
     L = []
