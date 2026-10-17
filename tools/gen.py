@@ -11,6 +11,7 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import spec  # noqa: E402
+import layout  # noqa: E402
 
 REPO, OUT = sys.argv[1], sys.argv[2]
 
@@ -195,48 +196,11 @@ def main():
                 if q not in all_focus:
                     errors.append(f"{fid}: prerequisite {q} missing")
 
-    # layout: rows by depth within branch, columns by track
-    branch_x = 0
-    positions = {}
-    roots = {}
+    # layout: each branch as a compact tree, packed in two tiers
+    positions, sizes, _, _ = layout.tree_layout(spec.BRANCHES, spec.TIERS)
+    roots = {b["key"]: b["focuses"][0]["id"] for b in spec.BRANCHES}
     for b in spec.BRANCHES:
-        ids = [f["id"] for f in b["focuses"]]
-        local = set(ids)
-        depth = {}
-
-        def d(fid, seen=()):
-            if fid in depth:
-                return depth[fid]
-            f = all_focus[fid][1]
-            best = 0
-            for p in f["pre"]:
-                for q in (p if isinstance(p, tuple) else (p,)):
-                    if q in local and q not in seen:
-                        best = max(best, d(q, seen + (fid,)) + 1)
-            depth[fid] = best
-            return best
-
-        for fid in ids:
-            d(fid)
-        root = b["focuses"][0]["id"]
-        roots[b["key"]] = root
-        tracks = []
-        for f in b["focuses"]:
-            if f["track"] not in tracks:
-                tracks.append(f["track"])
-        col = 0
-        for tr in tracks:
-            rows = defaultdict(list)
-            for f in b["focuses"]:
-                if f["track"] == tr:
-                    rows[depth[f["id"]]].append(f["id"])
-            width = max(len(v) for v in rows.values())
-            for r, members in rows.items():
-                for i, fid in enumerate(members):
-                    positions[fid] = (branch_x + col + 2 * i, r)
-            col += 2 * width + 1
-        b["width"] = col
-        branch_x += col + 2
+        b["width"] = sizes[b["key"]][0]
 
     # emit focus file
     L = []
@@ -251,7 +215,7 @@ def main():
     L.append("\t\t}")
     L.append("\t}")
     L.append("")
-    L.append("\tcontinuous_focus_position = { x = 50 y = 1600 }")
+    L.append("\tcontinuous_focus_position = { x = 50 y = 3700 }")
     L.append("")
     loc = []
     for b in spec.BRANCHES:

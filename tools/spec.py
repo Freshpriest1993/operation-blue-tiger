@@ -831,3 +831,5 @@ F(bt, "TAI_bt_island_endures", "The Island Can Endure", "Generic_Liberty_Calling
 F(bt, "TAI_bt_capstone", "Impossible to Coerce at an Acceptable Price", "american_shield", 140,
   "Taiwan does not have to become impossible to hurt. It has to become impossible to coerce at an acceptable price.",
   pre=["TAI_bt_island_endures", "TAI_pl_lifeline_holds", ("TAI_na_fortress_taiwan", "TAI_na_hybrid")], eff=["idea:TAI_impossible_to_coerce", "var:ptn:-10"], ai=5, track="cont")
+
+TIERS = [["pl", "su", "ss"], ["as", "df", "na", "bt"]]
