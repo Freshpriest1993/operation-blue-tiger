@@ -42,11 +42,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_heal_kmt_split"
-			add_to_variable = { party_pop_array^1 = 0.04 }
-			recalculate_party = yes
-			add_to_variable = { party_pop_array^14 = -0.04 }
-			recalculate_party = yes
-			add_stability = -0.02
+			country_event = { id = blue_tiger.20 days = 1 }
 		}
 		ai_will_do = {
 			base = 1
@@ -134,8 +130,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_form_cabinet"
-			add_to_variable = { TAI_military_confidence = 5 tooltip = TAI_military_confidence_tt }
-			clamp_variable = { var = TAI_military_confidence min = 0 max = 100 }
+			country_event = { id = blue_tiger.21 days = 1 }
 			add_political_power = 25
 		}
 		ai_will_do = {
@@ -199,8 +194,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_fourth_nuclear"
-			add_tech_bonus = { name = TAI_su_fourth_nuclear bonus = 0.5 uses = 1 category = CAT_nuclear_reactors }
-			add_stability = -0.02
+			country_event = { id = blue_tiger.22 days = 1 }
 		}
 		ai_will_do = {
 			base = 1
@@ -293,6 +287,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_to_variable = { TAI_pressure_to_negotiate = -3 tooltip = TAI_pressure_to_negotiate_tt }
 			clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
+			if = { limit = { has_idea = TAI_disputed_result } remove_ideas = TAI_disputed_result }
 		}
 		ai_will_do = {
 			base = 1
@@ -463,7 +458,7 @@ focus_tree = {
 					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
 				}
 			}
-			add_stability = -0.03
+			country_event = { id = blue_tiger.28 days = 30 }
 		}
 		ai_will_do = {
 			base = 3
@@ -493,8 +488,9 @@ focus_tree = {
 					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
 				}
 			}
-			add_to_variable = { TAI_us_confidence = -10 tooltip = TAI_us_confidence_tt }
+			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
 			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			country_event = { id = blue_tiger.27 days = 3 }
 		}
 		ai_will_do = {
 			base = 1
@@ -548,7 +544,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_un_bid"
 			add_to_variable = { TAI_taiwanese_identity = 10 tooltip = TAI_taiwanese_identity_tt }
 			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
-			add_to_variable = { TAI_us_confidence = -15 tooltip = TAI_us_confidence_tt }
+			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
 			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
 			if = {
 				limit = { country_exists = CHI }
@@ -557,6 +553,7 @@ focus_tree = {
 					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
 				}
 			}
+			country_event = { id = blue_tiger.27 days = 3 }
 		}
 		ai_will_do = {
 			base = 0
@@ -1874,15 +1871,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_hf2e"
 			add_tech_bonus = { name = TAI_na_hf2e bonus = 0.75 uses = 2 category = CAT_cruise_missiles }
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = 8 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			country_event = { id = blue_tiger.24 days = 1 }
 		}
 		ai_will_do = {
 			base = 1
@@ -2316,9 +2305,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_reserve_audit"
-			army_experience = 10
-			add_to_variable = { TAI_reform_capacity = 5 tooltip = TAI_reform_capacity_tt }
-			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
+			country_event = { id = blue_tiger.25 days = 1 }
 		}
 		ai_will_do = {
 			base = 1
@@ -2451,17 +2438,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_special_budget"
-			set_temp_variable = { treasury_change = -5 }
-			modify_treasury_effect = yes
-			add_to_variable = { TAI_us_confidence = 5 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			country_event = { id = blue_tiger.23 days = 1 }
 		}
 		ai_will_do = {
 			base = 1
-			modifier = {
-				factor = 0
-				has_active_mission = bankruptcy_incoming_collapse
-			}
 		}
 	}
 
@@ -2520,6 +2500,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_submarine_question"
 			add_tech_bonus = { name = TAI_na_submarine_question bonus = 0.5 uses = 1 category = CAT_submarines }
+			country_event = { id = blue_tiger.26 days = 1 }
 		}
 		ai_will_do = {
 			base = 1

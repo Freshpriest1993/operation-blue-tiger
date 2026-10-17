@@ -33,7 +33,7 @@ F(su, "TAI_su_millennium_election", "The Millennium Election", "Election", 35,
 F(su, "TAI_su_heal_kmt_split", "Heal the KMT Split", "Generic_Secret_Meeting", 35,
   "James Soong left the Kuomintang to run on his own after Lee chose Lien Chan. Bringing his supporters back could unite the Pan-Blue vote, at the cost of reopening old quarrels.",
   pre=["TAI_su_millennium_election"], excl=["TAI_su_voters_decide"], avail=["raw:date < 2000.3.18"],
-  eff=["party:1:0.04", "party:14:-0.04", "stab:-0.02"], track=T)
+  eff=["raw:country_event = { id = blue_tiger.20 days = 1 }"], track=T)
 F(su, "TAI_su_voters_decide", "Let the Voters Decide", "Election_graphics", 35,
   "We will not manipulate a divided field. The election will be decided at the ballot box, whoever the winner turns out to be.",
   pre=["TAI_su_millennium_election"], eff=["stab:0.03", "pp:25"], ai=3, track=T)
@@ -46,7 +46,7 @@ F(su, "TAI_su_peaceful_transfer", "The Peaceful Transfer of Power", "MNT_democra
   eff=["stab:0.05", "var:milconf:-5", "pp:50"], ai=5, track=T)
 F(su, "TAI_su_form_cabinet", "Form the Cabinet", "Generic_Command_Power", 35,
   "The new president appoints a premier who must work with the Legislative Yuan. A cross-party appointment buys cooperation and reassures the officer corps.",
-  pre=["TAI_su_peaceful_transfer"], eff=["var:milconf:5", "pp:25"], ai=5, track=T)
+  pre=["TAI_su_peaceful_transfer"], eff=["raw:country_event = { id = blue_tiger.21 days = 1 }", "pp:25"], ai=5, track=T)
 F(su, "TAI_su_minority_government", "A Government Without a Majority", "Generic_Factionalism", 35,
   "We hold the presidency but not the Legislative Yuan. Budgets, procurement and reform will all have to be negotiated with the opposition.",
   pre=["TAI_su_form_cabinet"], excl=["TAI_su_unified_government"], avail=["raw:TAI_government_has_ly_majority = no"],
@@ -58,7 +58,7 @@ F(su, "TAI_su_unified_government", "A Unified Government", "Generic_Conservatism
 F(su, "TAI_su_fourth_nuclear", "The Fourth Nuclear Plant Question", "Eu_nuclear_power", 70,
   "The Lungmen plant is already budgeted and under construction. Halting it would honor environmental pledges and provoke a constitutional fight with the legislature; finishing it secures power supply.",
   pre=[("TAI_su_minority_government", "TAI_su_unified_government")],
-  eff=["raw:add_tech_bonus = { name = TAI_su_fourth_nuclear bonus = 0.5 uses = 1 category = CAT_nuclear_reactors }", "stab:-0.02"], track=T)
+  eff=["raw:country_event = { id = blue_tiger.22 days = 1 }"], track=T)
 F(su, "TAI_su_2001_recession", "Weather the 2001 Recession", "GENERIC_austerity_measures", 70,
   "The technology downturn has pushed our export economy into its first contraction in decades. Targeted relief and job programmes can keep the slump from becoming a political crisis.",
   pre=["TAI_su_peaceful_transfer"], avail=["date>2001.1.1"],
@@ -73,7 +73,7 @@ F(su, "TAI_su_second_mandate", "Seek a Second Mandate", "Election_graphics", 70,
   eff=["raw:TAI_campaign_for_ruling_camp = yes", "stab:0.02"], track=T)
 F(su, "TAI_su_heal_divided_island", "Healing a Divided Island", "Generic_Liberty_Calling", 70,
   "A bitterly contested election has left many citizens doubting the result. Transparent recounts, court review and restraint on both sides can restore faith in the system.",
-  pre=["TAI_su_second_mandate"], avail=["date>2004.3.21"], eff=["stab:0.05", "var:ptn:-3"], track=T)
+  pre=["TAI_su_second_mandate"], avail=["date>2004.3.21"], eff=["stab:0.05", "var:ptn:-3", "rmidea:TAI_disputed_result"], track=T)
 F(su, "TAI_su_second_test", "Democracy's Second Test", "MNT_democracy", 70,
   "The new single-member districts and a weary electorate may hand power to the opposition. Accepting defeat gracefully would show that alternation in power is now routine.",
   pre=["TAI_su_heal_divided_island"], avail=["date>2007.6.1"], eff=["stab:0.04", "pp:50"], track=T)
@@ -94,17 +94,17 @@ F(su, "TAI_su_dpp_referendum_act", "The Referendum Act", "Generic_Tear_Paper", 7
 F(su, "TAI_su_dpp_status_quo", "Reaffirm the Status Quo", "accept_treaty", 70,
   "We can promise Washington that referendums will not be used to change the island's status. Deep-Green activists will call it a betrayal.",
   pre=["TAI_su_dpp_referendum_act"], excl=["TAI_su_dpp_name_rectification"], avail=["dpp"],
-  eff=["var:usconf:10", "chi:tension:-5", "stab:-0.03"], ai=3, track=D)
+  eff=["var:usconf:10", "chi:tension:-5", "raw:country_event = { id = blue_tiger.28 days = 30 }"], ai=3, track=D)
 F(su, "TAI_su_dpp_name_rectification", "Name Rectification", "Generic_Ripping_Papers", 70,
   "State enterprises and government bodies still carry \"China\" in their names. Renaming them asserts a separate identity and alarms both Beijing and Washington.",
-  pre=["TAI_su_dpp_referendum_act"], avail=["dpp"], eff=["var:identity:10", "chi:tension:10", "var:usconf:-10"], track=D)
+  pre=["TAI_su_dpp_referendum_act"], avail=["dpp"], eff=["var:identity:10", "chi:tension:10", "var:usconf:-5", "raw:country_event = { id = blue_tiger.27 days = 3 }"], track=D)
 F(su, "TAI_su_dpp_council_ceases", "The Council Ceases to Function", "Generic_Tear_Paper", 70,
   "Our earlier pledge depended on Beijing renouncing force. With more missiles aimed at us, we can declare that the National Unification Council ceases to function without formally abolishing it.",
   pre=["TAI_su_dpp_name_rectification"], avail=["dpp", "raw:custom_trigger_tooltip = { tooltip = TAI_strait_tension_above_49_tt CHI = { check_variable = { CHI_taiwan_strait_tension > 49 } } }"],
   eff=["var:identity:5", "chi:tension:12", "var:usconf:-10"], track=D)
 F(su, "TAI_su_dpp_un_bid", "Join the UN as Taiwan", "Afghan_on_the_world_stage", 70,
   "A membership application under the name Taiwan would rally our supporters and draw a public rebuke from Washington, which opposes unilateral changes to the status quo.",
-  pre=["TAI_su_dpp_council_ceases"], avail=["dpp", "date>2007.1.1"], eff=["var:identity:10", "var:usconf:-15", "chi:tension:10"], ai=0, track=D)
+  pre=["TAI_su_dpp_council_ceases"], avail=["dpp", "date>2007.1.1"], eff=["var:identity:10", "var:usconf:-5", "chi:tension:10", "raw:country_event = { id = blue_tiger.27 days = 3 }"], ai=0, track=D)
 F(su, "TAI_su_dpp_clean_party", "A Clean Green Party", "BLR_Democratic_clean", 70,
   "We rose to power promising to end black-gold politics. Internal audits and open finances must apply to our own officials too.",
   pre=["TAI_su_dpp_cautious_revolutionary"], avail=["dpp"], eff=["corr:-1", "stab:0.02"], ai=3, track=D)
@@ -313,7 +313,7 @@ F(na, "TAI_na_air_sea_interdiction", "Air-Sea Interdiction", "TAI_navy_forces", 
   pre=["TAI_na_effective_deterrence"], eff=["tech:CAT_naval_anti_ship_missiles:0.5:2", "navy_xp:15"], filt=NAVY, track="doct")
 F(na, "TAI_na_hf2e", "The HF-2E Program", "Generic_MLRS", 105,
   "A domestically built land-attack cruise missile could threaten the bases an invasion would need. Beijing calls it offensive, some legislators oppose its cost, and Washington worries about escalation.",
-  pre=["TAI_na_effective_deterrence"], avail=["ly"], eff=["tech:CAT_cruise_missiles:0.75:2", "chi:tension:8", "var:usconf:-5"], filt=EQ, track="doct")
+  pre=["TAI_na_effective_deterrence"], avail=["ly"], eff=["tech:CAT_cruise_missiles:0.75:2", "raw:country_event = { id = blue_tiger.24 days = 1 }"], filt=EQ, track="doct")
 F(na, "TAI_na_hf2e_extended", "Extended-Range Countermeasures", "Generic_MLRS", 140,
   "Longer-range variants increase the number of targets we can hold at risk, and the political cost of building them.",
   pre=["TAI_na_hf2e"], eff=["tech:CAT_ground_launched_cruise_missiles:0.75:2", "chi:tension:8"], filt=EQ, ai=0, track="doct")
@@ -374,7 +374,7 @@ F(na, "TAI_na_extended_conscription", "Retain Extended Conscription", "FRA_Refor
   pre=["TAI_na_manpower_question"], eff=["idea:TAI_extended_conscription"], filt=MAN, track="man")
 F(na, "TAI_na_reserve_audit", "Reserve Readiness Audit", "Generic_Intelligence_Gathering", 35,
   "Our reserve rolls list millions of names, but how many could actually fight? An honest audit is the first step.",
-  pre=[("TAI_na_volunteer_reserve_split", "TAI_na_professional_force", "TAI_na_extended_conscription")], eff=["army_xp:10", "var:reform:5"], filt=MAN, track="man")
+  pre=[("TAI_na_volunteer_reserve_split", "TAI_na_professional_force", "TAI_na_extended_conscription")], eff=["raw:country_event = { id = blue_tiger.25 days = 1 }"], filt=MAN, track="man")
 F(na, "TAI_na_reserve_reform", "Reserve Reform", "NKO_reserve", 105,
   "Regular refresher training and modern equipment turn a paper reserve into a real one.",
   pre=["TAI_na_reserve_audit"], eff=["rmidea:TAI_uneven_reserves", "money:-2"], filt=MAN, track="man")
@@ -393,7 +393,7 @@ F(na, "TAI_na_2001_package", "The 2001 Arms Package", "american_arms_focus", 35,
   pre=["TAI_na_us_links"], avail=["date>2001.4.1"], eff=["chi:tension:5", "pp:25"], track="proc")
 F(na, "TAI_na_special_budget", "Special Defense Budget", "generic_banks", 70,
   "Major purchases need a special budget, and the opposition can delay, trim or block it.",
-  pre=["TAI_na_2001_package"], avail=["ly"], eff=["money:-5", "var:usconf:5"], filt=["FOCUS_FILTER_MILITARY_LAWS", "FOCUS_FILTER_EXPENDITURE"], track="proc")
+  pre=["TAI_na_2001_package"], avail=["ly"], eff=["raw:country_event = { id = blue_tiger.23 days = 1 }"], filt=["FOCUS_FILTER_MILITARY_LAWS", "FOCUS_FILTER_EXPENDITURE"], track="proc")
 F(na, "TAI_na_kidd_destroyers", "Accept the Kidd-Class Destroyers", "TAI_navy_forces", 105,
   "Four large destroyers bring area air defense to sea, along with crews to train and maintenance bills to pay.",
   pre=["TAI_na_special_budget"], eff=["tech:CAT_destroyers:0.5:2", "navy_xp:20", "money:-3"], filt=NAVY, track="proc")
@@ -402,7 +402,7 @@ F(na, "TAI_na_maritime_patrol", "Maritime Patrol Aircraft", "Generic_Transport_A
   pre=["TAI_na_special_budget"], eff=["tech:CAT_heavy_aircraft:0.5:1", "air_xp:15"], filt=AIR, track="proc")
 F(na, "TAI_na_submarine_question", "The Submarine Question", "Generic_Submarine1", 70,
   "The United States no longer builds diesel submarines, and European yards fear Beijing. We may have to build our own.",
-  pre=["TAI_na_special_budget"], eff=["tech:CAT_submarines:0.5:1"], filt=NAVY, track="proc")
+  pre=["TAI_na_special_budget"], eff=["tech:CAT_submarines:0.5:1", "raw:country_event = { id = blue_tiger.26 days = 1 }"], filt=NAVY, track="proc")
 F(na, "TAI_na_indigenous_submarine", "Indigenous Submarine Program", "Generic_Submarine2", 140,
   "A domestic submarine programme will take many years and teach our shipyards skills no one will sell us.",
   pre=["TAI_na_submarine_question", "TAI_na_csist"], avail=["date>2010.1.1"], eff=["tech:CAT_submarines:1:2", "build:one_random_dockyard"], filt=NAVY, track="proc")

@@ -4,7 +4,7 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestone 1 of 4 (focus tree, national spirits, starting conditions). Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestone 2 of 4 (focus tree, national spirits, starting conditions, historical events). Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
@@ -20,7 +20,13 @@ The focus tree has **247 focuses** in seven branches.
 | The Pacific Lifeline | 33 | The United States, Japan, Europe, India, diplomatic allies, WTO, WHO and SARS |
 | Operation Blue Tiger | 27 | National strategy, continuity of government, civil defense, emergency doctrine |
 
-It also adds **48 national spirits**, including five starting conditions (Young Democracy, Legacy of the Party-Army, Defense-in-Depth Legacy, Large but Uneven Reserve System, and Advanced Procurement, Limited Absorption) and four defense postures.
+It also adds **51 national spirits**, including five starting conditions (Young Democracy, Legacy of the Party-Army, Defense-in-Depth Legacy, Large but Uneven Reserve System, and Advanced Procurement, Limited Absorption) and four defense postures.
+
+### Historical events
+
+22 events cover the period from the first transfer of power to the second: the May 2000 inauguration and the officer corps' response, the 2001 dot-com bust and legislative election, SARS in 2003, the 2004 election-eve shooting and disputed recount, the 2005 Anti-Secession Law and the KMT chairman's visit to Beijing, the 2006 State Affairs Fund inquiry and Red Shirt protests, and the 2008 elections. Ten focuses also open decision events, such as the Fourth Nuclear Plant crisis, the special defense budget showdown and the HF-2E controversy.
+
+Events follow the governing party: a Pan-Blue Taiwan does not get Pan-Green history, and contested allegations are presented as allegations.
 
 ### Defense doctrines
 
@@ -48,12 +54,12 @@ OBT reuses Millennium Dawn's existing cross-Strait systems (Strait Tension, Cros
 
 You need a local copy of Millennium Dawn (the developer version from its GitHub repository). Choose one method.
 
-**Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. This replaces six Taiwan files.
+**Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. This replaces the Taiwan files, adds `events/Taiwan_Blue_Tiger.txt`, and replaces Millennium Dawn's `00_yearly_effects.txt`, which schedules the historical events.
 
 **Apply the patch.** From your Millennium Dawn folder, run:
 
 ```
-git apply path/to/operation-blue-tiger/patches/obt-milestone1.patch
+git apply path/to/operation-blue-tiger/patches/obt-milestones-1-2.patch
 ```
 
 The patch also adds a line to Millennium Dawn's `Changelog.txt`. If it does not apply cleanly, your Millennium Dawn version has changed those files; use the copy method or regenerate with the tools below.
@@ -83,7 +89,7 @@ Remove `--dry-run` to write the files. `apply.py` checks for duplicate IDs and l
 ## Roadmap
 
 - [x] **Milestone 1:** focus tree, national spirits, starting conditions, localisation
-- [ ] **Milestone 2:** historical events (2000 inauguration, 2004 election and shooting, Anti-Secession Law, State Affairs Fund and Red Shirt protests, 2008 transition)
+- [x] **Milestone 2:** historical events (2000 inauguration, 2004 election and shooting, Anti-Secession Law, State Affairs Fund and Red Shirt protests, 2008 transition)
 - [ ] **Milestone 3:** Cross-Strait Pressure System (blockade burden, stockpiles, partner support, staged negotiations with exits)
 - [ ] **Milestone 4:** AI behavior, balance and polish
 
