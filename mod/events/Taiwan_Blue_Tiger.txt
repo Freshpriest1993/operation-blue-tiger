@@ -950,3 +950,589 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = blue_tiger.40
+	title = blue_tiger.40.t
+	desc = blue_tiger.40.d
+	picture = GFX_CHI_event_china_taiwan_flag
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = TAI
+		country_exists = CHI
+		NOT = { has_war_with = CHI }
+		check_variable = { TAI_negotiation_stage = 0 }
+	}
+
+	option = {
+		name = blue_tiger.40.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.40.a executed"
+		set_variable = { TAI_negotiation_stage = 1 }
+		add_to_variable = { TAI_pressure_to_negotiate = -10 tooltip = TAI_pressure_to_negotiate_tt }
+		clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+				clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+			}
+		}
+		custom_effect_tooltip = TAI_talks_stage_one_tt
+		hidden_effect = {
+			CHI = { country_event = { id = blue_tiger.47 days = 2 } }
+			country_event = { id = blue_tiger.41 days = 60 }
+		}
+		ai_chance = {
+			base = 10
+			modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 69 } }
+			modifier = { factor = 0.3 check_variable = { TAI_taiwanese_identity > 59 } }
+		}
+	}
+
+	option = {
+		name = blue_tiger.40.b
+		log = "[GetDateText]: [This.GetName]: blue_tiger.40.b executed"
+		add_war_support = 0.05
+		add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+		clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = 5 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		set_country_flag = { flag = TAI_refused_terms days = 365 value = 1 }
+		hidden_effect = { CHI = { country_event = { id = blue_tiger.46 days = 2 } } }
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0.25 check_variable = { TAI_pressure_to_negotiate > 84 } }
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.41
+	title = blue_tiger.41.t
+	desc = blue_tiger.41.d
+	picture = GFX_CHI_event_china_taiwan_flag
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = TAI
+		country_exists = CHI
+		NOT = { has_war_with = CHI }
+		check_variable = { TAI_negotiation_stage = 1 }
+	}
+
+	option = {
+		name = blue_tiger.41.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.41.a executed"
+		set_variable = { TAI_negotiation_stage = 2 }
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+				clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+			}
+		}
+		custom_effect_tooltip = TAI_talks_stage_two_tt
+		hidden_effect = { country_event = { id = blue_tiger.42 days = 90 } }
+		ai_chance = {
+			base = 5
+			modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 69 } }
+			modifier = { factor = 0.3 check_variable = { TAI_taiwanese_identity > 59 } }
+		}
+	}
+
+	option = {
+		name = blue_tiger.41.b
+		log = "[GetDateText]: [This.GetName]: blue_tiger.41.b executed"
+		add_to_variable = { TAI_pressure_to_negotiate = -5 tooltip = TAI_pressure_to_negotiate_tt }
+		clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
+		hidden_effect = { country_event = { id = blue_tiger.41 days = 120 } }
+		ai_chance = {
+			base = 10
+		}
+	}
+
+	option = {
+		name = blue_tiger.41.c
+		log = "[GetDateText]: [This.GetName]: blue_tiger.41.c executed"
+		set_variable = { TAI_negotiation_stage = 0 }
+		set_country_flag = { flag = TAI_refused_terms days = 365 value = 1 }
+		add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+		clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+		hidden_effect = { CHI = { country_event = { id = blue_tiger.46 days = 2 } } }
+		ai_chance = {
+			base = 5
+			modifier = { add = 20 check_variable = { TAI_pressure_to_negotiate < 40 } }
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.42
+	title = blue_tiger.42.t
+	desc = blue_tiger.42.d
+	picture = GFX_TAI_roc_flag
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = TAI
+		country_exists = CHI
+		NOT = { has_war_with = CHI }
+		check_variable = { TAI_negotiation_stage = 2 }
+	}
+
+	option = {
+		name = blue_tiger.42.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.42.a executed"
+		set_variable = { TAI_negotiation_stage = 3 }
+		custom_effect_tooltip = TAI_referendum_called_tt
+		hidden_effect = { country_event = { id = blue_tiger.43 days = 30 } }
+		ai_chance = {
+			base = 5
+			modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 79 } }
+			modifier = { factor = 0.3 check_variable = { TAI_taiwanese_identity > 59 } }
+		}
+	}
+
+	option = {
+		name = blue_tiger.42.b
+		log = "[GetDateText]: [This.GetName]: blue_tiger.42.b executed"
+		set_variable = { TAI_negotiation_stage = 0 }
+		set_country_flag = { flag = TAI_refused_terms days = 365 value = 1 }
+		add_to_variable = { TAI_us_confidence = 5 tooltip = TAI_us_confidence_tt }
+		clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+		hidden_effect = { CHI = { country_event = { id = blue_tiger.46 days = 2 } } }
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.43
+	title = blue_tiger.43.t
+	desc = blue_tiger.43.d
+	picture = GFX_election_day
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = TAI
+		country_exists = CHI
+		check_variable = { TAI_negotiation_stage = 3 }
+	}
+
+	option = {
+		name = blue_tiger.43.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.43.a executed"
+		random_list = {
+			20 = {
+				modifier = { factor = 2 check_variable = { TAI_pressure_to_negotiate > 69 } }
+				modifier = { factor = 2 check_variable = { TAI_pressure_to_negotiate > 84 } }
+				modifier = { factor = 0.5 check_variable = { TAI_taiwanese_identity > 49 } }
+				modifier = { factor = 0.5 check_variable = { TAI_taiwanese_identity > 69 } }
+				custom_effect_tooltip = TAI_referendum_approved_tt
+				hidden_effect = {
+					set_variable = { TAI_negotiation_stage = 0 }
+					CHI = { country_event = { id = china_sar.022 days = 7 } }
+				}
+			}
+			80 = {
+				custom_effect_tooltip = TAI_referendum_rejected_tt
+				hidden_effect = { country_event = { id = blue_tiger.44 days = 1 } }
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.44
+	title = blue_tiger.44.t
+	desc = blue_tiger.44.d
+	picture = GFX_TAI_228_hand
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = TAI
+	}
+
+	option = {
+		name = blue_tiger.44.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.44.a executed"
+		set_variable = { TAI_negotiation_stage = 0 }
+		set_country_flag = { flag = TAI_refused_terms days = 730 value = 1 }
+		add_to_variable = { TAI_taiwanese_identity = 5 tooltip = TAI_taiwanese_identity_tt }
+		clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+		add_war_support = 0.05
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_us_support = 10 tooltip = CHI_taiwan_us_support_tt }
+				clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
+			}
+		}
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = 10 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		hidden_effect = { CHI = { country_event = { id = blue_tiger.46 days = 2 } } }
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.46
+	title = blue_tiger.46.t
+	desc = blue_tiger.46.d
+	picture = GFX_CHI_event_navy_ship
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = CHI
+		country_exists = TAI
+	}
+
+	option = {
+		name = blue_tiger.46.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.46.a executed"
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = 5 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_TAI_trust = -5 tooltip = CHI_TAI_trust_tt }
+				clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = { factor = 0.3 check_variable = { CHI_taiwan_us_support > 69 } }
+		}
+	}
+
+	option = {
+		name = blue_tiger.46.b
+		log = "[GetDateText]: [This.GetName]: blue_tiger.46.b executed"
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = { add = 30 check_variable = { CHI_taiwan_us_support > 59 } }
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.47
+	title = blue_tiger.47.t
+	desc = blue_tiger.47.d
+	picture = GFX_CHI_event_china_taiwan_flag
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = CHI
+		country_exists = TAI
+	}
+
+	option = {
+		name = blue_tiger.47.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.47.a executed"
+		if = {
+			limit = { has_country_flag = CHI_TAI_full_blockade_active }
+			clr_country_flag = CHI_TAI_full_blockade_active
+			set_country_flag = CHI_TAI_partial_blockade_active
+			TAI = {
+				if = { limit = { has_idea = TAI_blockade_economic_crisis } remove_ideas = TAI_blockade_economic_crisis }
+				if = { limit = { NOT = { has_idea = TAI_blockade_partial } } add_ideas = TAI_blockade_partial }
+			}
+		}
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = -10 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_TAI_trust = 3 tooltip = CHI_TAI_trust_tt }
+				clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+			}
+		}
+		ai_chance = {
+			base = 70
+		}
+	}
+
+	option = {
+		name = blue_tiger.47.b
+		log = "[GetDateText]: [This.GetName]: blue_tiger.47.b executed"
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_TAI_trust = -5 tooltip = CHI_TAI_trust_tt }
+				clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+			}
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.50
+	title = blue_tiger.50.t
+	desc = blue_tiger.50.d
+	picture = GFX_CHI_event_missiles_taiwan
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = TAI
+	}
+
+	option = {
+		name = blue_tiger.50.a
+		trigger = { has_idea = TAI_emergency_doctrine }
+		log = "[GetDateText]: [This.GetName]: blue_tiger.50.a executed"
+		add_war_support = 0.15
+		add_stability = 0.05
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = {
+		name = blue_tiger.50.b
+		trigger = { NOT = { has_idea = TAI_emergency_doctrine } }
+		log = "[GetDateText]: [This.GetName]: blue_tiger.50.b executed"
+		add_war_support = 0.10
+		add_stability = -0.03
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.51
+	title = blue_tiger.51.t
+	desc = blue_tiger.51.d
+	picture = GFX_USA_event_congress
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = USA
+		country_exists = TAI
+		country_exists = CHI
+		NOT = { has_war_with = TAI }
+		NOT = { has_war_with = CHI }
+	}
+
+	option = {
+		name = blue_tiger.51.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.51.a executed"
+		add_to_war = {
+			targeted_alliance = TAI
+			enemy = CHI
+		}
+		ai_chance = {
+			base = 0
+			modifier = { add = 40 CHI = { check_variable = { CHI_taiwan_us_support > 69 } } }
+			modifier = { add = 30 TAI = { check_variable = { TAI_us_confidence > 59 } } }
+			modifier = { factor = 0 CHI = { check_variable = { CHI_taiwan_us_support < 40 } } }
+		}
+	}
+
+	option = {
+		name = blue_tiger.51.b
+		log = "[GetDateText]: [This.GetName]: blue_tiger.51.b executed"
+		TAI = { add_timed_idea = { idea = TAI_american_assistance days = 365 } }
+		add_opinion_modifier = { target = CHI modifier = recent_actions_negative }
+		ai_chance = {
+			base = 40
+		}
+	}
+
+	option = {
+		name = blue_tiger.51.c
+		log = "[GetDateText]: [This.GetName]: blue_tiger.51.c executed"
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_us_support = -10 tooltip = CHI_taiwan_us_support_tt }
+				clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
+			}
+		}
+		ai_chance = {
+			base = 20
+			modifier = { add = 40 CHI = { check_variable = { CHI_taiwan_us_support < 40 } } }
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.52
+	title = blue_tiger.52.t
+	desc = blue_tiger.52.d
+	picture = GFX_UN_emergency_meeting
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = CHI
+		has_war_with = TAI
+	}
+
+	option = {
+		name = blue_tiger.52.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.52.a executed"
+		add_stability = -0.03
+		white_peace = TAI
+		ai_chance = {
+			base = 10
+			modifier = { add = 40 TAI = { controls_state = 598 } }
+			modifier = { add = 30 has_war_with = USA }
+			modifier = { factor = 0 controls_state = 598 }
+		}
+	}
+
+	option = {
+		name = blue_tiger.52.b
+		log = "[GetDateText]: [This.GetName]: blue_tiger.52.b executed"
+		hidden_effect = { TAI = { country_event = { id = blue_tiger.55 days = 1 } } }
+		add_war_support = -0.02
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.53
+	title = blue_tiger.53.t
+	desc = blue_tiger.53.d
+	picture = GFX_USA_event_congress
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = USA
+		country_exists = TAI
+		NOT = { has_war_with = TAI }
+	}
+
+	option = {
+		name = blue_tiger.53.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.53.a executed"
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = 5 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_us_support = 5 tooltip = CHI_taiwan_us_support_tt }
+				clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
+			}
+		}
+		TAI = {
+			add_timed_idea = { idea = TAI_american_assistance days = 180 }
+			add_to_variable = { TAI_pressure_to_negotiate = -10 tooltip = TAI_pressure_to_negotiate_tt }
+			clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
+		}
+		ai_chance = {
+			base = 10
+			modifier = { add = 30 CHI = { check_variable = { CHI_taiwan_us_support > 69 } } }
+			modifier = { add = 20 TAI = { check_variable = { TAI_us_confidence > 59 } } }
+			modifier = { factor = 0.2 TAI = { check_variable = { TAI_us_confidence < 30 } } }
+		}
+	}
+
+	option = {
+		name = blue_tiger.53.b
+		log = "[GetDateText]: [This.GetName]: blue_tiger.53.b executed"
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_us_support = 2 tooltip = CHI_taiwan_us_support_tt }
+				clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
+			}
+		}
+		TAI = {
+			add_to_variable = { TAI_pressure_to_negotiate = -3 tooltip = TAI_pressure_to_negotiate_tt }
+			clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+
+	option = {
+		name = blue_tiger.53.c
+		log = "[GetDateText]: [This.GetName]: blue_tiger.53.c executed"
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_us_support = -3 tooltip = CHI_taiwan_us_support_tt }
+				clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = { add = 30 TAI = { check_variable = { TAI_us_confidence < 30 } } }
+		}
+	}
+}
+
+country_event = {
+	id = blue_tiger.55
+	title = blue_tiger.55.t
+	desc = blue_tiger.55.d
+	picture = GFX_UN_emergency_meeting
+	is_triggered_only = yes
+
+	trigger = {
+		original_tag = TAI
+	}
+
+	option = {
+		name = blue_tiger.55.a
+		log = "[GetDateText]: [This.GetName]: blue_tiger.55.a executed"
+		add_war_support = 0.03
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_us_support = 3 tooltip = CHI_taiwan_us_support_tt }
+				clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}

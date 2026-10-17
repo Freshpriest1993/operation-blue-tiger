@@ -235,3 +235,129 @@ FOCUS_EDITS = {
     "TAI_su_dpp_status_quo": ["var:usconf:10", "chi:tension:-5", "raw:country_event = { id = blue_tiger.28 days = 30 }"],
     "TAI_su_heal_divided_island": ["stab:0.05", "var:ptn:-3", "rmidea:TAI_disputed_result"],
 }
+
+# ------------------------------------------------------------------ milestone 3: negotiation, war, support
+STAGE0 = "check_variable = { TAI_negotiation_stage = 0 }"
+NOWAR = "NOT = { has_war_with = CHI }"
+PTN_HI = "modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 69 } }"
+ID_HI = "modifier = { factor = 0.3 check_variable = { TAI_taiwanese_identity > 59 } }"
+SET_STAGE = "set_variable = {{ TAI_negotiation_stage = {} }}"
+REFUSE_CD = "set_country_flag = { flag = TAI_refused_terms days = 365 value = 1 }"
+TELL_CHI_REJECT = "hidden_effect = { CHI = { country_event = { id = blue_tiger.46 days = 2 } } }"
+
+E(40, "Talks with Beijing",
+  "Beijing has set out terms for ending the crisis: an end to the blockade in exchange for economic arrangements now and political talks later. Entering talks commits us only to the first stage, and we can leave at any point.",
+  "GFX_CHI_event_china_taiwan_flag",
+  [O("Open economic talks", ["rawfx:" + SET_STAGE.format(1), "var:ptn:-10", "chi:trust:5", "rawfx:custom_effect_tooltip = TAI_talks_stage_one_tt\nhidden_effect = {\n\tCHI = { country_event = { id = blue_tiger.47 days = 2 } }\n\tcountry_event = { id = blue_tiger.41 days = 60 }\n}"], ai=10, aimod=[PTN_HI, ID_HI]),
+   O("Refuse. The island endures", ["ws:0.05", "var:identity:3", "chi:tension:5", "rawfx:" + REFUSE_CD + "\n" + TELL_CHI_REJECT], ai=20,
+     aimod=["modifier = { factor = 0.25 check_variable = { TAI_pressure_to_negotiate > 84 } }"])],
+  trigger="original_tag = TAI\n\t\tcountry_exists = CHI\n\t\t" + NOWAR + "\n\t\t" + STAGE0)
+
+E(41, "Economic Talks",
+  "Negotiators have agreed on trade, investment and shipping arrangements that would end the blockade. Beijing now proposes a political conference on the island's future.",
+  "GFX_CHI_event_china_taiwan_flag",
+  [O("Proceed to a political conference", ["rawfx:" + SET_STAGE.format(2), "chi:trust:5", "rawfx:custom_effect_tooltip = TAI_talks_stage_two_tt\nhidden_effect = { country_event = { id = blue_tiger.42 days = 90 } }"], ai=5, aimod=[PTN_HI, ID_HI]),
+   O("Keep the talks to trade", ["var:ptn:-5", "rawfx:hidden_effect = { country_event = { id = blue_tiger.41 days = 120 } }"], ai=10),
+   O("Withdraw from the talks", ["rawfx:" + SET_STAGE.format(0) + "\n" + REFUSE_CD, "var:identity:3", "rawfx:" + TELL_CHI_REJECT], ai=5,
+     aimod=["modifier = { add = 20 check_variable = { TAI_pressure_to_negotiate < 40 } }"])],
+  trigger="original_tag = TAI\n\t\tcountry_exists = CHI\n\t\t" + NOWAR + "\n\t\tcheck_variable = { TAI_negotiation_stage = 1 }")
+
+E(42, "The Political Conference",
+  "Delegations are drafting a framework for the island's political future. Under our constitution and the principle of assent, no agreement can take effect unless the people of Taiwan approve it.",
+  "GFX_TAI_roc_flag",
+  [O("Put the agreement to a referendum", ["rawfx:" + SET_STAGE.format(3), "rawfx:custom_effect_tooltip = TAI_referendum_called_tt\nhidden_effect = { country_event = { id = blue_tiger.43 days = 30 } }"], ai=5,
+     aimod=["modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 79 } }", ID_HI]),
+   O("Withdraw from the conference", ["rawfx:" + SET_STAGE.format(0) + "\n" + REFUSE_CD, "var:usconf:5", "rawfx:" + TELL_CHI_REJECT], ai=10)],
+  trigger="original_tag = TAI\n\t\tcountry_exists = CHI\n\t\t" + NOWAR + "\n\t\tcheck_variable = { TAI_negotiation_stage = 2 }")
+
+E(43, "The Settlement Referendum",
+  "Voters will decide whether to accept the agreement negotiated with Beijing. The result will turn on how badly the crisis has hurt and how strongly citizens identify with the island.",
+  "GFX_election_day",
+  [O("Count the votes", ["rawfx:random_list = {\n\t20 = {\n\t\tmodifier = { factor = 2 check_variable = { TAI_pressure_to_negotiate > 69 } }\n\t\tmodifier = { factor = 2 check_variable = { TAI_pressure_to_negotiate > 84 } }\n\t\tmodifier = { factor = 0.5 check_variable = { TAI_taiwanese_identity > 49 } }\n\t\tmodifier = { factor = 0.5 check_variable = { TAI_taiwanese_identity > 69 } }\n\t\tcustom_effect_tooltip = TAI_referendum_approved_tt\n\t\thidden_effect = {\n\t\t\tset_variable = { TAI_negotiation_stage = 0 }\n\t\t\tCHI = { country_event = { id = china_sar.022 days = 7 } }\n\t\t}\n\t}\n\t80 = {\n\t\tcustom_effect_tooltip = TAI_referendum_rejected_tt\n\t\thidden_effect = { country_event = { id = blue_tiger.44 days = 1 } }\n\t}\n}"], ai=100)],
+  trigger="original_tag = TAI\n\t\tcountry_exists = CHI\n\t\tcheck_variable = { TAI_negotiation_stage = 3 }")
+
+E(44, "The Island Refuses",
+  "The agreement has been rejected at the ballot box. The government has a clear mandate to keep the island's future in its own hands, and the result is being read closely in Washington and Tokyo.",
+  "GFX_TAI_228_hand",
+  [O("The people have spoken", ["rawfx:" + SET_STAGE.format(0) + "\nset_country_flag = { flag = TAI_refused_terms days = 730 value = 1 }", "var:identity:5", "ws:0.05", "chi:ussupport:10", "chi:tension:10", "rawfx:" + TELL_CHI_REJECT], ai=100)])
+
+E(46, "Taipei Rejects Our Terms",
+  "Taiwan has refused or abandoned the talks we offered. We can tighten the pressure again, or accept the status quo for now and wait for a better moment.",
+  "GFX_CHI_event_navy_ship",
+  [O("Tighten the pressure", ["chi:tension:5", "chi:trust:-5"], ai=50,
+     aimod=["modifier = { factor = 0.3 check_variable = { CHI_taiwan_us_support > 69 } }"]),
+   O("Accept the status quo for now", ["chi:tension:-5"], ai=50,
+     aimod=["modifier = { add = 30 check_variable = { CHI_taiwan_us_support > 59 } }"])],
+  trigger="original_tag = CHI\n\t\tcountry_exists = TAI")
+
+E(47, "Taipei Opens Talks",
+  "Taiwan's negotiators have accepted our invitation to economic talks. Easing the blockade would show good faith; keeping it in place would keep up the pressure on the political stage that follows.",
+  "GFX_CHI_event_china_taiwan_flag",
+  [O("Ease the blockade", ["rawfx:if = {\n\tlimit = { has_country_flag = CHI_TAI_full_blockade_active }\n\tclr_country_flag = CHI_TAI_full_blockade_active\n\tset_country_flag = CHI_TAI_partial_blockade_active\n\tTAI = {\n\t\tif = { limit = { has_idea = TAI_blockade_economic_crisis } remove_ideas = TAI_blockade_economic_crisis }\n\t\tif = { limit = { NOT = { has_idea = TAI_blockade_partial } } add_ideas = TAI_blockade_partial }\n\t}\n}", "chi:tension:-10", "chi:trust:3"], ai=70),
+   O("Keep up the pressure", ["chi:trust:-5"], ai=30)],
+  trigger="original_tag = CHI\n\t\tcountry_exists = TAI")
+
+E(50, "War in the Strait",
+  "The People's Liberation Army has opened hostilities against Taiwan. Missiles are striking airbases and ports, and the fleet is massing across the Strait. Everything prepared in peacetime will now be tested.",
+  "GFX_CHI_event_missiles_taiwan",
+  [O("Execute the Blue Tiger Emergency Doctrine", ["ws:0.15", "stab:0.05"], ai=100, trigger="has_idea = TAI_emergency_doctrine"),
+   O("Mobilise the nation", ["ws:0.10", "stab:-0.03"], ai=100, trigger="NOT = { has_idea = TAI_emergency_doctrine }")],
+  trigger="original_tag = TAI")
+
+E(51, "War in the Taiwan Strait",
+  "China has attacked Taiwan. The Taiwan Relations Act lets us provide defensive arms but does not oblige us to fight. Whether we intervene depends on how far we are committed to deterring Beijing and how much we trust Taipei.",
+  "GFX_USA_event_congress",
+  [O("Defend Taiwan", ["rawfx:add_to_war = {\n\ttargeted_alliance = TAI\n\tenemy = CHI\n}"], ai=0,
+     aimod=["modifier = { add = 40 CHI = { check_variable = { CHI_taiwan_us_support > 69 } } }",
+            "modifier = { add = 30 TAI = { check_variable = { TAI_us_confidence > 59 } } }",
+            "modifier = { factor = 0 CHI = { check_variable = { CHI_taiwan_us_support < 40 } } }"]),
+   O("Send arms and impose sanctions", ["rawfx:TAI = { add_timed_idea = { idea = TAI_american_assistance days = 365 } }", "rawfx:add_opinion_modifier = { target = CHI modifier = recent_actions_negative }"], ai=40),
+   O("Stay out of the war", ["chi:ussupport:-10"], ai=20,
+     aimod=["modifier = { add = 40 CHI = { check_variable = { CHI_taiwan_us_support < 40 } } }"])],
+  trigger="original_tag = USA\n\t\tcountry_exists = TAI\n\t\tcountry_exists = CHI\n\t\tNOT = { has_war_with = TAI }\n\t\tNOT = { has_war_with = CHI }")
+
+E(52, "Taipei Seeks Mediation",
+  "Taiwan has asked third countries to broker a ceasefire. Our forces have not taken the island, and every week of war costs us at home and abroad.",
+  "GFX_UN_emergency_meeting",
+  [O("Accept a ceasefire", ["stab:-0.03", "rawfx:white_peace = TAI"], ai=10,
+     aimod=["modifier = { add = 40 TAI = { controls_state = 598 } }", "modifier = { add = 30 has_war_with = USA }", "modifier = { factor = 0 controls_state = 598 }"]),
+   O("Fight on", ["rawfx:hidden_effect = { TAI = { country_event = { id = blue_tiger.55 days = 1 } } }", "ws:-0.02"], ai=30)],
+  trigger="original_tag = CHI\n\t\thas_war_with = TAI")
+
+E(53, "Taipei Requests Support",
+  "Taiwan is under heavy pressure from Beijing and has asked for our help. A visible response would reassure Taipei and raise tensions with China; a quiet one would do less of both.",
+  "GFX_USA_event_congress",
+  [O("Send a carrier group and supplies", ["chi:tension:5", "chi:ussupport:5", "rawfx:TAI = {\n\tadd_timed_idea = { idea = TAI_american_assistance days = 180 }\n\tadd_to_variable = { TAI_pressure_to_negotiate = -10 tooltip = TAI_pressure_to_negotiate_tt }\n\tclamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }\n}"], ai=10,
+     aimod=["modifier = { add = 30 CHI = { check_variable = { CHI_taiwan_us_support > 69 } } }", "modifier = { add = 20 TAI = { check_variable = { TAI_us_confidence > 59 } } }", "modifier = { factor = 0.2 TAI = { check_variable = { TAI_us_confidence < 30 } } }"]),
+   O("Offer quiet diplomatic backing", ["chi:ussupport:2", "rawfx:TAI = {\n\tadd_to_variable = { TAI_pressure_to_negotiate = -3 tooltip = TAI_pressure_to_negotiate_tt }\n\tclamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }\n}"], ai=30),
+   O("Decline the request", ["chi:ussupport:-3"], ai=10,
+     aimod=["modifier = { add = 30 TAI = { check_variable = { TAI_us_confidence < 30 } } }"])],
+  trigger="original_tag = USA\n\t\tcountry_exists = TAI\n\t\tNOT = { has_war_with = TAI }")
+
+E(55, "Beijing Rejects Mediation",
+  "Beijing has turned down the ceasefire proposal. The war goes on, but the offer has strengthened our case abroad.",
+  "GFX_UN_emergency_meeting",
+  [O("We will hold", ["ws:0.03", "chi:ussupport:3"], ai=100)])
+
+IDEAS_BLOCK_M3 = '''
+		# Operation Blue Tiger milestone 3: crisis spirits
+		TAI_american_assistance = {
+			picture = international_treaty2
+			allowed_civil_war = { always = yes }
+			modifier = {
+				army_defence_factor = 0.05
+				air_superiority_efficiency = 0.05
+				stability_factor = 0.03
+			}
+		}
+'''
+
+IDEAS_LOC_M3 = [
+    ("TAI_american_assistance", "American Assistance"),
+    ("TAI_american_assistance_desc", "Arms, intelligence and supplies from the United States are reaching our forces. It is help, not an alliance."),
+    ("TAI_talks_stage_one_tt", "Economic talks begin. In §Y60§! days we decide whether to move to a political conference, keep talking about trade, or withdraw."),
+    ("TAI_talks_stage_two_tt", "A political conference opens. In §Y90§! days we decide whether to hold a referendum or withdraw."),
+    ("TAI_referendum_called_tt", "A referendum on the agreement is held in §Y30§! days. Approval becomes likelier as §YPressure to Negotiate§! rises and less likely as §YTaiwan-Centered Identity§! rises."),
+    ("TAI_referendum_approved_tt", "If voters §Rapprove§!: Taiwan accepts unification with the mainland."),
+    ("TAI_referendum_rejected_tt", "If voters §Greject§!: the talks end and the government gains a mandate to resist."),
+]

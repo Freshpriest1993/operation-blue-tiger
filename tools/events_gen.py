@@ -25,7 +25,7 @@ def fx(tok, t):
     k, _, rest = tok.partition(":")
     a = rest.split(":") if rest else []
     if k in ("raw", "rawfx"):
-        return [t + rest]
+        return [t + line for line in rest.split("\n")]
     if k == "pp":
         return [f"{t}add_political_power = {a[0]}"]
     if k == "stab":
@@ -116,7 +116,7 @@ for e in S.EVENTS:
         y, d = e["sched"]
         sched.setdefault(y, []).append(f"\t\tcountry_event = {{ id = {eid} days = {d} }}")
 
-for k, v in S.IDEAS_LOC:
+for k, v in S.IDEAS_LOC + S.IDEAS_LOC_M3:
     loc.append(f' {k}: "{v}"')
 
 # sanity checks
@@ -139,6 +139,8 @@ with open(os.path.join(OUT, "events_loc.yml"), "w", encoding="utf-8", newline="\
     fh.write("\n".join(loc) + "\n")
 with open(os.path.join(OUT, "ideas2_block.txt"), "w", encoding="utf-8", newline="\n") as fh:
     fh.write(S.IDEAS_BLOCK)
+with open(os.path.join(OUT, "ideas3_block.txt"), "w", encoding="utf-8", newline="\n") as fh:
+    fh.write(S.IDEAS_BLOCK_M3)
 with open(os.path.join(OUT, "schedule.txt"), "w", encoding="utf-8", newline="\n") as fh:
     for y in sorted(sched):
         fh.write(f"{y}\n" + "\n".join(sched[y]) + "\n")
