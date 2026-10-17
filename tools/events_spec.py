@@ -26,7 +26,7 @@ LOWSTAB = "modifier = { factor = 0.2 has_stability < 0.35 }"
 E(1, "The Inauguration",
   [("green", GREEN, "On 20 May 2000, power passes from the Kuomintang to the Democratic Progressive Party for the first time. The new president takes the oath before a crowd that once could not have imagined it, while Beijing and Washington listen closely to every word of the inaugural address."),
    ("blue", BLUE, "On 20 May 2000, the Republic of China inaugurates its second directly elected president. The handover keeps the government in Pan-Blue hands, but the campaign showed how much the electorate has changed since 1996.")],
-  "GFX_TAI_roc_flag",
+  "GFX_TAI_roc",
   [O("Pledge the Four Noes", ["chi:tension:-5", "var:usconf:5", "chi:trust:3", "flag:TAI_2000_camp_green", "fire:2:3"], ai=80, trigger=GREEN),
    O("Stand on our mandate", ["var:identity:5", "chi:tension:5", "var:usconf:-5", "flag:TAI_2000_camp_green", "fire:2:3"], ai=20, trigger=GREEN),
    O("Promise continuity and reconciliation", ["stab:0.03", "chi:trust:3", "flag:TAI_2000_camp_blue"], ai=100, trigger=BLUE)],
@@ -55,7 +55,7 @@ E(4, "The 2001 Legislative Election",
 
 E(5, "SARS Reaches Taiwan",
   "A new respiratory illness that began in Guangdong has reached our hospitals. Cases are rising, a Taipei hospital has been sealed with staff and patients inside, and we still have no direct line to the World Health Organization.",
-  "GFX_HKG_SARS",
+  "GFX_hospital",
   [O("Impose strict quarantine", ["money:-1", "timed:TAI_sars_outbreak:90"], ai=15, aimod=[BANKRUPT]),
    O("Keep the economy open", ["stab:-0.03", "timed:TAI_sars_outbreak:180"], ai=5, aimod=[LOWSTAB])],
   sched=(2003, 110))
@@ -130,13 +130,13 @@ E(20, "Reconciliation Talks",
 
 E(21, "Choosing a Premier",
   "The president must nominate a premier who can work with the Legislative Yuan. A respected figure from across the aisle would calm the opposition and the officer corps; a trusted party colleague would push the government's programme harder.",
-  "GFX_TAI_roc_flag",
+  "GFX_politics_talks",
   [O("Nominate a cross-party premier", ["var:milconf:5", "stab:0.02"], ai=60),
    O("Nominate a party loyalist", ["var:reform:5", "pp:50"], ai=40)])
 
 E(22, "The Fourth Nuclear Plant Crisis",
   "The Lungmen nuclear plant is budgeted and partly built. Halting it would honour years of environmental campaigning and trigger a constitutional confrontation with the legislature; completing it would secure electricity for a growing economy.",
-  "GFX_SIN_singapore_builds_first_nuclear_reactor",
+  "GFX_nuclear_power_plant",
   [O("Halt construction", ["stab:-0.05", "money:2"], ai=20, trigger=GREEN, aimod=[LOWSTAB]),
    O("Finish the plant", ["stab:-0.01", "raw:add_tech_bonus = { name = blue_tiger.22.b bonus = 0.5 uses = 1 category = CAT_nuclear_reactors }"], ai=50),
    O("Refer the dispute to the Grand Justices", ["stab:0.02", "pp:-25"], ai=30, aimod=[BANKRUPT])])
@@ -164,7 +164,7 @@ E(25, "Reserve Readiness Audit",
 
 E(26, "The Submarine Question",
   "Washington approved diesel submarines in 2001, but no American yard builds them and European builders fear Beijing. We can wait for a solution or begin learning to build our own.",
-  "GFX_NKO_Submarine_1",
+  "GFX_submarine",
   [O("Wait for an American solution", ["var:usconf:3"], ai=50),
    O("Plan an indigenous program", ["raw:add_tech_bonus = { name = blue_tiger.26.b bonus = 0.5 uses = 1 category = CAT_submarines }", "var:reform:3"], ai=50)])
 
@@ -264,7 +264,7 @@ E(41, "Economic Talks",
 
 E(42, "The Political Conference",
   "Delegations are drafting a framework for the island's political future. Under our constitution and the principle of assent, no agreement can take effect unless the people of Taiwan approve it.",
-  "GFX_TAI_roc_flag",
+  "GFX_politics_negotiations",
   [O("Put the agreement to a referendum", ["rawfx:" + SET_STAGE.format(3), "rawfx:custom_effect_tooltip = TAI_referendum_called_tt\nhidden_effect = { country_event = { id = blue_tiger.43 days = 30 } }"], ai=5,
      aimod=["modifier = { add = 30 check_variable = { TAI_pressure_to_negotiate > 79 } }", ID_HI, "modifier = { factor = 0.3 CHI = { check_variable = { CHI_taiwan_us_support > 49 } } }", "modifier = { factor = 0.5 TAI_ai_historical_path = yes }", "modifier = { factor = 3 has_global_flag = TAI_ACCOMMODATION_FOCUS_PATH }", "modifier = { factor = 0 has_global_flag = TAI_ISLAND_FORTRESS_FOCUS_PATH }"]),
    O("Withdraw from the conference", ["rawfx:" + SET_STAGE.format(0) + "\n" + REFUSE_CD, "var:usconf:5", "rawfx:" + TELL_CHI_REJECT], ai=10)],
@@ -318,7 +318,7 @@ E(51, "War in the Taiwan Strait",
 
 E(52, "Taipei Seeks Mediation",
   "Taiwan has asked third countries to broker a ceasefire. Our forces have not taken the island, and every week of war costs us at home and abroad.",
-  "GFX_UN_emergency_meeting",
+  "GFX_negotiations",
   [O("Accept a ceasefire", ["stab:-0.03", "rawfx:white_peace = TAI"], ai=10,
      aimod=["modifier = { add = 40 TAI = { controls_state = 598 } }", "modifier = { add = 30 has_war_with = USA }", "modifier = { factor = 0 controls_state = 598 }"]),
    O("Fight on", ["rawfx:hidden_effect = { TAI = { country_event = { id = blue_tiger.55 days = 1 } } }", "ws:-0.02"], ai=30)],
@@ -336,7 +336,7 @@ E(53, "Taipei Requests Support",
 
 E(55, "Beijing Rejects Mediation",
   "Beijing has turned down the ceasefire proposal. The war goes on, but the offer has strengthened our case abroad.",
-  "GFX_UN_emergency_meeting",
+  "GFX_UN_gen_assembly",
   [O("We will hold", ["ws:0.03", "chi:ussupport:3"], ai=100)])
 
 IDEAS_BLOCK_M3 = '''

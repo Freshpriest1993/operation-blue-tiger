@@ -9,7 +9,7 @@ country_event = {
 	title = blue_tiger.1.t
 	desc = { text = blue_tiger.1.d_green trigger = { TAI_pan_green_in_power = yes } }
 	desc = { text = blue_tiger.1.d_blue trigger = { TAI_pan_blue_in_power = yes } }
-	picture = GFX_TAI_roc_flag
+	picture = GFX_TAI_roc
 	is_triggered_only = yes
 	fire_only_once = yes
 
@@ -203,7 +203,7 @@ country_event = {
 	id = blue_tiger.5
 	title = blue_tiger.5.t
 	desc = blue_tiger.5.d
-	picture = GFX_HKG_SARS
+	picture = GFX_hospital
 	is_triggered_only = yes
 	fire_only_once = yes
 
@@ -594,7 +594,7 @@ country_event = {
 	id = blue_tiger.21
 	title = blue_tiger.21.t
 	desc = blue_tiger.21.d
-	picture = GFX_TAI_roc_flag
+	picture = GFX_politics_talks
 	is_triggered_only = yes
 
 	trigger = {
@@ -628,7 +628,7 @@ country_event = {
 	id = blue_tiger.22
 	title = blue_tiger.22.t
 	desc = blue_tiger.22.d
-	picture = GFX_SIN_singapore_builds_first_nuclear_reactor
+	picture = GFX_nuclear_power_plant
 	is_triggered_only = yes
 
 	trigger = {
@@ -841,7 +841,7 @@ country_event = {
 	id = blue_tiger.26
 	title = blue_tiger.26.t
 	desc = blue_tiger.26.d
-	picture = GFX_NKO_Submarine_1
+	picture = GFX_submarine
 	is_triggered_only = yes
 
 	trigger = {
@@ -1084,7 +1084,7 @@ country_event = {
 	id = blue_tiger.42
 	title = blue_tiger.42.t
 	desc = blue_tiger.42.d
-	picture = GFX_TAI_roc_flag
+	picture = GFX_politics_negotiations
 	is_triggered_only = yes
 
 	trigger = {
@@ -1410,7 +1410,7 @@ country_event = {
 	id = blue_tiger.52
 	title = blue_tiger.52.t
 	desc = blue_tiger.52.d
-	picture = GFX_UN_emergency_meeting
+	picture = GFX_negotiations
 	is_triggered_only = yes
 
 	trigger = {
@@ -1525,7 +1525,7 @@ country_event = {
 	id = blue_tiger.55
 	title = blue_tiger.55.t
 	desc = blue_tiger.55.d
-	picture = GFX_UN_emergency_meeting
+	picture = GFX_UN_gen_assembly
 	is_triggered_only = yes
 
 	trigger = {
