@@ -832,4 +832,276 @@ F(bt, "TAI_bt_capstone", "Impossible to Coerce at an Acceptable Price", "america
   "Taiwan does not have to become impossible to hurt. It has to become impossible to coerce at an acceptable price.",
   pre=["TAI_bt_island_endures", "TAI_pl_lifeline_holds", ("TAI_na_fortress_taiwan", "TAI_na_hybrid")], eff=["idea:TAI_impossible_to_coerce", "var:ptn:-10"], ai=5, track="cont")
 
-TIERS = [["pl", "su", "ss"], ["as", "df", "na", "bt"]]
+# ---------------------------------------------------------------- Party branches
+# The party tracks of the Succession branch move into their own branches; every party focus takes 70 days.
+_su = next(b for b in BRANCHES if b["key"] == "su")
+_moved = {f["id"]: f for f in _su["focuses"] if f["track"] != "trunk"}
+_su["focuses"] = [f for f in _su["focuses"] if f["track"] == "trunk"]
+_PARTY_ORDER = {}
+
+
+def party_branch(key, name, order):
+    b = branch(key, name, 0, POL)
+    _PARTY_ORDER[key] = order
+    return b
+
+
+def move(b, fid, pre=None):
+    f = _moved.pop(fid)
+    if pre is not None:
+        f["pre"] = list(pre)
+    f["track"] = ""
+    b["focuses"].append(f)
+
+
+def PF(b, fid, name, icon, desc, pre, avail, eff, ai=3, filt=None):
+    F(b, fid, name, icon, 70, desc, pre=pre, avail=avail, eff=eff, ai=ai, filt=filt)
+
+
+def ev(n):
+    return f"raw:country_event = {{ id = blue_tiger.{n} days = 1 }}"
+
+
+# KMT
+km = party_branch("kmt", "Kuomintang", [])
+K = ["kmt"]
+move(km, "TAI_su_kmt_rebuild")
+move(km, "TAI_su_kmt_party_assets")
+PF(km, "TAI_su_kmt_localization", "Localize the Party", "Generic_Major_City",
+   "The party that came from the mainland in 1949 must become a Taiwanese party in its leadership, its language and its local branches, or it will keep losing the south.",
+   ["TAI_su_kmt_rebuild"], K, ["var:identity:2", "party:1:0.02", "pp:25"])
+move(km, "TAI_su_kmt_technocrats")
+move(km, "TAI_su_kmt_pan_blue")
+PF(km, "TAI_su_kmt_chairman_election", "Elect the Chairman", "Election",
+   "For the first time, party members will choose their chairman directly. A contested race would show that the Kuomintang has become a democratic party.",
+   ["TAI_su_kmt_localization"], K, ["pp:50", ev(60)])
+PF(km, "TAI_su_kmt_six_three_three", "The 6-3-3 Plan", "economic_prosperity2",
+   "Six percent growth, unemployment under three percent and per capita income above thirty thousand dollars: a simple economic promise the voters can measure.",
+   ["TAI_su_kmt_technocrats"], K, ["stab:0.03", "var:reform:5", ev(62)])
+move(km, "TAI_su_kmt_us_ties")
+move(km, "TAI_su_kmt_new_taiwanese")
+PF(km, "TAI_su_kmt_i_taiwan", "i-Taiwan Twelve Projects", "Generic_Public_Works",
+   "A program of railways, ports, urban renewal and flood control intended to lift growth and spread it beyond the capital.",
+   ["TAI_su_kmt_six_three_three"], K, ["money:-5", "build:one_random_infrastructure", "build:one_random_infrastructure", "stab:0.02"], filt=["FOCUS_FILTER_INDUSTRY"])
+PF(km, "TAI_su_kmt_viable_diplomacy", "Viable Diplomacy", "USA_diplomatic_corps",
+   "Stop the costly bidding war with Beijing for diplomatic allies. A diplomatic truce would keep our partners and spare the budget.",
+   ["TAI_su_kmt_us_ties"], K, ["chi:tension:-5", "chi:trust:5", "var:usconf:3"])
+move(km, "TAI_su_kmt_roc_framework")
+PF(km, "TAI_su_kmt_1992_consensus", "The 1992 Consensus", "accept_treaty",
+   "One China, with each side free to state what that means. For the Kuomintang this formula is the basis for talking to Beijing; for its critics it concedes too much.",
+   ["TAI_su_kmt_roc_framework"], K, ["chi:trust:8", "chi:tension:-5", "var:identity:-2"])
+PF(km, "TAI_su_kmt_party_platform", "A Party-to-Party Platform", "Generic_Secret_Meeting",
+   "Regular forums between the Kuomintang and the Communist Party would give both sides a channel that does not depend on governments.",
+   ["TAI_su_kmt_1992_consensus"], K, ["chi:trust:5", ev(61)])
+PF(km, "TAI_su_kmt_three_links", "The Three Links", "Trade_with_the_east",
+   "Direct flights, direct shipping and direct mail across the Strait would cut costs for business and families alike.",
+   ["TAI_su_kmt_1992_consensus"], K, ["var:dep:5", "chi:trust:5", "money:3"])
+move(km, "TAI_su_kmt_peace_framework", pre=["TAI_su_kmt_party_platform"])
+move(km, "TAI_su_kmt_consent")
+PF(km, "TAI_su_kmt_roc_on_taiwan", "The Republic of China on Taiwan", "TAI_civilwar_legacy",
+   "The Republic founded in 1912 now lives on Taiwan, governs by consent and keeps its own counsel. That is a status quo the island can defend.",
+   ["TAI_su_kmt_consent", "TAI_su_kmt_i_taiwan", "TAI_su_kmt_viable_diplomacy"], K, ["idea:TAI_kmt_roc_on_taiwan", "pp:50"], ai=5)
+
+# PFP
+pf = party_branch("pfp", "People First Party", [])
+P_ = ["pfp"]
+move(pf, "TAI_su_pfp_people_first")
+PF(pf, "TAI_su_pfp_soong_machine", "The Soong Machine", "Generic_Command_Power",
+   "As governor, James Soong visited every township on the island. His personal network is the party's greatest asset and its greatest weakness.",
+   ["TAI_su_pfp_people_first"], P_, ["party:14:0.02", ev(66)])
+move(pf, "TAI_su_pfp_provincial_network")
+move(pf, "TAI_su_pfp_clean_sweep")
+move(pf, "TAI_su_pfp_pragmatic_strait")
+PF(pf, "TAI_su_pfp_sunshine_laws", "Sunshine Laws", "BLR_Anti_Corruption",
+   "Asset disclosure for officials, open procurement and public party accounts: a new party can afford to demand what the old ones resisted.",
+   ["TAI_su_pfp_clean_sweep"], P_, ["corr:-1", "stab:0.02"])
+move(pf, "TAI_su_pfp_court_kmt_caucus")
+move(pf, "TAI_su_pfp_every_township")
+PF(pf, "TAI_su_pfp_kingmaker", "The Kingmaker Caucus", "Generic_Factionalism",
+   "No bill passes the Legislative Yuan without our votes. The caucus will make every party pay for them.",
+   ["TAI_su_pfp_court_kmt_caucus"], P_, ["pp:75", "party:14:0.01"])
+PF(pf, "TAI_su_pfp_blue_legislature", "A Blue Legislature", "Focus_Parliament_Constitution",
+   "Joint candidate lists with the Kuomintang would stop the Pan-Blue vote from splitting district by district.",
+   ["TAI_su_pfp_kingmaker"], P_, ["party:1:0.01", "party:14:0.01", "stab:0.02"])
+PF(pf, "TAI_su_pfp_welfare", "Welfare for Every Family", "generic_hospital",
+   "Old-age allowances, child subsidies and support for farmers: the provincial network promised help, and now it must deliver.",
+   ["TAI_su_pfp_every_township"], P_, ["money:-4", "stab:0.04", "party:14:0.01"])
+move(pf, "TAI_su_pfp_reunite_blue", pre=["TAI_su_pfp_blue_legislature"])
+PF(pf, "TAI_su_pfp_joint_ticket", "A Joint Pan-Blue Ticket", "Election_graphics",
+   "One presidential ticket for the whole Pan-Blue camp, with the leaders of both parties on it.",
+   ["TAI_su_pfp_reunite_blue"], P_, ["party:1:0.01", "party:14:0.02", ev(67)])
+PF(pf, "TAI_su_pfp_recount_fight", "Demand Every Vote Be Counted", "MEX_Defend_the_constitution",
+   "Elections decided by a handful of votes must be counted again, in public. The demand unites our voters and divides the island.",
+   ["TAI_su_pfp_joint_ticket"], P_, ["stab:-0.02", "party:14:0.02", "pp:50"])
+move(pf, "TAI_su_pfp_peace_mechanism")
+move(pf, "TAI_su_pfp_washington")
+PF(pf, "TAI_su_pfp_soong_in_beijing", "Soong Goes to Beijing", "Generic_Imperial_China_Diplomacy",
+   "James Soong will meet the Chinese leadership in person and return with a statement on peace in the Strait.",
+   ["TAI_su_pfp_peace_mechanism"], P_, ["chi:trust:5", ev(68)])
+PF(pf, "TAI_su_pfp_third_force", "The Third Force Governs", "Generic_Conservatism",
+   "A party born of one man's split from the Kuomintang now leads the Republic.",
+   ["TAI_su_pfp_recount_fight", "TAI_su_pfp_soong_in_beijing", "TAI_su_pfp_welfare"], P_, ["idea:TAI_pfp_third_force", "pp:50"], ai=5)
+
+# DPP
+dp = party_branch("dpp", "Democratic Progressive Party", [])
+D_ = ["dpp"]
+move(dp, "TAI_su_dpp_four_noes")
+PF(dp, "TAI_su_dpp_middle_way", "The Middle Way", "Generic_Liberalism",
+   "A center-left program for a party that has never governed: growth and welfare, reform without revolution.",
+   ["TAI_su_dpp_four_noes"], D_, ["stab:0.02", "party:2:0.01", "pp:25"])
+move(dp, "TAI_su_dpp_cautious_revolutionary")
+PF(dp, "TAI_su_dpp_advisory_conference", "The Economic Advisory Conference", "ExpandTrade",
+   "Business leaders, unions and all parties are invited to set economic policy together, including the rules for investment on the mainland.",
+   ["TAI_su_dpp_middle_way"], D_, ["var:reform:5", ev(63)])
+PF(dp, "TAI_su_dpp_pan_green_alliance", "The Pan-Green Alliance", "Generic_Workers_Democracy",
+   "Smaller parties that share our view of Taiwan's identity can give us the legislative votes we lack.",
+   ["TAI_su_dpp_cautious_revolutionary"], D_, ["party:18:0.01", "party:2:0.01", "pp:25"])
+move(dp, "TAI_su_dpp_taiwan_centered")
+move(dp, "TAI_su_dpp_clean_party")
+PF(dp, "TAI_su_dpp_one_country_each_side", "One Country on Each Side", "Socialist_Radio",
+   "The president tells a Tokyo audience by video link that there is one country on each side of the Strait.",
+   ["TAI_su_dpp_taiwan_centered"], D_, ["var:identity:5", ev(64)])
+PF(dp, "TAI_su_dpp_judicial_reform", "Judicial Reform", "MEX_Purge_corrupt_judges",
+   "Independent prosecutors, faster trials and an end to political influence over the courts.",
+   ["TAI_su_dpp_clean_party"], D_, ["corr:-1", "stab:0.02"])
+move(dp, "TAI_su_dpp_referendum_act", pre=["TAI_su_dpp_one_country_each_side"])
+PF(dp, "TAI_su_dpp_defensive_referendum", "The Defensive Referendum", "Election",
+   "Put the question of missile defense and talks with Beijing to the voters on the same day as the presidential election.",
+   ["TAI_su_dpp_referendum_act"], D_ + ["date>2003.12.1"], ["var:identity:3", ev(65)])
+move(dp, "TAI_su_dpp_status_quo")
+move(dp, "TAI_su_dpp_name_rectification")
+PF(dp, "TAI_su_dpp_weather_scandals", "Weather the Scandals", "Generic_Tear_Paper",
+   "Allegations against officials close to the president threaten everything the party built in opposition. It must be seen to clean its own house.",
+   ["TAI_su_dpp_judicial_reform"], D_ + ["date>2005.1.1"], ["stab:0.03", "party:2:0.01", "corr:-1"])
+move(dp, "TAI_su_dpp_council_ceases")
+move(dp, "TAI_su_dpp_un_bid")
+PF(dp, "TAI_su_dpp_new_generation", "A New Generation", "Generic_Liberty_Calling",
+   "The founders of the party came out of martial law. Its next leaders came out of the democracy they built.",
+   ["TAI_su_dpp_weather_scandals"], D_, ["party:2:0.02", "stab:0.02"])
+PF(dp, "TAI_su_dpp_own_path", "Taiwan's Own Path", "MNT_democracy",
+   "A democracy that chose its own government, settled its own past and decides its own future.",
+   ["TAI_su_dpp_un_bid", "TAI_su_dpp_new_generation", "TAI_su_dpp_advisory_conference"], D_, ["idea:TAI_dpp_own_path", "pp:50"], ai=5)
+
+# TSU (coalition partner)
+ts = party_branch("tsu", "Taiwan Solidarity Union", [])
+T_ = ["dpp", "date>2001.8.12"]
+PF(ts, "TAI_su_tsu_founding", "Lee Teng-hui's New Party", "TAI_civilwar_legacy",
+   "Former president Lee Teng-hui has lent his name to a new party of Taiwanese identity. Bringing it into the governing camp would give us the votes we need.",
+   ["TAI_su_form_cabinet"], T_, ["party:18:0.03", ev(69)], ai=5)
+PF(ts, "TAI_su_tsu_coalition", "A Pan-Green Majority", "accept_treaty",
+   "A formal agreement with the Solidarity Union to vote together in the Legislative Yuan.",
+   ["TAI_su_tsu_founding"], T_, ["pp:50", "party:18:0.01"])
+PF(ts, "TAI_su_tsu_spiritual_leader", "The Spiritual Leader", "Generic_Liberty_Calling",
+   "Lee holds no office in the party, but his speeches set its course and draw crowds no other politician can.",
+   ["TAI_su_tsu_founding"], T_, ["var:identity:3", "party:18:0.01"])
+PF(ts, "TAI_su_tsu_southern_base", "A Southern Base", "Generic_Major_City",
+   "Kaohsiung, Tainan and the farming counties of the south are where Taiwanese identity runs deepest.",
+   ["TAI_su_tsu_founding"], T_, ["party:18:0.02", "stab:0.01"])
+PF(ts, "TAI_su_tsu_hold_the_line", "Hold the Line on China Trade", "Generic_East_Vs_West",
+   "Our partner insists that investment on the mainland be limited and watched. Its price for support is caution.",
+   ["TAI_su_tsu_coalition"], T_, ["var:dep:-5", "chi:trust:-3", "money:-2"])
+PF(ts, "TAI_su_tsu_rooted_in_taiwan", "Rooted in Taiwan", "BLR_Hi_Tech_Park",
+   "Keep the most advanced factories and research at home, so that the island's prosperity does not move across the Strait.",
+   ["TAI_su_tsu_hold_the_line"], T_, ["var:chips:3", "var:dep:-2"])
+PF(ts, "TAI_su_tsu_farmers", "Farmers and Fishermen", "agriculture",
+   "WTO membership will expose Taiwan's farms and fishing ports to foreign competition. The Solidarity Union speaks for them.",
+   ["TAI_su_tsu_coalition"], T_, ["money:-3", "stab:0.02", "party:18:0.01"])
+PF(ts, "TAI_su_tsu_balance", "The Balance in the Legislature", "Generic_Factionalism",
+   "With a handful of seats, the Solidarity Union can decide the fate of budgets and bills.",
+   ["TAI_su_tsu_coalition"], T_, ["pp:50"])
+PF(ts, "TAI_su_tsu_mother_tongue", "Mother Tongue in the Classroom", "London_Health_Academy",
+   "Taiwanese Hokkien, Hakka and indigenous languages in every primary school.",
+   ["TAI_su_tsu_spiritual_leader"], T_, ["var:identity:3", "stab:0.01"])
+PF(ts, "TAI_su_tsu_brain_trust", "Lee's Brain Trust", "Generic_Intelligence_Gathering",
+   "Officials who served under Lee bring their experience of government to a small party with large ambitions.",
+   ["TAI_su_tsu_spiritual_leader"], T_, ["var:reform:3", "pp:25"])
+PF(ts, "TAI_su_tsu_rectify_name", "March to Rectify the Name", "Generic_Ripping_Papers",
+   "Tens of thousands march in Taipei to demand that the country use the name Taiwan.",
+   ["TAI_su_tsu_spiritual_leader"], T_ + ["date>2002.5.1"], ["var:identity:3", ev(70)])
+PF(ts, "TAI_su_tsu_young_taiwan", "Young Taiwan", "Election_graphics",
+   "A youth wing to carry Lee's message to a generation that never knew martial law.",
+   ["TAI_su_tsu_southern_base"], T_, ["party:18:0.01", "var:identity:2"])
+PF(ts, "TAI_su_tsu_wto_safeguards", "WTO Safeguards", "agriculture2",
+   "Quotas, subsidies and transition aid soften the blow of opening farm markets.",
+   ["TAI_su_tsu_farmers"], T_, ["money:-2", "stab:0.02"])
+PF(ts, "TAI_su_tsu_hand_in_hand", "Hand in Hand for Taiwan", "Generic_Workers_Democracy",
+   "A human chain from the northern tip of the island to the southern, on the anniversary of the 1947 massacre.",
+   ["TAI_su_tsu_rectify_name"], T_ + ["date>2004.1.1"], ["var:identity:4", ev(71)])
+PF(ts, "TAI_su_tsu_new_constitution", "A New Constitution", "Focus_Parliament_Constitution",
+   "The constitution was written in Nanjing in 1947 for all of China. The Solidarity Union wants one written in Taiwan.",
+   ["TAI_su_tsu_rectify_name"], T_, ["var:identity:3", "chi:tension:5", "var:usconf:-3"])
+PF(ts, "TAI_su_tsu_against_anti_secession", "Answer the Anti-Secession Law", "Afghan_on_the_world_stage",
+   "Beijing has written the threat of force into law. Our partner wants the island to answer in the streets.",
+   ["TAI_su_tsu_hand_in_hand"], T_ + ["date>2005.3.14"], ["var:identity:3", "ws:0.03", "chi:tension:3"])
+PF(ts, "TAI_su_tsu_cabinet_seats", "Seats in the Cabinet", "Generic_Command_Power",
+   "The Solidarity Union joins the cabinet, and its ministers share responsibility for the government's record.",
+   ["TAI_su_tsu_hold_the_line", "TAI_su_tsu_wto_safeguards"], T_, ["stab:0.03", "pp:50"])
+PF(ts, "TAI_su_tsu_taiwan_consensus", "The Taiwan Consensus", "MNT_democracy",
+   "Whatever the parties call it, a majority of the island now agrees that its future is for its own people to decide.",
+   ["TAI_su_tsu_new_constitution", "TAI_su_tsu_cabinet_seats"], T_, ["idea:TAI_tsu_taiwan_consensus", "pp:50"], ai=5)
+
+# Green Party (coalition partner)
+gp = party_branch("gpt", "Green Party Taiwan", [])
+G_ = ["dpp"]
+PF(gp, "TAI_su_gpt_root", "Partners with the Greens", "agriculture2",
+   "Green Party Taiwan has never won a national seat, but its activists lead the island's environmental movement. Their support brings credibility the government cannot buy.",
+   ["TAI_su_form_cabinet"], G_, ["party:17:0.01", "stab:0.01"], ai=3)
+PF(gp, "TAI_su_gpt_meinong_dam", "Cancel the Meinong Dam", "Generic_Digital_Agriculture",
+   "The reservoir would flood a Hakka valley in the south. Cancelling it is the environmental movement's first victory in government.",
+   ["TAI_su_gpt_root"], G_, ["party:17:0.01", "stab:0.02", "money:1"])
+PF(gp, "TAI_su_gpt_nuclear_free", "A Nuclear-Free Homeland", "Eu_nuclear_power",
+   "Write the goal of a nuclear-free Taiwan into law, with a timetable for the existing plants.",
+   ["TAI_su_gpt_root"], G_, ["party:17:0.01", ev(72)])
+PF(gp, "TAI_su_gpt_impact_assessment", "Environmental Impact Assessment", "Federal_Gas_Tax_Fund",
+   "Large projects will need a real environmental review, with public hearings and the power to say no.",
+   ["TAI_su_gpt_root"], G_, ["stab:0.02", "var:reform:3"])
+PF(gp, "TAI_su_gpt_labor", "Labor Rights", "Generic_Workers_Democracy",
+   "Shorter working hours, safer factories and the right to organize.",
+   ["TAI_su_gpt_root"], G_, ["stab:0.02", "money:-2"])
+PF(gp, "TAI_su_gpt_wind_and_sun", "Wind and Sun", "Efficient_Oil_Production_Focus_Icon_V2",
+   "The Greens campaign for wind farms off the west coast and solar power on every rooftop.",
+   ["TAI_su_gpt_nuclear_free"], G_, ["var:chips:2", "party:17:0.01"])
+PF(gp, "TAI_su_gpt_nuclear_referendum", "Let the People Decide on Nuclear Power", "Election",
+   "The Greens want the future of the Fourth Nuclear Plant settled by referendum, not by the legislature.",
+   ["TAI_su_gpt_nuclear_free"], G_, ["stab:0.01", "var:identity:1", "party:17:0.01"])
+PF(gp, "TAI_su_gpt_clean_air", "Clean Air for the South", "generic_hospital",
+   "Petrochemical plants and steel mills have made Kaohsiung's air the worst on the island.",
+   ["TAI_su_gpt_impact_assessment"], G_, ["stab:0.02", "money:-2"])
+PF(gp, "TAI_su_gpt_qigu_wetlands", "Save the Qigu Wetlands", "Tourism_is_our_oil",
+   "The black-faced spoonbill winters on the Tainan coast, where an industrial complex is planned.",
+   ["TAI_su_gpt_impact_assessment"], G_, ["stab:0.01", "party:17:0.01"])
+PF(gp, "TAI_su_gpt_indigenous", "Indigenous Land Rights", "Generic_Red_Cross",
+   "Return of traditional lands and a say in the projects built on them.",
+   ["TAI_su_gpt_labor"], G_, ["stab:0.02", "var:identity:1"])
+PF(gp, "TAI_su_gpt_ecological_tax", "An Ecological Tax", "generic_banks",
+   "Tax pollution instead of work, and spend the money on the transition.",
+   ["TAI_su_gpt_clean_air"], G_, ["money:3", "stab:-0.01"])
+PF(gp, "TAI_su_gpt_organic_farming", "Organic Farming", "agriculture",
+   "Support for farmers who give up pesticides, and a label consumers can trust.",
+   ["TAI_su_gpt_labor"], G_, ["stab:0.01", "money:-1"])
+PF(gp, "TAI_su_gpt_east_coast", "Protect the East Coast", "Generic_Maritime",
+   "The Greens oppose a new highway along the cliffs of Hualien and Taitung, the island's last unspoiled coast.",
+   ["TAI_su_gpt_qigu_wetlands"], G_, ["party:17:0.01", "stab:0.01"])
+PF(gp, "TAI_su_gpt_council_seats", "Seats on the City Councils", "Generic_Major_City",
+   "Local elections give small parties their best chance. A few Green councilors would prove the movement can win votes.",
+   ["TAI_su_gpt_nuclear_referendum"], G_ + ["date>2002.12.1"], ["party:17:0.02"])
+PF(gp, "TAI_su_gpt_civil_society", "The Civil Society Alliance", "European_Society",
+   "Environmental groups, unions and indigenous organizations agree to campaign together.",
+   ["TAI_su_gpt_indigenous", "TAI_su_gpt_organic_farming"], G_, ["stab:0.02", "var:coord:3"])
+PF(gp, "TAI_su_gpt_green_minister", "A Green Minister", "Generic_Command_Power",
+   "A respected Green activist is offered a post in the cabinet, and with it a share of the government's compromises.",
+   ["TAI_su_gpt_wind_and_sun", "TAI_su_gpt_council_seats"], G_, ["party:17:0.01", ev(73)])
+PF(gp, "TAI_su_gpt_eco_reform", "Ecological Tax Reform", "GENERIC_austerity_measures",
+   "Fold the ecological tax into a wider reform that rewards clean industry.",
+   ["TAI_su_gpt_ecological_tax", "TAI_su_gpt_east_coast"], G_, ["var:reform:3", "money:2"])
+PF(gp, "TAI_su_gpt_conscience", "The Green Conscience", "MNT_democracy",
+   "A small party has changed how the island thinks about its land, its air and its future.",
+   ["TAI_su_gpt_green_minister", "TAI_su_gpt_civil_society", "TAI_su_gpt_eco_reform"], G_, ["idea:TAI_gpt_green_conscience", "pp:50"], ai=5)
+
+assert not _moved, sorted(_moved)
+for _b in BRANCHES:
+    if _b["key"] in _PARTY_ORDER or _b["key"] == "df":
+        for _f in _b["focuses"]:
+            _f["days"] = 70
+
+TIERS = [["pl", "su", "ss"], ["kmt", "pfp", "dpp", "tsu", "gpt"], ["as", "df", "na", "bt"]]

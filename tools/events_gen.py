@@ -116,7 +116,7 @@ for e in S.EVENTS:
         y, d = e["sched"]
         sched.setdefault(y, []).append(f"\t\tcountry_event = {{ id = {eid} days = {d} }}")
 
-for k, v in S.IDEAS_LOC + S.IDEAS_LOC_M3:
+for k, v in S.IDEAS_LOC + S.IDEAS_LOC_M3 + S.IDEAS_LOC_M6:
     loc.append(f' {k}: "{v}"')
 
 # sanity checks
@@ -141,6 +141,8 @@ with open(os.path.join(OUT, "ideas2_block.txt"), "w", encoding="utf-8", newline=
     fh.write(S.IDEAS_BLOCK)
 with open(os.path.join(OUT, "ideas3_block.txt"), "w", encoding="utf-8", newline="\n") as fh:
     fh.write(S.IDEAS_BLOCK_M3)
+with open(os.path.join(OUT, "ideas6_block.txt"), "w", encoding="utf-8", newline="\n") as fh:
+    fh.write(S.IDEAS_BLOCK_M6)
 with open(os.path.join(OUT, "schedule.txt"), "w", encoding="utf-8", newline="\n") as fh:
     for y in sorted(sched):
         fh.write(f"{y}\n" + "\n".join(sched[y]) + "\n")

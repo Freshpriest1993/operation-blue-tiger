@@ -361,3 +361,145 @@ IDEAS_LOC_M3 = [
     ("TAI_referendum_approved_tt", "If voters §Rapprove§!: Taiwan accepts unification with the mainland."),
     ("TAI_referendum_rejected_tt", "If voters §Greject§!: the talks end and the government gains a mandate to resist."),
 ]
+
+# ------------------------------------------------------------------ party branches
+E(60, "Elect the Chairman",
+  "For the first time, Kuomintang members choose their chairman directly. One candidate is a popular reformist mayor who appeals to young and urban voters; the other is a veteran legislator with deep roots in the party's local networks.",
+  "GFX_election_day",
+  [O("Back the reformist mayor", ["party:1:0.02", "stab:0.02"], ai=60),
+   O("Back the veteran legislator", ["var:identity:2", "party:1:0.01", "pp:50"], ai=40)])
+
+E(61, "A Forum with the Communist Party",
+  "Beijing has accepted a regular forum between the Kuomintang and the Communist Party. It wants politics on the agenda; many of our own members want to keep it to trade and tourism.",
+  "GFX_politics_talks",
+  [O("Open the forum to every subject", ["chi:trust:8", "var:dep:3", "var:usconf:-3"], ai=40),
+   O("Keep it to trade and tourism", ["chi:trust:3", "var:usconf:2"], ai=60)])
+
+E(62, "Can the Targets Be Met?",
+  "Economists doubt that six percent growth is realistic in a slowing world economy. The opposition is already quoting our promise back at us.",
+  "GFX_election_rally",
+  [O("Hold to the targets", ["stab:0.02", "money:-3"], ai=50, aimod=[DEFICIT, BANKRUPT]),
+   O("Quietly soften them", ["pp:25", "stab:-0.01"], ai=50)])
+
+E(63, "Active Opening, Effective Management",
+  "The Economic Advisory Conference recommends replacing the policy of \"no haste, be patient\" on mainland investment with \"active opening, effective management\". Our coalition partners and the deep-green wing object.",
+  "GFX_negotiations",
+  [O("Adopt the new policy", ["var:dep:5", "money:3", "chi:trust:3"], ai=60),
+   O("Keep the brakes on", ["var:dep:-3", "party:18:0.01", "stab:0.01"], ai=40)])
+
+E(64, "One Country on Each Side",
+  "The president's remark has made headlines across Asia. Beijing calls it a provocation, Washington asks what it means, and supporters at home cheer.",
+  "GFX_CHI_event_china_taiwan_flag",
+  [O("Stand by the statement", ["var:identity:3", "chi:tension:8", "var:usconf:-5"], ai=40),
+   O("Clarify that nothing has changed", ["var:usconf:3", "var:identity:-1", "stab:0.01"], ai=60)])
+
+E(65, "The Defensive Referendum",
+  "Two questions will appear on the ballot: whether to buy more missile defenses if Beijing does not withdraw its missiles, and whether to open talks on a framework for peace. Washington has made clear it is uneasy.",
+  "GFX_election_day",
+  [O("Hold it alongside the election", ["var:identity:3", "var:usconf:-5", "chi:tension:5"], ai=50),
+   O("Withdraw it under American pressure", ["var:usconf:5", "party:2:-0.01"], ai=50)])
+
+E(66, "The Soong Machine",
+  "Crowds turn out wherever James Soong goes. Party organizers warn that a party built around one man will not outlive him.",
+  "GFX_election_rally",
+  [O("Let Soong campaign everywhere", ["party:14:0.02", "pp:-25"], ai=50),
+   O("Build institutions, not a personality", ["var:reform:3", "party:14:0.01"], ai=50)])
+
+E(67, "Who Leads the Ticket?",
+  "The Pan-Blue parties have agreed on one ticket for the presidency. They have not agreed whose name goes first.",
+  "GFX_election_rally",
+  [O("Our leader heads the ticket", ["party:14:0.02", "party:1:-0.01"], ai=50),
+   O("Take second place for the sake of unity", ["party:1:0.02", "stab:0.02"], ai=50)])
+
+E(68, "Soong in Beijing",
+  "James Soong's talks with the Chinese leadership have produced a draft statement on peace in the Strait. Signing it would make headlines; refusing would disappoint our hosts.",
+  "GFX_politics_talks",
+  [O("Sign the joint statement", ["chi:trust:8", "chi:tension:-5", "var:usconf:-3"], ai=50),
+   O("Return without commitments", ["chi:trust:2", "var:usconf:2"], ai=50)])
+
+E(69, "Lee Teng-hui's New Party",
+  "Supporters of former president Lee Teng-hui have founded the Taiwan Solidarity Union, and the Kuomintang has expelled its former chairman. The new party offers its votes to the government.",
+  "GFX_TAI_taiwan",
+  [O("Welcome it into the Pan-Green camp", ["party:18:0.02", "party:1:-0.02", "chi:tension:3"], ai=60),
+   O("Keep it at arm's length", ["var:usconf:2", "party:18:0.01"], ai=40)])
+
+E(70, "March to Rectify the Name",
+  "Tens of thousands have marched through Taipei demanding that the country be called Taiwan. The organizers ask the government to join them.",
+  "GFX_election_protests",
+  [O("Join the march", ["var:identity:3", "chi:tension:4", "var:usconf:-3"], ai=40),
+   O("Send a message of support", ["var:identity:1", "stab:0.01"], ai=60)])
+
+E(71, "Hand in Hand for Taiwan",
+  "Some two million people have joined hands in a human chain running the length of the island, on the anniversary of the 1947 massacre.",
+  "GFX_TAI_228_hand",
+  [O("The island stands together", ["var:identity:4", "stab:0.02", "chi:tension:3"], ai=50),
+   O("Turn it into a campaign rally", ["party:2:0.02", "party:18:0.01"], ai=50)])
+
+E(72, "A Nuclear-Free Homeland",
+  "The bill commits Taiwan to becoming nuclear-free. The Greens want a firm timetable; the chipmakers warn about power supply.",
+  "GFX_nuclear_power_plant",
+  [O("Set a firm timetable", ["party:17:0.02", "var:chips:-2", "stab:0.01"], ai=40),
+   O("Make it a long-term goal", ["party:17:0.01"], ai=60)])
+
+E(73, "A Green Minister",
+  "Green Party Taiwan's leaders are divided over whether to enter the cabinet. Joining would bring influence and the burden of the government's compromises.",
+  "GFX_politics_negotiations",
+  [O("Offer the environment ministry", ["party:17:0.02", "stab:0.02", "var:reform:3"], ai=50),
+   O("Offer an advisory council instead", ["pp:25", "party:17:-0.01"], ai=50)])
+
+IDEAS_BLOCK_M6 = '''
+		# Operation Blue Tiger: party branch capstones
+		TAI_kmt_roc_on_taiwan = {
+			picture = political_support
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.05
+				trade_opinion_factor = 0.10
+			}
+		}
+		TAI_dpp_own_path = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				political_power_gain = 0.10
+			}
+		}
+		TAI_pfp_third_force = {
+			picture = political_reform
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.02
+				political_power_gain = 0.15
+			}
+		}
+		TAI_tsu_taiwan_consensus = {
+			picture = national_unity
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				war_support_factor = 0.05
+			}
+		}
+		TAI_gpt_green_conscience = {
+			picture = international_treaty
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				research_speed_factor = 0.02
+			}
+		}
+'''
+
+IDEAS_LOC_M6 = [
+    ("TAI_kmt_roc_on_taiwan", "The Republic of China on Taiwan"),
+    ("TAI_kmt_roc_on_taiwan_desc", "The Republic founded in 1912 governs Taiwan by consent and keeps the door to the mainland open on its own terms."),
+    ("TAI_dpp_own_path", "Taiwan's Own Path"),
+    ("TAI_dpp_own_path_desc", "A democracy that chose its own government and decides its own future."),
+    ("TAI_pfp_third_force", "The Third Force"),
+    ("TAI_pfp_third_force_desc", "A party born of a split now governs, and its discipline in the legislature has become the government's strength."),
+    ("TAI_tsu_taiwan_consensus", "The Taiwan Consensus"),
+    ("TAI_tsu_taiwan_consensus_desc", "A majority of the island agrees that its future belongs to its own people."),
+    ("TAI_gpt_green_conscience", "The Green Conscience"),
+    ("TAI_gpt_green_conscience_desc", "Environmental and social movements have become partners in government."),
+]

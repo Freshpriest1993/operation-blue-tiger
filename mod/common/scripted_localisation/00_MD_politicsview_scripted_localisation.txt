@@ -13671,6 +13671,7 @@ defined_text = {
 	text = { trigger = { original_tag = SUR } localization_key = SUR.neutral_Social }
 	text = { trigger = { original_tag = SWE } localization_key = SWE.neutral_Social }
 	text = { trigger = { original_tag = SWI } localization_key = SWI.neutral_Social }
+	text = { trigger = { original_tag = TAI date > 2001.8.12 date < 2019.1.1 } localization_key = TAI.neutral_Social_TSU }
 	text = { trigger = { original_tag = TAI date < 2019.1.1 } localization_key = TAI.neutral_Social }
 	text = { trigger = { original_tag = TAI date > 2019.1.1 } localization_key = TAI.neutral_Social_1 }
 	text = { trigger = { original_tag = TAJ } localization_key = TAJ.neutral_Social }
@@ -16579,6 +16580,7 @@ defined_text = {
 	text = { trigger = { original_tag = SUD } localization_key = SUD.neutral_Social_desc }
 	text = { trigger = { original_tag = SWE } localization_key = SWE.neutral_Social_desc }
 	text = { trigger = { original_tag = SWI } localization_key = SWI.neutral_Social_desc }
+	text = { trigger = { original_tag = TAI date > 2001.8.12 date < 2019.1.1 } localization_key = TAI.neutral_Social_TSU_desc }
 	text = { trigger = { original_tag = TAI date < 2019.1.1 } localization_key = TAI.neutral_Social_desc }
 	text = { trigger = { original_tag = TAI date > 2019.1.1 } localization_key = TAI.neutral_Social_1_desc }
 	text = { trigger = { original_tag = TAJ } localization_key = TAJ.neutral_Social_desc }

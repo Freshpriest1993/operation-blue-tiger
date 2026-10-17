@@ -141,7 +141,7 @@ focus_tree = {
 	focus = {
 		id = TAI_su_minority_government
 		icon = Generic_Factionalism
-		x = -11
+		x = -4
 		y = 4
 		relative_position_id = TAI_su_millennium_election
 		cost = 5
@@ -164,7 +164,7 @@ focus_tree = {
 	focus = {
 		id = TAI_su_unified_government
 		icon = Generic_Conservatism
-		x = -9
+		x = -2
 		y = 4
 		relative_position_id = TAI_su_millennium_election
 		cost = 5
@@ -187,7 +187,7 @@ focus_tree = {
 	focus = {
 		id = TAI_su_fourth_nuclear
 		icon = Eu_nuclear_power
-		x = -12
+		x = -5
 		y = 5
 		relative_position_id = TAI_su_millennium_election
 		prerequisite = { focus = TAI_su_minority_government focus = TAI_su_unified_government }
@@ -231,7 +231,7 @@ focus_tree = {
 	focus = {
 		id = TAI_su_ly_2001
 		icon = Election
-		x = -10
+		x = -3
 		y = 5
 		relative_position_id = TAI_su_millennium_election
 		cost = 5
@@ -253,7 +253,7 @@ focus_tree = {
 	focus = {
 		id = TAI_su_second_mandate
 		icon = Election_graphics
-		x = -10
+		x = -3
 		y = 6
 		relative_position_id = TAI_su_millennium_election
 		prerequisite = { focus = TAI_su_ly_2001 }
@@ -274,7 +274,7 @@ focus_tree = {
 	focus = {
 		id = TAI_su_heal_divided_island
 		icon = Generic_Liberty_Calling
-		x = -10
+		x = -3
 		y = 7
 		relative_position_id = TAI_su_millennium_election
 		prerequisite = { focus = TAI_su_second_mandate }
@@ -297,7 +297,7 @@ focus_tree = {
 	focus = {
 		id = TAI_su_second_test
 		icon = MNT_democracy
-		x = -10
+		x = -3
 		y = 8
 		relative_position_id = TAI_su_millennium_election
 		prerequisite = { focus = TAI_su_heal_divided_island }
@@ -316,733 +316,10 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TAI_su_dpp_four_noes
-		icon = Generic_Ripping_Papers
-		x = -6
-		y = 4
-		relative_position_id = TAI_su_millennium_election
-		cost = 5
-		prerequisite = { focus = TAI_su_form_cabinet }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_four_noes"
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = -8 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			add_to_variable = { TAI_us_confidence = 10 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
-					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
-				}
-			}
-		}
-		ai_will_do = {
-			base = 5
-		}
-	}
-
-	focus = {
-		id = TAI_su_dpp_cautious_revolutionary
-		icon = Generic_Liberalism
-		x = -6
-		y = 5
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_dpp_four_noes }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_cautious_revolutionary"
-			add_stability = 0.03
-			add_to_variable = { TAI_military_confidence = 5 tooltip = TAI_military_confidence_tt }
-			clamp_variable = { var = TAI_military_confidence min = 0 max = 100 }
-			add_political_power = 50
-		}
-		ai_will_do = {
-			base = 3
-		}
-	}
-
-	focus = {
-		id = TAI_su_dpp_taiwan_centered
-		icon = TAI_civilwar_legacy
-		x = -7
-		y = 6
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_taiwan_centered"
-			add_to_variable = { TAI_taiwanese_identity = 8 tooltip = TAI_taiwanese_identity_tt }
-			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = 4 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_TAI_trust = -4 tooltip = CHI_TAI_trust_tt }
-					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
-				}
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_dpp_referendum_act
-		icon = Generic_Tear_Paper
-		x = -7
-		y = 7
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_dpp_taiwan_centered }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-			TAI_can_pass_legislation = yes
-			date > 2003.1.1
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_referendum_act"
-			add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
-			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
-			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
-			add_stability = 0.02
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_dpp_status_quo
-		icon = accept_treaty
-		x = -8
-		y = 8
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_dpp_referendum_act }
-		mutually_exclusive = { focus = TAI_su_dpp_name_rectification }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_status_quo"
-			add_to_variable = { TAI_us_confidence = 10 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			country_event = { id = blue_tiger.28 days = 30 }
-		}
-		ai_will_do = {
-			base = 3
-		}
-	}
-
-	focus = {
-		id = TAI_su_dpp_name_rectification
-		icon = Generic_Ripping_Papers
-		x = -6
-		y = 8
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_dpp_referendum_act }
-		mutually_exclusive = { focus = TAI_su_dpp_status_quo }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_name_rectification"
-			add_to_variable = { TAI_taiwanese_identity = 10 tooltip = TAI_taiwanese_identity_tt }
-			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = 10 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
-			country_event = { id = blue_tiger.27 days = 3 }
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_dpp_council_ceases
-		icon = Generic_Tear_Paper
-		x = -6
-		y = 9
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_dpp_name_rectification }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-			custom_trigger_tooltip = { tooltip = TAI_strait_tension_above_49_tt CHI = { check_variable = { CHI_taiwan_strait_tension > 49 } } }
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_council_ceases"
-			add_to_variable = { TAI_taiwanese_identity = 5 tooltip = TAI_taiwanese_identity_tt }
-			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = 12 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			add_to_variable = { TAI_us_confidence = -10 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_dpp_un_bid
-		icon = Afghan_on_the_world_stage
-		x = -6
-		y = 10
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_dpp_council_ceases }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-			date > 2007.1.1
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_un_bid"
-			add_to_variable = { TAI_taiwanese_identity = 10 tooltip = TAI_taiwanese_identity_tt }
-			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
-			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = 10 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			country_event = { id = blue_tiger.27 days = 3 }
-		}
-		ai_will_do = {
-			base = 0
-		}
-	}
-
-	focus = {
-		id = TAI_su_dpp_clean_party
-		icon = BLR_Democratic_clean
-		x = -5
-		y = 6
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pan_green_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_clean_party"
-			decrease_corruption = yes
-			add_stability = 0.02
-		}
-		ai_will_do = {
-			base = 3
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_rebuild
-		icon = Generic_Conservatism
-		x = -2
-		y = 4
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_form_cabinet }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_rebuild"
-			add_stability = 0.03
-			add_political_power = 50
-		}
-		ai_will_do = {
-			base = 5
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_party_assets
-		icon = generic_banks
-		x = -4
-		y = 5
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_kmt_rebuild }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_party_assets"
-			decrease_corruption = yes
-			add_stability = 0.03
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_technocrats
-		icon = Generic_Command_Power
-		x = -2
-		y = 5
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_kmt_rebuild }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_technocrats"
-			add_to_variable = { TAI_reform_capacity = 10 tooltip = TAI_reform_capacity_tt }
-			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
-			add_timed_idea = { idea = TAI_technocratic_cabinet days = 730 }
-		}
-		ai_will_do = {
-			base = 3
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_pan_blue
-		icon = Generic_Secret_Meeting
-		x = 0
-		y = 5
-		relative_position_id = TAI_su_millennium_election
-		cost = 5
-		prerequisite = { focus = TAI_su_kmt_rebuild }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_pan_blue"
-			add_to_variable = { party_pop_array^1 = 0.02 }
-			recalculate_party = yes
-			add_to_variable = { party_pop_array^14 = 0.01 }
-			recalculate_party = yes
-			add_political_power = 25
-		}
-		ai_will_do = {
-			base = 3
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_new_taiwanese
-		icon = Generic_Liberty_Calling
-		x = 0
-		y = 6
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_kmt_pan_blue }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_new_taiwanese"
-			add_to_variable = { TAI_taiwanese_identity = 4 tooltip = TAI_taiwanese_identity_tt }
-			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
-			add_stability = 0.03
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_roc_framework
-		icon = Focus_Parliament_Constitution
-		x = 0
-		y = 7
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_kmt_new_taiwanese }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_roc_framework"
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
-					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
-				}
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_peace_framework
-		icon = NKO_korea_peace
-		x = 0
-		y = 8
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_kmt_roc_framework }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_peace_framework"
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_TAI_trust = 10 tooltip = CHI_TAI_trust_tt }
-					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
-				}
-			}
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			add_to_variable = { TAI_mainland_dependence = 5 tooltip = TAI_mainland_dependence_tt }
-			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_consent
-		icon = MNT_democracy
-		x = 0
-		y = 9
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_kmt_peace_framework }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_consent"
-			add_to_variable = { TAI_pressure_to_negotiate = -10 tooltip = TAI_pressure_to_negotiate_tt }
-			clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
-			add_stability = 0.03
-		}
-		ai_will_do = {
-			base = 3
-		}
-	}
-
-	focus = {
-		id = TAI_su_kmt_us_ties
-		icon = align_to_america
-		x = -2
-		y = 6
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_kmt_technocrats }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_kmt_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_us_ties"
-			add_to_variable = { TAI_us_confidence = 8 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_us_support = 3 tooltip = CHI_taiwan_us_support_tt }
-					clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
-				}
-			}
-		}
-		ai_will_do = {
-			base = 3
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_people_first
-		icon = Generic_Liberty_Calling
-		x = 5
-		y = 4
-		relative_position_id = TAI_su_millennium_election
-		cost = 5
-		prerequisite = { focus = TAI_su_form_cabinet }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_people_first"
-			add_political_power = 75
-			add_to_variable = { party_pop_array^14 = 0.02 }
-			recalculate_party = yes
-		}
-		ai_will_do = {
-			base = 5
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_provincial_network
-		icon = Generic_Major_City
-		x = 3
-		y = 5
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_pfp_people_first }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_provincial_network"
-			add_to_variable = { TAI_national_coordination = 5 tooltip = TAI_national_coordination_tt }
-			clamp_variable = { var = TAI_national_coordination min = 0 max = 100 }
-			add_to_variable = { party_pop_array^14 = 0.02 }
-			recalculate_party = yes
-			add_stability = 0.02
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_court_kmt_caucus
-		icon = Generic_Secret_Meeting
-		x = 2
-		y = 6
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_pfp_provincial_network }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_court_kmt_caucus"
-			add_to_variable = { party_pop_array^1 = 0.02 }
-			recalculate_party = yes
-			add_to_variable = { party_pop_array^14 = 0.02 }
-			recalculate_party = yes
-			add_stability = -0.02
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_reunite_blue
-		icon = Generic_Conservatism
-		x = 2
-		y = 7
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_pfp_court_kmt_caucus }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_reunite_blue"
-			if = { limit = { has_idea = TAI_divided_government } remove_ideas = TAI_divided_government }
-			add_political_power = 50
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_clean_sweep
-		icon = anti_corruption
-		x = 5
-		y = 5
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_pfp_people_first }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_clean_sweep"
-			decrease_corruption = yes
-			add_stability = -0.02
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_every_township
-		icon = Generic_Public_Works
-		x = 4
-		y = 6
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_pfp_provincial_network }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_every_township"
-			one_random_infrastructure = yes
-			one_random_infrastructure = yes
-			add_stability = 0.02
-		}
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 0
-				has_active_mission = bankruptcy_incoming_collapse
-			}
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_pragmatic_strait
-		icon = Generic_Imperial_China_Diplomacy
-		x = 7
-		y = 5
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_pfp_people_first }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_pragmatic_strait"
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_TAI_trust = 8 tooltip = CHI_TAI_trust_tt }
-					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
-				}
-			}
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_peace_mechanism
-		icon = NKO_korea_peace
-		x = 6
-		y = 6
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_pfp_pragmatic_strait }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_peace_mechanism"
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
-					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
-				}
-			}
-			if = {
-				limit = { country_exists = CHI }
-				CHI = {
-					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
-					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
-				}
-			}
-			add_to_variable = { TAI_mainland_dependence = 5 tooltip = TAI_mainland_dependence_tt }
-			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = TAI_su_pfp_washington
-		icon = align_to_america
-		x = 8
-		y = 6
-		relative_position_id = TAI_su_millennium_election
-		prerequisite = { focus = TAI_su_pfp_pragmatic_strait }
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		available = {
-			TAI_pfp_in_power = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_washington"
-			add_to_variable = { TAI_us_confidence = 8 tooltip = TAI_us_confidence_tt }
-			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
-		}
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
 		id = TAI_df_root
 		icon = Strengthening_Russian_Democracy
 		x = 26
-		y = 12
+		y = 20
 		prerequisite = { focus = TAI_su_peaceful_transfer }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -1062,7 +339,6 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = TAI_df_root
-		cost = 5
 		prerequisite = { focus = TAI_df_root }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -1365,7 +641,6 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = TAI_df_root
-		cost = 5
 		prerequisite = { focus = TAI_df_settle_executive }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -1422,7 +697,6 @@ focus_tree = {
 		x = 6
 		y = 1
 		relative_position_id = TAI_df_root
-		cost = 5
 		prerequisite = { focus = TAI_df_root }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -1596,7 +870,6 @@ focus_tree = {
 		x = 2
 		y = 7
 		relative_position_id = TAI_df_root
-		cost = 15
 		prerequisite = { focus = TAI_df_national_assembly }
 		prerequisite = { focus = TAI_df_special_funds_audit }
 		prerequisite = { focus = TAI_df_influence_transparency focus = TAI_df_counter_disinfo }
@@ -1617,7 +890,7 @@ focus_tree = {
 		id = TAI_na_rebuild_shield
 		icon = Generic_Soldiers_Defense
 		x = 52
-		y = 12
+		y = 20
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_rebuild_shield"
@@ -2712,7 +1985,7 @@ focus_tree = {
 	focus = {
 		id = TAI_ss_root
 		icon = BLR_Hi_Tech_Park
-		x = 68
+		x = 62
 		y = 0
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -3520,7 +2793,7 @@ focus_tree = {
 		id = TAI_as_root
 		icon = Generic_Imperial_China_Diplomacy
 		x = 7
-		y = 12
+		y = 20
 		prerequisite = { focus = TAI_su_peaceful_transfer }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -4300,7 +3573,7 @@ focus_tree = {
 	focus = {
 		id = TAI_pl_root
 		icon = Afghan_on_the_world_stage
-		x = 18
+		x = 25
 		y = 0
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -5005,7 +4278,7 @@ focus_tree = {
 		id = TAI_bt_root
 		icon = american_shield
 		x = 80
-		y = 12
+		y = 20
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		available = {
 			TAI_blue_tiger_roots_ready = yes
@@ -5561,6 +4834,2258 @@ focus_tree = {
 			add_ideas = TAI_impossible_to_coerce
 			add_to_variable = { TAI_pressure_to_negotiate = -10 tooltip = TAI_pressure_to_negotiate_tt }
 			clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_rebuild
+		icon = Generic_Conservatism
+		x = 12
+		y = 10
+		prerequisite = { focus = TAI_su_form_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_rebuild"
+			add_stability = 0.03
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_party_assets
+		icon = generic_banks
+		x = -4
+		y = 1
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_rebuild }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_party_assets"
+			decrease_corruption = yes
+			add_stability = 0.03
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_localization
+		icon = Generic_Major_City
+		x = -2
+		y = 1
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_rebuild }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_localization"
+			add_to_variable = { TAI_taiwanese_identity = 2 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			add_to_variable = { party_pop_array^1 = 0.02 }
+			recalculate_party = yes
+			add_political_power = 25
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_technocrats
+		icon = Generic_Command_Power
+		x = 1
+		y = 1
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_rebuild }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_technocrats"
+			add_to_variable = { TAI_reform_capacity = 10 tooltip = TAI_reform_capacity_tt }
+			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
+			add_timed_idea = { idea = TAI_technocratic_cabinet days = 730 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_pan_blue
+		icon = Generic_Secret_Meeting
+		x = 4
+		y = 1
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_rebuild }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_pan_blue"
+			add_to_variable = { party_pop_array^1 = 0.02 }
+			recalculate_party = yes
+			add_to_variable = { party_pop_array^14 = 0.01 }
+			recalculate_party = yes
+			add_political_power = 25
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_chairman_election
+		icon = Election
+		x = -2
+		y = 2
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_localization }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_chairman_election"
+			add_political_power = 50
+			country_event = { id = blue_tiger.60 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_six_three_three
+		icon = economic_prosperity2
+		x = 0
+		y = 2
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_technocrats }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_six_three_three"
+			add_stability = 0.03
+			add_to_variable = { TAI_reform_capacity = 5 tooltip = TAI_reform_capacity_tt }
+			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
+			country_event = { id = blue_tiger.62 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_us_ties
+		icon = align_to_america
+		x = 2
+		y = 2
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_technocrats }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_us_ties"
+			add_to_variable = { TAI_us_confidence = 8 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_us_support = 3 tooltip = CHI_taiwan_us_support_tt }
+					clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_new_taiwanese
+		icon = Generic_Liberty_Calling
+		x = 4
+		y = 2
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_pan_blue }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_new_taiwanese"
+			add_to_variable = { TAI_taiwanese_identity = 4 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			add_stability = 0.03
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_i_taiwan
+		icon = Generic_Public_Works
+		x = 0
+		y = 3
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_six_three_three }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_i_taiwan"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+			one_random_infrastructure = yes
+			one_random_infrastructure = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_viable_diplomacy
+		icon = USA_diplomatic_corps
+		x = 2
+		y = 3
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_us_ties }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_viable_diplomacy"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			add_to_variable = { TAI_us_confidence = 3 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_roc_framework
+		icon = Focus_Parliament_Constitution
+		x = 4
+		y = 3
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_new_taiwanese }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_roc_framework"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_1992_consensus
+		icon = accept_treaty
+		x = 4
+		y = 4
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_roc_framework }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_1992_consensus"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 8 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			add_to_variable = { TAI_taiwanese_identity = -2 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_party_platform
+		icon = Generic_Secret_Meeting
+		x = 3
+		y = 5
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_1992_consensus }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_party_platform"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			country_event = { id = blue_tiger.61 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_three_links
+		icon = Trade_with_the_east
+		x = 5
+		y = 5
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_1992_consensus }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_three_links"
+			add_to_variable = { TAI_mainland_dependence = 5 tooltip = TAI_mainland_dependence_tt }
+			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			set_temp_variable = { treasury_change = 3 }
+			modify_treasury_effect = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_peace_framework
+		icon = NKO_korea_peace
+		x = 3
+		y = 6
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_party_platform }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_peace_framework"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 10 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			add_to_variable = { TAI_mainland_dependence = 5 tooltip = TAI_mainland_dependence_tt }
+			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_consent
+		icon = MNT_democracy
+		x = 3
+		y = 7
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_peace_framework }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_consent"
+			add_to_variable = { TAI_pressure_to_negotiate = -10 tooltip = TAI_pressure_to_negotiate_tt }
+			clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
+			add_stability = 0.03
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_kmt_roc_on_taiwan
+		icon = TAI_civilwar_legacy
+		x = 3
+		y = 8
+		relative_position_id = TAI_su_kmt_rebuild
+		prerequisite = { focus = TAI_su_kmt_consent }
+		prerequisite = { focus = TAI_su_kmt_i_taiwan }
+		prerequisite = { focus = TAI_su_kmt_viable_diplomacy }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_kmt_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_kmt_roc_on_taiwan"
+			add_ideas = TAI_kmt_roc_on_taiwan
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_people_first
+		icon = Generic_Liberty_Calling
+		x = 26
+		y = 10
+		prerequisite = { focus = TAI_su_form_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_people_first"
+			add_political_power = 75
+			add_to_variable = { party_pop_array^14 = 0.02 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_soong_machine
+		icon = Generic_Command_Power
+		x = -4
+		y = 1
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_people_first }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_soong_machine"
+			add_to_variable = { party_pop_array^14 = 0.02 }
+			recalculate_party = yes
+			country_event = { id = blue_tiger.66 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_provincial_network
+		icon = Generic_Major_City
+		x = -2
+		y = 1
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_people_first }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_provincial_network"
+			add_to_variable = { TAI_national_coordination = 5 tooltip = TAI_national_coordination_tt }
+			clamp_variable = { var = TAI_national_coordination min = 0 max = 100 }
+			add_to_variable = { party_pop_array^14 = 0.02 }
+			recalculate_party = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_clean_sweep
+		icon = anti_corruption
+		x = 1
+		y = 1
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_people_first }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_clean_sweep"
+			decrease_corruption = yes
+			add_stability = -0.02
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_pragmatic_strait
+		icon = Generic_Imperial_China_Diplomacy
+		x = 4
+		y = 1
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_people_first }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_pragmatic_strait"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 8 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_sunshine_laws
+		icon = BLR_Anti_Corruption
+		x = 1
+		y = 2
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_clean_sweep }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_sunshine_laws"
+			decrease_corruption = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_court_kmt_caucus
+		icon = Generic_Secret_Meeting
+		x = -3
+		y = 2
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_provincial_network }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_court_kmt_caucus"
+			add_to_variable = { party_pop_array^1 = 0.02 }
+			recalculate_party = yes
+			add_to_variable = { party_pop_array^14 = 0.02 }
+			recalculate_party = yes
+			add_stability = -0.02
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_every_township
+		icon = Generic_Public_Works
+		x = -1
+		y = 2
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_provincial_network }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_every_township"
+			one_random_infrastructure = yes
+			one_random_infrastructure = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_kingmaker
+		icon = Generic_Factionalism
+		x = -3
+		y = 3
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_court_kmt_caucus }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_kingmaker"
+			add_political_power = 75
+			add_to_variable = { party_pop_array^14 = 0.01 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_blue_legislature
+		icon = Focus_Parliament_Constitution
+		x = -3
+		y = 4
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_kingmaker }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_blue_legislature"
+			add_to_variable = { party_pop_array^1 = 0.01 }
+			recalculate_party = yes
+			add_to_variable = { party_pop_array^14 = 0.01 }
+			recalculate_party = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_welfare
+		icon = generic_hospital
+		x = -1
+		y = 3
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_every_township }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_welfare"
+			set_temp_variable = { treasury_change = -4 }
+			modify_treasury_effect = yes
+			add_stability = 0.04
+			add_to_variable = { party_pop_array^14 = 0.01 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_reunite_blue
+		icon = Generic_Conservatism
+		x = -3
+		y = 5
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_blue_legislature }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_reunite_blue"
+			if = { limit = { has_idea = TAI_divided_government } remove_ideas = TAI_divided_government }
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_joint_ticket
+		icon = Election_graphics
+		x = -3
+		y = 6
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_reunite_blue }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_joint_ticket"
+			add_to_variable = { party_pop_array^1 = 0.01 }
+			recalculate_party = yes
+			add_to_variable = { party_pop_array^14 = 0.02 }
+			recalculate_party = yes
+			country_event = { id = blue_tiger.67 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_recount_fight
+		icon = MEX_Defend_the_constitution
+		x = -3
+		y = 7
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_joint_ticket }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_recount_fight"
+			add_stability = -0.02
+			add_to_variable = { party_pop_array^14 = 0.02 }
+			recalculate_party = yes
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_peace_mechanism
+		icon = NKO_korea_peace
+		x = 3
+		y = 2
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_pragmatic_strait }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_peace_mechanism"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			add_to_variable = { TAI_mainland_dependence = 5 tooltip = TAI_mainland_dependence_tt }
+			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_washington
+		icon = align_to_america
+		x = 5
+		y = 2
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_pragmatic_strait }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_washington"
+			add_to_variable = { TAI_us_confidence = 8 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_soong_in_beijing
+		icon = Generic_Imperial_China_Diplomacy
+		x = 3
+		y = 3
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_peace_mechanism }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_soong_in_beijing"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			country_event = { id = blue_tiger.68 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_pfp_third_force
+		icon = Generic_Conservatism
+		x = 0
+		y = 8
+		relative_position_id = TAI_su_pfp_people_first
+		prerequisite = { focus = TAI_su_pfp_recount_fight }
+		prerequisite = { focus = TAI_su_pfp_soong_in_beijing }
+		prerequisite = { focus = TAI_su_pfp_welfare }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pfp_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_pfp_third_force"
+			add_ideas = TAI_pfp_third_force
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_four_noes
+		icon = Generic_Ripping_Papers
+		x = 38
+		y = 10
+		prerequisite = { focus = TAI_su_form_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_four_noes"
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -8 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			add_to_variable = { TAI_us_confidence = 10 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_middle_way
+		icon = Generic_Liberalism
+		x = -2
+		y = 1
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_four_noes }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_middle_way"
+			add_stability = 0.02
+			add_to_variable = { party_pop_array^2 = 0.01 }
+			recalculate_party = yes
+			add_political_power = 25
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_cautious_revolutionary
+		icon = Generic_Liberalism
+		x = 3
+		y = 1
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_four_noes }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_cautious_revolutionary"
+			add_stability = 0.03
+			add_to_variable = { TAI_military_confidence = 5 tooltip = TAI_military_confidence_tt }
+			clamp_variable = { var = TAI_military_confidence min = 0 max = 100 }
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_advisory_conference
+		icon = ExpandTrade
+		x = -2
+		y = 2
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_middle_way }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_advisory_conference"
+			add_to_variable = { TAI_reform_capacity = 5 tooltip = TAI_reform_capacity_tt }
+			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
+			country_event = { id = blue_tiger.63 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_pan_green_alliance
+		icon = Generic_Workers_Democracy
+		x = 0
+		y = 2
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_pan_green_alliance"
+			add_to_variable = { party_pop_array^18 = 0.01 }
+			recalculate_party = yes
+			add_to_variable = { party_pop_array^2 = 0.01 }
+			recalculate_party = yes
+			add_political_power = 25
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_taiwan_centered
+		icon = TAI_civilwar_legacy
+		x = 2
+		y = 2
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_taiwan_centered"
+			add_to_variable = { TAI_taiwanese_identity = 8 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 4 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = -4 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_clean_party
+		icon = BLR_Democratic_clean
+		x = 6
+		y = 2
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_clean_party"
+			decrease_corruption = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_one_country_each_side
+		icon = Socialist_Radio
+		x = 2
+		y = 3
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_taiwan_centered }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_one_country_each_side"
+			add_to_variable = { TAI_taiwanese_identity = 5 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			country_event = { id = blue_tiger.64 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_judicial_reform
+		icon = MEX_Purge_corrupt_judges
+		x = 6
+		y = 3
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_clean_party }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_judicial_reform"
+			decrease_corruption = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_referendum_act
+		icon = Generic_Tear_Paper
+		x = 2
+		y = 4
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_one_country_each_side }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			TAI_can_pass_legislation = yes
+			date > 2003.1.1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_referendum_act"
+			add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_defensive_referendum
+		icon = Election
+		x = 0
+		y = 5
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_referendum_act }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2003.12.1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_defensive_referendum"
+			add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			country_event = { id = blue_tiger.65 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_status_quo
+		icon = accept_treaty
+		x = 2
+		y = 5
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_referendum_act }
+		mutually_exclusive = { focus = TAI_su_dpp_name_rectification }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_status_quo"
+			add_to_variable = { TAI_us_confidence = 10 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			country_event = { id = blue_tiger.28 days = 30 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_name_rectification
+		icon = Generic_Ripping_Papers
+		x = 4
+		y = 5
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_referendum_act }
+		mutually_exclusive = { focus = TAI_su_dpp_status_quo }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_name_rectification"
+			add_to_variable = { TAI_taiwanese_identity = 10 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 10 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			country_event = { id = blue_tiger.27 days = 3 }
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_weather_scandals
+		icon = Generic_Tear_Paper
+		x = 6
+		y = 4
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_judicial_reform }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2005.1.1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_weather_scandals"
+			add_stability = 0.03
+			add_to_variable = { party_pop_array^2 = 0.01 }
+			recalculate_party = yes
+			decrease_corruption = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_council_ceases
+		icon = Generic_Tear_Paper
+		x = 4
+		y = 6
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_name_rectification }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			custom_trigger_tooltip = { tooltip = TAI_strait_tension_above_49_tt CHI = { check_variable = { CHI_taiwan_strait_tension > 49 } } }
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_council_ceases"
+			add_to_variable = { TAI_taiwanese_identity = 5 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 12 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			add_to_variable = { TAI_us_confidence = -10 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_un_bid
+		icon = Afghan_on_the_world_stage
+		x = 4
+		y = 7
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_council_ceases }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2007.1.1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_un_bid"
+			add_to_variable = { TAI_taiwanese_identity = 10 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 10 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			country_event = { id = blue_tiger.27 days = 3 }
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_new_generation
+		icon = Generic_Liberty_Calling
+		x = 6
+		y = 5
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_weather_scandals }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_new_generation"
+			add_to_variable = { party_pop_array^2 = 0.02 }
+			recalculate_party = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_dpp_own_path
+		icon = MNT_democracy
+		x = 4
+		y = 8
+		relative_position_id = TAI_su_dpp_four_noes
+		prerequisite = { focus = TAI_su_dpp_un_bid }
+		prerequisite = { focus = TAI_su_dpp_new_generation }
+		prerequisite = { focus = TAI_su_dpp_advisory_conference }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_dpp_own_path"
+			add_ideas = TAI_dpp_own_path
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_founding
+		icon = TAI_civilwar_legacy
+		x = 56
+		y = 10
+		prerequisite = { focus = TAI_su_form_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_founding"
+			add_to_variable = { party_pop_array^18 = 0.03 }
+			recalculate_party = yes
+			country_event = { id = blue_tiger.69 days = 1 }
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_coalition
+		icon = accept_treaty
+		x = -5
+		y = 1
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_founding }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_coalition"
+			add_political_power = 50
+			add_to_variable = { party_pop_array^18 = 0.01 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_spiritual_leader
+		icon = Generic_Liberty_Calling
+		x = 1
+		y = 1
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_founding }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_spiritual_leader"
+			add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			add_to_variable = { party_pop_array^18 = 0.01 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_southern_base
+		icon = Generic_Major_City
+		x = 5
+		y = 1
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_founding }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_southern_base"
+			add_to_variable = { party_pop_array^18 = 0.02 }
+			recalculate_party = yes
+			add_stability = 0.01
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_hold_the_line
+		icon = Generic_East_Vs_West
+		x = -7
+		y = 2
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_coalition }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_hold_the_line"
+			add_to_variable = { TAI_mainland_dependence = -5 tooltip = TAI_mainland_dependence_tt }
+			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_TAI_trust = -3 tooltip = CHI_TAI_trust_tt }
+					clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
+				}
+			}
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+		}
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_rooted_in_taiwan
+		icon = BLR_Hi_Tech_Park
+		x = -7
+		y = 3
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_hold_the_line }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_rooted_in_taiwan"
+			add_to_variable = { TAI_semiconductor_security = 3 tooltip = TAI_semiconductor_security_tt }
+			clamp_variable = { var = TAI_semiconductor_security min = 0 max = 100 }
+			add_to_variable = { TAI_mainland_dependence = -2 tooltip = TAI_mainland_dependence_tt }
+			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_farmers
+		icon = agriculture
+		x = -5
+		y = 2
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_coalition }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_farmers"
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+			add_stability = 0.02
+			add_to_variable = { party_pop_array^18 = 0.01 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_balance
+		icon = Generic_Factionalism
+		x = -3
+		y = 2
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_coalition }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_balance"
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_mother_tongue
+		icon = London_Health_Academy
+		x = -1
+		y = 2
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_spiritual_leader }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_mother_tongue"
+			add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			add_stability = 0.01
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_brain_trust
+		icon = Generic_Intelligence_Gathering
+		x = 1
+		y = 2
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_spiritual_leader }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_brain_trust"
+			add_to_variable = { TAI_reform_capacity = 3 tooltip = TAI_reform_capacity_tt }
+			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
+			add_political_power = 25
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_rectify_name
+		icon = Generic_Ripping_Papers
+		x = 3
+		y = 2
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_spiritual_leader }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+			date > 2002.5.1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_rectify_name"
+			add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			country_event = { id = blue_tiger.70 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_young_taiwan
+		icon = Election_graphics
+		x = 5
+		y = 2
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_southern_base }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_young_taiwan"
+			add_to_variable = { party_pop_array^18 = 0.01 }
+			recalculate_party = yes
+			add_to_variable = { TAI_taiwanese_identity = 2 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_wto_safeguards
+		icon = agriculture2
+		x = -5
+		y = 3
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_farmers }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_wto_safeguards"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+			add_stability = 0.02
+		}
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_hand_in_hand
+		icon = Generic_Workers_Democracy
+		x = 2
+		y = 3
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_rectify_name }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+			date > 2004.1.1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_hand_in_hand"
+			add_to_variable = { TAI_taiwanese_identity = 4 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			country_event = { id = blue_tiger.71 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_new_constitution
+		icon = Focus_Parliament_Constitution
+		x = 4
+		y = 3
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_rectify_name }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_new_constitution"
+			add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			add_to_variable = { TAI_us_confidence = -3 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_against_anti_secession
+		icon = Afghan_on_the_world_stage
+		x = 2
+		y = 4
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_hand_in_hand }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+			date > 2005.3.14
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_against_anti_secession"
+			add_to_variable = { TAI_taiwanese_identity = 3 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			add_war_support = 0.03
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 3 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_cabinet_seats
+		icon = Generic_Command_Power
+		x = -5
+		y = 4
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_hold_the_line }
+		prerequisite = { focus = TAI_su_tsu_wto_safeguards }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_cabinet_seats"
+			add_stability = 0.03
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_tsu_taiwan_consensus
+		icon = MNT_democracy
+		x = -1
+		y = 5
+		relative_position_id = TAI_su_tsu_founding
+		prerequisite = { focus = TAI_su_tsu_new_constitution }
+		prerequisite = { focus = TAI_su_tsu_cabinet_seats }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2001.8.12
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_tsu_taiwan_consensus"
+			add_ideas = TAI_tsu_taiwan_consensus
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_root
+		icon = agriculture2
+		x = 71
+		y = 10
+		prerequisite = { focus = TAI_su_form_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_root"
+			add_to_variable = { party_pop_array^17 = 0.01 }
+			recalculate_party = yes
+			add_stability = 0.01
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_meinong_dam
+		icon = Generic_Digital_Agriculture
+		x = -5
+		y = 1
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_root }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_meinong_dam"
+			add_to_variable = { party_pop_array^17 = 0.01 }
+			recalculate_party = yes
+			add_stability = 0.02
+			set_temp_variable = { treasury_change = 1 }
+			modify_treasury_effect = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_nuclear_free
+		icon = Eu_nuclear_power
+		x = -3
+		y = 1
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_root }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_nuclear_free"
+			add_to_variable = { party_pop_array^17 = 0.01 }
+			recalculate_party = yes
+			country_event = { id = blue_tiger.72 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_impact_assessment
+		icon = Federal_Gas_Tax_Fund
+		x = 1
+		y = 1
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_root }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_impact_assessment"
+			add_stability = 0.02
+			add_to_variable = { TAI_reform_capacity = 3 tooltip = TAI_reform_capacity_tt }
+			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_labor
+		icon = Generic_Workers_Democracy
+		x = 5
+		y = 1
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_root }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_labor"
+			add_stability = 0.02
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+		}
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_wind_and_sun
+		icon = Efficient_Oil_Production_Focus_Icon_V2
+		x = -4
+		y = 2
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_nuclear_free }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_wind_and_sun"
+			add_to_variable = { TAI_semiconductor_security = 2 tooltip = TAI_semiconductor_security_tt }
+			clamp_variable = { var = TAI_semiconductor_security min = 0 max = 100 }
+			add_to_variable = { party_pop_array^17 = 0.01 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_nuclear_referendum
+		icon = Election
+		x = -2
+		y = 2
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_nuclear_free }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_nuclear_referendum"
+			add_stability = 0.01
+			add_to_variable = { TAI_taiwanese_identity = 1 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+			add_to_variable = { party_pop_array^17 = 0.01 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_clean_air
+		icon = generic_hospital
+		x = 0
+		y = 2
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_impact_assessment }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_clean_air"
+			add_stability = 0.02
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+		}
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_qigu_wetlands
+		icon = Tourism_is_our_oil
+		x = 2
+		y = 2
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_impact_assessment }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_qigu_wetlands"
+			add_stability = 0.01
+			add_to_variable = { party_pop_array^17 = 0.01 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_indigenous
+		icon = Generic_Red_Cross
+		x = 4
+		y = 2
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_labor }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_indigenous"
+			add_stability = 0.02
+			add_to_variable = { TAI_taiwanese_identity = 1 tooltip = TAI_taiwanese_identity_tt }
+			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_ecological_tax
+		icon = generic_banks
+		x = 0
+		y = 3
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_clean_air }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_ecological_tax"
+			set_temp_variable = { treasury_change = 3 }
+			modify_treasury_effect = yes
+			add_stability = -0.01
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_organic_farming
+		icon = agriculture
+		x = 6
+		y = 2
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_labor }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_organic_farming"
+			add_stability = 0.01
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_east_coast
+		icon = Generic_Maritime
+		x = 2
+		y = 3
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_qigu_wetlands }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_east_coast"
+			add_to_variable = { party_pop_array^17 = 0.01 }
+			recalculate_party = yes
+			add_stability = 0.01
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_council_seats
+		icon = Generic_Major_City
+		x = -2
+		y = 3
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_nuclear_referendum }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+			date > 2002.12.1
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_council_seats"
+			add_to_variable = { party_pop_array^17 = 0.02 }
+			recalculate_party = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_civil_society
+		icon = European_Society
+		x = 4
+		y = 3
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_indigenous }
+		prerequisite = { focus = TAI_su_gpt_organic_farming }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_civil_society"
+			add_stability = 0.02
+			add_to_variable = { TAI_national_coordination = 3 tooltip = TAI_national_coordination_tt }
+			clamp_variable = { var = TAI_national_coordination min = 0 max = 100 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_green_minister
+		icon = Generic_Command_Power
+		x = -2
+		y = 4
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_wind_and_sun }
+		prerequisite = { focus = TAI_su_gpt_council_seats }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_green_minister"
+			add_to_variable = { party_pop_array^17 = 0.01 }
+			recalculate_party = yes
+			country_event = { id = blue_tiger.73 days = 1 }
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_eco_reform
+		icon = GENERIC_austerity_measures
+		x = 0
+		y = 4
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_ecological_tax }
+		prerequisite = { focus = TAI_su_gpt_east_coast }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_eco_reform"
+			add_to_variable = { TAI_reform_capacity = 3 tooltip = TAI_reform_capacity_tt }
+			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+		}
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	focus = {
+		id = TAI_su_gpt_conscience
+		icon = MNT_democracy
+		x = 1
+		y = 5
+		relative_position_id = TAI_su_gpt_root
+		prerequisite = { focus = TAI_su_gpt_green_minister }
+		prerequisite = { focus = TAI_su_gpt_civil_society }
+		prerequisite = { focus = TAI_su_gpt_eco_reform }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			TAI_pan_green_in_power = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TAI_su_gpt_conscience"
+			add_ideas = TAI_gpt_green_conscience
+			add_political_power = 50
 		}
 		ai_will_do = {
 			base = 5

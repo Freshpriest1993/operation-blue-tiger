@@ -8,11 +8,16 @@ The design goal is a Taiwan that is neither doomed nor invincible. The player's 
 
 ## Features
 
-The focus tree has **247 focuses** in seven branches.
+The focus tree has **310 focuses** in twelve branches, laid out in three rows: national branches on top and bottom, and a row of party branches in the middle.
 
 | Branch | Focuses | What it covers |
 | --- | --- | --- |
-| The 2000 Succession | 41 | The three-way 2000 election, the first peaceful transfer of power, divided government, and separate DPP, KMT and PFP paths |
+| The 2000 Succession | 14 | The three-way 2000 election, the first peaceful transfer of power, divided government and the elections that follow |
+| Kuomintang | 18 | Localizing the party, the chairman election, the 6-3-3 plan, the 1992 Consensus, the Three Links and a peace framework |
+| People First Party | 18 | James Soong's personal machine, the legislative kingmaker, a joint Pan-Blue ticket and Soong's trip to Beijing |
+| Democratic Progressive Party | 18 | The Middle Way, the Economic Advisory Conference, One Country on Each Side, the Defensive Referendum and judicial reform |
+| Taiwan Solidarity Union | 18 | Lee Teng-hui's party as a coalition partner of a Pan-Green government: name rectification, Hand in Hand, farmers and a new constitution |
+| Green Party Taiwan | 18 | The Greens as a coalition partner: a nuclear-free homeland, the Meinong Dam, wetlands, labour and indigenous rights, a Green minister |
 | Democratic Fortress | 30 | Rule of law, anti-corruption, Legislative Yuan and electoral reform, media independence, information resilience |
 | The National Army | 50 | Civilian control, five defense doctrines, manpower policy, procurement versus absorption |
 | The Silicon Island | 37 | Semiconductors and supply chains, financial reform, infrastructure, energy and food reserves |
@@ -24,7 +29,7 @@ It also adds **52 national spirits**, including five starting conditions (Young 
 
 ### Historical events
 
-22 events cover the period from the first transfer of power to the second: the May 2000 inauguration and the officer corps' response, the 2001 dot-com bust and legislative election, SARS in 2003, the 2004 election-eve shooting and disputed recount, the 2005 Anti-Secession Law and the KMT chairman's visit to Beijing, the 2006 State Affairs Fund inquiry and Red Shirt protests, and the 2008 elections. Ten focuses also open decision events, such as the Fourth Nuclear Plant crisis, the special defense budget showdown and the HF-2E controversy.
+22 historical events cover the period from the first transfer of power to the second: the May 2000 inauguration and the officer corps' response, the 2001 dot-com bust and legislative election, SARS in 2003, the 2004 election-eve shooting and disputed recount, the 2005 Anti-Secession Law and the KMT chairman's visit to Beijing, the 2006 State Affairs Fund inquiry and Red Shirt protests, and the 2008 elections. Party focuses open 14 more events, from the KMT chairman election and the Defensive Referendum to the founding of the Taiwan Solidarity Union. Every party focus takes 70 days, so a full party branch lasts about one presidential term. Ten other focuses also open decision events, such as the Fourth Nuclear Plant crisis, the special defense budget showdown and the HF-2E controversy.
 
 Events follow the governing party: a Pan-Blue Taiwan does not get Pan-Green history, and contested allegations are presented as allegations.
 

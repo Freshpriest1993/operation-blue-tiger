@@ -653,5 +653,47 @@ ideas = {
 				stability_factor = 0.03
 			}
 		}
+
+		# Operation Blue Tiger: party branch capstones
+		TAI_kmt_roc_on_taiwan = {
+			picture = political_support
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.05
+				trade_opinion_factor = 0.10
+			}
+		}
+		TAI_dpp_own_path = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				political_power_gain = 0.10
+			}
+		}
+		TAI_pfp_third_force = {
+			picture = political_reform
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.02
+				political_power_gain = 0.15
+			}
+		}
+		TAI_tsu_taiwan_consensus = {
+			picture = national_unity
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				war_support_factor = 0.05
+			}
+		}
+		TAI_gpt_green_conscience = {
+			picture = international_treaty
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				research_speed_factor = 0.02
+			}
+		}
 	}
 }
