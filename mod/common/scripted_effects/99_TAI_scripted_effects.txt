@@ -474,7 +474,34 @@ TAI_activate_reclamation_bop = {
 	}
 }
 
+TAI_count_mainland_control = {
+	set_variable = { TAI_mainland_states_total = 0 }
+	set_variable = { TAI_mainland_states_held = 0 }
+	every_state = {
+		limit = {
+			is_core_of = CHI
+			NOT = { ROC_taiwan_island_state = yes }
+		}
+		ROOT = { add_to_variable = { TAI_mainland_states_total = 1 } }
+		if = {
+			limit = { is_controlled_by = ROOT }
+			ROOT = { add_to_variable = { TAI_mainland_states_held = 1 } }
+		}
+	}
+	set_variable = { TAI_mainland_control = 0 }
+	if = {
+		limit = { check_variable = { TAI_mainland_states_total > 0 } }
+		set_variable = { TAI_mainland_control = TAI_mainland_states_held }
+		multiply_variable = { TAI_mainland_control = 100 }
+		divide_variable = { TAI_mainland_control = TAI_mainland_states_total }
+	}
+}
+
 TAI_update_reclamation = {
+	if = {
+		limit = { has_country_flag = TAI_reclamation_war }
+		TAI_count_mainland_control = yes
+	}
 	if = {
 		limit = {
 			has_country_flag = TAI_reclamation_war

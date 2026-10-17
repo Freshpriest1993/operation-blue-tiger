@@ -26,8 +26,8 @@ TAI_TRIG = "original_tag = TAI"
 EVENTS = []
 
 
-def E(n, title, desc, pic, options, trigger=TAI_TRIG, once=False):
-    EVENTS.append(dict(n=n, title=title, desc=desc, pic=pic, options=options, trigger=trigger, once=once))
+def E(n, title, desc, pic, options, trigger=TAI_TRIG, once=False, immediate=None):
+    EVENTS.append(dict(n=n, title=title, desc=desc, pic=pic, options=options, trigger=trigger, once=once, immediate=immediate))
 
 
 def O(text, eff="", ai=50, trig=None):
@@ -71,12 +71,16 @@ E(4, "Taipei Strikes First",
         "TAI = {\n\t" + var("TAI_us_confidence", -5).replace("\n", "\n\t") + "\n}", 30),
   ], trigger="original_tag = USA")
 
-E(5, "The Mainland Falls",
-  AH + "Resistance across the mainland has collapsed. The flag of the Republic flies again over cities it left in 1949. Now come the provinces, the ministries and hundreds of millions of people who were never asked.",
+E(5, "Beijing Capitulates",
+  AH + "The government in Beijing can no longer resist. Whether the Republic can now govern the whole country is another question: it needs the great cities, most of the provinces, an army large enough to garrison them and a home front still willing to pay. Without them, the wiser course is an armistice that keeps what we hold.",
   "GFX_TAI_roc", [
-      O("Restore the Republic's authority.",
-        "if = {\n\tlimit = { country_exists = CHI }\n\tannex_country = { target = CHI transfer_troops = no }\n}\nclr_country_flag = TAI_reclamation_war\nROC_init_administration = yes\nadd_political_power = 100\ncountry_event = { id = reclamation.6 days = 45 }", 100),
-  ], once=True)
+      O("Restore the Republic's authority over all of China.",
+        "if = {\n\tlimit = { country_exists = CHI }\n\tannex_country = { target = CHI transfer_troops = no }\n}\nclr_country_flag = TAI_reclamation_war\nclr_country_flag = TAI_reclamation_armistice\nROC_init_administration = yes\nadd_political_power = 100\ncountry_event = { id = reclamation.6 days = 45 }", 100,
+        "OR = {\n\tNOT = { country_exists = CHI }\n\tTAI_can_restore_mainland = yes\n}"),
+      O("Accept an armistice and hold what we have.",
+        "custom_effect_tooltip = TAI_restoration_requirements_tt\nevery_state = {\n\tlimit = {\n\t\tis_owned_by = CHI\n\t\tis_controlled_by = ROOT\n\t}\n\tROOT = { transfer_state = PREV }\n}\nwhite_peace = CHI\nclr_country_flag = TAI_reclamation_war\nclr_country_flag = TAI_mainland_falling\nset_country_flag = TAI_reclamation_armistice\nif = {\n\tlimit = { ROC_holds_mainland = yes }\n\tROC_init_administration = yes\n}\nadd_war_support = -0.05\n" + bop(0.10) + "\nCHI = {\n\tadd_stability = -0.10\n\tadd_political_power = -100\n}", 10,
+        "country_exists = CHI"),
+  ], immediate="TAI_count_mainland_control = yes")
 
 E(6, "The Postwar Settlement",
   AH + "The war is won. The promises made in Taipei before it began now fall due, and the island is watching to see whether they will be kept.",
@@ -197,6 +201,8 @@ for e in EVENTS:
     if e["once"]:
         ev.append("\tfire_only_once = yes")
     ev += ["", "\ttrigger = {"] + ind(e["trigger"], "\t\t") + ["\t}", ""]
+    if e["immediate"]:
+        ev += ["\timmediate = {", f'\t\tlog = "[GetDateText]: [This.GetName]: {eid} immediate"'] + ind(e["immediate"], "\t\t") + ["\t}", ""]
     loc += [f' {eid}.t: "{e["title"]}"', f' {eid}.d: "{e["desc"]}"']
     for i, o in enumerate(e["options"]):
         key = f"{eid}.{'abcefgh'[i]}"

@@ -115,6 +115,44 @@ TAI_reclamation_category = {
 		}
 	}
 
+	TAI_resume_reclamation_war = {
+		icon = generic_operation
+
+		visible = {
+			has_country_flag = TAI_reclamation_armistice
+			country_exists = CHI
+			NOT = { has_war_with = CHI }
+		}
+
+		available = {
+			has_country_flag = { flag = TAI_reclamation_armistice days > 364 }
+			has_war_support > 0.5
+		}
+
+		cost = 150
+		war_with_on_complete = CHI
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision TAI_resume_reclamation_war"
+			clr_country_flag = TAI_reclamation_armistice
+			set_country_flag = TAI_reclamation_war
+			add_to_variable = { TAI_us_confidence = -10 tooltip = TAI_us_confidence_tt }
+			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+			if = {
+				limit = { country_exists = USA }
+				USA = { country_event = { id = reclamation.4 days = 2 } }
+			}
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
 	TAI_mobilize_for_reclamation = {
 		icon = generic_operation
 

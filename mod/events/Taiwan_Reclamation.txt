@@ -176,25 +176,73 @@ country_event = {
 	desc = reclamation.5.d
 	picture = GFX_TAI_roc
 	is_triggered_only = yes
-	fire_only_once = yes
 
 	trigger = {
 		original_tag = TAI
 	}
 
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: reclamation.5 immediate"
+		TAI_count_mainland_control = yes
+	}
+
 	option = {
 		name = reclamation.5.a
+		trigger = {
+			OR = {
+				NOT = { country_exists = CHI }
+				TAI_can_restore_mainland = yes
+			}
+		}
 		log = "[GetDateText]: [This.GetName]: reclamation.5.a executed"
 		if = {
 			limit = { country_exists = CHI }
 			annex_country = { target = CHI transfer_troops = no }
 		}
 		clr_country_flag = TAI_reclamation_war
+		clr_country_flag = TAI_reclamation_armistice
 		ROC_init_administration = yes
 		add_political_power = 100
 		country_event = { id = reclamation.6 days = 45 }
 		ai_chance = {
 			base = 100
+		}
+	}
+
+	option = {
+		name = reclamation.5.b
+		trigger = {
+			country_exists = CHI
+		}
+		log = "[GetDateText]: [This.GetName]: reclamation.5.b executed"
+		custom_effect_tooltip = TAI_restoration_requirements_tt
+		every_state = {
+			limit = {
+				is_owned_by = CHI
+				is_controlled_by = ROOT
+			}
+			ROOT = { transfer_state = PREV }
+		}
+		white_peace = CHI
+		clr_country_flag = TAI_reclamation_war
+		clr_country_flag = TAI_mainland_falling
+		set_country_flag = TAI_reclamation_armistice
+		if = {
+			limit = { ROC_holds_mainland = yes }
+			ROC_init_administration = yes
+		}
+		add_war_support = -0.05
+		add_power_balance_value = {
+			id = TAI_reclamation_bop
+			value = 0.1
+			tooltip_side = TAI_bop_self_determination
+		}
+		CHI = {
+			add_stability = -0.10
+			add_political_power = -100
+		}
+		ai_chance = {
+			base = 10
 		}
 	}
 }

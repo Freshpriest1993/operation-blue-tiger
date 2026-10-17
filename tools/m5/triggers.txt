@@ -125,3 +125,22 @@ ROC_region_northwest = {
 		state = 1072
 	}
 }
+
+TAI_can_restore_mainland = {
+	custom_trigger_tooltip = {
+		tooltip = TAI_holds_mainland_capitals_tt
+		547 = { is_controlled_by = ROOT }
+		536 = { is_controlled_by = ROOT }
+		540 = { is_controlled_by = ROOT }
+		534 = { is_controlled_by = ROOT }
+		570 = { is_controlled_by = ROOT }
+		583 = { is_controlled_by = ROOT }
+	}
+	custom_trigger_tooltip = {
+		tooltip = TAI_mainland_control_tt
+		check_variable = { TAI_mainland_control > 74 }
+	}
+	has_army_size = { size > 59 }
+	has_stability > 0.39
+	has_war_support > 0.49
+}
