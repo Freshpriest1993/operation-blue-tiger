@@ -120,7 +120,7 @@ f("integrate_pla", "Generic_Infantry_Training", 16, 2, "Integrate the PLA Remnan
   "add_manpower = 50000\narmy_experience = 20\nadd_stability = -0.05", pre=[["national_army"]], mutex=["disband_pla"], filt="FOCUS_FILTER_MILITARY")
 f("disband_pla", "Generic_Volunteer_Corps", 18, 2, "Disband the PLA",
   "The old army is demobilized and a new one is recruited from volunteers. It is smaller, untested and politically reliable.",
-  "add_stability = 0.03\nadd_war_support = 0.05", pre=[["national_army"]], mutex=["integrate_pla"], filt="FOCUS_FILTER_MILITARY", cost=15)
+  "add_stability = 0.03\nadd_war_support = 0.05", pre=[["national_army"]], mutex=["integrate_pla"], filt="FOCUS_FILTER_MILITARY")
 f("seat_at_un", "USA_diplomatic_corps", 17, 3, "Reclaim the Security Council Seat",
   "The Republic of China held a permanent seat on the Security Council until 1971. Its diplomats argue that it never lost the right to it.",
   "add_political_power = 100\nadd_stability = 0.02", pre=[["integrate_pla", "disband_pla"]], filt="FOCUS_FILTER_POLITICAL")
@@ -140,7 +140,7 @@ f("free_china_among_nations", "align_to_america", 17, 6, "A Free China Among Nat
 
 f("free_china", "TAI_civilwar_legacy", 10, 7, "Free China",
   "The civil war that divided the Chinese nation in 1949 is over. The Republic Sun Yat-sen founded governs the mainland again, by consent.",
-  "add_political_power = 150\nadd_stability = 0.10", pre=[["republic_endures"], ["provincial_governors"], ["second_miracle"], ["free_china_among_nations"]], cost=15)
+  "add_political_power = 150\nadd_stability = 0.10", pre=[["republic_endures"], ["provincial_governors"], ["second_miracle"], ["free_china_among_nations"]])
 
 ids = {x["id"] for x in F}
 for x in F:

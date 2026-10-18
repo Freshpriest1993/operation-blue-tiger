@@ -240,11 +240,10 @@ def main():
                 L.append(f"\t\tx = {x - rx}")
                 L.append(f"\t\ty = {y - ry}")
                 L.append(f"\t\trelative_position_id = {root}")
-            cost = f["days"] // 7
             if f["days"] % 7:
                 errors.append(f"{fid}: days not a multiple of 7")
-            if cost != 10:
-                L.append(f"\t\tcost = {cost}")
+            cost = min(f["days"], 70) // 7
+            L.append(f"\t\tcost = {cost}")
             for p in f["pre"]:
                 grp = p if isinstance(p, tuple) else (p,)
                 L.append("\t\tprerequisite = { " + " ".join(f"focus = {q}" for q in grp) + " }")

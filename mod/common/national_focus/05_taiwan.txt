@@ -104,6 +104,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = TAI_su_millennium_election
+		cost = 10
 		prerequisite = { focus = TAI_su_heal_kmt_split focus = TAI_su_voters_decide }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -194,6 +195,7 @@ focus_tree = {
 		x = -5
 		y = 5
 		relative_position_id = TAI_su_millennium_election
+		cost = 10
 		prerequisite = { focus = TAI_su_minority_government focus = TAI_su_unified_government }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
@@ -212,6 +214,7 @@ focus_tree = {
 		x = -1
 		y = 3
 		relative_position_id = TAI_su_millennium_election
+		cost = 10
 		prerequisite = { focus = TAI_su_peaceful_transfer }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -265,6 +268,7 @@ focus_tree = {
 		x = -3
 		y = 6
 		relative_position_id = TAI_su_millennium_election
+		cost = 10
 		prerequisite = { focus = TAI_su_ly_2001 }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -287,6 +291,7 @@ focus_tree = {
 		x = -3
 		y = 7
 		relative_position_id = TAI_su_millennium_election
+		cost = 10
 		prerequisite = { focus = TAI_su_second_mandate }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -311,6 +316,7 @@ focus_tree = {
 		x = -3
 		y = 8
 		relative_position_id = TAI_su_millennium_election
+		cost = 10
 		prerequisite = { focus = TAI_su_heal_divided_island }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -331,6 +337,7 @@ focus_tree = {
 		icon = Strengthening_Russian_Democracy
 		x = 26
 		y = 20
+		cost = 10
 		prerequisite = { focus = TAI_su_peaceful_transfer }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -352,6 +359,7 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_root }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -372,6 +380,7 @@ focus_tree = {
 		x = -5
 		y = 2
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_justice_minister }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -393,6 +402,7 @@ focus_tree = {
 		x = -5
 		y = 3
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_unshackle_prosecutors }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -411,6 +421,7 @@ focus_tree = {
 		x = -5
 		y = 4
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_professional_judiciary }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -429,6 +440,7 @@ focus_tree = {
 		x = -6
 		y = 5
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_grand_justices }
 		mutually_exclusive = { focus = TAI_df_ordinary_prosecutors }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
@@ -449,6 +461,7 @@ focus_tree = {
 		x = -4
 		y = 5
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_grand_justices }
 		mutually_exclusive = { focus = TAI_df_special_division }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
@@ -468,6 +481,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_root }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -487,6 +501,7 @@ focus_tree = {
 		x = -3
 		y = 2
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_black_gold }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -507,6 +522,7 @@ focus_tree = {
 		x = -3
 		y = 3
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_vote_buying }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		available = {
@@ -529,6 +545,7 @@ focus_tree = {
 		x = -1
 		y = 2
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_black_gold }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -547,6 +564,7 @@ focus_tree = {
 		x = -1
 		y = 3
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_state_enterprises }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -566,6 +584,7 @@ focus_tree = {
 		x = -3
 		y = 4
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_sunshine_laws }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -585,6 +604,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_root }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -603,6 +623,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_settle_executive }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		available = {
@@ -624,6 +645,7 @@ focus_tree = {
 		x = 1
 		y = 3
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_legislative_reform }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		available = {
@@ -647,6 +669,7 @@ focus_tree = {
 		x = 1
 		y = 4
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_end_sntv }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		available = {
@@ -668,6 +691,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_settle_executive }
 		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -686,6 +710,7 @@ focus_tree = {
 		x = 3
 		y = 3
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_control_yuan }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -707,6 +732,7 @@ focus_tree = {
 		x = 3
 		y = 4
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_civil_service }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -730,6 +756,7 @@ focus_tree = {
 		x = 6
 		y = 1
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_root }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -748,6 +775,7 @@ focus_tree = {
 		x = 6
 		y = 2
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_civil_commissions }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -766,6 +794,7 @@ focus_tree = {
 		x = 5
 		y = 3
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_party_tv_exit }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -791,6 +820,7 @@ focus_tree = {
 		x = 7
 		y = 3
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_party_tv_exit }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -811,6 +841,7 @@ focus_tree = {
 		x = 7
 		y = 4
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_every_community }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -831,6 +862,7 @@ focus_tree = {
 		x = 5
 		y = 4
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_public_broadcasting }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -851,6 +883,7 @@ focus_tree = {
 		x = 5
 		y = 5
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_rapid_facts }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
 		completion_reward = {
@@ -870,6 +903,7 @@ focus_tree = {
 		x = 4
 		y = 6
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_media_literacy }
 		mutually_exclusive = { focus = TAI_df_counter_disinfo }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
@@ -891,6 +925,7 @@ focus_tree = {
 		x = 6
 		y = 6
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_media_literacy }
 		mutually_exclusive = { focus = TAI_df_influence_transparency }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INTERNAL_AFFAIRS }
@@ -912,6 +947,7 @@ focus_tree = {
 		x = 2
 		y = 7
 		relative_position_id = TAI_df_root
+		cost = 10
 		prerequisite = { focus = TAI_df_national_assembly }
 		prerequisite = { focus = TAI_df_special_funds_audit }
 		prerequisite = { focus = TAI_df_influence_transparency focus = TAI_df_counter_disinfo }
@@ -934,6 +970,7 @@ focus_tree = {
 		icon = Generic_Soldiers_Defense
 		x = 52
 		y = 20
+		cost = 10
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_rebuild_shield"
@@ -953,6 +990,7 @@ focus_tree = {
 		x = -13
 		y = 1
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_rebuild_shield }
 		prerequisite = { focus = TAI_su_peaceful_transfer }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
@@ -976,6 +1014,7 @@ focus_tree = {
 		x = -13
 		y = 2
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_nationalize }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1022,6 +1061,7 @@ focus_tree = {
 		x = -13
 		y = 3
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_defense_act }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1043,6 +1083,7 @@ focus_tree = {
 		x = -14
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_officer_corps }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1064,7 +1105,7 @@ focus_tree = {
 		x = -12
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_officer_corps }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1090,6 +1131,7 @@ focus_tree = {
 		x = -6
 		y = 1
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_rebuild_shield }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1131,6 +1173,7 @@ focus_tree = {
 		x = -8
 		y = 3
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_missile_crisis_lessons }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1168,6 +1211,7 @@ focus_tree = {
 		x = -8
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_outside_territory }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1187,7 +1231,7 @@ focus_tree = {
 		x = -10
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_effective_deterrence }
 		search_filters = { FOCUS_FILTER_NAVY }
 		completion_reward = {
@@ -1207,7 +1251,7 @@ focus_tree = {
 		x = -8
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_effective_deterrence }
 		search_filters = { FOCUS_FILTER_EQUIPMENT }
 		available = {
@@ -1231,7 +1275,7 @@ focus_tree = {
 		x = -8
 		y = 6
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_na_hf2e }
 		search_filters = { FOCUS_FILTER_EQUIPMENT }
 		completion_reward = {
@@ -1258,6 +1302,7 @@ focus_tree = {
 		x = -6
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_effective_deterrence }
 		search_filters = { FOCUS_FILTER_EQUIPMENT }
 		completion_reward = {
@@ -1279,7 +1324,7 @@ focus_tree = {
 		x = -6
 		y = 3
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_missile_crisis_lessons }
 		search_filters = { FOCUS_FILTER_EQUIPMENT }
 		completion_reward = {
@@ -1307,6 +1352,7 @@ focus_tree = {
 		x = -3
 		y = 3
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_missile_crisis_lessons }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS FOCUS_FILTER_ARMY }
 		completion_reward = {
@@ -1332,6 +1378,7 @@ focus_tree = {
 		x = -4
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_harden_island }
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		completion_reward = {
@@ -1351,6 +1398,7 @@ focus_tree = {
 		x = -2
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_harden_island }
 		search_filters = { FOCUS_FILTER_NAVY }
 		completion_reward = {
@@ -1372,6 +1420,7 @@ focus_tree = {
 		x = -4
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_repair_runways }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS FOCUS_FILTER_ARMY }
 		completion_reward = {
@@ -1395,7 +1444,7 @@ focus_tree = {
 		x = -2
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_mine_approaches }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		available = {
@@ -1439,7 +1488,7 @@ focus_tree = {
 		x = -10
 		y = 6
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_mine_approaches focus = TAI_na_air_sea_interdiction }
 		search_filters = { FOCUS_FILTER_EQUIPMENT }
 		completion_reward = {
@@ -1460,6 +1509,7 @@ focus_tree = {
 		x = -10
 		y = 7
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_mobile_fires }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS FOCUS_FILTER_ARMY }
 		completion_reward = {
@@ -1479,7 +1529,7 @@ focus_tree = {
 		x = -10
 		y = 8
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_disperse }
 		search_filters = { FOCUS_FILTER_EQUIPMENT }
 		available = {
@@ -1504,7 +1554,7 @@ focus_tree = {
 		x = -10
 		y = 9
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_unmanned }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		available = {
@@ -1540,7 +1590,7 @@ focus_tree = {
 		x = -10
 		y = 10
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_air_sea_interdiction focus = TAI_na_hard_roc focus = TAI_na_odc }
 		prerequisite = { focus = TAI_na_joint_command }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
@@ -1571,7 +1621,7 @@ focus_tree = {
 		x = -10
 		y = 11
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_hybrid }
 		prerequisite = { focus = TAI_na_territorial_defense }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
@@ -1593,7 +1643,7 @@ focus_tree = {
 		x = -10
 		y = 12
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_na_whole_of_society }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1643,6 +1693,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_manpower_question }
 		mutually_exclusive = { focus = TAI_na_extended_conscription focus = TAI_na_professional_force }
 		search_filters = { FOCUS_FILTER_MANPOWER }
@@ -1665,6 +1716,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_manpower_question }
 		mutually_exclusive = { focus = TAI_na_extended_conscription focus = TAI_na_volunteer_reserve_split }
 		search_filters = { FOCUS_FILTER_MANPOWER }
@@ -1685,6 +1737,7 @@ focus_tree = {
 		x = 5
 		y = 2
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_manpower_question }
 		mutually_exclusive = { focus = TAI_na_professional_force focus = TAI_na_volunteer_reserve_split }
 		search_filters = { FOCUS_FILTER_MANPOWER }
@@ -1727,7 +1780,7 @@ focus_tree = {
 		x = 0
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_reserve_audit }
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
@@ -1754,6 +1807,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_volunteer_reserve_split focus = TAI_na_professional_force focus = TAI_na_extended_conscription }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS FOCUS_FILTER_ARMY }
 		completion_reward = {
@@ -1774,7 +1828,7 @@ focus_tree = {
 		x = 0
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_reserve_reform }
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
@@ -1796,6 +1850,7 @@ focus_tree = {
 		x = 9
 		y = 1
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_rebuild_shield }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1852,6 +1907,7 @@ focus_tree = {
 		x = 7
 		y = 3
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_2001_package }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS FOCUS_FILTER_EXPENDITURE }
 		available = {
@@ -1874,7 +1930,7 @@ focus_tree = {
 		x = 5
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_special_budget }
 		search_filters = { FOCUS_FILTER_NAVY }
 		completion_reward = {
@@ -1900,7 +1956,7 @@ focus_tree = {
 		x = 7
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_special_budget }
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		completion_reward = {
@@ -1920,6 +1976,7 @@ focus_tree = {
 		x = 9
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_special_budget }
 		search_filters = { FOCUS_FILTER_NAVY }
 		completion_reward = {
@@ -1940,7 +1997,7 @@ focus_tree = {
 		x = 9
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_na_submarine_question }
 		prerequisite = { focus = TAI_na_csist }
 		search_filters = { FOCUS_FILTER_NAVY }
@@ -1973,6 +2030,7 @@ focus_tree = {
 		x = 11
 		y = 2
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_us_links }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -1994,7 +2052,7 @@ focus_tree = {
 		x = 11
 		y = 3
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_interoperability }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -2019,6 +2077,7 @@ focus_tree = {
 		x = 11
 		y = 4
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_absorption }
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		completion_reward = {
@@ -2040,7 +2099,7 @@ focus_tree = {
 		x = 11
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_na_fighter_fleet }
 		prerequisite = { focus = TAI_na_csist }
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
@@ -2070,6 +2129,7 @@ focus_tree = {
 		x = 11
 		y = 1
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_rebuild_shield }
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
@@ -2095,6 +2155,7 @@ focus_tree = {
 		x = 13
 		y = 1
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_rebuild_shield }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
@@ -2116,6 +2177,7 @@ focus_tree = {
 		x = -12
 		y = 5
 		relative_position_id = TAI_na_rebuild_shield
+		cost = 10
 		prerequisite = { focus = TAI_na_joint_command }
 		prerequisite = { focus = TAI_na_special_budget }
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
@@ -2138,6 +2200,7 @@ focus_tree = {
 		icon = BLR_Hi_Tech_Park
 		x = 62
 		y = 0
+		cost = 10
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_ss_root"
@@ -2156,6 +2219,7 @@ focus_tree = {
 		x = -8
 		y = 1
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_root }
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2183,6 +2247,7 @@ focus_tree = {
 		x = -10
 		y = 2
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_deepen_hsinchu }
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2210,7 +2275,7 @@ focus_tree = {
 		x = -10
 		y = 3
 		relative_position_id = TAI_ss_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_ss_southern_park }
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		available = {
@@ -2241,7 +2306,7 @@ focus_tree = {
 		x = -8
 		y = 2
 		relative_position_id = TAI_ss_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_ss_deepen_hsinchu }
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2264,7 +2329,7 @@ focus_tree = {
 		x = -8
 		y = 3
 		relative_position_id = TAI_ss_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_ss_twelve_inch }
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2285,6 +2350,7 @@ focus_tree = {
 		x = -6
 		y = 2
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_deepen_hsinchu }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -2310,6 +2376,7 @@ focus_tree = {
 		x = -6
 		y = 1
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_root }
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2329,6 +2396,7 @@ focus_tree = {
 		x = -9
 		y = 4
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_advanced_process }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2351,6 +2419,7 @@ focus_tree = {
 		x = -7
 		y = 4
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_advanced_process }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2370,6 +2439,7 @@ focus_tree = {
 		x = -10
 		y = 5
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_supply_chain }
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_EXPENDITURE }
 		completion_reward = {
@@ -2395,7 +2465,7 @@ focus_tree = {
 		x = -8
 		y = 5
 		relative_position_id = TAI_ss_root
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_ss_supply_chain }
 		prerequisite = { focus = TAI_pl_washington }
 		search_filters = { FOCUS_FILTER_TRADE }
@@ -2427,6 +2497,7 @@ focus_tree = {
 		x = -6
 		y = 5
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_supply_chain }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -2447,6 +2518,7 @@ focus_tree = {
 		x = -6
 		y = 6
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_court_berlin }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -2467,6 +2539,7 @@ focus_tree = {
 		x = -4
 		y = 5
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_supply_chain }
 		prerequisite = { focus = TAI_pl_tokyo }
 		search_filters = { FOCUS_FILTER_TRADE }
@@ -2487,7 +2560,7 @@ focus_tree = {
 		x = -6
 		y = 7
 		relative_position_id = TAI_ss_root
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_ss_us_compact }
 		prerequisite = { focus = TAI_ss_dutch_litho focus = TAI_ss_japan_materials }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -2514,6 +2587,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_root }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		completion_reward = {
@@ -2532,6 +2606,7 @@ focus_tree = {
 		x = -3
 		y = 2
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_trading_economy }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		available = {
@@ -2559,6 +2634,7 @@ focus_tree = {
 		x = -4
 		y = 3
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_bad_loans }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		available = {
@@ -2580,7 +2656,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = TAI_ss_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_ss_trading_economy }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		available = {
@@ -2602,7 +2678,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = TAI_ss_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_ss_challenge_2008 }
 		search_filters = { FOCUS_FILTER_INFRASTRUCTURE FOCUS_FILTER_EXPENDITURE }
 		completion_reward = {
@@ -2630,7 +2706,7 @@ focus_tree = {
 		x = 0
 		y = 4
 		relative_position_id = TAI_ss_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_ss_ten_projects }
 		search_filters = { FOCUS_FILTER_INFRASTRUCTURE FOCUS_FILTER_EXPENDITURE }
 		available = {
@@ -2658,6 +2734,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_trading_economy }
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2681,6 +2758,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_e_taiwan }
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -2699,6 +2777,7 @@ focus_tree = {
 		x = 4
 		y = 2
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_trading_economy }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		completion_reward = {
@@ -2719,6 +2798,7 @@ focus_tree = {
 		x = 4
 		y = 3
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_services }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -2739,6 +2819,7 @@ focus_tree = {
 		x = -2
 		y = 3
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_bad_loans }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		completion_reward = {
@@ -2758,6 +2839,7 @@ focus_tree = {
 		x = -2
 		y = 4
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_fx_facility }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -2796,7 +2878,7 @@ focus_tree = {
 		x = 6
 		y = 2
 		relative_position_id = TAI_ss_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_ss_energy_review }
 		search_filters = { FOCUS_FILTER_RESOURCE FOCUS_FILTER_EXPENDITURE }
 		completion_reward = {
@@ -2821,7 +2903,7 @@ focus_tree = {
 		x = 8
 		y = 2
 		relative_position_id = TAI_ss_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_ss_energy_review }
 		search_filters = { FOCUS_FILTER_POWER_INFRASTRUCTURE }
 		completion_reward = {
@@ -2845,6 +2927,7 @@ focus_tree = {
 		x = 10
 		y = 2
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_energy_review }
 		search_filters = { FOCUS_FILTER_POWER_INFRASTRUCTURE }
 		completion_reward = {
@@ -2870,6 +2953,7 @@ focus_tree = {
 		x = 8
 		y = 3
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_lng }
 		search_filters = { FOCUS_FILTER_RENEWABLE_ENERGY_INFRASTRUCTURE }
 		available = {
@@ -2891,6 +2975,7 @@ focus_tree = {
 		x = 12
 		y = 2
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_energy_review }
 		search_filters = { FOCUS_FILTER_RESOURCE }
 		completion_reward = {
@@ -2916,6 +3001,7 @@ focus_tree = {
 		x = 12
 		y = 3
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_food_reserve }
 		prerequisite = { focus = TAI_pl_wto }
 		search_filters = { FOCUS_FILTER_RESOURCE }
@@ -2941,6 +3027,7 @@ focus_tree = {
 		x = -2
 		y = 5
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_marine_insurance }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -2960,6 +3047,7 @@ focus_tree = {
 		x = 3
 		y = 6
 		relative_position_id = TAI_ss_root
+		cost = 10
 		prerequisite = { focus = TAI_ss_spr }
 		prerequisite = { focus = TAI_ss_food_reserve }
 		prerequisite = { focus = TAI_ss_materials_inventory }
@@ -2981,6 +3069,7 @@ focus_tree = {
 		icon = Generic_Imperial_China_Diplomacy
 		x = 7
 		y = 20
+		cost = 10
 		prerequisite = { focus = TAI_su_peaceful_transfer }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -2999,6 +3088,7 @@ focus_tree = {
 		x = -7
 		y = 1
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_root }
 		mutually_exclusive = { focus = TAI_as_active_opening }
 		search_filters = { FOCUS_FILTER_TRADE }
@@ -3022,6 +3112,7 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_root }
 		mutually_exclusive = { focus = TAI_as_go_slow }
 		search_filters = { FOCUS_FILTER_TRADE }
@@ -3087,6 +3178,7 @@ focus_tree = {
 		x = -7
 		y = 2
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_go_slow focus = TAI_as_active_opening }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -3136,6 +3228,7 @@ focus_tree = {
 		x = -7
 		y = 3
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_taishang }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -3179,6 +3272,7 @@ focus_tree = {
 		x = -7
 		y = 5
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_exposure_monitor }
 		search_filters = { FOCUS_FILTER_TRADE }
 		available = {
@@ -3210,6 +3304,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_root }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -3231,7 +3326,7 @@ focus_tree = {
 		x = -4
 		y = 3
 		relative_position_id = TAI_as_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_as_charter_flights }
 		search_filters = { FOCUS_FILTER_TRADE }
 		available = {
@@ -3265,6 +3360,7 @@ focus_tree = {
 		x = -4
 		y = 4
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_three_links }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -3291,7 +3387,7 @@ focus_tree = {
 		x = -4
 		y = 5
 		relative_position_id = TAI_as_root
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_as_mainland_tourists }
 		search_filters = { FOCUS_FILTER_TRADE }
 		available = {
@@ -3325,6 +3421,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_root }
 		mutually_exclusive = { focus = TAI_as_uphold_1992 }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
@@ -3360,6 +3457,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_root }
 		mutually_exclusive = { focus = TAI_as_restore_1992_spirit }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
@@ -3397,6 +3495,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_restore_1992_spirit focus = TAI_as_uphold_1992 }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		available = {
@@ -3431,6 +3530,7 @@ focus_tree = {
 		x = 1
 		y = 3
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_sef_arats }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -3457,7 +3557,7 @@ focus_tree = {
 		x = 0
 		y = 4
 		relative_position_id = TAI_as_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_as_crisis_channel }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -3493,6 +3593,7 @@ focus_tree = {
 		x = 0
 		y = 5
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_stabilization }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -3521,6 +3622,7 @@ focus_tree = {
 		x = -1
 		y = 6
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_structured_restraint }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -3582,6 +3684,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_uphold_1992 }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		available = {
@@ -3636,6 +3739,7 @@ focus_tree = {
 		x = 6
 		y = 2
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_red_lines }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		available = {
@@ -3666,6 +3770,7 @@ focus_tree = {
 		x = 8
 		y = 2
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_red_lines }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -3686,7 +3791,7 @@ focus_tree = {
 		x = 5
 		y = 3
 		relative_position_id = TAI_as_root
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_as_journey_of_peace }
 		prerequisite = { focus = TAI_as_assent }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
@@ -3726,6 +3831,7 @@ focus_tree = {
 		x = 2
 		y = 4
 		relative_position_id = TAI_as_root
+		cost = 10
 		prerequisite = { focus = TAI_as_crisis_channel }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		completion_reward = {
@@ -3747,7 +3853,7 @@ focus_tree = {
 		x = 4
 		y = 6
 		relative_position_id = TAI_as_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_as_assent }
 		prerequisite = { focus = TAI_as_structured_restraint focus = TAI_as_peace_accord focus = TAI_as_status_quo_dividend }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
@@ -3794,6 +3900,7 @@ focus_tree = {
 		icon = Afghan_on_the_world_stage
 		x = 25
 		y = 0
+		cost = 10
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_pl_root"
@@ -3831,6 +3938,7 @@ focus_tree = {
 		x = -12
 		y = 2
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_washington }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -3852,6 +3960,7 @@ focus_tree = {
 		x = -10
 		y = 2
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_washington }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -3910,6 +4019,7 @@ focus_tree = {
 		x = -8
 		y = 2
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_washington }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -3930,6 +4040,7 @@ focus_tree = {
 		x = -12
 		y = 3
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_no_surprises }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -3956,6 +4067,7 @@ focus_tree = {
 		x = -13
 		y = 4
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_us_crisis_comms }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		completion_reward = {
@@ -4017,6 +4129,7 @@ focus_tree = {
 		x = -4
 		y = 2
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_tokyo }
 		prerequisite = { focus = TAI_na_gray_zone }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
@@ -4038,6 +4151,7 @@ focus_tree = {
 		x = -4
 		y = 3
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_japan_coast_guard }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -4069,6 +4183,7 @@ focus_tree = {
 		x = -4
 		y = 4
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_japan_dialogue }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		completion_reward = {
@@ -4088,6 +4203,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_root }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -4105,6 +4221,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_europe }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -4144,6 +4261,7 @@ focus_tree = {
 		x = -2
 		y = 3
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_eu_trade }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -4165,6 +4283,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_root }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -4185,6 +4304,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_india }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -4206,7 +4326,7 @@ focus_tree = {
 		x = 1
 		y = 3
 		relative_position_id = TAI_pl_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_pl_india_tier1 }
 		prerequisite = { focus = TAI_ss_crown_jewels }
 		search_filters = { FOCUS_FILTER_TRADE }
@@ -4231,6 +4351,7 @@ focus_tree = {
 		x = 3
 		y = 3
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_india_tier1 }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -4252,7 +4373,7 @@ focus_tree = {
 		x = 1
 		y = 4
 		relative_position_id = TAI_pl_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_pl_india_tier2 }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		available = {
@@ -4284,6 +4405,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_root }
 		mutually_exclusive = { focus = TAI_pl_end_checkbook }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY FOCUS_FILTER_EXPENDITURE }
@@ -4310,6 +4432,7 @@ focus_tree = {
 		x = 6
 		y = 1
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_root }
 		mutually_exclusive = { focus = TAI_pl_keep_allies }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
@@ -4331,6 +4454,7 @@ focus_tree = {
 		x = 4
 		y = 2
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_keep_allies focus = TAI_pl_end_checkbook }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -4349,6 +4473,7 @@ focus_tree = {
 		x = 8
 		y = 1
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_root }
 		search_filters = { FOCUS_FILTER_TRADE }
 		available = {
@@ -4371,6 +4496,7 @@ focus_tree = {
 		x = 7
 		y = 2
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_wto }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -4417,6 +4543,7 @@ focus_tree = {
 		x = 7
 		y = 4
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_sars }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -4457,6 +4584,7 @@ focus_tree = {
 		x = 10
 		y = 1
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_root }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
 		completion_reward = {
@@ -4475,6 +4603,7 @@ focus_tree = {
 		x = -1
 		y = 4
 		relative_position_id = TAI_pl_root
+		cost = 10
 		prerequisite = { focus = TAI_pl_offices }
 		prerequisite = { focus = TAI_pl_us_crisis_comms }
 		search_filters = { FOCUS_FILTER_FOREIGN_POLICY }
@@ -4502,7 +4631,7 @@ focus_tree = {
 		x = -6
 		y = 5
 		relative_position_id = TAI_pl_root
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_pl_us_credit }
 		prerequisite = { focus = TAI_pl_japan_credit }
 		prerequisite = { focus = TAI_pl_eu_supply }
@@ -4529,6 +4658,7 @@ focus_tree = {
 		icon = american_shield
 		x = 80
 		y = 20
+		cost = 10
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		available = {
 			TAI_blue_tiger_roots_ready = yes
@@ -4633,6 +4763,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_accommodation focus = TAI_bt_blue_tiger focus = TAI_bt_island_fortress }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4654,6 +4785,7 @@ focus_tree = {
 		x = -10
 		y = 3
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_nsc }
 		search_filters = { FOCUS_FILTER_ECONOMY }
 		completion_reward = {
@@ -4714,6 +4846,7 @@ focus_tree = {
 		x = -5
 		y = 4
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_succession }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4741,6 +4874,7 @@ focus_tree = {
 		x = -5
 		y = 5
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_alternate_seats }
 		prerequisite = { focus = TAI_df_local_government }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
@@ -4762,6 +4896,7 @@ focus_tree = {
 		x = -3
 		y = 4
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_succession }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4782,6 +4917,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_nsc }
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4802,6 +4938,7 @@ focus_tree = {
 		x = -1
 		y = 4
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_wan_an }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4826,6 +4963,7 @@ focus_tree = {
 		x = 1
 		y = 4
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_wan_an }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4850,6 +4988,7 @@ focus_tree = {
 		x = 1
 		y = 5
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_restore_grid }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4870,6 +5009,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_nsc }
 		prerequisite = { focus = TAI_ss_fx_facility }
 		search_filters = { FOCUS_FILTER_ECONOMY }
@@ -4891,6 +5031,7 @@ focus_tree = {
 		x = -9
 		y = 4
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_count_the_days }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4910,6 +5051,7 @@ focus_tree = {
 		x = 1
 		y = 6
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_redundant_comms }
 		search_filters = { FOCUS_FILTER_TRADE }
 		completion_reward = {
@@ -4929,6 +5071,7 @@ focus_tree = {
 		x = 1
 		y = 7
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_ports_open }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -4948,6 +5091,7 @@ focus_tree = {
 		x = 1
 		y = 8
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_airlift }
 		prerequisite = { focus = TAI_bt_adaptation_office }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
@@ -5015,6 +5159,7 @@ focus_tree = {
 		x = 6
 		y = 3
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_nsc }
 		prerequisite = { focus = TAI_ss_silicon_shield }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
@@ -5035,6 +5180,7 @@ focus_tree = {
 		x = 6
 		y = 4
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_semiconductor_continuity }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -5059,7 +5205,7 @@ focus_tree = {
 		x = 1
 		y = 9
 		relative_position_id = TAI_bt_root
-		cost = 15
+		cost = 10
 		prerequisite = { focus = TAI_bt_emergency_limits }
 		prerequisite = { focus = TAI_bt_rationing }
 		prerequisite = { focus = TAI_bt_emergency_procurement }
@@ -5083,6 +5229,7 @@ focus_tree = {
 		x = 1
 		y = 10
 		relative_position_id = TAI_bt_root
+		cost = 10
 		prerequisite = { focus = TAI_bt_emergency_doctrine }
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
@@ -5103,7 +5250,7 @@ focus_tree = {
 		x = 1
 		y = 11
 		relative_position_id = TAI_bt_root
-		cost = 20
+		cost = 10
 		prerequisite = { focus = TAI_bt_island_endures }
 		prerequisite = { focus = TAI_pl_lifeline_holds }
 		prerequisite = { focus = TAI_na_fortress_taiwan focus = TAI_na_hybrid }
@@ -5125,6 +5272,7 @@ focus_tree = {
 		icon = Generic_Conservatism
 		x = 12
 		y = 10
+		cost = 10
 		prerequisite = { focus = TAI_su_form_cabinet }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5147,6 +5295,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_rebuild }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5169,6 +5318,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_rebuild }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5193,6 +5343,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_rebuild }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5216,6 +5367,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_rebuild }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5240,6 +5392,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_localization }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5261,6 +5414,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_technocrats }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5285,6 +5439,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_technocrats }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5314,6 +5469,7 @@ focus_tree = {
 		x = 4
 		y = 2
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_pan_blue }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5337,6 +5493,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_six_three_three }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
@@ -5366,6 +5523,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_us_ties }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5402,6 +5560,7 @@ focus_tree = {
 		x = 4
 		y = 3
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_new_taiwanese }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5438,6 +5597,7 @@ focus_tree = {
 		x = 4
 		y = 4
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_roc_framework }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5474,6 +5634,7 @@ focus_tree = {
 		x = 3
 		y = 5
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_1992_consensus }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5502,6 +5663,7 @@ focus_tree = {
 		x = 5
 		y = 5
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_1992_consensus }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5533,6 +5695,7 @@ focus_tree = {
 		x = 3
 		y = 6
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_party_platform }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5569,6 +5732,7 @@ focus_tree = {
 		x = 3
 		y = 7
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_peace_framework }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5592,6 +5756,7 @@ focus_tree = {
 		x = 3
 		y = 8
 		relative_position_id = TAI_su_kmt_rebuild
+		cost = 10
 		prerequisite = { focus = TAI_su_kmt_consent }
 		prerequisite = { focus = TAI_su_kmt_i_taiwan }
 		prerequisite = { focus = TAI_su_kmt_viable_diplomacy }
@@ -5616,6 +5781,7 @@ focus_tree = {
 		icon = Generic_Liberty_Calling
 		x = 26
 		y = 10
+		cost = 10
 		prerequisite = { focus = TAI_su_form_cabinet }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5639,6 +5805,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_people_first }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5662,6 +5829,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_people_first }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5687,6 +5855,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_people_first }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5709,6 +5878,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_people_first }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5743,6 +5913,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_clean_sweep }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5765,6 +5936,7 @@ focus_tree = {
 		x = -3
 		y = 2
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_provincial_network }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5792,6 +5964,7 @@ focus_tree = {
 		x = -1
 		y = 2
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_provincial_network }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5819,6 +5992,7 @@ focus_tree = {
 		x = -3
 		y = 3
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_court_kmt_caucus }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5841,6 +6015,7 @@ focus_tree = {
 		x = -3
 		y = 4
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_kingmaker }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5866,6 +6041,7 @@ focus_tree = {
 		x = -1
 		y = 3
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_every_township }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5895,6 +6071,7 @@ focus_tree = {
 		x = -3
 		y = 5
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_blue_legislature }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5916,6 +6093,7 @@ focus_tree = {
 		x = -3
 		y = 6
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_reunite_blue }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5941,6 +6119,7 @@ focus_tree = {
 		x = -3
 		y = 7
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_joint_ticket }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -5964,6 +6143,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_pragmatic_strait }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6000,6 +6180,7 @@ focus_tree = {
 		x = 5
 		y = 2
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_pragmatic_strait }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6022,6 +6203,7 @@ focus_tree = {
 		x = 3
 		y = 3
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_peace_mechanism }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6050,6 +6232,7 @@ focus_tree = {
 		x = 0
 		y = 8
 		relative_position_id = TAI_su_pfp_people_first
+		cost = 10
 		prerequisite = { focus = TAI_su_pfp_recount_fight }
 		prerequisite = { focus = TAI_su_pfp_soong_in_beijing }
 		prerequisite = { focus = TAI_su_pfp_welfare }
@@ -6074,6 +6257,7 @@ focus_tree = {
 		icon = Generic_Ripping_Papers
 		x = 38
 		y = 10
+		cost = 10
 		prerequisite = { focus = TAI_su_form_cabinet }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6111,6 +6295,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_four_noes }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6134,6 +6319,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_four_noes }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6157,6 +6343,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_middle_way }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6180,6 +6367,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6204,6 +6392,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6242,6 +6431,7 @@ focus_tree = {
 		x = 6
 		y = 2
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_cautious_revolutionary }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6264,6 +6454,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_taiwan_centered }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6287,6 +6478,7 @@ focus_tree = {
 		x = 6
 		y = 3
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_clean_party }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6309,6 +6501,7 @@ focus_tree = {
 		x = 2
 		y = 4
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_one_country_each_side }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6336,6 +6529,7 @@ focus_tree = {
 		x = 0
 		y = 5
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_referendum_act }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6360,6 +6554,7 @@ focus_tree = {
 		x = 2
 		y = 5
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_referendum_act }
 		mutually_exclusive = { focus = TAI_su_dpp_name_rectification }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -6391,6 +6586,7 @@ focus_tree = {
 		x = 4
 		y = 5
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_referendum_act }
 		mutually_exclusive = { focus = TAI_su_dpp_status_quo }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -6424,6 +6620,7 @@ focus_tree = {
 		x = 6
 		y = 4
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_judicial_reform }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6449,6 +6646,7 @@ focus_tree = {
 		x = 4
 		y = 6
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_name_rectification }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6481,6 +6679,7 @@ focus_tree = {
 		x = 4
 		y = 7
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_council_ceases }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6514,6 +6713,7 @@ focus_tree = {
 		x = 6
 		y = 5
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_weather_scandals }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6537,6 +6737,7 @@ focus_tree = {
 		x = 4
 		y = 8
 		relative_position_id = TAI_su_dpp_four_noes
+		cost = 10
 		prerequisite = { focus = TAI_su_dpp_un_bid }
 		prerequisite = { focus = TAI_su_dpp_new_generation }
 		prerequisite = { focus = TAI_su_dpp_advisory_conference }
@@ -6561,6 +6762,7 @@ focus_tree = {
 		icon = TAI_civilwar_legacy
 		x = 56
 		y = 10
+		cost = 10
 		prerequisite = { focus = TAI_su_form_cabinet }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6586,6 +6788,7 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_founding }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6609,6 +6812,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_founding }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6636,6 +6840,7 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_founding }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6660,6 +6865,7 @@ focus_tree = {
 		x = -7
 		y = 2
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_coalition }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6696,6 +6902,7 @@ focus_tree = {
 		x = -7
 		y = 3
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_hold_the_line }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6721,6 +6928,7 @@ focus_tree = {
 		x = -5
 		y = 2
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_coalition }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6751,6 +6959,7 @@ focus_tree = {
 		x = -3
 		y = 2
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_coalition }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6772,6 +6981,7 @@ focus_tree = {
 		x = -1
 		y = 2
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_spiritual_leader }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6796,6 +7006,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_spiritual_leader }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6819,6 +7030,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_spiritual_leader }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6844,6 +7056,7 @@ focus_tree = {
 		x = 5
 		y = 2
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_southern_base }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6869,6 +7082,7 @@ focus_tree = {
 		x = -5
 		y = 3
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_farmers }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6897,6 +7111,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_rectify_name }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6922,6 +7137,7 @@ focus_tree = {
 		x = 4
 		y = 3
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_rectify_name }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6954,6 +7170,7 @@ focus_tree = {
 		x = 2
 		y = 4
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_hand_in_hand }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -6986,6 +7203,7 @@ focus_tree = {
 		x = -5
 		y = 4
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_hold_the_line }
 		prerequisite = { focus = TAI_su_tsu_wto_safeguards }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -7009,6 +7227,7 @@ focus_tree = {
 		x = -1
 		y = 5
 		relative_position_id = TAI_su_tsu_founding
+		cost = 10
 		prerequisite = { focus = TAI_su_tsu_new_constitution }
 		prerequisite = { focus = TAI_su_tsu_cabinet_seats }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -7033,6 +7252,7 @@ focus_tree = {
 		icon = agriculture2
 		x = 71
 		y = 10
+		cost = 10
 		prerequisite = { focus = TAI_su_form_cabinet }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7057,6 +7277,7 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_root }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7082,6 +7303,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_root }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7107,6 +7329,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_root }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7130,6 +7353,7 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_root }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7157,6 +7381,7 @@ focus_tree = {
 		x = -4
 		y = 2
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_nuclear_free }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7181,6 +7406,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_nuclear_free }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7206,6 +7432,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_impact_assessment }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7233,6 +7460,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_impact_assessment }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7256,6 +7484,7 @@ focus_tree = {
 		x = 4
 		y = 2
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_labor }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7279,6 +7508,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_clean_air }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7302,6 +7532,7 @@ focus_tree = {
 		x = 6
 		y = 2
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_labor }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7329,6 +7560,7 @@ focus_tree = {
 		x = 2
 		y = 3
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_qigu_wetlands }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7352,6 +7584,7 @@ focus_tree = {
 		x = -2
 		y = 3
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_nuclear_referendum }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		available = {
@@ -7375,6 +7608,7 @@ focus_tree = {
 		x = 4
 		y = 3
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_indigenous }
 		prerequisite = { focus = TAI_su_gpt_organic_farming }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -7399,6 +7633,7 @@ focus_tree = {
 		x = -2
 		y = 4
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_wind_and_sun }
 		prerequisite = { focus = TAI_su_gpt_council_seats }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -7423,6 +7658,7 @@ focus_tree = {
 		x = 0
 		y = 4
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_ecological_tax }
 		prerequisite = { focus = TAI_su_gpt_east_coast }
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -7448,6 +7684,7 @@ focus_tree = {
 		x = 1
 		y = 5
 		relative_position_id = TAI_su_gpt_root
+		cost = 10
 		prerequisite = { focus = TAI_su_gpt_green_minister }
 		prerequisite = { focus = TAI_su_gpt_civil_society }
 		prerequisite = { focus = TAI_su_gpt_eco_reform }
