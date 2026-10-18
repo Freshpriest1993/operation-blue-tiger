@@ -83,10 +83,10 @@ else:
     a1 = "\t\t\tTAI_update_reclamation = yes\n"
     a2 = "\ton_monthly_CHI = {\n\t\teffect = {\n"
     assert txt.count(a1) == 1 and txt.count(a2) == 1
-    txt = txt.replace(a1, a1 + "\t\t\tOBT_strait_update = yes\n").replace(a2, a2 + "\t\t\tOBT_strait_update = yes\n")
+    txt = txt.replace(a1, a1 + "\t\t\tOBT_strait_update = yes\n\t\t\tOBT_strait_snapshot = yes\n").replace(a2, a2 + "\t\t\tOBT_strait_update = yes\n")
     tail = txt.rstrip("\n")
     assert tail.endswith("}")
-    txt = tail[:-1].rstrip("\n") + "\n\n\ton_startup = {\n\t\teffect = {\n\t\t\tif = {\n\t\t\t\tlimit = { country_exists = TAI }\n\t\t\t\tTAI = { OBT_strait_update = yes }\n\t\t\t}\n\t\t}\n\t}\n}\n"
+    txt = tail[:-1].rstrip("\n") + "\n\n\ton_startup = {\n\t\teffect = {\n\t\t\tOBT_strait_update = yes\n\t\t}\n\t}\n}\n"
     wr(rel, txt)
 
 rel = "common/decisions/categories/99_CHI_decision_categories.txt"
@@ -164,16 +164,6 @@ else:
     txt = txt[:start] + new_block + txt[end + 1:]
     wr(rel, ("﻿" if bom else "") + txt)
     done.append(f"  gated {changed} decisions, {already} already gated, {len(names)} total")
-
-rel = "localisation/english/MD_focus_CHI_l_english.yml"
-txt = rd(p(rel), True)
-old = ' CHI_SAR_decisions_category_desc: "\\n£GFX_CHI_commission_2'
-new = ' CHI_SAR_decisions_category_desc: "\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n£GFX_CHI_commission_2'
-if new in txt:
-    skipped.append(rel + " current")
-else:
-    assert txt.count(old) == 1
-    wr(rel, txt.replace(old, new), True)
 
 rel = "common/decisions/TAI_blue_tiger_decisions.txt"
 txt = rd(p(rel))

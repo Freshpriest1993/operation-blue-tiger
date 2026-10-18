@@ -16,7 +16,6 @@ Operation Blue Tiger keeps its content in its own files wherever it can. These a
 | --- | --- |
 | `common/decisions/categories/99_CHI_decision_categories.txt` | `CHI_SAR_decisions_category` ("One China Strategy") is visible from the start and shows the meter (`scripted_gui = OBT_CHI_strait_meter`). Its old `visible = { has_completed_focus = CHI_SAR_one_china_framework }` is removed. |
 | `common/decisions/05_CHI_decisions.txt` | To keep every existing decision exactly as reachable as before, `has_completed_focus = CHI_SAR_one_china_framework` is added to the `visible` block of each decision in `CHI_SAR_decisions_category` (55 decisions; 6 already had it). `CHI_TAI_pro_china_party_networks_mission` is left unchanged because missions ignore `visible`. Hong Kong, Macau, Tibet, Xinjiang, Inner Mongolia and Mongolia conditions are untouched. |
-| `localisation/english/MD_focus_CHI_l_english.yml` | `CHI_SAR_decisions_category_desc` starts with extra line breaks to make room for the meter. The text is unchanged. |
 
 New China decisions for the meter live in Operation Blue Tiger's own file, `common/decisions/OBT_strait_decisions.txt`, under the same category key.
 

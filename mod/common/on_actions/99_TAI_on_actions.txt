@@ -4,6 +4,7 @@ on_actions = {
 			TAI_update_pressure = yes
 			TAI_update_reclamation = yes
 			OBT_strait_update = yes
+			OBT_strait_snapshot = yes
 		}
 	}
 

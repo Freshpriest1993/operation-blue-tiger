@@ -17,8 +17,14 @@ country_event = {
 	option = {
 		name = obt_strait.1.a
 		log = "[GetDateText]: [This.GetName]: obt_strait.1.a executed"
-		set_temp_variable = { OBT_tension_change = 3 }
-		OBT_strait_change_tension = yes
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = 3 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		OBT_strait_update = yes
 		navy_experience = 5
 		add_to_variable = { CHI_taiwan_us_support = 2 tooltip = CHI_taiwan_us_support_tt }
 		clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
@@ -44,8 +50,14 @@ country_event = {
 	option = {
 		name = obt_strait.1.c
 		log = "[GetDateText]: [This.GetName]: obt_strait.1.c executed"
-		set_temp_variable = { OBT_tension_change = -5 }
-		OBT_strait_change_tension = yes
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		OBT_strait_update = yes
 		add_political_power = -25
 		ai_chance = {
 			base = 30
@@ -92,8 +104,14 @@ country_event = {
 	option = {
 		name = obt_strait.2.b
 		log = "[GetDateText]: [This.GetName]: obt_strait.2.b executed"
-		set_temp_variable = { OBT_tension_change = 3 }
-		OBT_strait_change_tension = yes
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = 3 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		OBT_strait_update = yes
 		add_to_variable = { CHI_TAI_trust = -2 tooltip = CHI_TAI_trust_tt }
 		clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
 		ai_chance = {
@@ -123,8 +141,14 @@ country_event = {
 	option = {
 		name = obt_strait.3.a
 		log = "[GetDateText]: [This.GetName]: obt_strait.3.a executed"
-		set_temp_variable = { OBT_tension_change = 2 }
-		OBT_strait_change_tension = yes
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = 2 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		OBT_strait_update = yes
 		add_to_variable = { TAI_taiwanese_identity = 2 tooltip = TAI_taiwanese_identity_tt }
 		clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
 		ai_chance = {
@@ -139,8 +163,14 @@ country_event = {
 	option = {
 		name = obt_strait.3.b
 		log = "[GetDateText]: [This.GetName]: obt_strait.3.b executed"
-		set_temp_variable = { OBT_tension_change = -4 }
-		OBT_strait_change_tension = yes
+		if = {
+			limit = { country_exists = CHI }
+			CHI = {
+				add_to_variable = { CHI_taiwan_strait_tension = -4 tooltip = CHI_taiwan_strait_tension_tt }
+				clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+			}
+		}
+		OBT_strait_update = yes
 		add_to_variable = { TAI_us_confidence = 2 tooltip = TAI_us_confidence_tt }
 		clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
 		add_to_variable = { TAI_taiwanese_identity = -1 tooltip = TAI_taiwanese_identity_tt }

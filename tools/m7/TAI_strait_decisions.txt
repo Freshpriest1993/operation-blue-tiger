@@ -16,8 +16,15 @@ OBT_cross_strait_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_TAI_crisis_hotline"
-			set_temp_variable = { OBT_tension_change = -8 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_TAI_crisis_hotline_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -8 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			add_to_variable = { TAI_us_confidence = 3 tooltip = TAI_us_confidence_tt }
 			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
 		}
@@ -52,8 +59,15 @@ OBT_cross_strait_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_TAI_reaffirm_status_quo"
-			set_temp_variable = { OBT_tension_change = -5 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_TAI_reaffirm_status_quo_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			add_to_variable = { TAI_taiwanese_identity = -2 tooltip = TAI_taiwanese_identity_tt }
 			clamp_variable = { var = TAI_taiwanese_identity min = 0 max = 100 }
 		}
@@ -92,8 +106,15 @@ OBT_cross_strait_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_TAI_cross_strait_trade_talks"
-			set_temp_variable = { OBT_tension_change = -6 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_TAI_cross_strait_trade_talks_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -6 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			add_to_variable = { TAI_mainland_dependence = 4 tooltip = TAI_mainland_dependence_tt }
 			clamp_variable = { var = TAI_mainland_dependence min = 0 max = 100 }
 			if = {
@@ -143,8 +164,15 @@ OBT_cross_strait_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_TAI_raise_readiness"
-			set_temp_variable = { OBT_tension_change = 3 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_TAI_raise_readiness_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 3 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			set_temp_variable = { treasury_change = -3 }
 			modify_treasury_effect = yes
 		}
@@ -176,8 +204,15 @@ OBT_cross_strait_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_TAI_civil_defense_drill"
-			set_temp_variable = { OBT_tension_change = 2 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_TAI_civil_defense_drill_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 2 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			set_temp_variable = { treasury_change = -2 }
 			modify_treasury_effect = yes
 			add_stability = 0.02
@@ -216,8 +251,15 @@ OBT_cross_strait_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_TAI_brief_washington"
-			set_temp_variable = { OBT_tension_change = 3 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_TAI_brief_washington_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 3 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			if = {
 				limit = { country_exists = CHI }
 				CHI = {
@@ -259,8 +301,15 @@ CHI_SAR_decisions_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_CHI_crisis_hotline"
-			set_temp_variable = { OBT_tension_change = -10 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_CHI_crisis_hotline_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -10 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			add_to_variable = { CHI_TAI_trust = 3 tooltip = CHI_TAI_trust_tt }
 			clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
 		}
@@ -299,8 +348,15 @@ CHI_SAR_decisions_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_CHI_quiet_channel"
-			set_temp_variable = { OBT_tension_change = -5 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_CHI_quiet_channel_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -5 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			add_to_variable = { CHI_TAI_trust = 2 tooltip = CHI_TAI_trust_tt }
 			clamp_variable = { var = CHI_TAI_trust min = 0 max = 100 }
 		}
@@ -336,8 +392,15 @@ CHI_SAR_decisions_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_CHI_stern_warning"
-			set_temp_variable = { OBT_tension_change = 6 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_CHI_stern_warning_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 6 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			add_to_variable = { CHI_taiwan_us_support = 2 tooltip = CHI_taiwan_us_support_tt }
 			clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
 			if = {
@@ -384,8 +447,15 @@ CHI_SAR_decisions_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_CHI_patrol_surge"
-			set_temp_variable = { OBT_tension_change = 10 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_CHI_patrol_surge_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = 10 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			set_temp_variable = { treasury_change = -3 }
 			modify_treasury_effect = yes
 			navy_experience = 10
@@ -428,8 +498,15 @@ CHI_SAR_decisions_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_CHI_economic_incentives"
-			set_temp_variable = { OBT_tension_change = -6 }
-			OBT_strait_change_tension = yes
+			custom_effect_tooltip = OBT_CHI_economic_incentives_tt
+			if = {
+				limit = { country_exists = CHI }
+				CHI = {
+					add_to_variable = { CHI_taiwan_strait_tension = -6 tooltip = CHI_taiwan_strait_tension_tt }
+					clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+				}
+			}
+			OBT_strait_update = yes
 			set_temp_variable = { treasury_change = -5 }
 			modify_treasury_effect = yes
 			add_to_variable = { CHI_TAI_trust = 5 tooltip = CHI_TAI_trust_tt }
@@ -481,6 +558,7 @@ CHI_SAR_decisions_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision OBT_CHI_prepare_contingency"
+			custom_effect_tooltip = OBT_CHI_prepare_contingency_tt
 			create_wargoal = {
 				type = annex_everything
 				target = TAI
