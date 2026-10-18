@@ -1202,3 +1202,8 @@ for _b in BRANCHES:
         _ALL[_p3]["eff"][0:0] = [f"rmidea:{_base}_1", f"rmidea:{_base}_2", f"idea:{_base}_3"]
 
 TIERS = [["pl", "su", "ss"], ["kmt", "pfp", "dpp", "tsu", "gpt"], ["as", "df", "na", "bt"]]
+
+# Milestone 8: crisis events link to the 2001 arms package focuses.
+_byid = {f["id"]: f for b in BRANCHES for f in b["focuses"]}
+_byid["TAI_na_2001_package"]["avail"].append("raw:OR = { NOT = { has_global_flag = OBT_2001_package_postponed } date > 2002.1.1 }")
+_byid["TAI_na_kidd_destroyers"]["eff"].append("raw:if = { limit = { has_global_flag = OBT_2001_aegis } add_tech_bonus = { name = TAI_na_kidd_destroyers_aegis bonus = 0.5 uses = 1 category = CAT_naval_electronics } }")

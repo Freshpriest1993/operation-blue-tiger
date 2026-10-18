@@ -19,13 +19,19 @@ Operation Blue Tiger keeps its content in its own files wherever it can. These a
 
 New China decisions for the meter live in Operation Blue Tiger's own file, `common/decisions/OBT_strait_decisions.txt`, under the same category key.
 
+## Milestone 8: Hainan Island Incident hook
+
+| File | Change |
+| --- | --- |
+| `events/05_china.txt` | `CHI_political_events.6` (Hainan Island Incident): option a now also sets `CHI_hainan_honoured` and option b sets `CHI_hainan_settlement`; both call `OBT_hainan_begin = yes`, which starts the American side of the chain in `events/OBT_crisis_events.txt`. Two lines per option, marked `# OBT: Hainan chain`. The original effects are unchanged. |
+
 ## Shared files touched outside China
 
 | File | Change |
 | --- | --- |
 | `common/game_rules/00_game_rules.txt`, `localisation/english/MD_game_rules_l_english.yml` | `TAI_ai_behavior` and `TAI_return_to_mainland` rules. |
 | `common/on_actions/999_game_rules_on_actions.txt` | Taiwan AI path flags. |
-| `common/scripted_effects/00_yearly_effects.txt` | Schedules Taiwan's historical events. |
+| `common/scripted_effects/00_yearly_effects.txt` | Schedules Taiwan's historical events, the 2001 U.S. arms package event (USA) and the 2005 U.S.-Japan statement event (JAP). |
 | `common/scripted_localisation/00_MD_politicsview_scripted_localisation.txt` | KMT party names for the restored mainland republic (flag-gated) and the Taiwan Solidarity Union name from August 2001. |
 | `localisation/english/MD_politics_view_parties_l_english.yml` | Taiwan Solidarity Union party name and description. |
 | `Changelog.txt` | One Operation Blue Tiger line. |

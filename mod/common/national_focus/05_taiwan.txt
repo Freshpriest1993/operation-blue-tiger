@@ -1883,6 +1883,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		available = {
 			date > 2001.4.1
+			OR = { NOT = { has_global_flag = OBT_2001_package_postponed } date > 2002.1.1 }
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_2001_package"
@@ -1936,6 +1937,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_kidd_destroyers"
 			add_tech_bonus = { name = TAI_na_kidd_destroyers bonus = 0.5 uses = 2 category = CAT_destroyers }
+			if = { limit = { has_global_flag = OBT_2001_aegis } add_tech_bonus = { name = TAI_na_kidd_destroyers_aegis bonus = 0.5 uses = 1 category = CAT_naval_electronics } }
 			navy_experience = 40
 			set_temp_variable = { treasury_change = -3 }
 			modify_treasury_effect = yes

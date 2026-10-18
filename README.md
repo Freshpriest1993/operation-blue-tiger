@@ -4,7 +4,7 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestones 1 to 7 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, and the shared Cross-Strait Tension meter. Milestones 5 and 7 are awaiting review by the Millennium Dawn team, and the meter is in in-game testing. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestones 1 to 8 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, and the 2001-2005 crisis events. Milestones 5, 7 and 8 are awaiting review by the Millennium Dawn team, and the meter is in in-game testing. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
@@ -41,6 +41,16 @@ It also adds **88 national spirits**, including five starting conditions (Young 
 22 historical events cover the period from the first transfer of power to the second: the May 2000 inauguration and the officer corps' response, the 2001 dot-com bust and legislative election, SARS in 2003, the 2004 election-eve shooting and disputed recount, the 2005 Anti-Secession Law and the KMT chairman's visit to Beijing, the 2006 State Affairs Fund inquiry and Red Shirt protests, and the 2008 elections. Party focuses open 14 more events, from the KMT chairman election and the Defensive Referendum to the founding of the Taiwan Solidarity Union. Every party focus takes 70 days, so a full party branch lasts about one presidential term. Ten other focuses also open decision events, such as the Fourth Nuclear Plant crisis, the special defense budget showdown and the HF-2E controversy.
 
 Events follow the governing party: a Pan-Blue Taiwan does not get Pan-Green history, and contested allegations are presented as allegations.
+
+### Crisis events, 2001-2005
+
+Three event chains let Washington, Beijing, Tokyo and Taipei each make their own choices. Every chain stays neutral on contested facts and none of them can start a war.
+
+- **Hainan Island Incident (April 2001).** Starts from Millennium Dawn's existing Chinese event. The United States demands its crew back or expresses regret; China holds the crew, releases them at once, or, rarely and only after honouring its pilot, puts them on trial. Washington can send the "very sorry" letter or refuse, which drags the standoff on. China then keeps the EP-3E for inspection, as happened, or returns it intact. Taiwan decides whether to back Washington quietly or stay out.
+- **The 2001 arms package.** The President approves the historical package with Aegis destroyers deferred, approves everything including Aegis, or postpones it. A postponement locks Taiwan's *2001 Arms Package* focus until 1 January 2002; Aegis approval adds a naval electronics bonus to *Accept the Kidd-Class Destroyers*. The President can then say the United States will do "whatever it takes" to help Taiwan defend itself, or reaffirm strategic ambiguity. Taiwan and China each respond.
+- **The 2005 U.S.-Japan "2+2" statement.** Japan chooses whether to name the Taiwan Strait among the alliance's common strategic objectives, as it did on 19 February 2005. If it does, Taiwan and China respond.
+
+Each choice moves Strait Tension, American support, U.S. confidence in Taipei or cross-Strait trust, so the tension meter reflects the crises. Choices that did not happen are marked *(Alternate history)*.
 
 ### Cross-Strait Pressure System
 
@@ -140,8 +150,8 @@ You need a local copy of Millennium Dawn (the developer version from its GitHub 
 
 **Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. Most of Operation Blue Tiger lives in its own files, but these shared Millennium Dawn files are replaced:
 
-- `00_yearly_effects.txt`: schedules Taiwan's historical events.
-- China's `05_china.txt`, `05_CHI_decisions.txt`, `99_CHI_decision_categories.txt` and `MD_focus_CHI_l_english.yml`: staged talks instead of automatic annexation, and the One China Strategy tab visible from the start with the tension meter.
+- `00_yearly_effects.txt`: schedules Taiwan's historical events and the 2001 and 2005 crisis events.
+- China's `05_china.txt` (also starts the Hainan chain), `05_CHI_decisions.txt`, `99_CHI_decision_categories.txt` and `MD_focus_CHI_l_english.yml`: staged talks instead of automatic annexation, and the One China Strategy tab visible from the start with the tension meter.
 - `00_game_rules.txt`, `999_game_rules_on_actions.txt` and `MD_game_rules_l_english.yml`: the Taiwan AI path and Return to the Mainland game rules.
 - `00_MD_politicsview_scripted_localisation.txt` and `MD_politics_view_parties_l_english.yml`: the Taiwan Solidarity Union and the mainland republic's party names.
 
@@ -158,7 +168,7 @@ Then start a game as Taiwan, or as China to see the pressure system from Beijing
 | `mod/` | All Operation Blue Tiger files in Millennium Dawn's folder structure |
 | `patches/` | A Git patch of milestones 1 to 4 |
 | `tools/` | The generators: `spec.py` defines every Taiwan focus, `layout.py` arranges the tree, `gen.py` builds the focus tree and localisation, and `events_gen.py` builds the events and spirits from `events_spec.py` |
-| `tools/m3`, `m4`, `m5`, `m7` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland and the tension meter |
+| `tools/m3`, `m4`, `m5`, `m7`, `m8` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland, the tension meter and the crisis events |
 | `docs/` | Handoff notes, a focus spreadsheet, the China change log and the tension meter test plan |
 
 ### Regenerating the files
@@ -169,9 +179,10 @@ Requires Python 3.10 or later.
 python tools/gen.py <millennium-dawn-folder> <output-folder>
 python tools/events_gen.py <millennium-dawn-folder> <output-folder>
 python tools/m7/build7.py tools/m7
+python tools/m8/build8.py tools/m8
 ```
 
-The apply scripts (`apply.py` to `apply7.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
+The apply scripts (`apply.py` to `apply8.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
 
 ## Roadmap
 
@@ -182,7 +193,8 @@ The apply scripts (`apply.py` to `apply7.py`) write the output into a Millennium
 - [x] **Milestone 5:** Return to the Mainland (alternate history): reclamation pact, postwar settlement, successor states and the mainland Republic of China
 - [x] **Milestone 6:** party branches (KMT, DPP, PFP, Taiwan Solidarity Union, Green Party), a two-row tree layout, stronger rewards, branch and party programs, and military experience and doctrine bonuses
 - [x] **Milestone 7:** the shared Cross-Strait Tension meter for China and Taiwan, with five stages, stage effects, decisions, events and AI
-- [ ] In-game testing of the tension meter
+- [x] **Milestone 8:** crisis events: the Hainan Island Incident, the 2001 arms package and the 2005 U.S.-Japan statement
+- [ ] In-game testing of the tension meter and crisis events
 - [ ] Update to Millennium Dawn 2.0.2
 - [ ] Review by the Millennium Dawn team
 
