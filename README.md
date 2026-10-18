@@ -192,7 +192,7 @@ The content is based on the Operation Blue Tiger research series (six research p
 
 ## Special Contributions
 
-Special contributions to the project were made by **Samilou**, **Quaza** and **Chairman Mao Zedong**. Without their contributions I would not have been able to make this focus tree. From the bottom of my heart, thank you, contributors!
+Special contributions to the project were made by **FoggyBottom**,**Samilou**, **Quaza** and **Chairman Mao Zedong**. Without their contributions I would not have been able to make this focus tree. From the bottom of my heart, thank you, contributors!
 
 ## Credits and license
 
