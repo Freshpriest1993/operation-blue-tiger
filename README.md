@@ -191,6 +191,8 @@ OBT reuses Millennium Dawn's existing cross-Strait systems (Strait Tension, Cros
 
 ## Installation
 
+> **Developer version only.** This build is on the `RoC-development` branch of the Millennium Dawn GitHub repository, not the Steam Workshop release. If you don't have the developer version set up yet, follow Millennium Dawn's public tester setup instructions first. Branch: https://github.com/MillenniumDawn/Millennium-Dawn/tree/RoC-development
+
 The current build is on the **`RoC-development` branch of the Millennium Dawn repository**. If you already test Millennium Dawn through GitHub Desktop, switching branches is all it takes: no new download, no extra repository and no copying files.
 
 ### Switch to the test branch (GitHub Desktop)
