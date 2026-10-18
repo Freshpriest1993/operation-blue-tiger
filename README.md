@@ -4,7 +4,7 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestones 1 to 5 complete (focus tree, national spirits, historical events, cross-Strait pressure system, AI paths, and the optional Return to the Mainland path). Milestone 5 is awaiting review by the Millennium Dawn team. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestones 1 to 7 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, and the shared Cross-Strait Tension meter. Milestones 5 and 7 are awaiting review by the Millennium Dawn team, and the meter is in in-game testing. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
@@ -25,7 +25,16 @@ The focus tree has **310 focuses** in twelve branches, laid out in three rows: n
 | The Pacific Lifeline | 33 | The United States, Japan, Europe, India, diplomatic allies, WTO, WHO and SARS |
 | Operation Blue Tiger | 27 | National strategy, continuity of government, civil defense, emergency doctrine |
 
-It also adds **52 national spirits**, including five starting conditions (Young Democracy, Legacy of the Party-Army, Defense-in-Depth Legacy, Large but Uneven Reserve System, and Advanced Procurement, Limited Absorption) and four defense postures.
+Every focus takes 35 or 70 days: short focuses for the opening weeks of the 2000 succession, 70 days for everything else.
+
+It also adds **88 national spirits**, including five starting conditions (Young Democracy, Legacy of the Party-Army, Defense-in-Depth Legacy, Large but Uneven Reserve System, and Advanced Procurement, Limited Absorption), four defense postures, and the branch and party programs below.
+
+### Focus rewards and spirits
+
+- **Political power on every focus:** at least 50 in the political branches (100 where a focus already granted some) and at least 25 in the national branches.
+- **Branch programs:** each of the seven national branches grants a spirit at its first focus and upgrades it twice along the branch, for example *Defense Reform → A Professional Military → Joint Forces*. The upgrades sit on focuses every playthrough can reach.
+- **Party programs:** each party branch grants a program spirit at its first focus, upgrades it midway, and replaces it with a capstone spirit at the end. Governing parties reach up to +25-30% political power and +10% stability; coalition partners reach +10% political power and +6% stability.
+- **Military:** every National Army focus grants experience (typically 25-40), eleven focuses cut doctrine costs, and each defense posture speeds up the matching doctrine's mastery: Defence in Depth for the 1990s doctrine and Hard ROC, Combined Arms and Green Water for Active Defense, Mission Command and Jeune École for the Overall Defense Concept.
 
 ### Historical events
 
@@ -43,14 +52,37 @@ Events follow the governing party: a Pan-Blue Taiwan does not get Pan-Green hist
 
 ### Cross-Strait Tension meter
 
-China's **One China Strategy** tab and Taiwan's **Cross-Strait Relations** tab both show the same meter from 1 January 2000, in the style of Stalin's paranoia bar. It reads Millennium Dawn's existing Strait Tension value and divides it into five stages: **Calm** (0-19), **Friction** (20-39), **Coercion** (40-59), **Crisis** (60-79) and **Brink** (80-100).
+China's **One China Strategy** tab and Taiwan's **Cross-Strait Relations** tab both show the same meter from 1 January 2000, in the style of Stalin's paranoia bar. It reads Millennium Dawn's existing Strait Tension value live and divides it into five stages: **Calm** (0-19), **Friction** (20-39), **Coercion** (40-59), **Crisis** (60-79) and **Brink** (80-100).
 
-- Each stage applies one modifier to each side. China pays in stability, political power and trade as tension rises, and gains some army readiness. Taiwan gains war support and defense but loses trade and political power. Calm pays both.
-- Both sides get de-escalation decisions (crisis hotlines, quiet channels, trade talks, reaffirming the status quo) and their own escalation or readiness options. The One China Framework focus unlocks China's coercive and economic levers; the Blue Tiger root unlocks Taiwan's civil defense drill.
-- A stage change fires one event for each side, with a 180-day cooldown.
-- At Brink, China can prepare a contingency war goal. It never declares war by itself, and no stage annexes Taiwan or forces it to capitulate.
+**The interface.** A colour-graded bar fills from green to red with markers at 20, 40, 60 and 80. The title reads, for example, *CROSS-STRAIT TENSION: 20/100 · FRICTION*; the current stage is highlighted under the bar; a stage line shows the next thresholds; and each side sees four national indicators with last month's change in brackets. Every element has a tooltip explaining its effects and what moves it.
 
-Changes to Millennium Dawn's own China files are listed in [`docs/CHINA_FILE_CHANGES.md`](docs/CHINA_FILE_CHANGES.md).
+| Taiwan sees | China sees |
+| --- | --- |
+| Pressure to Negotiate | Cross-Strait Trust |
+| Blockade Burden | U.S. Support for Taiwan |
+| U.S. Confidence in Taipei | Taiwan Blockade Burden |
+| Taiwan-Centered Identity | Taipei's Will to Negotiate (estimate) |
+
+**Stage effects.** Each stage applies one modifier to each country, replaced at every stage change so nothing stacks. Calm is the only stage that pays both sides.
+
+| Stage | China | Taiwan |
+| --- | --- | --- |
+| Calm | +2% stability, +5% political power, +5% trade, +2% factory output | the same |
+| Friction | +1% political power, -2% trade | +2% war support, -2% trade |
+| Coercion | -1% stability, -2% political power, -5% trade, +2% organization, +5% army and navy experience | -2% political power, -3% trade, +3% war support, +2% defense, +2% recruitable population, +5% anti-air |
+| Crisis | -3% stability, -5% political power, -10% trade, +2% consumer goods, +3% organization, +10% army and navy experience | -2% stability, -4% political power, -6% trade, +2% consumer goods, +5% war support, +4% defense, +4% recruitable population, +10% anti-air |
+| Brink | -5% stability, -10% political power, -15% trade, +4% consumer goods, +5% organization, +15% army and navy experience | -4% stability, -6% political power, -10% trade, +4% consumer goods, +8% war support, +5% defense, +6% recruitable population, +15% anti-air |
+
+**Decisions.** Twelve decisions, each with a cost, a cooldown and a one-line summary of how it moves tension.
+
+- **China:** Open the Crisis Hotline, Quiet Channel to Taipei and Issue a Stern Warning from the start; after the One China Framework focus, Surge Coast Guard Patrols, Offer Economic Incentives and, at Brink only, Prepare a Taiwan Contingency (a war goal, never a declaration of war).
+- **Taiwan:** Use the Crisis Hotline, Reaffirm the Status Quo, Reopen Cross-Strait Trade Talks, Raise Readiness and Brief Washington; after the Blue Tiger root focus, a Nationwide Civil Defense Drill. Declare a Blue Tiger Emergency also opens at Crisis.
+
+**Events and AI.** A stage change fires one event for each side, rising or falling, with a 180-day cooldown; options trade tension, trust and support rather than handing out free rewards. Both AIs de-escalate when stability is low or tension is high; China's Hegemon path leans on pressure and its Peaceful Rise path on talks, while Taiwan's Accommodation path favours talks and Island Fortress favours readiness.
+
+**Pressure is not control.** No stage declares war, annexes Taiwan or forces it to capitulate. The meter updates monthly, at game start and after its own decisions, never daily.
+
+Changes to Millennium Dawn's own China files are listed in [`docs/CHINA_FILE_CHANGES.md`](docs/CHINA_FILE_CHANGES.md), and the in-game test plan is in [`docs/PRESSURE_SYSTEM_TESTING.md`](docs/PRESSURE_SYSTEM_TESTING.md).
 
 ### AI behavior
 
@@ -96,6 +128,7 @@ The restored mainland republic reuses China's tag with a Republic of China name,
 - **U.S. commitment and U.S. confidence are different.** Washington can protect Taiwan while disapproving of a Taiwanese action. The Taiwan Relations Act is not treated as a war guarantee.
 - **Trade and trust are different.** Cross-Strait commerce can grow while political trust falls.
 - **Pressure is not control.** No threshold annexes Taiwan or starts a war on its own.
+- **Pressure is a dilemma.** Escalation costs Beijing, Taiwan's defensive gains cost it trade and political capital, and only calm pays both sides.
 - **No anachronisms at the start.** Taiwan begins in 2000 with an existing semiconductor industry, no WTO seat and no 2017-era doctrine. Later policies unlock on historically appropriate dates.
 - **Alternate history is labelled.** Counterfactual content, such as the U.S.-Taiwan Semiconductor Compact and the India partnership tiers, says so in its description.
 
@@ -103,28 +136,30 @@ OBT reuses Millennium Dawn's existing cross-Strait systems (Strait Tension, Cros
 
 ## Installation
 
-You need a local copy of Millennium Dawn (the developer version from its GitHub repository). Choose one method.
+You need a local copy of Millennium Dawn (the developer version from its GitHub repository).
 
-**Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. This replaces the Taiwan files, adds the Blue Tiger events, decisions and monthly update, and replaces shared Millennium Dawn files: `00_yearly_effects.txt` (schedules the historical events), China's `05_china.txt`, `05_CHI_decisions.txt` and `MD_focus_CHI_l_english.yml` (staged talks in place of automatic annexation), `00_game_rules.txt`, `999_game_rules_on_actions.txt` and `MD_game_rules_l_english.yml` (the Taiwan game rules), and `00_MD_politicsview_scripted_localisation.txt` (Kuomintang party names for the mainland republic).
+**Copy the files.** Copy the contents of `mod/` into your Millennium Dawn folder, keeping the folder structure. Most of Operation Blue Tiger lives in its own files, but these shared Millennium Dawn files are replaced:
 
-**Apply the patch.** From your Millennium Dawn folder, run:
+- `00_yearly_effects.txt`: schedules Taiwan's historical events.
+- China's `05_china.txt`, `05_CHI_decisions.txt`, `99_CHI_decision_categories.txt` and `MD_focus_CHI_l_english.yml`: staged talks instead of automatic annexation, and the One China Strategy tab visible from the start with the tension meter.
+- `00_game_rules.txt`, `999_game_rules_on_actions.txt` and `MD_game_rules_l_english.yml`: the Taiwan AI path and Return to the Mainland game rules.
+- `00_MD_politicsview_scripted_localisation.txt` and `MD_politics_view_parties_l_english.yml`: the Taiwan Solidarity Union and the mainland republic's party names.
 
-```
-git apply path/to/operation-blue-tiger/patches/obt-milestones-1-4.patch
-```
+Every change to China's files is listed in [`docs/CHINA_FILE_CHANGES.md`](docs/CHINA_FILE_CHANGES.md).
 
-The patch also adds a line to Millennium Dawn's `Changelog.txt`. If it does not apply cleanly, your Millennium Dawn version has changed those files; use the copy method or regenerate with the tools below.
+**The patch file** in `patches/` covers milestones 1 to 4 only and predates the later work, so use the copy method for now.
 
-Then start a game as Taiwan on the 2000 bookmark.
+Then start a game as Taiwan, or as China to see the pressure system from Beijing's side, on the 2000 bookmark.
 
 ## Repository layout
 
 | Path | Contents |
 | --- | --- |
-| `mod/` | The Taiwan files in Millennium Dawn's folder structure |
-| `patches/` | The milestone as a Git patch for a Millennium Dawn checkout |
-| `tools/` | The generator: `spec.py` defines every focus, `gen.py` builds the script and localisation, `apply.py` writes them into a Millennium Dawn checkout |
-| `docs/` | Milestone handoff notes and a spreadsheet of every focus, spirit and variable |
+| `mod/` | All Operation Blue Tiger files in Millennium Dawn's folder structure |
+| `patches/` | A Git patch of milestones 1 to 4 |
+| `tools/` | The generators: `spec.py` defines every Taiwan focus, `layout.py` arranges the tree, `gen.py` builds the focus tree and localisation, and `events_gen.py` builds the events and spirits from `events_spec.py` |
+| `tools/m3`, `m4`, `m5`, `m7` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland and the tension meter |
+| `docs/` | Handoff notes, a focus spreadsheet, the China change log and the tension meter test plan |
 
 ### Regenerating the files
 
@@ -132,10 +167,11 @@ Requires Python 3.10 or later.
 
 ```
 python tools/gen.py <millennium-dawn-folder> <output-folder>
-python tools/apply.py <millennium-dawn-folder> <output-folder> tools/blocks --dry-run
+python tools/events_gen.py <millennium-dawn-folder> <output-folder>
+python tools/m7/build7.py tools/m7
 ```
 
-Remove `--dry-run` to write the files. `apply.py` checks for duplicate IDs and localisation keys first and only adds content, so running it twice changes nothing.
+The apply scripts (`apply.py` to `apply7.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
 
 ## Roadmap
 
@@ -144,6 +180,11 @@ Remove `--dry-run` to write the files. `apply.py` checks for duplicate IDs and l
 - [x] **Milestone 3:** Cross-Strait Pressure System (blockade burden, stockpiles, partner support, staged negotiations with exits)
 - [x] **Milestone 4:** AI behavior, balance and polish
 - [x] **Milestone 5:** Return to the Mainland (alternate history): reclamation pact, postwar settlement, successor states and the mainland Republic of China
+- [x] **Milestone 6:** party branches (KMT, DPP, PFP, Taiwan Solidarity Union, Green Party), a two-row tree layout, stronger rewards, branch and party programs, and military experience and doctrine bonuses
+- [x] **Milestone 7:** the shared Cross-Strait Tension meter for China and Taiwan, with five stages, stage effects, decisions, events and AI
+- [ ] In-game testing of the tension meter
+- [ ] Update to Millennium Dawn 2.0.2
+- [ ] Review by the Millennium Dawn team
 
 ## Research
 
