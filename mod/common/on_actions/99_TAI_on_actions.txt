@@ -60,7 +60,10 @@ on_actions = {
 
 	on_startup = {
 		effect = {
-			OBT_strait_update = yes
+			if = {
+				limit = { country_exists = TAI }
+				TAI = { OBT_strait_update = yes }
+			}
 		}
 	}
 }

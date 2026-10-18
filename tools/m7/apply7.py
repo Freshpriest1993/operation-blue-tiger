@@ -86,7 +86,7 @@ else:
     txt = txt.replace(a1, a1 + "\t\t\tOBT_strait_update = yes\n").replace(a2, a2 + "\t\t\tOBT_strait_update = yes\n")
     tail = txt.rstrip("\n")
     assert tail.endswith("}")
-    txt = tail[:-1].rstrip("\n") + "\n\n\ton_startup = {\n\t\teffect = {\n\t\t\tOBT_strait_update = yes\n\t\t}\n\t}\n}\n"
+    txt = tail[:-1].rstrip("\n") + "\n\n\ton_startup = {\n\t\teffect = {\n\t\t\tif = {\n\t\t\t\tlimit = { country_exists = TAI }\n\t\t\t\tTAI = { OBT_strait_update = yes }\n\t\t\t}\n\t\t}\n\t}\n}\n"
     wr(rel, txt)
 
 rel = "common/decisions/categories/99_CHI_decision_categories.txt"

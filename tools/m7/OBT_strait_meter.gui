@@ -22,49 +22,9 @@ guiTypes = {
 		}
 		iconType = {
 			name = "OBT_strait_bar_frame"
-			spriteType = "GFX_PER_propaganda_progress_frame"
+			spriteType = "GFX_OBT_strait_frame"
 			position = { x = 0 y = 24 }
 			alwaystransparent = yes
-		}
-		instantTextBoxType = {
-			name = "OBT_CHI_strait_tick_1"
-			position = { x = 86 y = 37 }
-			font = "hoi_20bs"
-			text = "OBT_strait_tick"
-			maxWidth = 10
-			maxHeight = 20
-			format = left
-			pdx_tooltip = "OBT_strait_threshold_1_tt"
-		}
-		instantTextBoxType = {
-			name = "OBT_CHI_strait_tick_2"
-			position = { x = 167 y = 37 }
-			font = "hoi_20bs"
-			text = "OBT_strait_tick"
-			maxWidth = 10
-			maxHeight = 20
-			format = left
-			pdx_tooltip = "OBT_strait_threshold_2_tt"
-		}
-		instantTextBoxType = {
-			name = "OBT_CHI_strait_tick_3"
-			position = { x = 247 y = 37 }
-			font = "hoi_20bs"
-			text = "OBT_strait_tick"
-			maxWidth = 10
-			maxHeight = 20
-			format = left
-			pdx_tooltip = "OBT_strait_threshold_3_tt"
-		}
-		instantTextBoxType = {
-			name = "OBT_CHI_strait_tick_4"
-			position = { x = 328 y = 37 }
-			font = "hoi_20bs"
-			text = "OBT_strait_tick"
-			maxWidth = 10
-			maxHeight = 20
-			format = left
-			pdx_tooltip = "OBT_strait_threshold_4_tt"
 		}
 		instantTextBoxType = {
 			name = "OBT_CHI_strait_label_calm"
@@ -181,49 +141,9 @@ guiTypes = {
 		}
 		iconType = {
 			name = "OBT_strait_bar_frame"
-			spriteType = "GFX_PER_propaganda_progress_frame"
+			spriteType = "GFX_OBT_strait_frame"
 			position = { x = 0 y = 24 }
 			alwaystransparent = yes
-		}
-		instantTextBoxType = {
-			name = "OBT_TAI_strait_tick_1"
-			position = { x = 86 y = 37 }
-			font = "hoi_20bs"
-			text = "OBT_strait_tick"
-			maxWidth = 10
-			maxHeight = 20
-			format = left
-			pdx_tooltip = "OBT_strait_threshold_1_tt"
-		}
-		instantTextBoxType = {
-			name = "OBT_TAI_strait_tick_2"
-			position = { x = 167 y = 37 }
-			font = "hoi_20bs"
-			text = "OBT_strait_tick"
-			maxWidth = 10
-			maxHeight = 20
-			format = left
-			pdx_tooltip = "OBT_strait_threshold_2_tt"
-		}
-		instantTextBoxType = {
-			name = "OBT_TAI_strait_tick_3"
-			position = { x = 247 y = 37 }
-			font = "hoi_20bs"
-			text = "OBT_strait_tick"
-			maxWidth = 10
-			maxHeight = 20
-			format = left
-			pdx_tooltip = "OBT_strait_threshold_3_tt"
-		}
-		instantTextBoxType = {
-			name = "OBT_TAI_strait_tick_4"
-			position = { x = 328 y = 37 }
-			font = "hoi_20bs"
-			text = "OBT_strait_tick"
-			maxWidth = 10
-			maxHeight = 20
-			format = left
-			pdx_tooltip = "OBT_strait_threshold_4_tt"
 		}
 		instantTextBoxType = {
 			name = "OBT_TAI_strait_label_calm"
