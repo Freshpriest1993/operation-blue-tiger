@@ -1206,4 +1206,13 @@ TIERS = [["pl", "su", "ss"], ["kmt", "pfp", "dpp", "tsu", "gpt"], ["as", "df", "
 # Milestone 8: crisis events link to the 2001 arms package focuses.
 _byid = {f["id"]: f for b in BRANCHES for f in b["focuses"]}
 _byid["TAI_na_2001_package"]["avail"].append("raw:OR = { NOT = { has_global_flag = OBT_2001_package_postponed } date > 2002.1.1 }")
-_byid["TAI_na_kidd_destroyers"]["eff"].append("raw:if = { limit = { has_global_flag = OBT_2001_aegis } add_tech_bonus = { name = TAI_na_kidd_destroyers_aegis bonus = 0.5 uses = 1 category = CAT_naval_electronics } }")
+_kidd = _byid["TAI_na_kidd_destroyers"]["eff"]
+_kidd.insert(next(i for i, e in enumerate(_kidd) if e.startswith("tech:")) + 1, "raw:if = { limit = { has_global_flag = OBT_2001_aegis } add_tech_bonus = { name = TAI_na_kidd_destroyers_aegis bonus = 0.5 uses = 1 category = CAT_naval_electronics } }")
+
+# RoC-development integration (AUG's focus tree, upstream/RoC-development ceb1a0c1f5): see roc/roc_spec.py
+import os as _os
+import sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "roc"))
+if _os.environ.get("OBT_SKIP_ROC") != "1":  # set OBT_SKIP_ROC=1 to build the Operation Blue Tiger tree without AUG's focuses
+    import roc_spec as _roc  # noqa: E402
+    _roc.integrate(_sys.modules[__name__])

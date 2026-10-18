@@ -4,7 +4,7 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestones 1 to 10 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, the 2001-2005 crisis events, the Defense and National Reform tab with American arms deliveries, and a historically audited January 2000 order of battle with reserve mobilization. Milestones 5, 7 and 8 are awaiting review by the Millennium Dawn team, and milestones 7 to 9 are in in-game testing. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestones 1 to 10 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, the 2001-2005 crisis events, the Defense and National Reform tab with American arms deliveries, and a historically audited January 2000 order of battle with reserve mobilization. Milestones 5, 7 and 8 are awaiting review by the Millennium Dawn team, and milestones 7 to 9 are in in-game testing. AUG's RoC-development tree is being merged into a single unified Taiwan tree on a local integration branch (see below). Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
@@ -151,6 +151,17 @@ Taiwan starts with the Defense-in-Depth doctrine of the 1990s and can move throu
 
 Buying equipment and absorbing it are separate steps, so purchases do not instantly become readiness.
 
+### Unified tree with AUG's RoC-development work (integration branch)
+
+At TheGeneral's request, Operation Blue Tiger and AUG's RoC-development focus tree are being combined so Taiwan has one tree. The work is on the local branch `integration/obt-roc-unified` and has not been pushed or merged.
+
+- **368 focuses.** 58 of AUG's focuses keep their IDs in the unified tree, including three new branches as a fourth row: **Island Society** (921 reconstruction, labour and welfare reform), **Southern Policy** (Southeast Asia, with the conquest chain hidden behind the off-by-default *Taiwan: Southern Expansion* rule) and **Project National Glory** (a KMT restoration path behind the Return to the Mainland rule).
+- **Nothing is deleted.** AUG's other 34 focuses fold their rewards into the OBT focus that covers the same event, or into decisions; his 29 spirits, events, opinion modifiers, portrait and AI options are kept. Every one of the 92 focus IDs is mapped in [`docs/roc_dev/ROC_DEV_MAPPING.md`](docs/roc_dev/ROC_DEV_MAPPING.md).
+- **One system for each job.** AUG's regional mobilization theaters run inside the OBT reserve system, his Seventh Fleet invitation is a Cross-Strait decision, and his Red Infiltration path ends in OBT's staged talks and referendum instead of an instant annexation.
+- **Originals preserved.** AUG's files are archived byte-exact on the integration branch, and [`docs/roc_dev/INTEGRATION_CHANGELOG.md`](docs/roc_dev/INTEGRATION_CHANGELOG.md) lists every change, fix and balance adjustment for his review.
+
+The `mod/` folder holds the unified build. To build the Operation Blue Tiger tree without AUG's focuses, set `OBT_SKIP_ROC=1` before running `gen.py`.
+
 ### Return to the Mainland (alternate history)
 
 An optional path, behind the **Taiwan: Return to the Mainland** game rule (Player Only by default, or Allowed, or Disabled). It is labelled alternate history throughout, because in 1991 Taiwan renounced force against the mainland.
@@ -204,7 +215,9 @@ Then start a game as Taiwan, or as China to see the pressure system from Beijing
 | `patches/` | A Git patch of milestones 1 to 4 |
 | `tools/` | The generators: `spec.py` defines every Taiwan focus, `layout.py` arranges the tree, `gen.py` builds the focus tree and localisation, and `events_gen.py` builds the events and spirits from `events_spec.py` |
 | `tools/m3`, `m4`, `m5`, `m7`, `m8`, `m9`, `m10` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland, the tension meter, the crisis events and Defense and National Reform, and the order of battle and reserve mobilization |
+| `tools/roc` | The RoC-development integration: `roc_spec.py` (AUG's focuses and the 92-row mapping), `build_roc.py` (his spirits, decisions, events and text), `apply_roc.py` and `rebuild.sh` |
 | `docs/` | Handoff notes, a focus spreadsheet, the China change log and the tension meter test plan |
+| `docs/roc_dev/` | The RoC-development archive notes, focus mapping and integration changelog |
 
 ### Regenerating the files
 
@@ -218,6 +231,7 @@ python tools/m8/build8.py tools/m8
 python tools/m9/build9.py tools/m9/out
 python tools/m10/oob10.py <millennium-dawn-folder> tools/m10/out
 python tools/m10/mob10.py tools/m10/out
+bash tools/roc/rebuild.sh <millennium-dawn-folder> <work-folder>
 ```
 
 The apply scripts (`apply.py` to `apply10.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
@@ -234,6 +248,7 @@ The apply scripts (`apply.py` to `apply10.py`) write the output into a Millenniu
 - [x] **Milestone 8:** crisis events: the Hainan Island Incident, the 2001 arms package and the 2005 U.S.-Japan statement
 - [x] **Milestone 9:** Defense and National Reform tab, real indicator effects, the procurement tracker and American arms deliveries
 - [x] **Milestone 10:** audited January 2000 order of battle (army, air, navy, equipment) and reserve mobilization
+- [x] **RoC-development integration:** AUG's 92 focuses mapped and merged into one unified tree on `integration/obt-roc-unified` (awaiting AUG's review)
 - [ ] Confirm the 373rd and 395th Armored Infantry Brigades' 2000 organization and equipment
 - [ ] In-game testing of the tension meter, crisis events, Defense and National Reform and the new order of battle
 - [ ] Update to Millennium Dawn 2.0.2
@@ -250,6 +265,8 @@ Special contributions to the project were made by **FoggyBottom**,**Samilou**, *
 ## Credits and license
 
 Operation Blue Tiger is by Freshpriest1993.
+
+The Island Society, Southern Policy and Project National Glory branches, and the RoC-development spirits, decisions and events in the unified build, are by **AUG**.
 
 It is built on [Millennium Dawn](https://github.com/MillenniumDawn/Millennium-Dawn) by the Millennium Dawn team. Files in `mod/` and `patches/` are derived from Millennium Dawn, which is licensed under [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). This project is released under the same license.
 

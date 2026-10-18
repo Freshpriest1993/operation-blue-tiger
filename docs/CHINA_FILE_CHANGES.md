@@ -40,3 +40,15 @@ New China decisions for the meter live in Operation Blue Tiger's own file, `comm
 | `history/units/TAI_2000_bba.txt`, `TAI_2000_nonbba.txt` | F-5 fleet cut to about 160; squadrons renamed with wing and base; 8th and 14th Squadrons added. |
 | `history/units/TAI_2000_naval_mtg.txt` | Destroyer names corrected, fleet based at Tsoying with a Keelung group, 12 Jin Chiang and 49 Hai Ou missile craft added. |
 | `Changelog.txt` | One Operation Blue Tiger line. |
+
+## RoC-development integration (branch `integration/obt-roc-unified`)
+
+No China files change. Shared Millennium Dawn files touched:
+
+| File | Change |
+| --- | --- |
+| `common/game_rules/00_game_rules.txt` | `TAI_ai_behavior` gains AUG's AI options Project National Glory, Unification Channel and Road to Separation (replacing his separate `ROC_ai_behavior` rule). |
+| `history/countries/TAI - Taiwan.txt` | AUG's `TAI_921_earthquake` starting spirit. |
+| `Changelog.txt` | Focus count and the three new branches on the Operation Blue Tiger line. |
+
+AUG's own content lives in new files (`99_TAI_roc_dev_ideas.txt`, `ROC_dev_decisions.txt`, `ROC_dev_events.txt`, `MD_ROC_dev_l_english.yml` and others), listed in `docs/roc_dev/INTEGRATION_CHANGELOG.md`.

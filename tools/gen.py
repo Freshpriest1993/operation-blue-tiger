@@ -89,7 +89,7 @@ def expand_effect(tok, ind):
     t = "\t" * ind
     k, _, rest = tok.partition(":")
     if k == "raw":
-        return [t + rest]
+        return [t + line for line in rest.split("\n")]
     a = rest.split(":") if rest else []
     if k == "pp":
         return [f"{t}add_political_power = {a[0]}"]
@@ -149,7 +149,7 @@ def expand_avail(tok):
         return ["OR = {"] + ["\t" + x for alt in tok for x in expand_avail(alt)] + ["}"]
     k, _, rest = tok.partition(":")
     if k == "raw":
-        return [rest]
+        return rest.split("\n")
     if tok == "transfer":
         return ["date > 2000.3.24"]
     if tok == "dpp":
@@ -251,6 +251,14 @@ def main():
                 L.append("\t\tmutually_exclusive = { " + " ".join(f"focus = {q}" for q in sorted(excl[fid])) + " }")
             filt = f["filt"] or b["filters"]
             L.append("\t\tsearch_filters = { " + " ".join(filt) + " }")
+            for tag in f.get("war_with", []):
+                L.append(f"\t\twill_lead_to_war_with = {tag}")
+            if f.get("allow"):
+                L.append("\t\tallow_branch = {")
+                for a in f["allow"]:
+                    for line in expand_avail(a):
+                        L.append("\t\t\t" + line)
+                L.append("\t\t}")
             if f["avail"]:
                 L.append("\t\tavailable = {")
                 for a in f["avail"]:
@@ -269,6 +277,8 @@ def main():
             L.append(f"\t\t\tbase = {f['ai']}")
             for trig, fac in AI_EXTRA.get(fid, []):
                 L.append(f"\t\t\tmodifier = {{ factor = {fac} {trig} }}")
+            for inner in f.get("aimods", []):
+                L.append(f"\t\t\tmodifier = {{ {inner} }}")
             staff = {"industrial_complex": "can_staff_an_industrial_complex", "arms_factory": "can_staff_an_arms_industry", "dockyard": "can_staff_an_dockyard"}
             for key, trig in staff.items():
                 if any(e.startswith("build:") and key in e for e in f["eff"]):

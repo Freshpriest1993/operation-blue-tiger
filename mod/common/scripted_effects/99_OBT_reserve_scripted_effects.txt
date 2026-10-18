@@ -57,17 +57,17 @@ OBT_reserve_spawn_one = {
 		if = {
 			limit = { check_variable = { OBT_mob_slot = 0 } }
 			if = {
-				limit = { check_variable = { OBT_reserve_readiness > 69 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 69 } }
 				if = { limit = { 598 = { is_controlled_by = TAI } } 598 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7186 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7186 } } }
 			}
 			else_if = {
-				limit = { check_variable = { OBT_reserve_readiness > 39 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 39 } }
 				if = { limit = { 598 = { is_controlled_by = TAI } } 598 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7186 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7186 } } }
 			}
 			else = {
-				
+
 				if = { limit = { 598 = { is_controlled_by = TAI } } 598 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7186 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7186 } } }
 			}
@@ -75,17 +75,17 @@ OBT_reserve_spawn_one = {
 		else_if = {
 			limit = { check_variable = { OBT_mob_slot = 1 } }
 			if = {
-				limit = { check_variable = { OBT_reserve_readiness > 69 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 69 } }
 				if = { limit = { 1156 = { is_controlled_by = TAI } } 1156 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 11959 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 11959 } } }
 			}
 			else_if = {
-				limit = { check_variable = { OBT_reserve_readiness > 39 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 39 } }
 				if = { limit = { 1156 = { is_controlled_by = TAI } } 1156 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 11959 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 11959 } } }
 			}
 			else = {
-				
+
 				if = { limit = { 1156 = { is_controlled_by = TAI } } 1156 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 11959 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 11959 } } }
 			}
@@ -93,17 +93,17 @@ OBT_reserve_spawn_one = {
 		else_if = {
 			limit = { check_variable = { OBT_mob_slot = 2 } }
 			if = {
-				limit = { check_variable = { OBT_reserve_readiness > 69 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 69 } }
 				if = { limit = { 599 = { is_controlled_by = TAI } } 599 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14410 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14410 } } }
 			}
 			else_if = {
-				limit = { check_variable = { OBT_reserve_readiness > 39 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 39 } }
 				if = { limit = { 599 = { is_controlled_by = TAI } } 599 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14410 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14410 } } }
 			}
 			else = {
-				
+
 				if = { limit = { 599 = { is_controlled_by = TAI } } 599 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14410 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14410 } } }
 			}
@@ -111,17 +111,17 @@ OBT_reserve_spawn_one = {
 		else_if = {
 			limit = { check_variable = { OBT_mob_slot = 3 } }
 			if = {
-				limit = { check_variable = { OBT_reserve_readiness > 69 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 69 } }
 				if = { limit = { 1157 = { is_controlled_by = TAI } } 1157 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 12068 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 12068 } } }
 			}
 			else_if = {
-				limit = { check_variable = { OBT_reserve_readiness > 39 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 39 } }
 				if = { limit = { 1157 = { is_controlled_by = TAI } } 1157 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 12068 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 12068 } } }
 			}
 			else = {
-				
+
 				if = { limit = { 1157 = { is_controlled_by = TAI } } 1157 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 12068 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 12068 } } }
 			}
@@ -129,17 +129,17 @@ OBT_reserve_spawn_one = {
 		else_if = {
 			limit = { check_variable = { OBT_mob_slot = 4 } }
 			if = {
-				limit = { check_variable = { OBT_reserve_readiness > 69 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 69 } }
 				if = { limit = { 598 = { is_controlled_by = TAI } } 598 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14699 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14699 } } }
 			}
 			else_if = {
-				limit = { check_variable = { OBT_reserve_readiness > 39 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 39 } }
 				if = { limit = { 598 = { is_controlled_by = TAI } } 598 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14699 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14699 } } }
 			}
 			else = {
-				
+
 				if = { limit = { 598 = { is_controlled_by = TAI } } 598 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14699 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14699 } } }
 			}
@@ -147,17 +147,17 @@ OBT_reserve_spawn_one = {
 		else_if = {
 			limit = { check_variable = { OBT_mob_slot = 5 } }
 			if = {
-				limit = { check_variable = { OBT_reserve_readiness > 69 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 69 } }
 				if = { limit = { 1156 = { is_controlled_by = TAI } } 1156 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14411 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14411 } } }
 			}
 			else_if = {
-				limit = { check_variable = { OBT_reserve_readiness > 39 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 39 } }
 				if = { limit = { 1156 = { is_controlled_by = TAI } } 1156 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14411 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14411 } } }
 			}
 			else = {
-				
+
 				if = { limit = { 1156 = { is_controlled_by = TAI } } 1156 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14411 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 14411 } } }
 			}
@@ -165,17 +165,17 @@ OBT_reserve_spawn_one = {
 		else_if = {
 			limit = { check_variable = { OBT_mob_slot = 6 } }
 			if = {
-				limit = { check_variable = { OBT_reserve_readiness > 69 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 69 } }
 				if = { limit = { 1155 = { is_controlled_by = TAI } } 1155 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7214 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7214 } } }
 			}
 			else_if = {
-				limit = { check_variable = { OBT_reserve_readiness > 39 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 39 } }
 				if = { limit = { 1155 = { is_controlled_by = TAI } } 1155 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7214 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7214 } } }
 			}
 			else = {
-				
+
 				if = { limit = { 1155 = { is_controlled_by = TAI } } 1155 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7214 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 7214 } } }
 			}
@@ -183,17 +183,17 @@ OBT_reserve_spawn_one = {
 		else_if = {
 			limit = { check_variable = { OBT_mob_slot = 7 } }
 			if = {
-				limit = { check_variable = { OBT_reserve_readiness > 69 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 69 } }
 				if = { limit = { 600 = { is_controlled_by = TAI } } 600 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 4096 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.25 start_equipment_factor = 0.01" owner = TAI prioritize_location = 4096 } } }
 			}
 			else_if = {
-				limit = { check_variable = { OBT_reserve_readiness > 39 } } 
+				limit = { check_variable = { OBT_reserve_readiness > 39 } }
 				if = { limit = { 600 = { is_controlled_by = TAI } } 600 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 4096 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.18 start_equipment_factor = 0.01" owner = TAI prioritize_location = 4096 } } }
 			}
 			else = {
-				
+
 				if = { limit = { 600 = { is_controlled_by = TAI } } 600 = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 4096 } } }
 				else = { capital_scope = { create_unit = { division = "division_template = \"Reserve Infantry Brigade\" start_experience_factor = 0.1 start_equipment_factor = 0.01" owner = TAI prioritize_location = 4096 } } }
 			}
@@ -215,4 +215,8 @@ OBT_reserve_demobilize = {
 	if = { limit = { has_dynamic_modifier = { modifier = OBT_partial_mobilization } } remove_dynamic_modifier = { modifier = OBT_partial_mobilization } }
 	if = { limit = { has_dynamic_modifier = { modifier = OBT_general_mobilization } } remove_dynamic_modifier = { modifier = OBT_general_mobilization } }
 	set_country_flag = { flag = OBT_mob_cooldown days = 365 value = 1 }
+	clr_country_flag = TAI_mob_north_second_level
+	clr_country_flag = TAI_mob_central_second_level
+	clr_country_flag = TAI_mob_south_second_level
+	clr_country_flag = TAI_total_mobilized
 }

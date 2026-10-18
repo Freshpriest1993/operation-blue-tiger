@@ -185,7 +185,7 @@ E(20, "The Republic Restored",
   AH + "Civil administration now reaches every region under the Republic's flag. The provisional decrees lapse and the ordinary laws of the Republic take their place.",
   "GFX_TAI_roc", [
       O("A new beginning.",
-        "ROC_end_administration = yes\nadd_ideas = ROC_republic_restored\nadd_stability = 0.05", 100),
+        "ROC_end_administration = yes\nadd_ideas = ROC_republic_restored\nadd_stability = 0.05\ncountry_event = { id = roc_dev.19 days = 1 }", 100),
   ], trigger="has_country_flag = ROC_provisional_administration", once=True)
 
 

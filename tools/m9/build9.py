@@ -495,7 +495,7 @@ def decisions():
     D("OBT_han_kuang", "Hold the Han Kuang Exercise",
       "Our annual joint exercise tests whether the services can defend the island together. Holding it seriously, rather than as a scripted show, builds real confidence.",
       "generic_army_support", ["always = yes"], ["OBT_treasury_1 = yes"], 50,
-      money(-0.5) + addvar("TAI_military_confidence", 4) + addvar("TAI_national_coordination", 1) + ["army_experience = 10"] + tension(1),
+      money(-0.5) + addvar("TAI_military_confidence", 4) + addvar("TAI_national_coordination", 1) + ["army_experience = 10", "add_war_support = 0.05"] + tension(1),
       ["base = 3", "modifier = { factor = 3 check_variable = { TAI_military_confidence < 50 } }"] + BANKRUPT, days_re=365)
     D("OBT_joint_drill", "Joint Operations Drill",
       "The army, navy and air force still plan separately. A joint command drill exposes the gaps before a crisis does.",

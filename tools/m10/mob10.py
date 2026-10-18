@@ -114,6 +114,10 @@ OBT_reserve_demobilize = {
 	if = { limit = { has_dynamic_modifier = { modifier = OBT_partial_mobilization } } remove_dynamic_modifier = { modifier = OBT_partial_mobilization } }
 	if = { limit = { has_dynamic_modifier = { modifier = OBT_general_mobilization } } remove_dynamic_modifier = { modifier = OBT_general_mobilization } }
 	set_country_flag = { flag = OBT_mob_cooldown days = 365 value = 1 }
+	clr_country_flag = TAI_mob_north_second_level
+	clr_country_flag = TAI_mob_central_second_level
+	clr_country_flag = TAI_mob_south_second_level
+	clr_country_flag = TAI_total_mobilized
 }
 '''
 
@@ -126,6 +130,7 @@ OBT_mob_crisis_condition = {
 			OBT_strait_at_least_crisis = yes
 			AND = { country_exists = CHI has_war_with = CHI }
 			check_variable = { TAI_blockade_burden > 0 }
+			has_completed_focus = TAI_mobilized_reserve_troops
 		}
 	}
 }
