@@ -503,6 +503,7 @@ IDEAS_BLOCK_M6 = '''
 			modifier = {
 				army_org_factor = 0.03
 				training_time_army_factor = -0.03
+				experience_gain_army_factor = 0.05
 			}
 		}
 		TAI_na_program_2 = {
@@ -512,6 +513,9 @@ IDEAS_BLOCK_M6 = '''
 				army_org_factor = 0.05
 				training_time_army_factor = -0.05
 				army_defence_factor = 0.03
+				experience_gain_army_factor = 0.1
+				experience_gain_navy_factor = 0.05
+				experience_gain_air_factor = 0.05
 			}
 		}
 		TAI_na_program_3 = {
@@ -521,6 +525,10 @@ IDEAS_BLOCK_M6 = '''
 				army_org_factor = 0.08
 				training_time_army_factor = -0.08
 				army_defence_factor = 0.05
+				experience_gain_army_factor = 0.15
+				experience_gain_navy_factor = 0.1
+				experience_gain_air_factor = 0.1
+				land_doctrine_cost_factor = -0.1
 			}
 		}
 		TAI_ss_program_1 = {

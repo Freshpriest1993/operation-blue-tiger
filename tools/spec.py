@@ -1125,6 +1125,51 @@ for _b in BRANCHES:
                 if _v > 0:
                     _eff[_st[0]] = f"stab:{round(_v + 0.02, 2)}"
 
+EXTRA_LOC = []
+# Military pass: experience on every National Army focus and doctrine cost reductions on the doctrine focuses.
+_XP_ADD = {
+    "nationalize": [("army", 25)], "defense_act": [("army", 25)], "reassure_commanders": [("army", 25)],
+    "officer_corps": [("army", 30)], "political_warfare": [("army", 25)], "missile_crisis_lessons": [("air", 25)],
+    "outside_territory": [("navy", 25), ("air", 25)], "hf2e": [("air", 25)], "hf2e_extended": [("army", 25)],
+    "info_warfare": [("army", 25)], "layered_air_defense": [("air", 30)], "hard_roc": [("army", 30)],
+    "disperse": [("army", 30)], "unmanned": [("army", 25), ("air", 25)], "odc": [("army", 40)],
+    "whole_of_society": [("army", 25)], "fortress_taiwan": [("army", 40), ("navy", 20), ("air", 20)],
+    "manpower_question": [("army", 25)], "volunteer_reserve_split": [("army", 25)], "professional_force": [("army", 40)],
+    "extended_conscription": [("army", 30)], "reserve_audit": [("army", 25)], "reserve_reform": [("army", 30)],
+    "nco_initiative": [("army", 40)], "us_links": [("air", 25)], "2001_package": [("navy", 25)],
+    "special_budget": [("army", 25)], "submarine_question": [("navy", 25)], "indigenous_submarine": [("navy", 40)],
+    "absorption": [("army", 15), ("navy", 15), ("air", 15)], "idf_upgrade": [("air", 30)], "csist": [("army", 20)],
+    "service_rivalry": [("army", 20), ("navy", 20), ("air", 20)],
+}
+_DOCTRINE = {
+    "reassess_did": [("land_doctrine", 0.25, 1)],
+    "outside_territory": [("naval_doctrine", 0.25, 2), ("air_doctrine", 0.25, 1)],
+    "hard_roc": [("land_doctrine", 0.25, 2), ("air_doctrine", 0.2, 1)],
+    "odc": [("land_doctrine", 0.3, 2), ("naval_doctrine", 0.25, 2)],
+    "hybrid": [("land_doctrine", 0.2, 2), ("naval_doctrine", 0.2, 1), ("air_doctrine", 0.2, 1)],
+    "layered_air_defense": [("air_doctrine", 0.25, 2)],
+    "mine_approaches": [("naval_doctrine", 0.2, 1)],
+    "joint_command": [("land_doctrine", 0.15, 2)],
+    "fighter_fleet": [("air_doctrine", 0.2, 1)],
+    "territorial_defense": [("land_doctrine", 0.2, 1)],
+    "nco_initiative": [("land_doctrine", 0.15, 1)],
+}
+_na = next(b for b in BRANCHES if b["key"] == "na")
+for _f in _na["focuses"]:
+    _short = _f["id"][len("TAI_na_"):]
+    _eff = _f["eff"]
+    for _i, _e in enumerate(_eff):
+        if _e.split(":")[0] in ("army_xp", "navy_xp", "air_xp"):
+            _k, _v = _e.split(":")
+            _eff[_i] = f"{_k}:{max(25, int(_v) * 2)}"
+    for _arm, _v in _XP_ADD.get(_short, []):
+        _eff.append(f"{_arm}_xp:{_v}")
+    for _n, (_cat, _red, _uses) in enumerate(_DOCTRINE.get(_short, [])):
+        _name = _f["id"] if _n == 0 else f"{_f['id']}_{_cat}"
+        if _n:
+            EXTRA_LOC.append((_name, _f["name"]))
+        _eff.append(f"raw:add_doctrine_cost_reduction = {{ name = {_name} cost_reduction = {_red} uses = {_uses} category = {_cat} }}")
+
 # Party programs: a spirit at the root, upgraded midway, replaced by the capstone spirit.
 _PROGRAM = {
     "kmt": ("TAI_su_kmt_rebuild", "TAI_su_kmt_roc_framework", "TAI_su_kmt_roc_on_taiwan", "TAI_kmt_program_1", "TAI_kmt_program_2"),

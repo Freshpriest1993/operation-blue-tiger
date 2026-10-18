@@ -938,7 +938,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_rebuild_shield"
 			add_ideas = TAI_na_program_1
-			army_experience = 15
+			army_experience = 30
 			add_political_power = 50
 		}
 		ai_will_do = {
@@ -963,6 +963,7 @@ focus_tree = {
 			clamp_variable = { var = TAI_military_confidence min = 0 max = 100 }
 			add_stability = 0.02
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 5
@@ -985,6 +986,7 @@ focus_tree = {
 			add_to_variable = { TAI_reform_capacity = 5 tooltip = TAI_reform_capacity_tt }
 			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 5
@@ -1007,6 +1009,7 @@ focus_tree = {
 			add_to_variable = { TAI_reform_capacity = -5 tooltip = TAI_reform_capacity_tt }
 			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 3
@@ -1027,6 +1030,7 @@ focus_tree = {
 			add_ideas = TAI_na_program_2
 			add_timed_idea = { idea = TAI_professional_officer_corps days = 1825 }
 			add_political_power = 25
+			army_experience = 30
 		}
 		ai_will_do = {
 			base = 1
@@ -1047,6 +1051,7 @@ focus_tree = {
 			add_to_variable = { TAI_military_confidence = 5 tooltip = TAI_military_confidence_tt }
 			clamp_variable = { var = TAI_military_confidence min = 0 max = 100 }
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1068,10 +1073,11 @@ focus_tree = {
 			if = { limit = { has_idea = TAI_na_program_2 } remove_ideas = TAI_na_program_2 }
 			add_ideas = TAI_na_program_3
 			TAI_remove_did_joint_penalty = yes
-			army_experience = 20
-			navy_experience = 10
-			air_experience = 10
+			army_experience = 40
+			navy_experience = 25
+			air_experience = 25
 			add_political_power = 25
+			add_doctrine_cost_reduction = { name = TAI_na_joint_command cost_reduction = 0.15 uses = 2 category = land_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1088,8 +1094,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_reassess_did"
-			army_experience = 10
+			army_experience = 25
 			add_political_power = 50
+			add_doctrine_cost_reduction = { name = TAI_na_reassess_did cost_reduction = 0.25 uses = 1 category = land_doctrine }
 		}
 		ai_will_do = {
 			base = 5
@@ -1111,6 +1118,7 @@ focus_tree = {
 			add_to_variable = { TAI_reform_capacity = 5 tooltip = TAI_reform_capacity_tt }
 			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
 			add_political_power = 25
+			air_experience = 25
 		}
 		ai_will_do = {
 			base = 5
@@ -1144,6 +1152,10 @@ focus_tree = {
 			add_to_variable = { TAI_military_confidence = -5 tooltip = TAI_military_confidence_tt }
 			clamp_variable = { var = TAI_military_confidence min = 0 max = 100 }
 			add_political_power = 25
+			navy_experience = 25
+			air_experience = 25
+			add_doctrine_cost_reduction = { name = TAI_na_outside_territory cost_reduction = 0.25 uses = 2 category = naval_doctrine }
+			add_doctrine_cost_reduction = { name = TAI_na_outside_territory_air_doctrine cost_reduction = 0.25 uses = 1 category = air_doctrine }
 		}
 		ai_will_do = {
 			base = 3
@@ -1160,8 +1172,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_effective_deterrence"
-			navy_experience = 15
-			air_experience = 15
+			navy_experience = 30
+			air_experience = 30
 			add_political_power = 25
 		}
 		ai_will_do = {
@@ -1181,7 +1193,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_air_sea_interdiction"
 			add_tech_bonus = { name = TAI_na_air_sea_interdiction bonus = 0.5 uses = 2 category = CAT_naval_anti_ship_missiles }
-			navy_experience = 15
+			navy_experience = 30
 			add_political_power = 25
 		}
 		ai_will_do = {
@@ -1206,6 +1218,7 @@ focus_tree = {
 			add_tech_bonus = { name = TAI_na_hf2e bonus = 0.75 uses = 2 category = CAT_cruise_missiles }
 			country_event = { id = blue_tiger.24 days = 1 }
 			add_political_power = 25
+			air_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1232,6 +1245,7 @@ focus_tree = {
 				}
 			}
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 0
@@ -1252,6 +1266,7 @@ focus_tree = {
 			add_to_variable = { TAI_reform_capacity = 5 tooltip = TAI_reform_capacity_tt }
 			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1273,6 +1288,8 @@ focus_tree = {
 			one_anti_air = yes
 			one_radar_station = yes
 			add_political_power = 25
+			air_experience = 30
+			add_doctrine_cost_reduction = { name = TAI_na_layered_air_defense cost_reduction = 0.25 uses = 2 category = air_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1296,7 +1313,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_harden_island"
 			one_air_base = yes
 			add_timed_idea = { idea = TAI_hardened_shelters days = 1825 }
-			army_experience = 10
+			army_experience = 25
 			add_political_power = 25
 		}
 		ai_will_do = {
@@ -1319,7 +1336,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_repair_runways"
-			air_experience = 15
+			air_experience = 30
 			add_timed_idea = { idea = TAI_runway_repair_teams days = 1825 }
 			add_political_power = 25
 		}
@@ -1338,9 +1355,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_NAVY }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_mine_approaches"
-			navy_experience = 15
+			navy_experience = 30
 			add_timed_idea = { idea = TAI_mined_approaches days = 1825 }
 			add_political_power = 25
+			add_doctrine_cost_reduction = { name = TAI_na_mine_approaches cost_reduction = 0.2 uses = 1 category = naval_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1359,7 +1377,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_rapid_redeploy"
 			one_random_infrastructure = yes
-			army_experience = 10
+			army_experience = 25
 			add_political_power = 25
 		}
 		ai_will_do = {
@@ -1403,6 +1421,9 @@ focus_tree = {
 				}
 			}
 			add_political_power = 25
+			army_experience = 30
+			add_doctrine_cost_reduction = { name = TAI_na_hard_roc cost_reduction = 0.25 uses = 2 category = land_doctrine }
+			add_doctrine_cost_reduction = { name = TAI_na_hard_roc_air_doctrine cost_reduction = 0.2 uses = 1 category = air_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1424,7 +1445,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_mobile_fires"
 			add_tech_bonus = { name = TAI_na_mobile_fires bonus = 0.5 uses = 2 category = CAT_naval_anti_ship_missiles }
-			army_experience = 10
+			army_experience = 25
 			add_political_power = 25
 		}
 		ai_will_do = {
@@ -1445,6 +1466,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_disperse"
 			add_timed_idea = { idea = TAI_dispersed_forces days = 1825 }
 			add_political_power = 25
+			army_experience = 30
 		}
 		ai_will_do = {
 			base = 1
@@ -1468,6 +1490,8 @@ focus_tree = {
 			add_tech_bonus = { name = TAI_na_unmanned bonus = 0.75 uses = 2 category = CAT_air_drones }
 			add_tech_bonus = { name = TAI_na_unmanned bonus = 0.5 uses = 1 category = CAT_land_drones }
 			add_political_power = 25
+			army_experience = 25
+			air_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1498,6 +1522,9 @@ focus_tree = {
 			add_to_variable = { TAI_us_confidence = 5 tooltip = TAI_us_confidence_tt }
 			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
 			add_political_power = 25
+			army_experience = 40
+			add_doctrine_cost_reduction = { name = TAI_na_odc cost_reduction = 0.3 uses = 2 category = land_doctrine }
+			add_doctrine_cost_reduction = { name = TAI_na_odc_naval_doctrine cost_reduction = 0.25 uses = 2 category = naval_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1526,8 +1553,11 @@ focus_tree = {
 			if = { limit = { has_idea = TAI_posture_hard_roc } remove_ideas = TAI_posture_hard_roc }
 			if = { limit = { has_idea = TAI_posture_asymmetric } remove_ideas = TAI_posture_asymmetric }
 			add_ideas = TAI_posture_hybrid
-			army_experience = 15
+			army_experience = 30
 			add_political_power = 25
+			add_doctrine_cost_reduction = { name = TAI_na_hybrid cost_reduction = 0.2 uses = 2 category = land_doctrine }
+			add_doctrine_cost_reduction = { name = TAI_na_hybrid_naval_doctrine cost_reduction = 0.2 uses = 1 category = naval_doctrine }
+			add_doctrine_cost_reduction = { name = TAI_na_hybrid_air_doctrine cost_reduction = 0.2 uses = 1 category = air_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1550,6 +1580,7 @@ focus_tree = {
 			add_ideas = TAI_whole_of_society_defense
 			add_war_support = 0.05
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1576,6 +1607,9 @@ focus_tree = {
 				}
 			}
 			add_political_power = 25
+			army_experience = 40
+			navy_experience = 20
+			air_experience = 20
 		}
 		ai_will_do = {
 			base = 1
@@ -1596,6 +1630,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_manpower_question"
 			add_political_power = 50
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 5
@@ -1615,6 +1650,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_volunteer_reserve_split"
 			add_ideas = TAI_volunteer_reserve_split
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 5
@@ -1636,6 +1672,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_professional_force"
 			add_ideas = TAI_professional_force
 			add_political_power = 25
+			army_experience = 40
 		}
 		ai_will_do = {
 			base = 1
@@ -1655,6 +1692,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_extended_conscription"
 			add_ideas = TAI_extended_conscription
 			add_political_power = 25
+			army_experience = 30
 		}
 		ai_will_do = {
 			base = 1
@@ -1676,6 +1714,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_reserve_audit"
 			country_event = { id = blue_tiger.25 days = 1 }
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1697,6 +1736,7 @@ focus_tree = {
 			set_temp_variable = { treasury_change = -2 }
 			modify_treasury_effect = yes
 			add_political_power = 25
+			army_experience = 30
 		}
 		ai_will_do = {
 			base = 1
@@ -1720,6 +1760,8 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_nco_initiative"
 			add_timed_idea = { idea = TAI_junior_leader_initiative days = 1825 }
 			add_political_power = 25
+			army_experience = 40
+			add_doctrine_cost_reduction = { name = TAI_na_nco_initiative cost_reduction = 0.15 uses = 1 category = land_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1737,9 +1779,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_territorial_defense"
-			army_experience = 20
+			army_experience = 40
 			add_war_support = 0.03
 			add_political_power = 25
+			add_doctrine_cost_reduction = { name = TAI_na_territorial_defense cost_reduction = 0.2 uses = 1 category = land_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1767,6 +1810,7 @@ focus_tree = {
 			add_to_variable = { TAI_us_confidence = 3 tooltip = TAI_us_confidence_tt }
 			clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
 			add_political_power = 25
+			air_experience = 25
 		}
 		ai_will_do = {
 			base = 5
@@ -1795,6 +1839,7 @@ focus_tree = {
 				}
 			}
 			add_political_power = 50
+			navy_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1816,6 +1861,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_special_budget"
 			country_event = { id = blue_tiger.23 days = 1 }
 			add_political_power = 25
+			army_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1834,7 +1880,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_kidd_destroyers"
 			add_tech_bonus = { name = TAI_na_kidd_destroyers bonus = 0.5 uses = 2 category = CAT_destroyers }
-			navy_experience = 20
+			navy_experience = 40
 			set_temp_variable = { treasury_change = -3 }
 			modify_treasury_effect = yes
 			add_political_power = 25
@@ -1860,7 +1906,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_maritime_patrol"
 			add_tech_bonus = { name = TAI_na_maritime_patrol bonus = 0.5 uses = 1 category = CAT_heavy_aircraft }
-			air_experience = 15
+			air_experience = 30
 			add_political_power = 25
 		}
 		ai_will_do = {
@@ -1881,6 +1927,7 @@ focus_tree = {
 			add_tech_bonus = { name = TAI_na_submarine_question bonus = 0.5 uses = 1 category = CAT_submarines }
 			country_event = { id = blue_tiger.26 days = 1 }
 			add_political_power = 25
+			navy_experience = 25
 		}
 		ai_will_do = {
 			base = 1
@@ -1905,6 +1952,7 @@ focus_tree = {
 			add_tech_bonus = { name = TAI_na_indigenous_submarine bonus = 1 uses = 2 category = CAT_submarines }
 			one_random_dockyard = yes
 			add_political_power = 25
+			navy_experience = 40
 		}
 		ai_will_do = {
 			base = 1
@@ -1931,8 +1979,8 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_interoperability"
 			add_to_variable = { TAI_reform_capacity = 5 tooltip = TAI_reform_capacity_tt }
 			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
-			army_experience = 10
-			air_experience = 10
+			army_experience = 25
+			air_experience = 25
 			add_political_power = 25
 		}
 		ai_will_do = {
@@ -1955,6 +2003,9 @@ focus_tree = {
 			add_to_variable = { TAI_reform_capacity = 10 tooltip = TAI_reform_capacity_tt }
 			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
 			add_political_power = 25
+			army_experience = 15
+			navy_experience = 15
+			air_experience = 15
 		}
 		ai_will_do = {
 			base = 1
@@ -1973,8 +2024,9 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_fighter_fleet"
 			add_tech_bonus = { name = TAI_na_fighter_fleet bonus = 0.5 uses = 2 category = CAT_aircraft }
-			air_experience = 20
+			air_experience = 40
 			add_political_power = 25
+			add_doctrine_cost_reduction = { name = TAI_na_fighter_fleet cost_reduction = 0.2 uses = 1 category = air_doctrine }
 		}
 		ai_will_do = {
 			base = 1
@@ -1997,6 +2049,7 @@ focus_tree = {
 			add_tech_bonus = { name = TAI_na_idf_upgrade bonus = 0.75 uses = 2 category = CAT_light_aircraft }
 			one_random_arms_factory = yes
 			add_political_power = 25
+			air_experience = 30
 		}
 		ai_will_do = {
 			base = 1
@@ -2025,6 +2078,7 @@ focus_tree = {
 			set_temp_variable = { treasury_change = -2 }
 			modify_treasury_effect = yes
 			add_political_power = 25
+			army_experience = 20
 		}
 		ai_will_do = {
 			base = 1
@@ -2045,8 +2099,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TAI_na_gray_zone"
-			navy_experience = 10
-			air_experience = 10
+			navy_experience = 25
+			air_experience = 25
 			add_to_variable = { TAI_pressure_to_negotiate = -3 tooltip = TAI_pressure_to_negotiate_tt }
 			clamp_variable = { var = TAI_pressure_to_negotiate min = 0 max = 100 }
 			add_political_power = 25
@@ -2070,6 +2124,9 @@ focus_tree = {
 			add_to_variable = { TAI_reform_capacity = 10 tooltip = TAI_reform_capacity_tt }
 			clamp_variable = { var = TAI_reform_capacity min = 0 max = 100 }
 			add_political_power = 50
+			army_experience = 20
+			navy_experience = 20
+			air_experience = 20
 		}
 		ai_will_do = {
 			base = 1

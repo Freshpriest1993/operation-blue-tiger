@@ -300,6 +300,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(OUT, "05_taiwan.txt"), "w", encoding="utf-8", newline="\n") as fh:
         fh.write("\n".join(L) + "\n")
+    for key, text in getattr(spec, "EXTRA_LOC", []):
+        loc.append(f' {key}: "{text}"')
     with open(os.path.join(OUT, "focus_loc.yml"), "w", encoding="utf-8", newline="\n") as fh:
         fh.write("\n".join(loc) + "\n")
     var_loc = []

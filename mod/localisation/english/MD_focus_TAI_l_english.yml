@@ -1194,3 +1194,9 @@
  TAI_gpt_program_1_desc: "Green Party Taiwan lends the government the credibility of the environmental movement."
  TAI_gpt_program_2: "The Green Alliance"
  TAI_gpt_program_2_desc: "Environmental, labor and indigenous groups work with the government rather than against it."
+ # Operation Blue Tiger: party branches
+ TAI_na_outside_territory_air_doctrine: "Decisive Campaign Outside the Territory"
+ TAI_na_hard_roc_air_doctrine: "Hard ROC"
+ TAI_na_odc_naval_doctrine: "Overall Defense Concept"
+ TAI_na_hybrid_naval_doctrine: "Hybrid Resilience"
+ TAI_na_hybrid_air_doctrine: "Hybrid Resilience"

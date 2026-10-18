@@ -30,6 +30,7 @@
 			picture = defense
 			allowed_civil_war = { always = yes }
 			modifier = {
+				defence_in_depth_mastery_gain_factor = 0.05
 				army_defence_factor = 0.05
 				max_dig_in = 2
 				naval_damage_factor = -0.05
@@ -42,6 +43,7 @@
 			picture = defense
 			allowed_civil_war = { always = yes }
 			modifier = {
+				defence_in_depth_mastery_gain_factor = 0.1
 				army_defence_factor = 0.05
 				max_dig_in = 2
 			}
@@ -118,6 +120,8 @@
 			picture = air_bonus
 			allowed_civil_war = { always = yes }
 			modifier = {
+				combined_arms_mastery_gain_factor = 0.1
+				green_water_mastery_gain_factor = 0.1
 				naval_damage_factor = 0.05
 				air_attack_factor = 0.05
 				air_superiority_efficiency = 0.05
@@ -129,6 +133,8 @@
 			picture = defense
 			allowed_civil_war = { always = yes }
 			modifier = {
+				defence_in_depth_mastery_gain_factor = 0.15
+				local_airspace_defense_mastery_gain_factor = 0.1
 				army_defence_factor = 0.08
 				max_dig_in = 3
 				amphibious_invasion_defence = 0.10
@@ -140,6 +146,8 @@
 			picture = volunteer_defenders
 			allowed_civil_war = { always = yes }
 			modifier = {
+				mission_command_mastery_gain_factor = 0.15
+				jeune_ecole_mastery_gain_factor = 0.15
 				army_defence_factor = 0.05
 				amphibious_invasion_defence = 0.15
 				naval_mine_hit_chance = 0.10
@@ -152,6 +160,9 @@
 			picture = national_mobilization
 			allowed_civil_war = { always = yes }
 			modifier = {
+				mission_command_mastery_gain_factor = 0.1
+				green_water_mastery_gain_factor = 0.1
+				local_airspace_defense_mastery_gain_factor = 0.1
 				army_defence_factor = 0.05
 				amphibious_invasion_defence = 0.10
 				naval_damage_factor = 0.03
