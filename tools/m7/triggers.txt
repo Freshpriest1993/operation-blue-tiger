@@ -1,0 +1,44 @@
+
+OBT_strait_at_least_friction = {
+	custom_trigger_tooltip = {
+		tooltip = OBT_strait_at_least_friction_tt
+		check_variable = { global.OBT_strait_stage > 0 }
+	}
+}
+
+OBT_strait_at_least_coercion = {
+	custom_trigger_tooltip = {
+		tooltip = OBT_strait_at_least_coercion_tt
+		check_variable = { global.OBT_strait_stage > 1 }
+	}
+}
+
+OBT_strait_at_least_crisis = {
+	custom_trigger_tooltip = {
+		tooltip = OBT_strait_at_least_crisis_tt
+		check_variable = { global.OBT_strait_stage > 2 }
+	}
+}
+
+OBT_strait_at_least_brink = {
+	custom_trigger_tooltip = {
+		tooltip = OBT_strait_at_least_brink_tt
+		check_variable = { global.OBT_strait_stage > 3 }
+	}
+}
+
+
+
+OBT_strait_at_most_coercion = {
+	custom_trigger_tooltip = {
+		tooltip = OBT_strait_at_most_coercion_tt
+		check_variable = { global.OBT_strait_stage < 3 }
+	}
+}
+
+OBT_strait_at_most_crisis = {
+	custom_trigger_tooltip = {
+		tooltip = OBT_strait_at_most_crisis_tt
+		check_variable = { global.OBT_strait_stage < 4 }
+	}
+}

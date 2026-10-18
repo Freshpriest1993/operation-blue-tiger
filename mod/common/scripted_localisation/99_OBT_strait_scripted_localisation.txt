@@ -1,0 +1,17 @@
+defined_text = {
+	name = OBT_strait_stage_name
+	text = { trigger = { check_variable = { global.OBT_strait_stage = 0 } } localization_key = OBT_strait_stage_calm_colored }
+	text = { trigger = { check_variable = { global.OBT_strait_stage = 1 } } localization_key = OBT_strait_stage_friction_colored }
+	text = { trigger = { check_variable = { global.OBT_strait_stage = 2 } } localization_key = OBT_strait_stage_coercion_colored }
+	text = { trigger = { check_variable = { global.OBT_strait_stage = 3 } } localization_key = OBT_strait_stage_crisis_colored }
+	text = { localization_key = OBT_strait_stage_brink_colored }
+}
+
+defined_text = {
+	name = OBT_strait_stage_effects
+	text = { trigger = { check_variable = { global.OBT_strait_stage = 0 } } localization_key = OBT_strait_effects_calm }
+	text = { trigger = { check_variable = { global.OBT_strait_stage = 1 } } localization_key = OBT_strait_effects_friction }
+	text = { trigger = { check_variable = { global.OBT_strait_stage = 2 } } localization_key = OBT_strait_effects_coercion }
+	text = { trigger = { check_variable = { global.OBT_strait_stage = 3 } } localization_key = OBT_strait_effects_crisis }
+	text = { localization_key = OBT_strait_effects_brink }
+}

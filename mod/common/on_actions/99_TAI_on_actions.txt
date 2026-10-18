@@ -3,12 +3,14 @@ on_actions = {
 		effect = {
 			TAI_update_pressure = yes
 			TAI_update_reclamation = yes
+			OBT_strait_update = yes
 		}
 	}
 
 	# Operation Blue Tiger: an active blockade costs Beijing every month it lasts
 	on_monthly_CHI = {
 		effect = {
+			OBT_strait_update = yes
 			if = {
 				limit = { has_country_flag = CHI_TAI_full_blockade_active }
 				add_political_power = -10
@@ -53,6 +55,12 @@ on_actions = {
 					clamp_variable = { var = CHI_taiwan_us_support min = 0 max = 100 }
 				}
 			}
+		}
+	}
+
+	on_startup = {
+		effect = {
+			OBT_strait_update = yes
 		}
 	}
 }

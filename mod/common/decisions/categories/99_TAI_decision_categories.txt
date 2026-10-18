@@ -40,3 +40,11 @@ ROC_administration_category = {
 		has_country_flag = ROC_provisional_administration
 	}
 }
+
+OBT_cross_strait_category = {
+	allowed = { original_tag = TAI }
+	icon = GFX_decision_generic_taiwan
+	scripted_gui = OBT_TAI_strait_meter
+	priority = 591
+	visible_when_empty = yes
+}

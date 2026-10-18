@@ -725,3 +725,164 @@ ROC_setup_mainland_republic = {
 	ROC_init_administration = yes
 	country_event = { id = reclamation.19 days = 2 }
 }
+
+OBT_strait_update = {
+	if = {
+		limit = {
+			country_exists = CHI
+			country_exists = TAI
+		}
+		set_variable = { global.OBT_strait_fill = CHI.CHI_taiwan_strait_tension }
+		clamp_variable = { var = global.OBT_strait_fill min = 0 max = 100 }
+		if = {
+			limit = { check_variable = { global.OBT_strait_fill > 79 } }
+			set_temp_variable = { OBT_new_stage = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { global.OBT_strait_fill > 59 } }
+			set_temp_variable = { OBT_new_stage = 3 }
+		}
+		else_if = {
+			limit = { check_variable = { global.OBT_strait_fill > 39 } }
+			set_temp_variable = { OBT_new_stage = 2 }
+		}
+		else_if = {
+			limit = { check_variable = { global.OBT_strait_fill > 19 } }
+			set_temp_variable = { OBT_new_stage = 1 }
+		}
+		else = {
+			set_temp_variable = { OBT_new_stage = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = OBT_strait_initialized }
+			}
+			set_global_flag = OBT_strait_initialized
+			set_variable = { global.OBT_strait_stage = OBT_new_stage }
+			CHI = { OBT_strait_apply_stage = yes }
+			TAI = { OBT_strait_apply_stage = yes }
+		}
+		else_if = {
+			limit = {
+				NOT = { check_variable = { global.OBT_strait_stage = OBT_new_stage } }
+			}
+			set_temp_variable = { OBT_old_stage = global.OBT_strait_stage }
+			set_variable = { global.OBT_strait_stage = OBT_new_stage }
+			CHI = { OBT_strait_apply_stage = yes }
+			TAI = { OBT_strait_apply_stage = yes }
+			if = {
+				limit = {
+					OR = {
+						NOT = { has_global_flag = OBT_strait_event_cooldown }
+						has_global_flag = { flag = OBT_strait_event_cooldown days > 179 }
+					}
+					NOT = { CHI = { has_war_with = TAI } }
+				}
+				clr_global_flag = OBT_strait_event_cooldown
+				set_global_flag = OBT_strait_event_cooldown
+				if = {
+					limit = { check_variable = { OBT_new_stage > OBT_old_stage } }
+					CHI = { country_event = { id = obt_strait.1 days = 1 } }
+					TAI = { country_event = { id = obt_strait.3 days = 1 } }
+				}
+				else = {
+					CHI = { country_event = { id = obt_strait.2 days = 1 } }
+					TAI = { country_event = { id = obt_strait.4 days = 1 } }
+				}
+			}
+		}
+	}
+}
+
+OBT_strait_change_tension = {
+	if = {
+		limit = { country_exists = CHI }
+		CHI = {
+			add_to_variable = { CHI_taiwan_strait_tension = OBT_tension_change tooltip = CHI_taiwan_strait_tension_tt }
+			clamp_variable = { var = CHI_taiwan_strait_tension min = 0 max = 100 }
+		}
+	}
+	OBT_strait_update = yes
+}
+
+OBT_strait_apply_stage = {
+	if = {
+		limit = { original_tag = CHI }
+		set_variable = { OBT_ss_stab = 0 }
+		set_variable = { OBT_ss_pp = 0 }
+		set_variable = { OBT_ss_trade = 0 }
+		set_variable = { OBT_ss_org = 0 }
+		if = {
+			limit = { check_variable = { global.OBT_strait_stage = 0 } }
+			set_variable = { OBT_ss_stab = 0.02 }
+			set_variable = { OBT_ss_pp = 0.05 }
+			set_variable = { OBT_ss_trade = 0.05 }
+		}
+		if = {
+			limit = { check_variable = { global.OBT_strait_stage = 2 } }
+			set_variable = { OBT_ss_stab = -0.01 }
+			set_variable = { OBT_ss_pp = -0.02 }
+			set_variable = { OBT_ss_trade = -0.05 }
+			set_variable = { OBT_ss_org = 0.02 }
+		}
+		if = {
+			limit = { check_variable = { global.OBT_strait_stage = 3 } }
+			set_variable = { OBT_ss_stab = -0.03 }
+			set_variable = { OBT_ss_pp = -0.05 }
+			set_variable = { OBT_ss_trade = -0.1 }
+			set_variable = { OBT_ss_org = 0.03 }
+		}
+		if = {
+			limit = { check_variable = { global.OBT_strait_stage = 4 } }
+			set_variable = { OBT_ss_stab = -0.05 }
+			set_variable = { OBT_ss_pp = -0.1 }
+			set_variable = { OBT_ss_trade = -0.15 }
+			set_variable = { OBT_ss_org = 0.05 }
+		}
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = OBT_strait_stage_CHI } } }
+			add_dynamic_modifier = { modifier = OBT_strait_stage_CHI }
+		}
+	}
+	if = {
+		limit = { original_tag = TAI }
+		set_variable = { OBT_ss_stab = 0 }
+		set_variable = { OBT_ss_pp = 0 }
+		set_variable = { OBT_ss_trade = 0 }
+		set_variable = { OBT_ss_ws = 0 }
+		set_variable = { OBT_ss_def = 0 }
+		if = {
+			limit = { check_variable = { global.OBT_strait_stage = 0 } }
+			set_variable = { OBT_ss_stab = 0.02 }
+			set_variable = { OBT_ss_pp = 0.05 }
+			set_variable = { OBT_ss_trade = 0.05 }
+		}
+		if = {
+			limit = { check_variable = { global.OBT_strait_stage = 2 } }
+			set_variable = { OBT_ss_pp = -0.02 }
+			set_variable = { OBT_ss_trade = -0.03 }
+			set_variable = { OBT_ss_ws = 0.03 }
+			set_variable = { OBT_ss_def = 0.02 }
+		}
+		if = {
+			limit = { check_variable = { global.OBT_strait_stage = 3 } }
+			set_variable = { OBT_ss_stab = -0.02 }
+			set_variable = { OBT_ss_pp = -0.04 }
+			set_variable = { OBT_ss_trade = -0.06 }
+			set_variable = { OBT_ss_ws = 0.05 }
+			set_variable = { OBT_ss_def = 0.04 }
+		}
+		if = {
+			limit = { check_variable = { global.OBT_strait_stage = 4 } }
+			set_variable = { OBT_ss_stab = -0.04 }
+			set_variable = { OBT_ss_pp = -0.06 }
+			set_variable = { OBT_ss_trade = -0.1 }
+			set_variable = { OBT_ss_ws = 0.08 }
+			set_variable = { OBT_ss_def = 0.05 }
+		}
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = OBT_strait_stage_TAI } } }
+			add_dynamic_modifier = { modifier = OBT_strait_stage_TAI }
+		}
+	}
+}

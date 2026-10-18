@@ -41,6 +41,17 @@ Events follow the governing party: a Pan-Blue Taiwan does not get Pan-Green hist
 - **Staged talks replace automatic annexation.** When Taiwan seeks terms, it enters economic talks, then a political conference, then a referendum. It can withdraw at every stage, and unification happens only if voters approve. Beijing can offer the talks, and an active blockade costs it political power and stability every month.
 - **Defensive war.** If China attacks, Taiwan mobilizes and the United States decides whether to intervene, send aid or stay out, based on its commitment to deterring Beijing and its confidence in Taipei. Taiwan can seek mediation while it still holds Taipei. If Taiwan fires first, American support collapses.
 
+### Cross-Strait Tension meter
+
+China's **One China Strategy** tab and Taiwan's **Cross-Strait Relations** tab both show the same meter from 1 January 2000, in the style of Stalin's paranoia bar. It reads Millennium Dawn's existing Strait Tension value and divides it into five stages: **Calm** (0-19), **Friction** (20-39), **Coercion** (40-59), **Crisis** (60-79) and **Brink** (80-100).
+
+- Each stage applies one modifier to each side. China pays in stability, political power and trade as tension rises, and gains some army readiness. Taiwan gains war support and defense but loses trade and political power. Calm pays both.
+- Both sides get de-escalation decisions (crisis hotlines, quiet channels, trade talks, reaffirming the status quo) and their own escalation or readiness options. The One China Framework focus unlocks China's coercive and economic levers; the Blue Tiger root unlocks Taiwan's civil defense drill.
+- A stage change fires one event for each side, with a 180-day cooldown.
+- At Brink, China can prepare a contingency war goal. It never declares war by itself, and no stage annexes Taiwan or forces it to capitulate.
+
+Changes to Millennium Dawn's own China files are listed in [`docs/CHINA_FILE_CHANGES.md`](docs/CHINA_FILE_CHANGES.md).
+
 ### AI behavior
 
 A **Taiwan** AI path game rule, in Millennium Dawn's standard form, sets how an AI-controlled Taiwan plays:

@@ -1,0 +1,9 @@
+spriteTypes = {
+	progressbartype = {
+		name = "GFX_OBT_strait_tension_bar"
+		texturefile1 = "gfx/interface/decisions/decision_categories/iran/propaganda_progress_red.dds"
+		texturefile2 = "gfx/interface/decisions/decision_categories/iran/propaganda_progress_green.dds"
+		size = { x = 404 y = 36 }
+		effectfile = "gfx/FX/progress.lua"
+	}
+}

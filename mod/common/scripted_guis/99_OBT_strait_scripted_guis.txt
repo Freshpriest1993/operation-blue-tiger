@@ -1,0 +1,21 @@
+scripted_gui = {
+	OBT_CHI_strait_meter = {
+		window_name = "OBT_CHI_strait_meter_window"
+		context_type = decision_category
+		dirty = global.OBT_strait_fill
+
+		properties = {
+			OBT_strait_bar = { frame = global.OBT_strait_fill }
+		}
+	}
+
+	OBT_TAI_strait_meter = {
+		window_name = "OBT_TAI_strait_meter_window"
+		context_type = decision_category
+		dirty = global.OBT_strait_fill
+
+		properties = {
+			OBT_strait_bar = { frame = global.OBT_strait_fill }
+		}
+	}
+}

@@ -1,0 +1,18 @@
+OBT_strait_stage_CHI = {
+	icon = GFX_idea_political_drain
+
+	stability_factor = OBT_ss_stab
+	political_power_gain = OBT_ss_pp
+	trade_opinion_factor = OBT_ss_trade
+	army_org_factor = OBT_ss_org
+}
+
+OBT_strait_stage_TAI = {
+	icon = GFX_idea_national_unity
+
+	stability_factor = OBT_ss_stab
+	political_power_gain = OBT_ss_pp
+	trade_opinion_factor = OBT_ss_trade
+	war_support_factor = OBT_ss_ws
+	army_defence_factor = OBT_ss_def
+}
