@@ -197,7 +197,7 @@ def main():
                     errors.append(f"{fid}: prerequisite {q} missing")
 
     # layout: each branch as a compact tree, packed in two tiers
-    positions, sizes, _, _ = layout.tree_layout(spec.BRANCHES, spec.TIERS)
+    positions, sizes, _, _ = layout.tree_layout(spec.BRANCHES, spec.TIERS, gap=getattr(spec, "TIER_GAP", 4))
     roots = {b["key"]: b["focuses"][0]["id"] for b in spec.BRANCHES}
     for b in spec.BRANCHES:
         b["width"] = sizes[b["key"]][0]
@@ -215,7 +215,8 @@ def main():
     L.append("\t\t}")
     L.append("\t}")
     L.append("")
-    L.append("\tcontinuous_focus_position = { x = 50 y = 3700 }")
+    cx, cy = getattr(spec, "CONTINUOUS_POS", (50, 3700))
+    L.append(f"\tcontinuous_focus_position = {{ x = {cx} y = {cy} }}")
     L.append("")
     loc = []
     for b in spec.BRANCHES:

@@ -64,6 +64,8 @@ ALT = {
 
 
 def _clean(text):
+    for q in ("\u2018", "\u2019", "\u201c", "\u201d"):
+        text = text.replace(q, "'")
     return text.replace('"', "'").replace("—", ", ").replace("~", "").strip()
 
 
@@ -404,8 +406,11 @@ def integrate(S):
     png = branch("png", "Project National Glory", 0, ["FOCUS_FILTER_POLITICAL"])
     DEMO_CAPS = ["TAI_su_kmt_roc_on_taiwan", "TAI_su_pfp_third_force", "TAI_su_dpp_own_path", "TAI_su_tsu_taiwan_consensus", "TAI_su_gpt_conscience", "TAI_df_political_dna"]
     g = dict(ai=10)
-    add(png, "TAI_restart_project_national_glory", "whampoa_military_academy", 3, excl=DEMO_CAPS,
-        avail=["raw:TAI_reclamation_allowed = yes", "raw:country_exists = CHI", "raw:CHI = { has_government = communism }", "raw:has_government = democratic", "raw:has_war = no"],
+    # Exclusive with the democratic capstones. Written as completed-focus checks on both sides instead of
+    # mutually_exclusive, so the tree does not draw six exclusion lines across it; only one focus can be in
+    # progress at a time, so the same combinations are blocked for players and the AI.
+    add(png, "TAI_restart_project_national_glory", "whampoa_military_academy", 3,
+        avail=[f"raw:NOT = {{ has_completed_focus = {c} }}" for c in DEMO_CAPS] + ["raw:TAI_reclamation_allowed = yes", "raw:country_exists = CHI", "raw:CHI = { has_government = communism }", "raw:has_government = democratic", "raw:has_war = no"],
         ai=0, aimods=[PNG_AI], eff=["idea:TAI_old_kmt_rise_up", "pp:150", "stab:-0.1", "ws:0.05"])
     add(png, "TAI_follow_chiang_teach", "chiang_kai_shek", 7, pre=["TAI_restart_project_national_glory"],
         avail=["raw:democratic > 0.42", "raw:has_government = democratic", "raw:has_war = no"], eff=[
@@ -490,7 +495,15 @@ def integrate(S):
             assert in_tree, f"{fid} should be in the tree"
         else:
             assert not in_tree, f"{fid} was merged and must not be in the tree"
-    S.TIERS = S.TIERS + [["isl", "sp", "png"]]
+    for c in DEMO_CAPS:
+        A[c]["avail"].append("raw:NOT = { has_completed_focus = TAI_restart_project_national_glory }")
+
+    # Layout: Southern Policy and Project National Glory sit under Across the Strait, in the Pacific Lifeline
+    # column and beside the Kuomintang; Island Society sits under Democratic Fortress with the domestic branches.
+    assert S.TIERS == [["pl", "su", "ss"], ["kmt", "pfp", "dpp", "tsu", "gpt"], ["as", "df", "na", "bt"]], S.TIERS
+    S.TIERS = [["pl", "su", "ss"], ["kmt", "pfp", "dpp", "tsu", "gpt"], [["as", ("sp", "png")], "bt", "na", ["df", "isl"]]]
+    S.TIER_GAP = 3
+    S.CONTINUOUS_POS = (2000, 3800)  # pixels (96 x 130 per cell): the empty area under Operation Blue Tiger
     return S.TIERS
 
 

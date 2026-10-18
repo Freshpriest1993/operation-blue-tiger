@@ -80,23 +80,43 @@ def branch_layout(b):
     return {k: (pos[k], depth[k]) for k in pos}, width, height
 
 
-def tree_layout(branches, tiers):
-    """tiers: list of lists of branch keys, top to bottom."""
+def _slot_size(lay, part, sgap):
+    if isinstance(part, tuple):
+        return sum(lay[k][1] for k in part) + sgap * (len(part) - 1), max(lay[k][2] for k in part)
+    return lay[part][1], lay[part][2]
+
+
+def tree_layout(branches, tiers, gap=4, vgap=1, sgap=2):
+    """tiers: list of rows, top to bottom. Each row is a list of slots placed left to right, `gap` columns apart.
+    A slot is a branch key, or a list stacked top to bottom whose items are a branch key or a tuple of keys
+    placed side by side `sgap` columns apart (used to tuck small branches under a shorter one)."""
     lay = {b["key"]: branch_layout(b) for b in branches}
+    rows = []
+    for row in tiers:
+        slots = []
+        for s in row:
+            parts = s if isinstance(s, list) else [s]
+            dims = [_slot_size(lay, p, sgap) for p in parts]
+            slots.append((parts, dims, max(d[0] for d in dims), sum(d[1] for d in dims) + vgap * (len(parts) - 1)))
+        rows.append(slots)
+    widths = [sum(sl[2] for sl in slots) + gap * (len(slots) - 1) for slots in rows]
+    total = max(widths)
     positions = {}
     y0 = 0
-    widths = []
-    for tier in tiers:
-        widths.append(sum(lay[k][1] for k in tier) + 4 * (len(tier) - 1))
-    total = max(widths)
-    for tier, w in zip(tiers, widths):
+    for slots, w in zip(rows, widths):
         x0 = (total - w) // 2
         h = 0
-        for k in tier:
-            p, bw, bh = lay[k]
-            for fid, (x, y) in p.items():
-                positions[fid] = (x0 + x, y0 + y)
-            x0 += bw + 4
-            h = max(h, bh)
-        y0 += h + 1
+        for parts, dims, sw, sh in slots:
+            yy = y0
+            for part, (pw, ph) in zip(parts, dims):
+                xx = x0 + (sw - pw) // 2
+                for k in (part if isinstance(part, tuple) else (part,)):
+                    p, bw, bh = lay[k]
+                    for fid, (x, y) in p.items():
+                        positions[fid] = (xx + x, yy + y)
+                    xx += bw + sgap
+                yy += ph + vgap
+            x0 += sw + gap
+            h = max(h, sh)
+        y0 += h + vgap
     return positions, {k: (v[1], v[2]) for k, v in lay.items()}, total, y0

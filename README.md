@@ -8,7 +8,7 @@ The design goal is a Taiwan that is neither doomed nor invincible. The player's 
 
 ## Features
 
-The focus tree has **310 focuses** in twelve branches, laid out in three rows: national branches on top and bottom, and a row of party branches in the middle.
+The focus tree has **310 focuses** in twelve branches, laid out in three rows: national branches on top and bottom, and a row of party branches in the middle. The unified build with AUG's RoC-development work has 368 (see below).
 
 | Branch | Focuses | What it covers |
 | --- | --- | --- |
@@ -155,9 +155,10 @@ Buying equipment and absorbing it are separate steps, so purchases do not instan
 
 At TheGeneral's request, Operation Blue Tiger and AUG's RoC-development focus tree are being combined so Taiwan has one tree. The work is on the local branch `integration/obt-roc-unified` and has not been pushed or merged.
 
-- **368 focuses.** 58 of AUG's focuses keep their IDs in the unified tree, including three new branches as a fourth row: **Island Society** (921 reconstruction, labour and welfare reform), **Southern Policy** (Southeast Asia, with the conquest chain hidden behind the off-by-default *Taiwan: Southern Expansion* rule) and **Project National Glory** (a KMT restoration path behind the Return to the Mainland rule).
+- **368 focuses.** 58 of AUG's focuses keep their IDs in the unified tree, including three new branches in the bottom band: **Island Society** (921 reconstruction, labour and welfare reform), **Southern Policy** (Southeast Asia, with the conquest chain hidden behind the off-by-default *Taiwan: Southern Expansion* rule) and **Project National Glory** (a KMT restoration path behind the Return to the Mainland rule).
 - **Nothing is deleted.** AUG's other 34 focuses fold their rewards into the OBT focus that covers the same event, or into decisions; his 29 spirits, events, opinion modifiers, portrait and AI options are kept. Every one of the 92 focus IDs is mapped in [`docs/roc_dev/ROC_DEV_MAPPING.md`](docs/roc_dev/ROC_DEV_MAPPING.md).
 - **One system for each job.** AUG's regional mobilization theaters run inside the OBT reserve system, his Seventh Fleet invitation is a Cross-Strait decision, and his Red Infiltration path ends in OBT's staged talks and referendum instead of an instant annexation.
+- **Layout.** The tree is 88 by 36 cells. Southern Policy and Project National Glory sit under Across the Strait, in the Pacific Lifeline column; Island Society sits under Democratic Fortress with the domestic branches; Operation Blue Tiger sits under Pacific Lifeline, which it depends on. National Glory's exclusion with the democratic capstones is written as a completed-focus check on both sides, so no exclusion lines cross the tree.
 - **Originals preserved.** AUG's files are archived byte-exact on the integration branch, and [`docs/roc_dev/INTEGRATION_CHANGELOG.md`](docs/roc_dev/INTEGRATION_CHANGELOG.md) lists every change, fix and balance adjustment for his review.
 
 The `mod/` folder holds the unified build. To build the Operation Blue Tiger tree without AUG's focuses, set `OBT_SKIP_ROC=1` before running `gen.py`.
