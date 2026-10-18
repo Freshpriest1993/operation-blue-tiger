@@ -4,7 +4,7 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestones 1 to 8 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, and the 2001-2005 crisis events. Milestones 5, 7 and 8 are awaiting review by the Millennium Dawn team, and the meter is in in-game testing. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestones 1 to 9 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, the 2001-2005 crisis events, and the Defense and National Reform tab with American arms deliveries. Milestones 5, 7 and 8 are awaiting review by the Millennium Dawn team, and milestones 7 to 9 are in in-game testing. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
@@ -51,6 +51,33 @@ Three event chains let Washington, Beijing, Tokyo and Taipei each make their own
 - **The 2005 U.S.-Japan "2+2" statement.** Japan chooses whether to name the Taiwan Strait among the alliance's common strategic objectives, as it did on 19 February 2005. If it does, Taiwan and China respond.
 
 Each choice moves Strait Tension, American support, U.S. confidence in Taipei or cross-Strait trust, so the tension meter reflects the crises. Choices that did not happen are marked *(Alternate history)*.
+
+### Defense and National Reform
+
+A dedicated tab, separate from Cross-Strait Relations, shows nine national indicators as bars, each with a tooltip explaining what it does and how to change it, plus a tracker for American arms purchases.
+
+| Indicator | Effect |
+| --- | --- |
+| Military Confidence | Division organization and planning speed |
+| Reform Capacity | Research speed and army experience gain |
+| National Coordination | Construction speed and stability |
+| Mainland Dependence | More factory output, less war support |
+| Semiconductor Security | Production efficiency growth |
+| U.S. Confidence in Taipei | Washington's trust in Taipei: unlocks U.S. help and procurement steps |
+| U.S. Support | Washington's own commitment: slows Pressure to Negotiate and keeps Beijing's harshest options closed |
+| Pressure to Negotiate, Taiwan-Centered Identity | Unchanged: they open talks and shape public reactions |
+
+Effects are measured from Taiwan's 2000 starting values, so the game starts balanced and the effects grow as the indicators move. U.S. Confidence (how Washington sees Taipei) and U.S. Support (how committed Washington is) stay separate.
+
+**Arms procurement.** Approval, funding, contract or refit, delivery and crew working-up are separate steps. Completing a focus alone never produces equipment, and deliveries are never charged twice: the money comes from the Special Defense Budget and the existing focuses.
+
+- **Kidd-class destroyers:** funded by a trimmed or full budget, refitted after *Accept the Kidd-Class Destroyers*, and delivered as ROCS Keelung and Su Ao, then Tso Ying and Ma Kong, about a year apart, as in 2005-2006.
+- **P-3C Orions:** need a full budget, which the Legislative Yuan historically blocked until 2007, then contract talks and years of refurbishment. Twelve aircraft arrive in batches of four.
+- **Diesel submarines:** Taiwan must find a construction partner before 2009: an American yard, the Dutch RDM yard (before it closes in 2004) or a German license. Each partner has strict, non-random conditions. Without one, the program fails as it did historically and Taiwan turns to the Indigenous Submarine Program.
+- **Aegis destroyers:** only if Washington approved them in 2001. They are built new, arrive late and raise Cross-Strait Tension.
+- Expensive decisions can speed up refits, refurbishment and construction. Programs are suspended while Washington withdraws support, while Taiwan is at war with the United States, or while the Strait is closed by a war the United States is not in. Ships need a naval base to arrive.
+
+Reform decisions in the same tab (Han Kuang exercises, joint operations drills, Pentagon assessments, civil defense and supply-chain reviews) raise the indicators, each with a cooldown. The test checklist is in [`docs/DEFENSE_REFORM_TESTING.md`](docs/DEFENSE_REFORM_TESTING.md).
 
 ### Cross-Strait Pressure System
 
@@ -154,6 +181,7 @@ You need a local copy of Millennium Dawn (the developer version from its GitHub 
 - China's `05_china.txt` (also starts the Hainan chain), `05_CHI_decisions.txt`, `99_CHI_decision_categories.txt` and `MD_focus_CHI_l_english.yml`: staged talks instead of automatic annexation, and the One China Strategy tab visible from the start with the tension meter.
 - `00_game_rules.txt`, `999_game_rules_on_actions.txt` and `MD_game_rules_l_english.yml`: the Taiwan AI path and Return to the Mainland game rules.
 - `00_MD_politicsview_scripted_localisation.txt` and `MD_politics_view_parties_l_english.yml`: the Taiwan Solidarity Union and the mainland republic's party names.
+- `TAI_names_divisions.txt`: researched names for new Taiwanese brigades, such as the 542nd Armored Brigade 'Xunlei' - 6th Army Corps.
 
 Every change to China's files is listed in [`docs/CHINA_FILE_CHANGES.md`](docs/CHINA_FILE_CHANGES.md).
 
@@ -168,7 +196,7 @@ Then start a game as Taiwan, or as China to see the pressure system from Beijing
 | `mod/` | All Operation Blue Tiger files in Millennium Dawn's folder structure |
 | `patches/` | A Git patch of milestones 1 to 4 |
 | `tools/` | The generators: `spec.py` defines every Taiwan focus, `layout.py` arranges the tree, `gen.py` builds the focus tree and localisation, and `events_gen.py` builds the events and spirits from `events_spec.py` |
-| `tools/m3`, `m4`, `m5`, `m7`, `m8` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland, the tension meter and the crisis events |
+| `tools/m3`, `m4`, `m5`, `m7`, `m8`, `m9` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland, the tension meter, the crisis events and Defense and National Reform |
 | `docs/` | Handoff notes, a focus spreadsheet, the China change log and the tension meter test plan |
 
 ### Regenerating the files
@@ -180,9 +208,10 @@ python tools/gen.py <millennium-dawn-folder> <output-folder>
 python tools/events_gen.py <millennium-dawn-folder> <output-folder>
 python tools/m7/build7.py tools/m7
 python tools/m8/build8.py tools/m8
+python tools/m9/build9.py tools/m9/out
 ```
 
-The apply scripts (`apply.py` to `apply8.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
+The apply scripts (`apply.py` to `apply9.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
 
 ## Roadmap
 
@@ -194,7 +223,8 @@ The apply scripts (`apply.py` to `apply8.py`) write the output into a Millennium
 - [x] **Milestone 6:** party branches (KMT, DPP, PFP, Taiwan Solidarity Union, Green Party), a two-row tree layout, stronger rewards, branch and party programs, and military experience and doctrine bonuses
 - [x] **Milestone 7:** the shared Cross-Strait Tension meter for China and Taiwan, with five stages, stage effects, decisions, events and AI
 - [x] **Milestone 8:** crisis events: the Hainan Island Incident, the 2001 arms package and the 2005 U.S.-Japan statement
-- [ ] In-game testing of the tension meter and crisis events
+- [x] **Milestone 9:** Defense and National Reform tab, real indicator effects, the procurement tracker and American arms deliveries
+- [ ] In-game testing of the tension meter, crisis events and Defense and National Reform
 - [ ] Update to Millennium Dawn 2.0.2
 - [ ] Review by the Millennium Dawn team
 

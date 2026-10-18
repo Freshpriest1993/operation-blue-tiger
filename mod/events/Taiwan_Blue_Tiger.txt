@@ -685,6 +685,10 @@ country_event = {
 		name = blue_tiger.23.a
 		trigger = { TAI_can_pass_legislation = yes }
 		log = "[GetDateText]: [This.GetName]: blue_tiger.23.a executed"
+		set_country_flag = OBT_budget_vote_held
+		set_country_flag = OBT_budget_kidd
+		set_country_flag = OBT_budget_full
+		custom_effect_tooltip = OBT_budget_full_tt
 		set_temp_variable = { treasury_change = -5 }
 		modify_treasury_effect = yes
 		add_to_variable = { TAI_us_confidence = 5 tooltip = TAI_us_confidence_tt }
@@ -706,6 +710,9 @@ country_event = {
 	option = {
 		name = blue_tiger.23.b
 		log = "[GetDateText]: [This.GetName]: blue_tiger.23.b executed"
+		set_country_flag = OBT_budget_vote_held
+		set_country_flag = OBT_budget_kidd
+		custom_effect_tooltip = OBT_budget_trim_tt
 		set_temp_variable = { treasury_change = -2 }
 		modify_treasury_effect = yes
 		add_to_variable = { TAI_us_confidence = 2 tooltip = TAI_us_confidence_tt }
@@ -719,6 +726,8 @@ country_event = {
 	option = {
 		name = blue_tiger.23.c
 		log = "[GetDateText]: [This.GetName]: blue_tiger.23.c executed"
+		set_country_flag = OBT_budget_vote_held
+		custom_effect_tooltip = OBT_budget_stall_tt
 		add_to_variable = { TAI_us_confidence = -5 tooltip = TAI_us_confidence_tt }
 		clamp_variable = { var = TAI_us_confidence min = 0 max = 100 }
 		add_to_variable = { TAI_military_confidence = -3 tooltip = TAI_military_confidence_tt }

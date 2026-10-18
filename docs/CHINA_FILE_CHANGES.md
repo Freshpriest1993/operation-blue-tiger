@@ -34,4 +34,5 @@ New China decisions for the meter live in Operation Blue Tiger's own file, `comm
 | `common/scripted_effects/00_yearly_effects.txt` | Schedules Taiwan's historical events, the 2001 U.S. arms package event (USA) and the 2005 U.S.-Japan statement event (JAP). |
 | `common/scripted_localisation/00_MD_politicsview_scripted_localisation.txt` | KMT party names for the restored mainland republic (flag-gated) and the Taiwan Solidarity Union name from August 2001. |
 | `localisation/english/MD_politics_view_parties_l_english.yml` | Taiwan Solidarity Union party name and description. |
+| `common/units/names_divisions/TAI_names_divisions.txt` | Replaced with researched Taiwan brigade naming pools (historical cutoff 1 January 2000): the same group keys plus `TAI_MECH_BDE`, historical brigade numbers and parent formations. Only names for newly created brigades change; starting units keep their literal names. |
 | `Changelog.txt` | One Operation Blue Tiger line. |
