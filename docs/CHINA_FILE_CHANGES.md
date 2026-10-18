@@ -35,4 +35,8 @@ New China decisions for the meter live in Operation Blue Tiger's own file, `comm
 | `common/scripted_localisation/00_MD_politicsview_scripted_localisation.txt` | KMT party names for the restored mainland republic (flag-gated) and the Taiwan Solidarity Union name from August 2001. |
 | `localisation/english/MD_politics_view_parties_l_english.yml` | Taiwan Solidarity Union party name and description. |
 | `common/units/names_divisions/TAI_names_divisions.txt` | Replaced with researched Taiwan brigade naming pools (historical cutoff 1 January 2000): the same group keys plus `TAI_MECH_BDE`, historical brigade numbers and parent formations. Only names for newly created brigades change; starting units keep their literal names. |
+| `history/countries/TAI - Taiwan.txt` | Adds the Jin Chiang Class and Hai Ou Class missile boat designs beside the Hai Lung submarine design. |
+| `history/units/TAI_2000_nsb.txt`, `TAI_2000_nonnsb.txt` | Land order of battle replaced with the audited January 2000 brigade army (new templates); stockpile anachronisms and duplicates fixed. Starting units are listed in `docs/ORDER_OF_BATTLE_AUDIT.md`. |
+| `history/units/TAI_2000_bba.txt`, `TAI_2000_nonbba.txt` | F-5 fleet cut to about 160; squadrons renamed with wing and base; 8th and 14th Squadrons added. |
+| `history/units/TAI_2000_naval_mtg.txt` | Destroyer names corrected, fleet based at Tsoying with a Keelung group, 12 Jin Chiang and 49 Hai Ou missile craft added. |
 | `Changelog.txt` | One Operation Blue Tiger line. |

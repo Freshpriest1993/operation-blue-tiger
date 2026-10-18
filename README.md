@@ -4,7 +4,7 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestones 1 to 9 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, the 2001-2005 crisis events, and the Defense and National Reform tab with American arms deliveries. Milestones 5, 7 and 8 are awaiting review by the Millennium Dawn team, and milestones 7 to 9 are in in-game testing. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestones 1 to 10 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, the 2001-2005 crisis events, the Defense and National Reform tab with American arms deliveries, and a historically audited January 2000 order of battle with reserve mobilization. Milestones 5, 7 and 8 are awaiting review by the Millennium Dawn team, and milestones 7 to 9 are in in-game testing. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
@@ -78,6 +78,12 @@ Effects are measured from Taiwan's 2000 starting values, so the game starts bala
 - Expensive decisions can speed up refits, refurbishment and construction. Programs are suspended while Washington withdraws support, while Taiwan is at war with the United States, or while the Strait is closed by a war the United States is not in. Ships need a naval base to arrive.
 
 Reform decisions in the same tab (Han Kuang exercises, joint operations drills, Pentagon assessments, civil defense and supply-chain reviews) raise the indicators, each with a cooldown. The test checklist is in [`docs/DEFENSE_REFORM_TESTING.md`](docs/DEFENSE_REFORM_TESTING.md).
+
+### Historical order of battle and reserve mobilization
+
+Taiwan starts with the army it had on 1 January 2000, midway through the Jingshi reorganization: 34 named combined-arms brigades and 4 unnumbered garrison brigades under the 6th, 8th and 10th Army Corps and the Kinmen, Matsu, Penghu and Hua-Tung defense commands, the 601st and 602nd Air Cavalry and 862nd Special Warfare Brigades, and the 66th and 99th Marine Divisions. The audit also corrected the destroyer names, based the fleet at Tsoying, added 61 Jin Chiang and Hai Ou missile craft, cut the F-5 fleet to about 160 and removed equipment delivered after 2000. Every change, source and open question is in [`docs/ORDER_OF_BATTLE_AUDIT.md`](docs/ORDER_OF_BATTLE_AUDIT.md).
+
+Reserve brigades never start on the map. The **Reserve Mobilization** tab runs a peacetime readiness program and an annual refresher recall, then partial mobilization (4 brigades in a crisis) and general mobilization (up to 12 in a war with China). Brigades arrive over weeks, fill from the stockpile, gain experience from readiness, and cost political power and industrial output while they serve. Demobilizing sends them home with a one-year cooldown.
 
 ### Cross-Strait Pressure System
 
@@ -181,7 +187,8 @@ You need a local copy of Millennium Dawn (the developer version from its GitHub 
 - China's `05_china.txt` (also starts the Hainan chain), `05_CHI_decisions.txt`, `99_CHI_decision_categories.txt` and `MD_focus_CHI_l_english.yml`: staged talks instead of automatic annexation, and the One China Strategy tab visible from the start with the tension meter.
 - `00_game_rules.txt`, `999_game_rules_on_actions.txt` and `MD_game_rules_l_english.yml`: the Taiwan AI path and Return to the Mainland game rules.
 - `00_MD_politicsview_scripted_localisation.txt` and `MD_politics_view_parties_l_english.yml`: the Taiwan Solidarity Union and the mainland republic's party names.
-- `TAI_names_divisions.txt`: researched names for new Taiwanese brigades, such as the 542nd Armored Brigade 'Xunlei' - 6th Army Corps.
+- `TAI_names_divisions.txt`: researched names for new Taiwanese brigades, such as the 542nd Armored Brigade 'Xunlei' - 6th Army Corps, and a separate reserve pool.
+- `TAI - Taiwan.txt` and Taiwan's six `TAI_2000_*` unit files: the audited January 2000 order of battle and two missile boat designs.
 
 Every change to China's files is listed in [`docs/CHINA_FILE_CHANGES.md`](docs/CHINA_FILE_CHANGES.md).
 
@@ -196,7 +203,7 @@ Then start a game as Taiwan, or as China to see the pressure system from Beijing
 | `mod/` | All Operation Blue Tiger files in Millennium Dawn's folder structure |
 | `patches/` | A Git patch of milestones 1 to 4 |
 | `tools/` | The generators: `spec.py` defines every Taiwan focus, `layout.py` arranges the tree, `gen.py` builds the focus tree and localisation, and `events_gen.py` builds the events and spirits from `events_spec.py` |
-| `tools/m3`, `m4`, `m5`, `m7`, `m8`, `m9` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland, the tension meter, the crisis events and Defense and National Reform |
+| `tools/m3`, `m4`, `m5`, `m7`, `m8`, `m9`, `m10` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland, the tension meter, the crisis events and Defense and National Reform, and the order of battle and reserve mobilization |
 | `docs/` | Handoff notes, a focus spreadsheet, the China change log and the tension meter test plan |
 
 ### Regenerating the files
@@ -209,9 +216,11 @@ python tools/events_gen.py <millennium-dawn-folder> <output-folder>
 python tools/m7/build7.py tools/m7
 python tools/m8/build8.py tools/m8
 python tools/m9/build9.py tools/m9/out
+python tools/m10/oob10.py <millennium-dawn-folder> tools/m10/out
+python tools/m10/mob10.py tools/m10/out
 ```
 
-The apply scripts (`apply.py` to `apply9.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
+The apply scripts (`apply.py` to `apply10.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
 
 ## Roadmap
 
@@ -224,7 +233,9 @@ The apply scripts (`apply.py` to `apply9.py`) write the output into a Millennium
 - [x] **Milestone 7:** the shared Cross-Strait Tension meter for China and Taiwan, with five stages, stage effects, decisions, events and AI
 - [x] **Milestone 8:** crisis events: the Hainan Island Incident, the 2001 arms package and the 2005 U.S.-Japan statement
 - [x] **Milestone 9:** Defense and National Reform tab, real indicator effects, the procurement tracker and American arms deliveries
-- [ ] In-game testing of the tension meter, crisis events and Defense and National Reform
+- [x] **Milestone 10:** audited January 2000 order of battle (army, air, navy, equipment) and reserve mobilization
+- [ ] Confirm the 373rd and 395th Armored Infantry Brigades' 2000 organization and equipment
+- [ ] In-game testing of the tension meter, crisis events, Defense and National Reform and the new order of battle
 - [ ] Update to Millennium Dawn 2.0.2
 - [ ] Review by the Millennium Dawn team
 

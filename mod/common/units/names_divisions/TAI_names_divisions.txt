@@ -68,6 +68,7 @@ TAI_MECH_BDE = {
 	fallback_name = "%d Armored Infantry Brigade"
 
 	ordered = {
+		351 = { "351st Armored Infantry Brigade 'Leiting' - 6th Army Corps" } # R36: established 1 April 1999 (Armor Quarterly)
 		373 = { "373rd Armored Infantry Brigade - 10th Army Corps" } # R18
 		395 = { "395th Armored Infantry Brigade - 8th Army Corps" } # R19
 	}
@@ -161,4 +162,14 @@ TAI_AIR_CAV_BRIGADES = {
 		601 = { "601st Air Cavalry Brigade - Army Aviation and Special Forces Command" } # R26
 		602 = { "602nd Air Cavalry Brigade - Army Aviation and Special Forces Command" } # R27
 	}
+}
+
+# Operation Blue Tiger: reserve brigades raised by the Reserve Mobilization decisions. Generic numbering only, so no
+# reserve brigade number from 2002 or later appears in a 2000 game. Only the locked "Reserve Infantry Brigade" template uses it.
+TAI_RES = {
+	name = "Reserve Infantry Brigades"
+	for_countries = { TAI }
+	division_types = { "Militia_Bat" }
+
+	fallback_name = "%d Reserve Infantry Brigade"
 }

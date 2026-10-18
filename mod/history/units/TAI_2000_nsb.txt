@@ -1,0 +1,671 @@
+# Taiwan, 1 January 2000. Operation Blue Tiger order of battle audit (docs/ORDER_OF_BATTLE_AUDIT.md):
+# Jingshi brigades under 3 army corps and 4 defense commands; Marine divisions until August 2000.
+# Reserve formations are not on the map; they appear only through the Reserve Mobilization decisions.
+
+division_template = {
+	name = "Infantry Brigade"
+	division_names_group = TAI_INF_BDE
+
+	regiments = {
+		L_Inf_Bat = { x = 0 y = 0 }
+		L_Inf_Bat = { x = 0 y = 1 }
+		L_Inf_Bat = { x = 0 y = 2 }
+		Arty_Bat = { x = 1 y = 0 }
+	}
+
+	regimental_support = {
+		L_Recce_Comp = { x = 0 y = 0 }
+	}
+
+	support = {
+		H_Engi_Comp = { x = 0 y = 0 }
+		combat_service_support_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Motorized Infantry Brigade"
+	division_names_group = TAI_INF_DIV
+
+	regiments = {
+		Mot_Inf_Bat = { x = 0 y = 0 }
+		Mot_Inf_Bat = { x = 0 y = 1 }
+		Mot_Inf_Bat = { x = 0 y = 2 }
+		Arty_Bat = { x = 1 y = 0 }
+	}
+
+	regimental_support = {
+		Mot_Recce_Comp = { x = 0 y = 0 }
+	}
+
+	support = {
+		H_Engi_Comp = { x = 0 y = 0 }
+		combat_service_support_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Armored Infantry Brigade"
+	division_names_group = TAI_MECH_BDE
+
+	regiments = {
+		Mech_Inf_Bat = { x = 0 y = 0 }
+		Mech_Inf_Bat = { x = 0 y = 1 }
+		Mech_Inf_Bat = { x = 0 y = 2 }
+		armor_Bat = { x = 1 y = 0 }
+		armor_Bat = { x = 1 y = 1 }
+		SP_Arty_Bat = { x = 2 y = 0 }
+	}
+
+	regimental_support = {
+		armor_Recce_Comp = { x = 0 y = 0 }
+	}
+
+	support = {
+		H_Engi_Comp = { x = 0 y = 0 }
+		combat_service_support_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Armored Brigade"
+	division_names_group = TAI_ARM_BDE
+
+	regiments = {
+		armor_Bat = { x = 0 y = 0 }
+		armor_Bat = { x = 0 y = 1 }
+		armor_Bat = { x = 0 y = 2 }
+		Mech_Inf_Bat = { x = 1 y = 0 }
+		Mech_Inf_Bat = { x = 1 y = 1 }
+		SP_Arty_Bat = { x = 2 y = 0 }
+	}
+
+	regimental_support = {
+		armor_Recce_Comp = { x = 0 y = 0 }
+	}
+
+	support = {
+		H_Engi_Comp = { x = 0 y = 0 }
+		combat_service_support_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Island Armored Brigade"
+	division_names_group = TAI_ARM_BDE
+
+	regiments = {
+		armor_Bat = { x = 0 y = 0 }
+		armor_Bat = { x = 0 y = 1 }
+		Mech_Inf_Bat = { x = 1 y = 0 }
+		Arty_Bat = { x = 2 y = 0 }
+	}
+
+	regimental_support = {
+		armor_Recce_Comp = { x = 0 y = 0 }
+	}
+
+	support = {
+		H_Engi_Comp = { x = 0 y = 0 }
+		combat_service_support_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Air Cavalry Brigade"
+	division_names_group = TAI_AIR_CAV_BRIGADES
+
+	regiments = {
+		attack_helo_bat = { x = 0 y = 0 }
+		L_Air_assault_Bat = { x = 0 y = 1 }
+		L_Air_assault_Bat = { x = 0 y = 2 }
+	}
+
+	regimental_support = {
+		air_assault_arty_battery = { x = 0 y = 0 }
+	}
+
+	support = {
+		H_Engi_Comp = { x = 0 y = 0 }
+		combat_service_support_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Special Warfare Brigade"
+	division_names_group = TAI_SOF
+
+	regiments = {
+		Special_Forces = { x = 0 y = 0 }
+		Special_Forces = { x = 0 y = 1 }
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "Marine Division"
+	division_names_group = TAI_MAR
+
+	regiments = {
+		L_Marine_Bat = { x = 0 y = 0 }
+		L_Marine_Bat = { x = 0 y = 1 }
+		L_Marine_Bat = { x = 0 y = 2 }
+		L_Marine_Bat = { x = 1 y = 0 }
+		L_Marine_Bat = { x = 1 y = 1 }
+		L_Marine_Bat = { x = 1 y = 2 }
+		Arty_Bat = { x = 2 y = 0 }
+		Arty_Bat = { x = 2 y = 1 }
+	}
+
+	regimental_support = {
+		L_Recce_Comp = { x = 0 y = 0 }
+	}
+
+	support = {
+		H_Engi_Comp = { x = 0 y = 0 }
+		combat_service_support_company = { x = 0 y = 1 }
+	}
+}
+
+units = {
+
+	### 6th Army Corps (northern Taiwan) ###
+	division = { # 542nd Armored 'Xunlei', Hukou; formed 1998
+		division_name = { is_name_ordered = yes name_order = 542 }
+		location = 14412
+		division_template = "Armored Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.01
+	}
+	division = { # 351st Armored Infantry 'Leiting', Guishan; formed 1 April 1999
+		division_name = { is_name_ordered = yes name_order = 351 }
+		location = 14699
+		division_template = "Armored Infantry Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.01
+	}
+	division = { # 151st Division command
+		division_name = { is_name_ordered = yes name_order = 452 }
+		location = 14702
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # 151st Division command
+		division_name = { is_name_ordered = yes name_order = 453 }
+		location = 14702
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 102 }
+		location = 7186
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 103 }
+		location = 7186
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 108 }
+		location = 7214
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # garrison brigade, number unverified (end-state count)
+		location = 7214
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # garrison brigade, number unverified (end-state count)
+		location = 14699
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+
+	### 10th Army Corps (central Taiwan) ###
+	division = { # 586th Armored 'Zhongshan', Houli; formed 1 April 1999
+		division_name = { is_name_ordered = yes name_order = 586 }
+		location = 11959
+		division_template = "Armored Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.01
+	}
+	division = { # 373rd Armored Infantry 'Tianshan', Dali; conversion date unverified
+		division_name = { is_name_ordered = yes name_order = 373 }
+		location = 11959
+		division_template = "Armored Infantry Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.01
+	}
+	division = { # 200th Motorized Infantry 'Gubei'
+		division_name = { is_name_ordered = yes name_order = 200 }
+		location = 14411
+		division_template = "Motorized Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 104 }
+		location = 14411
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 157 }
+		location = 11959
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 169 }
+		location = 14411
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # 206th Division command
+		division_name = { is_name_ordered = yes name_order = 616 }
+		location = 11959
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # 206th Division command
+		division_name = { is_name_ordered = yes name_order = 617 }
+		location = 14411
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+
+	### 8th Army Corps (southern Taiwan) ###
+	division = { # 564th Armored 'Shaokang', Alian; formed 1 October 1999
+		division_name = { is_name_ordered = yes name_order = 564 }
+		location = 14410
+		division_template = "Armored Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.01
+	}
+	division = { # 395th Armored Infantry; conversion date unverified
+		division_name = { is_name_ordered = yes name_order = 395 }
+		location = 14700
+		division_template = "Armored Infantry Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.01
+	}
+	division = { # 298th Motorized Infantry 'Puchuan'
+		division_name = { is_name_ordered = yes name_order = 298 }
+		location = 12027
+		division_template = "Motorized Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # 210th Division
+		division_name = { is_name_ordered = yes name_order = 129 }
+		location = 12068
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # 26th Division command
+		division_name = { is_name_ordered = yes name_order = 178 }
+		location = 1091
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # 206th Division command
+		division_name = { is_name_ordered = yes name_order = 618 }
+		location = 12068
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # garrison brigade, number unverified (end-state count)
+		location = 14700
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+
+	### Kinmen Defense Command ###
+	division = { # 584th Armored 'Dengbu'; formed 1 April 1999
+		division_name = { is_name_ordered = yes name_order = 584 }
+		location = 13275
+		division_template = "Island Armored Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 119 }
+		location = 13275
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 127 }
+		location = 13275
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 158 }
+		location = 13275
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+
+	### Matsu Defense Command ###
+	division = {
+		division_name = { is_name_ordered = yes name_order = 193 }
+		location = 14608
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 194 }
+		location = 14608
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # Dongyin; unit history from July 1999
+		division_name = { is_name_ordered = yes name_order = 195 }
+		location = 14608
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+
+	### Penghu Defense Command ###
+	division = {
+		division_name = { is_name_ordered = yes name_order = 503 }
+		location = 13274
+		division_template = "Island Armored Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 168 }
+		location = 13274
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+
+	### Hua-Tung Defense Command ###
+	division = {
+		division_name = { is_name_ordered = yes name_order = 128 }
+		location = 4096
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = { # garrison brigade, number unverified (end-state count)
+		location = 9955
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+
+	### Aviation and Special Warfare Command ###
+	division = {
+		division_name = { is_name_ordered = yes name_order = 601 }
+		location = 7214
+		division_template = "Air Cavalry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 602 }
+		location = 11959
+		division_template = "Air Cavalry Brigade"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.01
+	}
+	division = {
+		division_name = { is_name_ordered = yes name_order = 862 }
+		location = 7186
+		division_template = "Special Warfare Brigade"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.01
+	}
+
+	### ROC Marine Corps (divisions until the August 2000 reorganization) ###
+	division = { # Linkou
+		name = "66th Marine Division"
+		location = 7186
+		division_template = "Marine Division"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.01
+	}
+	division = { # Tsoying
+		name = "99th Marine Division"
+		location = 14700
+		division_template = "Marine Division"
+		start_experience_factor = 0.55
+		start_equipment_factor = 0.01
+	}
+}
+
+instant_effect = {
+	add_equipment_to_stockpile = {
+		type = infantry_weapons_2 #"Steyr AUG A1"
+		amount = 2500
+		producer = AUS
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_weapons_2 #M16A1
+		amount = 20000
+		producer = TAI
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_weapons_3 #T65
+		amount = 60000
+		producer = TAI
+	}
+
+	add_equipment_to_stockpile = {
+		type = cnc_equipment_2
+		amount = 4500
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = Anti_tank_2
+		amount = 1400
+		producer = SWE
+	}
+	add_equipment_to_stockpile = {
+		type = Anti_tank_1
+		amount = 500
+		variant_name = "M40"
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = Anti_Air_0
+		amount = 700
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = util_vehicle_2 #"M561 Gama Goat"
+		amount = 600
+		producer = USA
+	}
+
+	####Vehicles##
+
+	add_equipment_to_stockpile = {
+		type = medium_tank_chassis_0
+		variant_name = "M60A3"
+		amount = 169 # FAS 1999
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_chassis_0
+		variant_name = "CM-12"
+		amount = 100
+		producer = TAI
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_chassis_0
+		variant_name = "CM-11"
+		amount = 450
+		producer = TAI
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_destroyer_chassis_0
+		amount = 675
+		producer = TAI
+		variant_name = "M41D"
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_destroyer_chassis_0
+		amount = 300
+		producer = USA
+		variant_name = "V150 Cadillac Commando"
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_amphibious_chassis_1
+		variant_name = "CM-21"
+		amount = 225 # FAS 1999
+		producer = TAI
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_amphibious_chassis_1
+		variant_name = "M113"
+		amount = 650
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = util_vehicle_3 #Humvee
+		amount = 3000
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = artillery_1
+		variant_name = "M101"
+		amount = 650
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = artillery_1
+		variant_name = "M114"
+		amount = 250
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = artillery_1
+		variant_name = "M1"
+		amount = 90
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = artillery_1
+		variant_name = "M115"
+		amount = 70
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = medium_tank_artillery_chassis_0 #M108
+		variant_name = "M108"
+		amount = 100
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = medium_tank_artillery_chassis_0
+		variant_name = "M110"
+		amount = 60
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_artillery_chassis_1
+		variant_name = "M109A3"
+		amount = 110
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_artillery_chassis_0
+		variant_name = "Kung Feng"
+		amount = 120
+	}
+
+	add_equipment_to_stockpile = {
+		type = Heavy_Anti_tank_1 # USA_Heavy_Anti_tank_1:0 "BGM-71 TOW" 1,000
+		amount = 1000
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = Anti_Air_1 #USA_Anti_Air_1:0 "FIM-92 Stinger"
+		amount = 480
+		producer = USA
+	}
+
+	add_equipment_to_stockpile = {
+		type = medium_tank_aa_chassis_1
+		amount = 74 # 1996 sale
+		producer = USA
+		variant_name = "AN/TWQ-1 Avenger"
+	}
+
+	add_equipment_to_stockpile = {
+		type = medium_tank_aa_chassis_0 	# "MIM-72 Chaparral" & "MIM-104 Patriot"
+		amount = 27
+		producer = USA
+		variant_name = "MIM-72 Chaparral"
+	}
+
+	add_equipment_to_stockpile = {
+		type = medium_tank_aa_chassis_0
+		amount = 400
+		producer = USA
+		variant_name = "M42 Duster"
+	}
+
+	#Helicopters
+	add_equipment_to_stockpile = {
+		type = transport_helicopter_1	#USA_transport_helicopter_1:0 "Bell UH-1 Iroquois"
+		amount = 110
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = transport_helicopter_1 	#USA_transport_helicopter_1:0 "Bell 206 aka TH-67"
+		amount = 30
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = heavy_tank_chassis_0
+		amount = 26
+		producer = USA
+		variant_name = "OH-58D Kiowa Warrior"
+	}
+	add_equipment_to_stockpile = {
+		type = heavy_tank_chassis_0
+		amount = 42 # AH-1W in service by April 2000
+		producer = USA
+		variant_name = "AH-1 Cobra"
+	}
+}
