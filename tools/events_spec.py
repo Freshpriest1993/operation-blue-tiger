@@ -448,50 +448,377 @@ E(73, "A Green Minister",
    O("Offer an advisory council instead", ["pp:25", "party:17:-0.01"], ai=50)])
 
 IDEAS_BLOCK_M6 = '''
-		# Operation Blue Tiger: party branch capstones
+		# Operation Blue Tiger: branch and party programs
+		TAI_su_program_1 = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.02
+			}
+		}
+		TAI_su_program_2 = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.04
+			}
+		}
+		TAI_su_program_3 = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.06
+			}
+		}
+		TAI_df_program_1 = {
+			picture = political_reform
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				political_power_factor = 0.03
+			}
+		}
+		TAI_df_program_2 = {
+			picture = political_reform
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		TAI_df_program_3 = {
+			picture = political_reform
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.08
+				political_power_factor = 0.08
+			}
+		}
+		TAI_na_program_1 = {
+			picture = army_war_college
+			allowed_civil_war = { always = yes }
+			modifier = {
+				army_org_factor = 0.03
+				training_time_army_factor = -0.03
+			}
+		}
+		TAI_na_program_2 = {
+			picture = army_war_college
+			allowed_civil_war = { always = yes }
+			modifier = {
+				army_org_factor = 0.05
+				training_time_army_factor = -0.05
+				army_defence_factor = 0.03
+			}
+		}
+		TAI_na_program_3 = {
+			picture = army_war_college
+			allowed_civil_war = { always = yes }
+			modifier = {
+				army_org_factor = 0.08
+				training_time_army_factor = -0.08
+				army_defence_factor = 0.05
+			}
+		}
+		TAI_ss_program_1 = {
+			picture = research_bonus
+			allowed_civil_war = { always = yes }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.03
+				research_speed_factor = 0.02
+			}
+		}
+		TAI_ss_program_2 = {
+			picture = research_bonus
+			allowed_civil_war = { always = yes }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+				research_speed_factor = 0.03
+			}
+		}
+		TAI_ss_program_3 = {
+			picture = research_bonus
+			allowed_civil_war = { always = yes }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.08
+				research_speed_factor = 0.05
+			}
+		}
+		TAI_as_program_1 = {
+			picture = trade
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.02
+				trade_opinion_factor = 0.05
+			}
+		}
+		TAI_as_program_2 = {
+			picture = trade
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				trade_opinion_factor = 0.1
+			}
+		}
+		TAI_as_program_3 = {
+			picture = trade
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.05
+				trade_opinion_factor = 0.15
+			}
+		}
+		TAI_pl_program_1 = {
+			picture = international_treaty
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.03
+				trade_opinion_factor = 0.05
+			}
+		}
+		TAI_pl_program_2 = {
+			picture = international_treaty
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.05
+				trade_opinion_factor = 0.1
+			}
+		}
+		TAI_pl_program_3 = {
+			picture = international_treaty
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.08
+				trade_opinion_factor = 0.15
+			}
+		}
+		TAI_bt_program_1 = {
+			picture = national_mobilization
+			allowed_civil_war = { always = yes }
+			modifier = {
+				war_support_factor = 0.03
+				army_defence_factor = 0.03
+			}
+		}
+		TAI_bt_program_2 = {
+			picture = national_mobilization
+			allowed_civil_war = { always = yes }
+			modifier = {
+				war_support_factor = 0.05
+				army_defence_factor = 0.05
+				stability_factor = 0.02
+			}
+		}
+		TAI_bt_program_3 = {
+			picture = national_mobilization
+			allowed_civil_war = { always = yes }
+			modifier = {
+				war_support_factor = 0.08
+				army_defence_factor = 0.08
+				stability_factor = 0.03
+			}
+		}
+		TAI_kmt_program_1 = {
+			picture = political_support
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.03
+				production_speed_buildings_factor = 0.03
+			}
+		}
+		TAI_kmt_program_2 = {
+			picture = political_support
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.06
+				production_speed_buildings_factor = 0.06
+			}
+		}
 		TAI_kmt_roc_on_taiwan = {
 			picture = political_support
 			allowed_civil_war = { always = yes }
 			modifier = {
-				stability_factor = 0.05
-				trade_opinion_factor = 0.10
+				political_power_gain = 0.25
+				stability_factor = 0.1
+				production_speed_buildings_factor = 0.08
+				trade_opinion_factor = 0.15
+			}
+		}
+		TAI_dpp_program_1 = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.03
+				research_speed_factor = 0.02
+			}
+		}
+		TAI_dpp_program_2 = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.06
+				research_speed_factor = 0.04
 			}
 		}
 		TAI_dpp_own_path = {
 			picture = democracy
 			allowed_civil_war = { always = yes }
 			modifier = {
-				stability_factor = 0.03
-				political_power_gain = 0.10
+				political_power_gain = 0.25
+				stability_factor = 0.1
+				research_speed_factor = 0.05
+				war_support_factor = 0.05
+			}
+		}
+		TAI_pfp_program_1 = {
+			picture = political_reform
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.12
+				stability_factor = 0.04
+			}
+		}
+		TAI_pfp_program_2 = {
+			picture = political_reform
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.2
+				stability_factor = 0.07
 			}
 		}
 		TAI_pfp_third_force = {
 			picture = political_reform
 			allowed_civil_war = { always = yes }
 			modifier = {
+				political_power_gain = 0.3
+				stability_factor = 0.1
+				political_power_factor = 0.1
+			}
+		}
+		TAI_tsu_program_1 = {
+			picture = national_unity
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.05
 				stability_factor = 0.02
-				political_power_gain = 0.15
+			}
+		}
+		TAI_tsu_program_2 = {
+			picture = national_unity
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.08
+				stability_factor = 0.04
+				war_support_factor = 0.03
 			}
 		}
 		TAI_tsu_taiwan_consensus = {
 			picture = national_unity
 			allowed_civil_war = { always = yes }
 			modifier = {
-				stability_factor = 0.03
-				war_support_factor = 0.05
+				political_power_gain = 0.1
+				stability_factor = 0.06
+				war_support_factor = 0.08
+			}
+		}
+		TAI_gpt_program_1 = {
+			picture = international_treaty
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.02
+			}
+		}
+		TAI_gpt_program_2 = {
+			picture = international_treaty
+			allowed_civil_war = { always = yes }
+			modifier = {
+				political_power_gain = 0.08
+				stability_factor = 0.04
+				research_speed_factor = 0.02
 			}
 		}
 		TAI_gpt_green_conscience = {
 			picture = international_treaty
 			allowed_civil_war = { always = yes }
 			modifier = {
-				stability_factor = 0.03
-				research_speed_factor = 0.02
+				political_power_gain = 0.1
+				stability_factor = 0.06
+				research_speed_factor = 0.03
 			}
 		}
 '''
 
 IDEAS_LOC_M6 = [
+    ("TAI_su_program_1", "The Peaceful Transition"),
+    ("TAI_su_program_1_desc", "Power has changed hands by the ballot, and the institutions are adjusting to it."),
+    ("TAI_su_program_2", "Constitutional Government"),
+    ("TAI_su_program_2_desc", "Power has changed hands by the ballot, and the institutions are adjusting to it."),
+    ("TAI_su_program_3", "A Mature Democracy"),
+    ("TAI_su_program_3_desc", "Power has changed hands by the ballot, and the institutions are adjusting to it."),
+    ("TAI_df_program_1", "Democratic Consolidation"),
+    ("TAI_df_program_1_desc", "Courts, prosecutors, the civil service and the media are becoming independent of any party."),
+    ("TAI_df_program_2", "The Rule of Law"),
+    ("TAI_df_program_2_desc", "Courts, prosecutors, the civil service and the media are becoming independent of any party."),
+    ("TAI_df_program_3", "A Democratic Fortress"),
+    ("TAI_df_program_3_desc", "Courts, prosecutors, the civil service and the media are becoming independent of any party."),
+    ("TAI_na_program_1", "Defense Reform"),
+    ("TAI_na_program_1_desc", "A national army under civilian control, trained and commanded for the defense of the island."),
+    ("TAI_na_program_2", "A Professional Military"),
+    ("TAI_na_program_2_desc", "A national army under civilian control, trained and commanded for the defense of the island."),
+    ("TAI_na_program_3", "Joint Forces"),
+    ("TAI_na_program_3_desc", "A national army under civilian control, trained and commanded for the defense of the island."),
+    ("TAI_ss_program_1", "The Silicon Island"),
+    ("TAI_ss_program_1_desc", "Fabs, science parks and research institutes are the engine of the island's prosperity."),
+    ("TAI_ss_program_2", "The 12-Inch Economy"),
+    ("TAI_ss_program_2_desc", "Fabs, science parks and research institutes are the engine of the island's prosperity."),
+    ("TAI_ss_program_3", "The Silicon Shield Economy"),
+    ("TAI_ss_program_3_desc", "Fabs, science parks and research institutes are the engine of the island's prosperity."),
+    ("TAI_as_program_1", "Cross-Strait Management"),
+    ("TAI_as_program_1_desc", "Trade, tourism and quiet channels across the Strait are managed rather than left to chance."),
+    ("TAI_as_program_2", "A Channel Across the Strait"),
+    ("TAI_as_program_2_desc", "Trade, tourism and quiet channels across the Strait are managed rather than left to chance."),
+    ("TAI_as_program_3", "The Status Quo Dividend"),
+    ("TAI_as_program_3_desc", "Trade, tourism and quiet channels across the Strait are managed rather than left to chance."),
+    ("TAI_pl_program_1", "Pacific Partnerships"),
+    ("TAI_pl_program_1_desc", "Washington, Tokyo, Europe and new partners know where Taipei stands and what it needs."),
+    ("TAI_pl_program_2", "No Surprises"),
+    ("TAI_pl_program_2_desc", "Washington, Tokyo, Europe and new partners know where Taipei stands and what it needs."),
+    ("TAI_pl_program_3", "Seats at the Table"),
+    ("TAI_pl_program_3_desc", "Washington, Tokyo, Europe and new partners know where Taipei stands and what it needs."),
+    ("TAI_bt_program_1", "National Resilience"),
+    ("TAI_bt_program_1_desc", "The whole of government, and the whole of society, is preparing to endure."),
+    ("TAI_bt_program_2", "A Coordinated Nation"),
+    ("TAI_bt_program_2_desc", "The whole of government, and the whole of society, is preparing to endure."),
+    ("TAI_bt_program_3", "Continuity of Government"),
+    ("TAI_bt_program_3_desc", "The whole of government, and the whole of society, is preparing to endure."),
+    ("TAI_kmt_program_1", "A Renewed Kuomintang"),
+    ("TAI_kmt_program_1_desc", "The party of government has new faces, a local base and a program voters can measure."),
+    ("TAI_kmt_program_2", "The Kuomintang Restored"),
+    ("TAI_kmt_program_2_desc", "The Kuomintang governs with confidence again, and its technocrats are building."),
+    ("TAI_dpp_program_1", "The Green Administration"),
+    ("TAI_dpp_program_1_desc", "The first opposition party ever to govern is learning the machinery of the state."),
+    ("TAI_dpp_program_2", "Reform in Government"),
+    ("TAI_dpp_program_2_desc", "The administration has found its footing and its own agenda."),
+    ("TAI_pfp_program_1", "People First"),
+    ("TAI_pfp_program_1_desc", "James Soong's network reaches every township, and the new government means to use it."),
+    ("TAI_pfp_program_2", "The People First Program"),
+    ("TAI_pfp_program_2_desc", "The party's discipline in the legislature turns promises into law."),
+    ("TAI_tsu_program_1", "Solidarity Union Partnership"),
+    ("TAI_tsu_program_1_desc", "Lee Teng-hui's party votes with the government in the Legislative Yuan."),
+    ("TAI_tsu_program_2", "Solidarity in Government"),
+    ("TAI_tsu_program_2_desc", "Our partner's voters and Lee Teng-hui's prestige stand behind the government."),
+    ("TAI_gpt_program_1", "Green Partnership"),
+    ("TAI_gpt_program_1_desc", "Green Party Taiwan lends the government the credibility of the environmental movement."),
+    ("TAI_gpt_program_2", "The Green Alliance"),
+    ("TAI_gpt_program_2_desc", "Environmental, labor and indigenous groups work with the government rather than against it."),
     ("TAI_kmt_roc_on_taiwan", "The Republic of China on Taiwan"),
     ("TAI_kmt_roc_on_taiwan_desc", "The Republic founded in 1912 governs Taiwan by consent and keeps the door to the mainland open on its own terms."),
     ("TAI_dpp_own_path", "Taiwan's Own Path"),

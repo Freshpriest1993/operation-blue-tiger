@@ -1104,4 +1104,56 @@ for _b in BRANCHES:
         for _f in _b["focuses"]:
             _f["days"] = 70
 
+# ---------------------------------------------------------------- Balance pass
+# Political branches give at least 50 political power per focus; national branches at least 25.
+_POLITICAL = {"su", "df", "kmt", "pfp", "dpp", "tsu", "gpt"}
+for _b in BRANCHES:
+    _pol = _b["key"] in _POLITICAL
+    for _f in _b["focuses"]:
+        _eff = _f["eff"]
+        _pp = [i for i, e in enumerate(_eff) if e.startswith("pp:")]
+        if _pp:
+            _v = int(_eff[_pp[0]].split(":")[1])
+            if _v > 0:
+                _eff[_pp[0]] = f"pp:{max(100, _v + 50) if _pol else max(50, _v)}"
+        else:
+            _eff.append(f"pp:{50 if _pol else 25}")
+        if _pol:
+            _st = [i for i, e in enumerate(_eff) if e.startswith("stab:")]
+            if _st:
+                _v = float(_eff[_st[0]].split(":")[1])
+                if _v > 0:
+                    _eff[_st[0]] = f"stab:{round(_v + 0.02, 2)}"
+
+# Party programs: a spirit at the root, upgraded midway, replaced by the capstone spirit.
+_PROGRAM = {
+    "kmt": ("TAI_su_kmt_rebuild", "TAI_su_kmt_roc_framework", "TAI_su_kmt_roc_on_taiwan", "TAI_kmt_program_1", "TAI_kmt_program_2"),
+    "pfp": ("TAI_su_pfp_people_first", "TAI_su_pfp_court_kmt_caucus", "TAI_su_pfp_third_force", "TAI_pfp_program_1", "TAI_pfp_program_2"),
+    "dpp": ("TAI_su_dpp_four_noes", "TAI_su_dpp_taiwan_centered", "TAI_su_dpp_own_path", "TAI_dpp_program_1", "TAI_dpp_program_2"),
+    "tsu": ("TAI_su_tsu_founding", "TAI_su_tsu_spiritual_leader", "TAI_su_tsu_taiwan_consensus", "TAI_tsu_program_1", "TAI_tsu_program_2"),
+    "gpt": ("TAI_su_gpt_root", "TAI_su_gpt_nuclear_free", "TAI_su_gpt_conscience", "TAI_gpt_program_1", "TAI_gpt_program_2"),
+}
+_ALL = {f["id"]: f for b in BRANCHES for f in b["focuses"]}
+for _root, _mid, _cap, _i1, _i2 in _PROGRAM.values():
+    _ALL[_root]["eff"].insert(0, f"idea:{_i1}")
+    _ALL[_mid]["eff"][0:0] = [f"rmidea:{_i1}", f"idea:{_i2}"]
+    _ALL[_cap]["eff"][0:0] = [f"rmidea:{_i1}", f"rmidea:{_i2}"]
+
+# National branch spirits: granted at the root and upgraded twice along the branch.
+NATIONAL_SPIRITS = {
+    "su": ("TAI_su_program", "TAI_su_form_cabinet", "TAI_su_ly_2001"),
+    "df": ("TAI_df_program", "TAI_df_unshackle_prosecutors", "TAI_df_local_government"),
+    "na": ("TAI_na_program", "TAI_na_officer_corps", "TAI_na_joint_command"),
+    "ss": ("TAI_ss_program", "TAI_ss_twelve_inch", "TAI_ss_crown_jewels"),
+    "as": ("TAI_as_program", "TAI_as_crisis_channel", "TAI_as_status_quo_dividend"),
+    "pl": ("TAI_pl_program", "TAI_pl_no_surprises", "TAI_pl_technical_seats"),
+    "bt": ("TAI_bt_program", "TAI_bt_nsc", "TAI_bt_alternate_seats"),
+}
+for _b in BRANCHES:
+    if _b["key"] in NATIONAL_SPIRITS:
+        _base, _p2, _p3 = NATIONAL_SPIRITS[_b["key"]]
+        _ALL[_b["focuses"][0]["id"]]["eff"].insert(0, f"idea:{_base}_1")
+        _ALL[_p2]["eff"][0:0] = [f"rmidea:{_base}_1", f"idea:{_base}_2"]
+        _ALL[_p3]["eff"][0:0] = [f"rmidea:{_base}_1", f"rmidea:{_base}_2", f"idea:{_base}_3"]
+
 TIERS = [["pl", "su", "ss"], ["kmt", "pfp", "dpp", "tsu", "gpt"], ["as", "df", "na", "bt"]]
