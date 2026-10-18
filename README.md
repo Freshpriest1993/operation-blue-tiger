@@ -1,6 +1,6 @@
 # Operation Blue Tiger
 
-Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic of China (Taiwan) for the Hearts of Iron IV mod [Millennium Dawn](https://github.com/MillenniumDawn/Millennium-Dawn). It adds a large national focus tree covering political reform, diplomacy, defense modernization, economic development and national resilience, starting from the 1 January 2000 bookmark.
+Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic of China (Taiwan) for the Hearts of Iron IV mod [Millennium Dawn](https://github.com/MillenniumDawn/Millennium-Dawn). It adds a large national focus tree covering political reform, diplomacy, defense modernization, economic development and national resilience, starting from Millennium Dawn's 1 January 2000 start date.
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
@@ -210,7 +210,7 @@ Click **Current branch**, choose **`main`**, then **Fetch origin** and **Pull or
 ### Before you test
 
 - **Start a new game.** Saves from `main` are not guaranteed to load on `RoC-development`, or the other way round.
-- **Use the 2000 bookmark** and play as Taiwan. Play as China to see the pressure system from Beijing's side.
+- **Play as Taiwan** (Millennium Dawn starts on 1 January 2000). Play as China to see the pressure system from Beijing's side.
 - **Check the game rules.** Southern Expansion and NATO Request are off by default; switch them on in the game rules screen to test those paths. Return to the Mainland (and with it Project National Glory) is available to human players by default.
 - **Report problems** in the Public Test thread with the date of the build you pulled, what you were doing and a screenshot or the error log if possible.
 
