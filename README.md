@@ -138,6 +138,10 @@ Remove `--dry-run` to write the files. `apply.py` checks for duplicate IDs and l
 
 The content is based on the Operation Blue Tiger research series (six research passes and the original 2000-2010 grand strategy thesis), together with scholarship on Taiwan's democratization by Larry Diamond, Kharis Templeman and Yun-han Chu, and the IISS *Military Balance* for the starting military. The research documents and third-party papers are not included in this repository.
 
+## Special Contributions
+
+Special contributions to the project were made by **Samilou**, **Quaza** and **Chairman Mao Zedong**. Without their contributions I would not have been able to make this focus tree. From the bottom of my heart, thank you, contributors!
+
 ## Credits and license
 
 Operation Blue Tiger is by Freshpriest1993.
