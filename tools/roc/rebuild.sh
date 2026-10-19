@@ -12,8 +12,10 @@ python3 -B "$T/m9/build9.py" "$W/b9" > /dev/null
 python3 -B "$T/m10/mob10.py" "$W/m10" > /dev/null
 python3 -B "$T/roc/build_roc.py" "$W/roc" "$W/gen/focus_loc.yml" > /dev/null
 python3 -B "$T/roc/make_docs.py" "$W/docs" > /dev/null
+python3 -B "$T/nav/build_nav.py" "$W/nav" > /dev/null
 B=$W/bundle; mkdir -p $B/new $B/replace/common/national_focus $B/replace/events $B/replace/common/decisions $B/replace/common/scripted_triggers
 cp -r $W/roc/* $B/new/
+cp -r $W/nav/* $B/new/
 cp $W/gen/05_taiwan.txt $B/replace/common/national_focus/
 cp $W/ev/Taiwan_Blue_Tiger.txt $W/rec/Taiwan_Reclamation.txt $B/replace/events/
 cp $W/b9/common/decisions/OBT_defense_decisions.txt $B/replace/common/decisions/

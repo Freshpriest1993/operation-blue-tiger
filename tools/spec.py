@@ -1216,3 +1216,9 @@ _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 
 if _os.environ.get("OBT_SKIP_ROC") != "1":  # set OBT_SKIP_ROC=1 to build the Operation Blue Tiger tree without AUG's focuses
     import roc_spec as _roc  # noqa: E402
     _roc.integrate(_sys.modules[__name__])
+
+# Focus tree navigation (branch hiding, as in Millennium Dawn's Poland tree): see nav/nav_spec.py
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "nav"))
+if _os.environ.get("OBT_SKIP_NAV") != "1":  # set OBT_SKIP_NAV=1 to build without branch hiding
+    import nav_spec as _nav  # noqa: E402
+    _nav.integrate(_sys.modules[__name__])
