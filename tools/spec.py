@@ -1209,6 +1209,14 @@ _byid["TAI_na_2001_package"]["avail"].append("raw:OR = { NOT = { has_global_flag
 _kidd = _byid["TAI_na_kidd_destroyers"]["eff"]
 _kidd.insert(next(i for i, e in enumerate(_kidd) if e.startswith("tech:")) + 1, "raw:if = { limit = { has_global_flag = OBT_2001_aegis } add_tech_bonus = { name = TAI_na_kidd_destroyers_aegis bonus = 0.5 uses = 1 category = CAT_naval_electronics } }")
 
+# National Identity: the Status Quo route to Pragmatic Sovereignty, a separate DPP capstone: see identity/identity_spec.py
+import os as _os
+import sys as _sys
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "identity"))
+if _os.environ.get("OBT_SKIP_IDENTITY") != "1":  # set OBT_SKIP_IDENTITY=1 to build without the two focuses
+    import identity_spec as _identity  # noqa: E402
+    _identity.integrate(_sys.modules[__name__])
+
 # RoC-development integration (AUG's focus tree, upstream/RoC-development ceb1a0c1f5): see roc/roc_spec.py
 import os as _os
 import sys as _sys
@@ -1222,3 +1230,21 @@ _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 
 if _os.environ.get("OBT_SKIP_NAV") != "1":  # set OBT_SKIP_NAV=1 to build without branch hiding
     import nav_spec as _nav  # noqa: E402
     _nav.integrate(_sys.modules[__name__])
+
+# Silicon Island rework (microchip plants with deferred-construction decisions): see silicon/silicon_spec.py
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "silicon"))
+if _os.environ.get("OBT_SKIP_SILICON") != "1":  # set OBT_SKIP_SILICON=1 to build without the Silicon Island rework
+    import silicon_spec as _silicon  # noqa: E402
+    _silicon.integrate(_sys.modules[__name__])
+
+# Political prerequisite fixes (OBT focuses only): see politics/politics_spec.py
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "politics"))
+if _os.environ.get("OBT_SKIP_POLITICS") != "1":  # set OBT_SKIP_POLITICS=1 to build without them
+    import politics_spec as _politics  # noqa: E402
+    _politics.integrate(_sys.modules[__name__])
+
+# Section layout (Diplomacy, Politics, Domestic, Economy, Defence): see sections/sections_spec.py
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "sections"))
+if _os.environ.get("OBT_SKIP_SECTIONS") != "1":  # set OBT_SKIP_SECTIONS=1 to build with the previous 88x36 layout
+    import sections_spec as _sections  # noqa: E402
+    _sections.integrate(_sys.modules[__name__])

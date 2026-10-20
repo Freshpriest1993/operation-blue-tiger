@@ -73,6 +73,12 @@ def branch_layout(b):
             taken.discard((pos[fid], y))
             pos[fid] = target
             taken.add((target, y))
+    for fid, f in focs.items():  # optional fixed placement relative to another focus of the branch
+        if "lay_anchor" in f:
+            a, dx, dy = f["lay_anchor"]
+            spot = (pos[a] + dx, depth[a] + dy)
+            assert spot not in {(pos[k], depth[k]) for k in pos if k != fid}, (fid, spot)
+            pos[fid], depth[fid] = spot
     mn = min(pos.values())
     pos = {k: v - mn for k, v in pos.items()}
     width = max(pos.values()) + 1
@@ -86,7 +92,7 @@ def _slot_size(lay, part, sgap):
     return lay[part][1], lay[part][2]
 
 
-def tree_layout(branches, tiers, gap=4, vgap=1, sgap=2):
+def tree_layout(branches, tiers, gap=4, vgap=1, sgap=2, nudge=None):
     """tiers: list of rows, top to bottom. Each row is a list of slots placed left to right, `gap` columns apart.
     A slot is a branch key, or a list stacked top to bottom whose items are a branch key or a tuple of keys
     placed side by side `sgap` columns apart (used to tuck small branches under a shorter one)."""
@@ -119,4 +125,15 @@ def tree_layout(branches, tiers, gap=4, vgap=1, sgap=2):
             x0 += sw + gap
             h = max(h, sh)
         y0 += h + vgap
+    if nudge:
+        # Optional per-branch offsets (dx, dy) applied after packing, then normalised to start at 0.
+        owner = {f["id"]: b["key"] for b in branches for f in b["focuses"]}
+        for fid, (x, y) in list(positions.items()):
+            dx, dy = nudge.get(owner[fid], (0, 0))
+            positions[fid] = (x + dx, y + dy)
+        mx = min(x for x, _ in positions.values())
+        my = min(y for _, y in positions.values())
+        positions = {k: (x - mx, y - my) for k, (x, y) in positions.items()}
+        total = max(x for x, _ in positions.values()) + 1
+        y0 = max(y for _, y in positions.values()) + 1
     return positions, {k: (v[1], v[2]) for k, v in lay.items()}, total, y0

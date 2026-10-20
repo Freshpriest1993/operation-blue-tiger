@@ -14,6 +14,8 @@
 # Loaded at the end of spec.py:  import nav_spec; nav_spec.integrate(sys.modules[__name__])
 # Set OBT_SKIP_NAV=1 to build the tree without branch hiding.
 
+import os
+
 PARTY_ROOTS = {
     "TAI_su_kmt_rebuild": "TAI_kmt_in_power = yes",
     "TAI_su_pfp_people_first": "TAI_pfp_in_power = yes",
@@ -66,6 +68,47 @@ def integrate(S):
         eff.append(REFRESH)
 
     add("TAI_su_form_cabinet", CABINET_FLAG)
-    for c in DEMOCRATIC_CAPSTONES:
+    caps = DEMOCRATIC_CAPSTONES + [c for c in ("TAI_su_dpp_pragmatic_sovereignty",) if c in A]
+    for c in caps:
         add(c, DEMOCRATIC_FLAG)
     add(PNG_ROOT)
+    integrate_choice_groups(S)
+
+
+# ---------------------------------------------------------------- progressive hiding: choice groups
+# Mutually exclusive choices whose unchosen side is hidden once one side is completed.
+# Each member sets its own flag before the re-check; every other member is hidden while any other
+# member's flag is set, unless it was itself completed. The Show Obsolete Branches rule disables it.
+# Groups are enabled one at a time so each can be tested on its own.
+CHOICE_GROUPS = [
+    # (name, enabled, members)
+    ("judicial_reform", True, ["TAI_df_special_division", "TAI_df_ordinary_prosecutors"]),
+    ("nuclear_policy", False, ["TAI_maanshan_nuclear_power_military_expansion", "TAI_su_gpt_nuclear_free"]),
+    ("national_identity", False, ["TAI_su_dpp_status_quo", "TAI_su_dpp_name_rectification"]),
+    ("constitutional_reform", True, ["TAI_second_repbulic_constitution", "TAI_su_kmt_roc_on_taiwan"]),
+]
+
+
+def choice_flag(fid):
+    return "TAI_nav_chose_" + fid[4:] if fid.startswith("TAI_") else "TAI_nav_chose_" + fid
+
+
+def integrate_choice_groups(S):
+    A = {f["id"]: f for b in S.BRANCHES for f in b["focuses"]}
+    for name, enabled, members in CHOICE_GROUPS:
+        if not enabled or os.environ.get("OBT_SKIP_CHOICE_" + name.upper()) == "1":
+            continue
+        for fid in members:
+            others = [m for m in members if m != fid]
+            A[fid].setdefault("allow", []).append(
+                "raw:OR = {\n"
+                f"\t{SHOW}\n"
+                f"\thas_completed_focus = {fid}\n"
+                + "".join(f"\tNOT = {{ has_country_flag = {choice_flag(o)} }}\n" for o in others)
+                + "}")
+            eff = A[fid]["eff"]
+            flag = f"raw:set_country_flag = {choice_flag(fid)}"
+            if REFRESH in eff:
+                eff.insert(eff.index(REFRESH), flag)
+            else:
+                eff += [flag, REFRESH]

@@ -532,27 +532,37 @@ IDEAS_BLOCK_M6 = '''
 			}
 		}
 		TAI_ss_program_1 = {
-			picture = research_bonus
+			picture = microchip_spirit
 			allowed_civil_war = { always = yes }
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.03
 				research_speed_factor = 0.02
+				production_speed_microchip_plant_factor = 0.10
+				local_resources_microchips_factor = 0.05
 			}
 		}
 		TAI_ss_program_2 = {
-			picture = research_bonus
+			picture = microchip_spirit
 			allowed_civil_war = { always = yes }
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.05
 				research_speed_factor = 0.03
+				production_speed_microchip_plant_factor = 0.15
+				local_resources_microchips_factor = 0.08
+				microchip_plant_productivity_modifier = 0.05
+				microchip_export_multiplier_modifier = 0.05
 			}
 		}
 		TAI_ss_program_3 = {
-			picture = research_bonus
+			picture = microchip_spirit
 			allowed_civil_war = { always = yes }
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.08
 				research_speed_factor = 0.05
+				production_speed_microchip_plant_factor = 0.20
+				local_resources_microchips_factor = 0.12
+				microchip_plant_productivity_modifier = 0.10
+				microchip_export_multiplier_modifier = 0.08
 			}
 		}
 		TAI_as_program_1 = {
@@ -685,6 +695,15 @@ IDEAS_BLOCK_M6 = '''
 				war_support_factor = 0.05
 			}
 		}
+		TAI_dpp_pragmatic_sovereignty = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				stability_factor = 0.05
+				foreign_influence_defense_modifier = 0.10
+				trade_opinion_factor = 0.05
+			}
+		}
 		TAI_pfp_program_1 = {
 			picture = political_reform
 			allowed_civil_war = { always = yes }
@@ -783,11 +802,11 @@ IDEAS_LOC_M6 = [
     ("TAI_na_program_2_desc", "A national army under civilian control, trained and commanded for the defense of the island."),
     ("TAI_na_program_3", "Joint Forces"),
     ("TAI_na_program_3_desc", "A national army under civilian control, trained and commanded for the defense of the island."),
-    ("TAI_ss_program_1", "The Silicon Island"),
+    ("TAI_ss_program_1", "Silicon Island I"),
     ("TAI_ss_program_1_desc", "Fabs, science parks and research institutes are the engine of the island's prosperity."),
-    ("TAI_ss_program_2", "The 12-Inch Economy"),
+    ("TAI_ss_program_2", "Silicon Island II"),
     ("TAI_ss_program_2_desc", "Fabs, science parks and research institutes are the engine of the island's prosperity."),
-    ("TAI_ss_program_3", "The Silicon Shield Economy"),
+    ("TAI_ss_program_3", "Silicon Island III"),
     ("TAI_ss_program_3_desc", "Fabs, science parks and research institutes are the engine of the island's prosperity."),
     ("TAI_as_program_1", "Cross-Strait Management"),
     ("TAI_as_program_1_desc", "Trade, tourism and quiet channels across the Strait are managed rather than left to chance."),
@@ -831,6 +850,8 @@ IDEAS_LOC_M6 = [
     ("TAI_kmt_roc_on_taiwan_desc", "The Republic founded in 1912 governs Taiwan by consent and keeps the door to the mainland open on its own terms."),
     ("TAI_dpp_own_path", "Taiwan's Own Path"),
     ("TAI_dpp_own_path_desc", "A democracy that chose its own government and decides its own future."),
+    ("TAI_dpp_pragmatic_sovereignty", "Pragmatic Sovereignty"),
+    ("TAI_dpp_pragmatic_sovereignty_desc", "Taiwan governs itself as a sovereign democracy and works with its partners abroad, without needless confrontation."),
     ("TAI_pfp_third_force", "The Third Force"),
     ("TAI_pfp_third_force_desc", "A party born of a split now governs, and its discipline in the legislature has become the government's strength."),
     ("TAI_tsu_taiwan_consensus", "The Taiwan Consensus"),

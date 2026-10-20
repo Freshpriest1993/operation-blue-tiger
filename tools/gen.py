@@ -197,7 +197,8 @@ def main():
                     errors.append(f"{fid}: prerequisite {q} missing")
 
     # layout: each branch as a compact tree, packed in two tiers
-    positions, sizes, _, _ = layout.tree_layout(spec.BRANCHES, spec.TIERS, gap=getattr(spec, "TIER_GAP", 4))
+    positions, sizes, _, _ = layout.tree_layout(spec.BRANCHES, spec.TIERS, gap=getattr(spec, "TIER_GAP", 4),
+                                                vgap=getattr(spec, "TIER_VGAP", 1), nudge=getattr(spec, "BRANCH_NUDGE", None))
     roots = {b["key"]: b["focuses"][0]["id"] for b in spec.BRANCHES}
     for b in spec.BRANCHES:
         b["width"] = sizes[b["key"]][0]

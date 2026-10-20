@@ -405,6 +405,8 @@ def integrate(S):
     # ------------------------------------------------ new branch: Project National Glory (alt-history)
     png = branch("png", "Project National Glory", 0, ["FOCUS_FILTER_POLITICAL"])
     DEMO_CAPS = ["TAI_su_kmt_roc_on_taiwan", "TAI_su_pfp_third_force", "TAI_su_dpp_own_path", "TAI_su_tsu_taiwan_consensus", "TAI_su_gpt_conscience", "TAI_df_political_dna"]
+    if "TAI_su_dpp_pragmatic_sovereignty" in A:  # OBT's Status Quo capstone (identity/identity_spec.py)
+        DEMO_CAPS.append("TAI_su_dpp_pragmatic_sovereignty")
     g = dict(ai=10)
     # Exclusive with the democratic capstones. Written as completed-focus checks on both sides instead of
     # mutually_exclusive, so the tree does not draw six exclusion lines across it; only one focus can be in
