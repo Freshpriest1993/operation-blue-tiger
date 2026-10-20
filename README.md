@@ -4,11 +4,13 @@ Operation Blue Tiger (OBT) is a historically researched overhaul of the Republic
 
 The design goal is a Taiwan that is neither doomed nor invincible. The player's task is to make the island increasingly difficult to coerce at an acceptable political, military and economic price.
 
-> **Status:** Milestones 1 to 10 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, the 2001-2005 crisis events, the Defense and National Reform tab with American arms deliveries, and a historically audited January 2000 order of battle with reserve mobilization. Milestones 5, 7 and 8 are awaiting review by the Millennium Dawn team, and milestones 7 to 9 are in in-game testing. The unified tree with AUG's RoC-development work is on Millennium Dawn's `RoC-development` branch for public testing (see Installation). Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
+> **Status:** Milestones 1 to 10 complete: focus tree and spirits, historical events, the cross-Strait pressure system, AI paths, the optional Return to the Mainland path, party branches with stronger rewards, the shared Cross-Strait Tension meter, the 2001-2005 crisis events, the Defense and National Reform tab with American arms deliveries, and a historically audited January 2000 order of battle with reserve mobilization.
+>
+> **370-focus milestone (19 October 2026):** the unified tree with AUG's RoC-development work now has a sectioned layout, progressive branch hiding, the Silicon Island rework with power stations, a Green Party route after the Maanshan expansion and a new Status Quo capstone for the DPP, Pragmatic Sovereignty. It is on Millennium Dawn's `RoC-development` branch for public testing (see Installation). The one change inside AUG's Project National Glory focus is awaiting his review. Built against the Millennium Dawn developer version (descriptor 2.0.0, changelog v2.0.1) for HOI4 1.19. Not an official Millennium Dawn release.
 
 ## Features
 
-The focus tree has **310 focuses** in twelve branches, laid out in three rows: national branches on top and bottom, and a row of party branches in the middle. The unified build with AUG's RoC-development work has 368 (see below).
+The original Operation Blue Tiger tree had **310 focuses** in the twelve branches below. The current build, unified with AUG's RoC-development work, has **370 focuses** (see [Unified tree](#unified-tree-with-augs-roc-development-work) and [370-focus milestone](#370-focus-milestone)).
 
 | Branch | Focuses | What it covers |
 | --- | --- | --- |
@@ -25,7 +27,7 @@ The focus tree has **310 focuses** in twelve branches, laid out in three rows: n
 | The Pacific Lifeline | 33 | The United States, Japan, Europe, India, diplomatic allies, WTO, WHO and SARS |
 | Operation Blue Tiger | 27 | National strategy, continuity of government, civil defense, emergency doctrine |
 
-Every focus takes 35 or 70 days: short focuses for the opening weeks of the 2000 succession, 70 days for everything else.
+Operation Blue Tiger's focuses take 35 or 70 days: short focuses for the opening weeks of the 2000 succession, 70 days for everything else. AUG's focuses keep their own durations.
 
 It also adds **88 national spirits**, including five starting conditions (Young Democracy, Legacy of the Party-Army, Defense-in-Depth Legacy, Large but Uneven Reserve System, and Advanced Procurement, Limited Absorption), four defense postures, and the branch and party programs below.
 
@@ -155,13 +157,40 @@ Buying equipment and absorbing it are separate steps, so purchases do not instan
 
 At TheGeneral's request, Operation Blue Tiger and AUG's RoC-development focus tree have been combined so Taiwan has one tree. The unified build is on the `RoC-development` branch of the Millennium Dawn repository, where it awaits AUG's review.
 
-- **368 focuses.** 58 of AUG's focuses keep their IDs in the unified tree, including three new branches in the bottom band: **Island Society** (921 reconstruction, labour and welfare reform), **Southern Policy** (Southeast Asia, with the conquest chain hidden behind the off-by-default *Taiwan: Southern Expansion* rule) and **Project National Glory** (a KMT restoration path behind the Return to the Mainland rule).
+- **370 focuses** (368 at integration, plus the two Pragmatic Sovereignty focuses). 58 of AUG's focuses keep their IDs in the unified tree, including three new branches in the bottom band: **Island Society** (921 reconstruction, labour and welfare reform), **Southern Policy** (Southeast Asia, with the conquest chain hidden behind the off-by-default *Taiwan: Southern Expansion* rule) and **Project National Glory** (a KMT restoration path behind the Return to the Mainland rule).
 - **Nothing is deleted.** AUG's other 34 focuses fold their rewards into the OBT focus that covers the same event, or into decisions; his 29 spirits, events, opinion modifiers, portrait and AI options are kept. Every one of the 92 focus IDs is mapped in [`docs/roc_dev/ROC_DEV_MAPPING.md`](docs/roc_dev/ROC_DEV_MAPPING.md).
 - **One system for each job.** AUG's regional mobilization theaters run inside the OBT reserve system, his Seventh Fleet invitation is a Cross-Strait decision, and his Red Infiltration path ends in OBT's staged talks and referendum instead of an instant annexation.
-- **Layout.** The tree is 88 by 36 cells. Southern Policy and Project National Glory sit under Across the Strait, in the Pacific Lifeline column; Island Society sits under Democratic Fortress with the domestic branches; Operation Blue Tiger sits under Pacific Lifeline, which it depends on. National Glory's exclusion with the democratic capstones is written as a completed-focus check on both sides, so no exclusion lines cross the tree.
+- **Layout.** The tree is 76 by 42 cells, grouped into sections (see [370-focus milestone](#370-focus-milestone)). National Glory's exclusion with the democratic capstones is written as a completed-focus check on both sides, so no exclusion lines cross the tree.
 - **Originals preserved.** AUG's files are archived byte-exact in `archive/roc_dev/` on `RoC-development`, and [`docs/roc_dev/INTEGRATION_CHANGELOG.md`](docs/roc_dev/INTEGRATION_CHANGELOG.md) lists every change, fix and balance adjustment for his review.
 
 The `mod/` folder holds the unified build. To build the Operation Blue Tiger tree without AUG's focuses, set `OBT_SKIP_ROC=1` before running `gen.py`.
+
+### 370-focus milestone
+
+The work after the integration keeps every focus ID, reward and contribution, and adds the following.
+
+**Sectioned layout.** The tree is regrouped into readable areas: **Diplomacy** on the left (Pacific Lifeline, Across the Strait, Southern Policy, Project National Glory), **Politics** in the centre (the 2000 Succession and the five party branches), **Domestic** below it (Democratic Fortress, Island Society), and **Economy** (Silicon Island) and **Defence** (Operation Blue Tiger, and the National Army split into a core block and a doctrine block) on the right. The tree shrank from 88 by 36 to 76 by 42 cells, and red lines between branches cross far less often.
+
+| Section | Branch | Focuses |
+| --- | --- | --- |
+| Politics | The 2000 Succession | 14 |
+| Politics | Kuomintang / People First Party / DPP / Taiwan Solidarity Union / Green Party Taiwan | 19 / 18 / 21 / 18 / 18 |
+| Domestic | Democratic Fortress / Island Society | 30 / 10 |
+| Economy | The Silicon Island | 41 |
+| Defence | Operation Blue Tiger / National Army core / National Army doctrine | 28 / 32 / 21 |
+| Diplomacy | The Pacific Lifeline / Across the Strait / Southern Policy / Project National Glory | 35 / 34 / 16 / 15 |
+
+**Progressive branch hiding.** Using Millennium Dawn's own mechanism (as in the Poland tree), branches that no longer apply disappear. Hiding follows Millennium Dawn's **Show Obsolete Branches in Focus Tree** game rule: set it to Show and nothing is hidden. Nothing is deleted, and completed focuses keep their rewards.
+
+- After *Form the Cabinet*, the party branches of the camp out of government are hidden (re-checked monthly), unless the player has already started them.
+- Project National Glory is hidden once a democratic capstone is completed, or when Return to the Mainland is set to Blocked.
+- The unchosen side of the Judicial Reform choice (*A Special Investigation Division* or *Trust the Ordinary Prosecutors*) and of the Constitutional Reform choice (*Adoption of the Constitution of the Second Republic* or *The Republic of China on Taiwan*) is hidden.
+
+**Silicon Island rework.** Science-park focuses build real microchip plants in Hsinchu, Taichung and Tainan. If Taiwan lacks the workers, construction is deferred to a decision instead of being lost. The Silicon Island spirit has three tiers with microchip production bonuses. The Energy Security Review builds two fossil-fuel power stations, in Taichung and Kaohsiung where possible, also deferred when workers are short. The AI checks staffing and bankruptcy before building.
+
+**Green Party after the Maanshan expansion.** *Wind and Sun* and *Let the People Decide on Nuclear Power* now follow either *A Nuclear-Free Homeland* or *Environmental Impact Assessment*, so the Greens can still reach *The Green Conscience* after AUG's Maanshan expansion. The nuclear exclusion and the Maanshan focus are unchanged.
+
+**Pragmatic Sovereignty.** The DPP's Status Quo choice now has its own route to a capstone: *Reaffirm the Status Quo* → *The Republic of China (Taiwan)* (from 2006) → *Pragmatic Sovereignty*, which also requires *A New Generation* and *The Economic Advisory Conference*. Its spirit (+5% stability, +10% foreign influence defence, +5% trade opinion) is held alongside the DPP's programme. Name Rectification and Taiwan's Own Path are unchanged, the two routes remain mutually exclusive, and Pragmatic Sovereignty and Project National Glory exclude each other. Names, descriptions, icons and rewards are provisional pending review.
 
 ### Return to the Mainland (alternate history)
 
@@ -248,12 +277,20 @@ Every change to China's files and other shared files is listed in [`docs/CHINA_F
 | `tools/` | The generators: `spec.py` defines every Taiwan focus, `layout.py` arranges the tree, `gen.py` builds the focus tree and localisation, and `events_gen.py` builds the events and spirits from `events_spec.py` |
 | `tools/m3`, `m4`, `m5`, `m7`, `m8`, `m9`, `m10` | Sources and apply scripts for the pressure system, AI paths, Return to the Mainland, the tension meter, the crisis events and Defense and National Reform, and the order of battle and reserve mobilization |
 | `tools/roc` | The RoC-development integration: `roc_spec.py` (AUG's focuses and the 92-row mapping), `build_roc.py` (his spirits, decisions, events and text), `apply_roc.py` and `rebuild.sh` |
+| `tools/nav` | Branch hiding: party branches, Project National Glory and the choice groups (`nav_spec.py`), and the scripted effects and on_actions (`build_nav.py`) |
+| `tools/silicon` | The Silicon Island rework and power stations |
+| `tools/sections` | The sectioned layout (`sections_spec.py`, `nudge.json`, `optimize_layout.py`) |
+| `tools/politics` | Political prerequisite fixes (the Green Party route after Maanshan) |
+| `tools/identity` | Pragmatic Sovereignty and its text (`identity_spec.py`, `apply_identity_text.py`) |
+| `tools/d2` | Layout checks and renders for the DPP branch |
 | `docs/` | Handoff notes, a focus spreadsheet, the China change log and the tension meter test plan |
 | `docs/roc_dev/` | The RoC-development archive notes, focus mapping and integration changelog |
+| `docs/design/` | Design proposals and decisions: layout, refinement plan, effects audit, dependency review, Pragmatic Sovereignty design and implementation notes, the AI note on Join the UN as Taiwan, and diagrams |
+| `docs/validation/` | Validation reports, including generator reproducibility and validator results |
 
 ### Regenerating the files
 
-Requires Python 3.10 or later.
+Requires Python 3.10 or later. Two of Millennium Dawn's own validators (variables and simplifications) fail under Python 3.10, so use Python 3.11 or later to run the full validation.
 
 ```
 python tools/gen.py <millennium-dawn-folder> <output-folder>
@@ -265,6 +302,8 @@ python tools/m10/oob10.py <millennium-dawn-folder> tools/m10/out
 python tools/m10/mob10.py tools/m10/out
 bash tools/roc/rebuild.sh <millennium-dawn-folder> <work-folder>
 ```
+
+Each later addition can be switched off to rebuild an earlier version exactly, by setting an environment variable before running `gen.py`: `OBT_SKIP_IDENTITY=1` (Pragmatic Sovereignty), `OBT_SKIP_N1=1` (the Green Party route), `OBT_SKIP_POLITICS=1`, `OBT_SKIP_SECTIONS=1` (the previous 88 by 36 layout), `OBT_SKIP_SILICON=1`, `OBT_SKIP_NAV=1` (branch hiding) and `OBT_SKIP_ROC=1` (AUG's focuses). Text added to existing files is applied by `tools/silicon/apply_silicon_text.py` and `tools/identity/apply_identity_text.py`.
 
 The apply scripts (`apply.py` to `apply10.py`) write the output into a Millennium Dawn checkout. Run them with `--dry-run` first; they refuse to overwrite files that have changed and only add what is missing, so running them twice changes nothing.
 
@@ -281,6 +320,12 @@ The apply scripts (`apply.py` to `apply10.py`) write the output into a Millenniu
 - [x] **Milestone 9:** Defense and National Reform tab, real indicator effects, the procurement tracker and American arms deliveries
 - [x] **Milestone 10:** audited January 2000 order of battle (army, air, navy, equipment) and reserve mobilization
 - [x] **RoC-development integration:** AUG's 92 focuses mapped and merged into one unified tree, now on Millennium Dawn's `RoC-development` branch for public testing (awaiting AUG's review)
+- [x] **370-focus milestone:** sectioned layout, branch hiding (party branches, Project National Glory, Judicial and Constitutional Reform), the Silicon Island rework and power stations, the Green Party route after Maanshan, and Pragmatic Sovereignty
+- [ ] AUG's review of the one line added to Project National Glory
+- [ ] AI routes for the DPP: the AI never takes *Join the UN as Taiwan*, so strategy-specific preferences are planned
+- [ ] Further progressive hiding (the remaining exclusive choices, closed windows, closing gaps between branches)
+- [ ] Military overhaul: Porcupine and Conventional paths with masteries
+- [ ] Focus names, descriptions, icons and rewards review with FoggyBottom
 - [ ] Confirm the 373rd and 395th Armored Infantry Brigades' 2000 organization and equipment
 - [ ] In-game testing of the tension meter, crisis events, Defense and National Reform and the new order of battle
 - [ ] Update to Millennium Dawn 2.0.2
