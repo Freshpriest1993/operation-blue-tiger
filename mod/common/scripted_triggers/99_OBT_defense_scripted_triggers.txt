@@ -138,4 +138,3 @@ OBT_sub_partner_ger_ready = {
 	custom_trigger_tooltip = { tooltip = OBT_req_TAI_military_confidence_50 check_variable = { TAI_military_confidence > 49 } }
 	OBT_strait_below_friction = yes
 }
-
